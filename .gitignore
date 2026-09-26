@@ -25,4 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Graphify
-graphify-out/
+graphify-out/pnpm-lock.yaml
+pnpm-workspace.yaml
