@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1790437307.9317093,
-    "ast_hash": "d41ce15273c5caf3c0f2a24014f7c0bd",
+    "mtime": 1790437566.0062308,
+    "ast_hash": "0a3d4a9dadb7793e7ee062da119c8a4f",
     "semantic_hash": ""
   },
   "postcss.config.js": {
@@ -130,13 +130,13 @@
     "semantic_hash": ""
   },
   "src/context/AuthContext.tsx": {
-    "mtime": 1790436009.1935146,
-    "ast_hash": "4ee90bb9e8a09e11dac6b147e5cceb71",
+    "mtime": 1790437544.9888213,
+    "ast_hash": "971f0328747e8bb163002094d6af8d32",
     "semantic_hash": ""
   },
   "src/pages/Dashboard.tsx": {
-    "mtime": 1790436031.2949598,
-    "ast_hash": "d40730adaac2f48bc74bf2a784424d20",
+    "mtime": 1790437556.5771732,
+    "ast_hash": "4f74a90eb88a8429558b9f447c0353a3",
     "semantic_hash": ""
   },
   "src/pages/ForgotPassword.tsx": {
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "worker/src/subscription/index.ts": {
-    "mtime": 1790437390.143592,
-    "ast_hash": "efdc81c0cc025c2ad2a315e48f7ab98e",
+    "mtime": 1790437581.8510513,
+    "ast_hash": "e9ca993b557edb1c4d0d5f2d50f1a540",
     "semantic_hash": ""
   },
   "worker/src/tests/index.ts": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "worker/src/worker/index.ts": {
-    "mtime": 1790437442.0667415,
-    "ast_hash": "9aa983bd1419f1d09379a6058f02dfea",
+    "mtime": 1790437605.9865382,
+    "ast_hash": "395104bcfd6173f185031a945b1763fc",
     "semantic_hash": ""
   },
   "public/ads.txt": {

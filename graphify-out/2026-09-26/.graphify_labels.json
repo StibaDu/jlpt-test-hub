@@ -5,15 +5,10 @@
   "3": "App.tsx",
   "4": "devDependencies",
   "5": "package.json",
-  "6": "auth/index.ts",
+  "6": "worker/index.ts",
   "7": "routes.tsx",
   "8": "Icons.tsx",
   "9": "0001_initial_schema.sql",
-  "10": "worker/index.ts",
-  "11": "Intro.tsx",
-  "12": "admin/index.ts",
-  "13": "progress/index.ts",
-  "14": "subscription/index.ts",
-  "15": "tests/index.ts",
-  "16": "user/index.ts"
+  "10": "dependencies",
+  "11": "Intro.tsx"
 }

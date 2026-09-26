@@ -21,13 +21,10 @@
     }
   ],
   "vars": {
-    "JWT_SECRET": "",
     "JWT_EXPIRY": "15m",
     "REFRESH_TOKEN_EXPIRY": "30d",
-    "STRIPE_SECRET_KEY": "",
-    "STRIPE_WEBHOOK_SECRET": "",
-    "STRIPE_MONTHLY_PRICE_ID": "",
-    "STRIPE_YEARLY_PRICE_ID": "",
+    "STRIPE_MONTHLY_PRICE_ID": "price_1UJy0qLHXTGVIoDqb2vs59xP",
+    "STRIPE_YEARLY_PRICE_ID": "price_1UJy0vLHXTGVIoDqL3okr6y6",
     "PAYPAL_CLIENT_ID": "",
     "PAYPAL_CLIENT_SECRET": "",
     "PAYPAL_WEBHOOK_ID": "",

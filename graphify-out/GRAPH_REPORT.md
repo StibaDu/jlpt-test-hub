@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 38 files · ~50,958 words
+- 38 files · ~51,634 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 196 nodes · 231 edges · 12 communities
+- 198 nodes · 233 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0db54515`
+- Built from commit: `025d5db1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -35,9 +35,9 @@
 5. `scripts` - 5 edges
 6. `Monetization setup` - 5 edges
 7. `App()` - 4 edges
-8. `weak_questions` - 3 edges
-9. `ProtectedRoute()` - 3 edges
-10. `PublicRoute()` - 3 edges
+8. `fetchWithAuth()` - 3 edges
+9. `refreshAccessToken()` - 3 edges
+10. `AuthProvider()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `TestPage()` --calls--> `useAuth()`  [EXTRACTED]
@@ -97,24 +97,24 @@ Cohesion: 0.36
 Nodes (8): refresh_tokens, subscriptions, test_attempts, user_progress, users, weak_questions, webhook_events, question
 
 ### Community 10 - "dependencies"
-Cohesion: 0.13
-Nodes (15): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+7 more)
+Cohesion: 0.12
+Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **75 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+70 more)
+- **76 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+71 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+- **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _75 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _76 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
