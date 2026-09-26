@@ -1,6 +1,6 @@
 {
   "name": "jlpt-test-hub-api",
-  "main": "src/worker/index.ts",
+  "main": "worker/src/worker/index.ts",
   "compatibility_date": "2024-01-01",
   "compatibility_flags": ["nodejs_compat"],
   "d1_databases": [
@@ -21,7 +21,7 @@
     }
   ],
   "vars": {
-    "JWT_SECRET": "14b6a5a05e2e1d1074394f277786e8f8991e5a15326b2e292a0eef45c4c1f5eb",
+    "JWT_SECRET": "",
     "JWT_EXPIRY": "15m",
     "REFRESH_TOKEN_EXPIRY": "30d",
     "STRIPE_SECRET_KEY": "",
