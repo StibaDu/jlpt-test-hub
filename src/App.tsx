@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels } from './data';
-import type { JLPTLevel, LevelData, Lang, GameState, TestMode, DeviceMode, KanjiEntry, Question } from './data';
+import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 
 interface UiStrings {
   [key: string]: any;
@@ -232,18 +232,6 @@ const IconAlertCircle = ({ className }: SvgProps) => (
 const IconBookOpen = ({ className }: SvgProps) => (
   <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-  </svg>
-);
-
-const IconMonitor = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-  </svg>
-);
-
-const IconSmartphone = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
   </svg>
 );
 
@@ -742,7 +730,6 @@ interface SelectedKanji extends KanjiEntry {
 }
 
 export default function App() {
-  const [deviceMode, setDeviceMode] = useState<DeviceMode>(null);
   const [gameState, setGameState] = useState<GameState>('intro');
   const [testMode, setTestMode] = useState<TestMode>('real');
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('N5');
@@ -760,8 +747,20 @@ export default function App() {
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
   const [lang, setLang] = useState<Lang>('en');
 
+  // Auto-detect mobile vs desktop
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(max-width: 768px)').matches || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  });
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   const currentData: LevelData = levelData[selectedLevel];
-  const isMobile = deviceMode === 'mobile';
   const t = uiTranslations[lang];
 
   useEffect(() => {
@@ -1595,89 +1594,23 @@ export default function App() {
     return null;
   };
 
-  if (!deviceMode) {
-    return (
-      <main className="min-h-screen bg-gray-900 flex items-center justify-center p-4 font-sans relative">
-        <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
-          {renderLevelSwitcher('dark')}
-          <button
-            onClick={() => setShowSupportModal(true)}
-            className="flex items-center gap-1.5 bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 px-3 py-1.5 rounded-full shadow-sm transition-all active:scale-95 font-bold text-sm"
-          >
-            <IconHeart className="w-4 h-4" />
-            <span>{t.supportUs}</span>
-          </button>
-          <button
-            onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
-            className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-700 hover:text-emerald-600 hover:border-emerald-300 px-3 py-1.5 rounded-full shadow-sm transition-all active:scale-95 font-bold text-sm"
-          >
-            <IconGlobe className="w-4 h-4" />
-            {lang === 'en' ? 'Deutsch' : 'English'}
-          </button>
-        </div>
-        <div className="max-w-2xl w-full bg-white rounded-3xl p-8 md:p-12 text-center shadow-2xl animate-in fade-in zoom-in-95 duration-500">
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-3 tracking-tight">{t.chooseExp}</h1>
-          <p className="text-gray-500 mb-10 text-sm md:text-base">{t.chooseDesc}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button onClick={() => setDeviceMode('desktop')} className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:bg-emerald-50 group transition-all">
-              <IconMonitor className="w-16 h-16 text-gray-400 group-hover:text-emerald-500 mb-4 transition-colors" />
-              <span className="text-xl font-bold text-gray-800">{t.desktopMode}</span>
-              <span className="text-sm text-gray-400 mt-2">{t.desktopDesc}</span>
-            </button>
-            <button onClick={() => setDeviceMode('mobile')} className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 group transition-all">
-              <IconSmartphone className="w-16 h-16 text-gray-400 group-hover:text-blue-500 mb-4 transition-colors" />
-              <span className="text-xl font-bold text-gray-800">{t.mobileMode}</span>
-              <span className="text-sm text-gray-400 mt-2">{t.mobileDesc}</span>
-            </button>
-          </div>
-        </div>
-        {renderSupportModal()}
-        <PremiumModal show={showPremiumModal} onClose={() => setShowPremiumModal(false)} t={t} />
-        <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
-        <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
-        <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>
-        {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
-      </main>
-    );
-  }
-
   return (
-    <div className={isMobile ? "min-h-screen bg-slate-900 flex items-center justify-center p-4 md:p-8 font-sans" : "font-sans"}>
-      {isMobile ? (
-        <div className="w-full max-w-[390px] h-[844px] max-h-[90vh] bg-white rounded-[3rem] border-[14px] border-gray-900 overflow-hidden relative shadow-2xl ring-4 ring-gray-800 flex flex-col">
-          <div className="absolute top-0 inset-x-0 h-7 flex justify-center z-[60] pointer-events-none">
-            <div className="w-36 h-7 bg-gray-900 rounded-b-3xl"></div>
-          </div>
-          <div className="flex-1 flex flex-col overflow-y-auto relative no-scrollbar">
-            {renderAppContent()}
-          </div>
-          {renderKanjiModal()}
-          {renderSupportModal()}
-          <PremiumModal show={showPremiumModal} onClose={() => setShowPremiumModal(false)} t={t} />
-          <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
-          <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
-          <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>
-          {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
-        </div>
-      ) : (
-        <div className="w-full min-h-screen flex flex-col relative">
-          {renderAppContent()}
-          <Footer
-            onPrivacy={() => setShowPrivacyModal(true)}
-            onTerms={() => setShowTermsModal(true)}
-            onSeller={() => setShowSellerModal(true)}
-            onCookies={() => { try { localStorage.removeItem(COOKIE_KEY); } catch {} setCookieConsentGiven(false); }}
-            lang={lang}
-          />
-          {renderKanjiModal()}
-          {renderSupportModal()}
-          <PremiumModal show={showPremiumModal} onClose={() => setShowPremiumModal(false)} t={t} />
-          <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
-          <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
-          <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>
-          {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
-        </div>
-      )}
+    <div className="font-sans w-full min-h-screen flex flex-col relative">
+      {renderAppContent()}
+      <Footer
+        onPrivacy={() => setShowPrivacyModal(true)}
+        onTerms={() => setShowTermsModal(true)}
+        onSeller={() => setShowSellerModal(true)}
+        onCookies={() => { try { localStorage.removeItem(COOKIE_KEY); } catch {} setCookieConsentGiven(false); }}
+        lang={lang}
+      />
+      {renderKanjiModal()}
+      {renderSupportModal()}
+      <PremiumModal show={showPremiumModal} onClose={() => setShowPremiumModal(false)} t={t} />
+      <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
+      <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
+      <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>
+      {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
     </div>
   );
 }
