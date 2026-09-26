@@ -13,15 +13,15 @@
   "kv_namespaces": [
     {
       "binding": "SESSIONS",
-      "id": ""
+      "id": "bb3e42904b8c48aabc4d30b32476c0de"
     },
     {
       "binding": "RATE_LIMIT",
-      "id": ""
+      "id": "97e60ee4dc62475f838cfe46756e9436"
     }
   ],
   "vars": {
-    "JWT_SECRET": "",
+    "JWT_SECRET": "14b6a5a05e2e1d1074394f277786e8f8991e5a15326b2e292a0eef45c4c1f5eb",
     "JWT_EXPIRY": "15m",
     "REFRESH_TOKEN_EXPIRY": "30d",
     "STRIPE_SECRET_KEY": "",
