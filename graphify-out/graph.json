@@ -350,10 +350,10 @@
       "source_file": "src/AuthModal.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_authmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "authmodal.tsx"
+      "norm_label": "authmodal.tsx",
+      "id": "src_authmodal"
     },
     {
       "label": "AuthModalProps",
@@ -361,10 +361,10 @@
       "source_file": "src/AuthModal.tsx",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_authmodal_authmodalprops",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "authmodalprops"
+      "norm_label": "authmodalprops",
+      "id": "src_authmodal_authmodalprops"
     },
     {
       "label": "AuthModal()",
@@ -372,10 +372,10 @@
       "source_file": "src/AuthModal.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_authmodal_authmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "authmodal()"
+      "norm_label": "authmodal()",
+      "id": "src_authmodal_authmodal"
     },
     {
       "label": "useAuth.ts",
@@ -383,10 +383,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_useauth",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "useauth.ts"
+      "norm_label": "useauth.ts",
+      "id": "src_useauth"
     },
     {
       "label": "User",
@@ -394,10 +394,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_useauth_user",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "user"
+      "norm_label": "user",
+      "id": "src_useauth_user"
     },
     {
       "label": "Subscription",
@@ -405,10 +405,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_useauth_subscription",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "subscription"
+      "norm_label": "subscription",
+      "id": "src_useauth_subscription"
     },
     {
       "label": "useAuth()",
@@ -416,10 +416,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "src_useauth_useauth",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "useauth()"
+      "norm_label": "useauth()",
+      "id": "src_useauth_useauth"
     },
     {
       "label": "main.tsx",
@@ -2702,7 +2702,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1450",
+      "source_location": "L1479",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -2714,24 +2714,12 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L895",
+      "source_location": "L908",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
       "target": "src_app_shufflearray",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L801",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_useauth_useauth"
     },
     {
       "relation": "contains",
@@ -2740,9 +2728,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_authmodal",
-      "target": "src_authmodal_authmodal",
-      "confidence_score": 1.0
+      "target": "src_authmodal_authmodal"
     },
     {
       "relation": "contains",
@@ -2751,9 +2739,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_authmodal",
-      "target": "src_authmodal_authmodalprops",
-      "confidence_score": 1.0
+      "target": "src_authmodal_authmodalprops"
     },
     {
       "relation": "contains",
@@ -2762,9 +2750,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_subscription",
-      "confidence_score": 1.0
+      "target": "src_useauth_subscription"
     },
     {
       "relation": "contains",
@@ -2773,9 +2761,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_useauth",
-      "confidence_score": 1.0
+      "target": "src_useauth_useauth"
     },
     {
       "relation": "contains",
@@ -2784,9 +2772,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_user",
-      "confidence_score": 1.0
+      "target": "src_useauth_user"
     },
     {
       "relation": "contains",
@@ -5025,5 +5013,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8a09055ad92b36afe1b5d48ca20ddc2a0158f75d"
+  "built_at_commit": "881656b0c4fd669d520df3a2b5043cc3ef77e7e0"
 }

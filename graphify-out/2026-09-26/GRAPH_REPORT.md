@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 38 files · ~51,622 words
+- 40 files · ~53,621 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 199 nodes · 233 edges · 12 communities
+- 206 nodes · 243 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f526f620`
+- Built from commit: `8a09055a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,12 +32,12 @@
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
 4. `users` - 6 edges
-5. `scripts` - 5 edges
-6. `Monetization setup` - 5 edges
-7. `App()` - 4 edges
+5. `App()` - 5 edges
+6. `scripts` - 5 edges
+7. `Monetization setup` - 5 edges
 8. `getConsent()` - 3 edges
 9. `CookieBanner()` - 3 edges
-10. `fetchWithAuth()` - 3 edges
+10. `useAuth()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -69,8 +69,8 @@ Cohesion: 0.12
 Nodes (19): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+11 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.07
-Nodes (11): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+3 more)
+Cohesion: 0.06
+Nodes (16): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+8 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.09
@@ -101,23 +101,23 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **76 isolated node(s):** `Login`, `Signup`, `ForgotPassword`, `ResetPassword`, `VerifyEmail` (+71 more)
+- **79 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+74 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
-- **What connects `Login`, `Signup`, `ForgotPassword` to the rest of the system?**
-  _76 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+  _79 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.11822660098522167 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07258064516129033 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0620782726045884 - nodes in this community are weakly interconnected._

@@ -897,10 +897,16 @@ export default function App() {
   };
 
   const startTest = (mode: TestMode) => {
-    // Real Test mode requires Pro
+    // Real Test mode: 1 free trial, then requires Pro
     if (mode === 'real' && !auth.isPro) {
-      setShowPremiumModal(true);
-      return;
+      let trialUsed = false;
+      try { trialUsed = localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch {}
+      if (trialUsed) {
+        setShowPremiumModal(true);
+        return;
+      }
+      // Mark trial as used
+      try { localStorage.setItem('jlpt-real-trial-used', 'true'); } catch {}
     }
     setTestMode(mode);
     // Free users get 10 questions, Pro gets full set
@@ -1265,7 +1271,7 @@ export default function App() {
                   <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
                   {!auth.isPro && (
                     <div className="absolute top-0 left-0 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
-                      <span>⭐</span> PRO
+                      <span>⭐</span> {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true' ? 'PRO' : '1 FREE TRIAL'; } catch { return '1 FREE TRIAL'; } })()}
                     </div>
                   )}
                   <div className="text-emerald-600 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
@@ -1277,17 +1283,22 @@ export default function App() {
                   </p>
                   {!auth.isPro && (
                     <p className="text-amber-600 text-xs font-bold mb-2 flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                      </svg>
-                      Pro subscription required
+                      {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch { return false; } })()
+                        ? <>🔒 Pro subscription required for more attempts</>
+                        : <>🎁 Try it once free — no account needed</>
+                      }
                     </p>
                   )}
                   <button
                     onClick={() => startTest('real')}
                     className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'}`}
                   >
-                    {auth.isPro ? t.startReal : '⭐ Upgrade to Unlock'}
+                    {auth.isPro
+                      ? t.startReal
+                      : (() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch { return false; } })()
+                        ? '⭐ Upgrade to Unlock'
+                        : 'Start Free Trial'
+                    }
                   </button>
                 </div>
                 <div className={`border border-blue-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-blue-50 relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
