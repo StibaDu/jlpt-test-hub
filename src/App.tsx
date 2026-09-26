@@ -264,7 +264,7 @@ const IconHeart = ({ className }: SvgProps) => (
 // To activate: replace placeholder with <ins class="adsbygoogle" ...> and push
 // Config — replace YOUR_PUBLISHER_ID with your real AdSense ID when approved
 const ADSENSE_CONFIG = {
-  client: "ca-pub-YOUR_PUBLISHER_ID",
+  client: "ca-pub-4082985236293156",
   slots: {
     "intro-top-banner": "1111111111",
     "intro-bottom-banner": "2222222222",

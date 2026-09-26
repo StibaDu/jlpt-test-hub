@@ -4,15 +4,356 @@
   "graph": {},
   "nodes": [
     {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_app",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "UiStrings",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "src_app_uistrings",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "uistrings"
+    },
+    {
+      "label": "uiTranslations",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_app_uitranslations",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "uitranslations"
+    },
+    {
+      "label": "SvgProps",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L204",
+      "_origin": "ast",
+      "id": "src_app_svgprops",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "svgprops"
+    },
+    {
+      "label": "IconClock()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "src_app_iconclock",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconclock()"
+    },
+    {
+      "label": "IconCheck()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "src_app_iconcheck",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconcheck()"
+    },
+    {
+      "label": "IconX()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "src_app_iconx",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconx()"
+    },
+    {
+      "label": "IconAlertCircle()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L226",
+      "_origin": "ast",
+      "id": "src_app_iconalertcircle",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconalertcircle()"
+    },
+    {
+      "label": "IconBookOpen()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "src_app_iconbookopen",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconbookopen()"
+    },
+    {
+      "label": "IconGlobe()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L238",
+      "_origin": "ast",
+      "id": "src_app_iconglobe",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconglobe()"
+    },
+    {
+      "label": "IconHome()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L244",
+      "_origin": "ast",
+      "id": "src_app_iconhome",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconhome()"
+    },
+    {
+      "label": "IconRefreshCw()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L250",
+      "_origin": "ast",
+      "id": "src_app_iconrefreshcw",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconrefreshcw()"
+    },
+    {
+      "label": "IconHeart()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L256",
+      "_origin": "ast",
+      "id": "src_app_iconheart",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "iconheart()"
+    },
+    {
+      "label": "ADSENSE_CONFIG",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L266",
+      "_origin": "ast",
+      "id": "src_app_adsense_config",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "adsense_config"
+    },
+    {
+      "label": "GoogleAdBanner()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L277",
+      "_origin": "ast",
+      "id": "src_app_googleadbanner",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "googleadbanner()"
+    },
+    {
+      "label": "BookRecommendations()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L303",
+      "_origin": "ast",
+      "id": "src_app_bookrecommendations",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "bookrecommendations()"
+    },
+    {
+      "label": "AffiliateBanner()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L358",
+      "_origin": "ast",
+      "id": "src_app_affiliatebanner",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "affiliatebanner()"
+    },
+    {
+      "label": "StudyInJapanBanner()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L384",
+      "_origin": "ast",
+      "id": "src_app_studyinjapanbanner",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "studyinjapanbanner()"
+    },
+    {
+      "label": "PremiumModal()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L410",
+      "_origin": "ast",
+      "id": "src_app_premiummodal",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "premiummodal()"
+    },
+    {
+      "label": "getConsent()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L468",
+      "_origin": "ast",
+      "id": "src_app_getconsent",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "getconsent()"
+    },
+    {
+      "label": "setConsent()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L474",
+      "_origin": "ast",
+      "id": "src_app_setconsent",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "setconsent()"
+    },
+    {
+      "label": "CookieBanner()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L479",
+      "_origin": "ast",
+      "id": "src_app_cookiebanner",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "cookiebanner()"
+    },
+    {
+      "label": "LegalModal()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L541",
+      "_origin": "ast",
+      "id": "src_app_legalmodal",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "legalmodal()"
+    },
+    {
+      "label": "PrivacyPolicyContent()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L561",
+      "_origin": "ast",
+      "id": "src_app_privacypolicycontent",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "privacypolicycontent()"
+    },
+    {
+      "label": "TermsContent()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L610",
+      "_origin": "ast",
+      "id": "src_app_termscontent",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "termscontent()"
+    },
+    {
+      "label": "SellerDisclosureContent()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L645",
+      "_origin": "ast",
+      "id": "src_app_sellerdisclosurecontent",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "sellerdisclosurecontent()"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L664",
+      "_origin": "ast",
+      "id": "src_app_footer",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "footer()"
+    },
+    {
+      "label": "renderFurigana()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L683",
+      "_origin": "ast",
+      "id": "src_app_renderfurigana",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "renderfurigana()"
+    },
+    {
+      "label": "shuffleArray()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L718",
+      "_origin": "ast",
+      "id": "src_app_shufflearray",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "shufflearray()"
+    },
+    {
+      "label": "SelectedKanji",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L727",
+      "_origin": "ast",
+      "id": "src_app_selectedkanji",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "selectedkanji"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L732",
+      "_origin": "ast",
+      "id": "src_app_app",
+      "community": 4,
+      "community_name": "App",
+      "norm_label": "app()"
+    },
+    {
       "label": "LAUNCH-CHECKLIST.md",
       "file_type": "document",
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "launch_checklist",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "launch-checklist.md"
+      "norm_label": "launch-checklist.md",
+      "id": "launch_checklist"
     },
     {
       "label": "Launch Checklist \u2014 JLPT Test Hub",
@@ -20,10 +361,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "launch_checklist_launch_checklist_jlpt_test_hub",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "launch checklist \u2014 jlpt test hub"
+      "norm_label": "launch checklist \u2014 jlpt test hub",
+      "id": "launch_checklist_launch_checklist_jlpt_test_hub"
     },
     {
       "label": "Phase 1: Deploy to Cloudflare Pages (Day 1)",
@@ -31,10 +372,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "launch_checklist_phase_1_deploy_to_cloudflare_pages_day_1",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 1: deploy to cloudflare pages (day 1)"
+      "norm_label": "phase 1: deploy to cloudflare pages (day 1)",
+      "id": "launch_checklist_phase_1_deploy_to_cloudflare_pages_day_1"
     },
     {
       "label": "Phase 2: Custom Domain (Day 1\u20132)",
@@ -42,10 +383,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "launch_checklist_phase_2_custom_domain_day_1_2",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 2: custom domain (day 1\u20132)"
+      "norm_label": "phase 2: custom domain (day 1\u20132)",
+      "id": "launch_checklist_phase_2_custom_domain_day_1_2"
     },
     {
       "label": "Phase 3: Google Search Console (Day 2)",
@@ -53,10 +394,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "launch_checklist_phase_3_google_search_console_day_2",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 3: google search console (day 2)"
+      "norm_label": "phase 3: google search console (day 2)",
+      "id": "launch_checklist_phase_3_google_search_console_day_2"
     },
     {
       "label": "Phase 4: Fill in Placeholders (Day 2\u20133)",
@@ -64,10 +405,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "launch_checklist_phase_4_fill_in_placeholders_day_2_3",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 4: fill in placeholders (day 2\u20133)"
+      "norm_label": "phase 4: fill in placeholders (day 2\u20133)",
+      "id": "launch_checklist_phase_4_fill_in_placeholders_day_2_3"
     },
     {
       "label": "Phase 5: Amazon Associates (Week 2 \u2014 after ~some traffic)",
@@ -75,10 +416,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "launch_checklist_phase_5_amazon_associates_week_2_after_some_traffic",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 5: amazon associates (week 2 \u2014 after ~some traffic)"
+      "norm_label": "phase 5: amazon associates (week 2 \u2014 after ~some traffic)",
+      "id": "launch_checklist_phase_5_amazon_associates_week_2_after_some_traffic"
     },
     {
       "label": "Phase 6: Google AdSense (Month 2 \u2014 after ~50 daily visitors)",
@@ -86,10 +427,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "launch_checklist_phase_6_google_adsense_month_2_after_50_daily_visitors",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 6: google adsense (month 2 \u2014 after ~50 daily visitors)"
+      "norm_label": "phase 6: google adsense (month 2 \u2014 after ~50 daily visitors)",
+      "id": "launch_checklist_phase_6_google_adsense_month_2_after_50_daily_visitors"
     },
     {
       "label": "Phase 7: JapanesePod101 Affiliate (Month 2)",
@@ -97,10 +438,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "launch_checklist_phase_7_japanesepod101_affiliate_month_2",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 7: japanesepod101 affiliate (month 2)"
+      "norm_label": "phase 7: japanesepod101 affiliate (month 2)",
+      "id": "launch_checklist_phase_7_japanesepod101_affiliate_month_2"
     },
     {
       "label": "Phase 8: Premium Tier \u2014 PayPal (Month 3+)",
@@ -108,10 +449,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L67",
       "_origin": "ast",
-      "id": "launch_checklist_phase_8_premium_tier_paypal_month_3",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 8: premium tier \u2014 paypal (month 3+)"
+      "norm_label": "phase 8: premium tier \u2014 paypal (month 3+)",
+      "id": "launch_checklist_phase_8_premium_tier_paypal_month_3"
     },
     {
       "label": "Phase 9: Post-Japan Move (After relocating)",
@@ -119,10 +460,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L77",
       "_origin": "ast",
-      "id": "launch_checklist_phase_9_post_japan_move_after_relocating",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 9: post-japan move (after relocating)"
+      "norm_label": "phase 9: post-japan move (after relocating)",
+      "id": "launch_checklist_phase_9_post_japan_move_after_relocating"
     },
     {
       "label": "Phase 10: Growth & SEO (Ongoing)",
@@ -130,10 +471,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "launch_checklist_phase_10_growth_seo_ongoing",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "phase 10: growth & seo (ongoing)"
+      "norm_label": "phase 10: growth & seo (ongoing)",
+      "id": "launch_checklist_phase_10_growth_seo_ongoing"
     },
     {
       "label": "Quick reference \u2014 all placeholder strings to replace",
@@ -141,10 +482,10 @@
       "source_file": "LAUNCH-CHECKLIST.md",
       "source_location": "L95",
       "_origin": "ast",
-      "id": "launch_checklist_quick_reference_all_placeholder_strings_to_replace",
       "community": 0,
       "community_name": "Launch Checklist \u2014 JLPT Test Hub",
-      "norm_label": "quick reference \u2014 all placeholder strings to replace"
+      "norm_label": "quick reference \u2014 all placeholder strings to replace",
+      "id": "launch_checklist_quick_reference_all_placeholder_strings_to_replace"
     },
     {
       "label": "README.md",
@@ -152,10 +493,10 @@
       "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "readme",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "readme.md"
+      "norm_label": "readme.md",
+      "id": "readme"
     },
     {
       "label": "JLPT Test Hub",
@@ -163,10 +504,10 @@
       "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "readme_jlpt_test_hub",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "jlpt test hub"
+      "norm_label": "jlpt test hub",
+      "id": "readme_jlpt_test_hub"
     },
     {
       "label": "Features",
@@ -174,10 +515,10 @@
       "source_file": "README.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "readme_features",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "features"
+      "norm_label": "features",
+      "id": "readme_features"
     },
     {
       "label": "Tech Stack",
@@ -185,10 +526,10 @@
       "source_file": "README.md",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "readme_tech_stack",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "tech stack"
+      "norm_label": "tech stack",
+      "id": "readme_tech_stack"
     },
     {
       "label": "Quick Start",
@@ -196,10 +537,10 @@
       "source_file": "README.md",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "readme_quick_start",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "quick start"
+      "norm_label": "quick start",
+      "id": "readme_quick_start"
     },
     {
       "label": "Deployment (Cloudflare Pages \u2014 free)",
@@ -207,10 +548,10 @@
       "source_file": "README.md",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "readme_deployment_cloudflare_pages_free",
-      "community": 3,
-      "community_name": "Deployment (Cloudflare Pages \u2014 free)",
-      "norm_label": "deployment (cloudflare pages \u2014 free)"
+      "community": 1,
+      "community_name": "JLPT Test Hub",
+      "norm_label": "deployment (cloudflare pages \u2014 free)",
+      "id": "readme_deployment_cloudflare_pages_free"
     },
     {
       "label": "Custom domain",
@@ -218,10 +559,10 @@
       "source_file": "README.md",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "readme_custom_domain",
-      "community": 3,
-      "community_name": "Deployment (Cloudflare Pages \u2014 free)",
-      "norm_label": "custom domain"
+      "community": 1,
+      "community_name": "JLPT Test Hub",
+      "norm_label": "custom domain",
+      "id": "readme_custom_domain"
     },
     {
       "label": "Update canonical URL",
@@ -229,10 +570,10 @@
       "source_file": "README.md",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "readme_update_canonical_url",
-      "community": 3,
-      "community_name": "Deployment (Cloudflare Pages \u2014 free)",
-      "norm_label": "update canonical url"
+      "community": 1,
+      "community_name": "JLPT Test Hub",
+      "norm_label": "update canonical url",
+      "id": "readme_update_canonical_url"
     },
     {
       "label": "Before going live \u2014 placeholder checklist",
@@ -240,10 +581,10 @@
       "source_file": "README.md",
       "source_location": "L57",
       "_origin": "ast",
-      "id": "readme_before_going_live_placeholder_checklist",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "before going live \u2014 placeholder checklist"
+      "norm_label": "before going live \u2014 placeholder checklist",
+      "id": "readme_before_going_live_placeholder_checklist"
     },
     {
       "label": "Monetization setup",
@@ -251,10 +592,10 @@
       "source_file": "README.md",
       "source_location": "L73",
       "_origin": "ast",
-      "id": "readme_monetization_setup",
       "community": 2,
       "community_name": "Monetization setup",
-      "norm_label": "monetization setup"
+      "norm_label": "monetization setup",
+      "id": "readme_monetization_setup"
     },
     {
       "label": "Google AdSense",
@@ -262,10 +603,10 @@
       "source_file": "README.md",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "readme_google_adsense",
       "community": 2,
       "community_name": "Monetization setup",
-      "norm_label": "google adsense"
+      "norm_label": "google adsense",
+      "id": "readme_google_adsense"
     },
     {
       "label": "Amazon Associates",
@@ -273,10 +614,10 @@
       "source_file": "README.md",
       "source_location": "L82",
       "_origin": "ast",
-      "id": "readme_amazon_associates",
       "community": 2,
       "community_name": "Monetization setup",
-      "norm_label": "amazon associates"
+      "norm_label": "amazon associates",
+      "id": "readme_amazon_associates"
     },
     {
       "label": "JapanesePod101 Affiliate",
@@ -284,10 +625,10 @@
       "source_file": "README.md",
       "source_location": "L86",
       "_origin": "ast",
-      "id": "readme_japanesepod101_affiliate",
       "community": 2,
       "community_name": "Monetization setup",
-      "norm_label": "japanesepod101 affiliate"
+      "norm_label": "japanesepod101 affiliate",
+      "id": "readme_japanesepod101_affiliate"
     },
     {
       "label": "Premium tier (PayPal)",
@@ -295,10 +636,10 @@
       "source_file": "README.md",
       "source_location": "L90",
       "_origin": "ast",
-      "id": "readme_premium_tier_paypal",
       "community": 2,
       "community_name": "Monetization setup",
-      "norm_label": "premium tier (paypal)"
+      "norm_label": "premium tier (paypal)",
+      "id": "readme_premium_tier_paypal"
     },
     {
       "label": "Legal (Japan / EU)",
@@ -306,10 +647,10 @@
       "source_file": "README.md",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "readme_legal_japan_eu",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "legal (japan / eu)"
+      "norm_label": "legal (japan / eu)",
+      "id": "readme_legal_japan_eu"
     },
     {
       "label": "Project structure",
@@ -317,10 +658,10 @@
       "source_file": "README.md",
       "source_location": "L102",
       "_origin": "ast",
-      "id": "readme_project_structure",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "project structure"
+      "norm_label": "project structure",
+      "id": "readme_project_structure"
     },
     {
       "label": "License",
@@ -328,13 +669,403 @@
       "source_file": "README.md",
       "source_location": "L122",
       "_origin": "ast",
-      "id": "readme_license",
       "community": 1,
       "community_name": "JLPT Test Hub",
-      "norm_label": "license"
+      "norm_label": "license",
+      "id": "readme_license"
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L266",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_adsense_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L358",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_affiliatebanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L732",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L303",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_bookrecommendations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L479",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_cookiebanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L664",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L468",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_googleadbanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconalertcircle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconbookopen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L214",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconclock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L238",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconglobe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L256",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconheart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconhome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L250",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconrefreshcw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L220",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_iconx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L541",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_legalmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L410",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_premiummodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L561",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_privacypolicycontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L683",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_renderfurigana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L727",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_selectedkanji",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L645",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_sellerdisclosurecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L474",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_setconsent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L718",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L384",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_studyinjapanbanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L204",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_svgprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L610",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_termscontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_uistrings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_app_uitranslations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L747",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_app",
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L497",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_cookiebanner",
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L485",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_cookiebanner",
+      "target": "src_app_setconsent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L1337",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_app",
+      "target": "src_app_renderfurigana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L842",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_app",
+      "target": "src_app_shufflearray",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -342,9 +1073,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist",
-      "target": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "confidence_score": 1.0
+      "target": "launch_checklist_launch_checklist_jlpt_test_hub"
     },
     {
       "relation": "contains",
@@ -353,9 +1084,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_10_growth_seo_ongoing",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_10_growth_seo_ongoing"
     },
     {
       "relation": "contains",
@@ -364,9 +1095,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_1_deploy_to_cloudflare_pages_day_1",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_1_deploy_to_cloudflare_pages_day_1"
     },
     {
       "relation": "contains",
@@ -375,9 +1106,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_2_custom_domain_day_1_2",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_2_custom_domain_day_1_2"
     },
     {
       "relation": "contains",
@@ -386,9 +1117,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_3_google_search_console_day_2",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_3_google_search_console_day_2"
     },
     {
       "relation": "contains",
@@ -397,9 +1128,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_4_fill_in_placeholders_day_2_3",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_4_fill_in_placeholders_day_2_3"
     },
     {
       "relation": "contains",
@@ -408,9 +1139,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_5_amazon_associates_week_2_after_some_traffic",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_5_amazon_associates_week_2_after_some_traffic"
     },
     {
       "relation": "contains",
@@ -419,9 +1150,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_6_google_adsense_month_2_after_50_daily_visitors",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_6_google_adsense_month_2_after_50_daily_visitors"
     },
     {
       "relation": "contains",
@@ -430,9 +1161,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_7_japanesepod101_affiliate_month_2",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_7_japanesepod101_affiliate_month_2"
     },
     {
       "relation": "contains",
@@ -441,9 +1172,9 @@
       "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_8_premium_tier_paypal_month_3",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_8_premium_tier_paypal_month_3"
     },
     {
       "relation": "contains",
@@ -452,9 +1183,9 @@
       "source_location": "L77",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_phase_9_post_japan_move_after_relocating",
-      "confidence_score": 1.0
+      "target": "launch_checklist_phase_9_post_japan_move_after_relocating"
     },
     {
       "relation": "contains",
@@ -463,9 +1194,9 @@
       "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "launch_checklist_launch_checklist_jlpt_test_hub",
-      "target": "launch_checklist_quick_reference_all_placeholder_strings_to_replace",
-      "confidence_score": 1.0
+      "target": "launch_checklist_quick_reference_all_placeholder_strings_to_replace"
     },
     {
       "relation": "contains",
@@ -474,9 +1205,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_jlpt_test_hub",
-      "confidence_score": 1.0
+      "target": "readme_jlpt_test_hub"
     },
     {
       "relation": "contains",
@@ -485,9 +1216,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_before_going_live_placeholder_checklist",
-      "confidence_score": 1.0
+      "target": "readme_before_going_live_placeholder_checklist"
     },
     {
       "relation": "contains",
@@ -496,9 +1227,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_deployment_cloudflare_pages_free",
-      "confidence_score": 1.0
+      "target": "readme_deployment_cloudflare_pages_free"
     },
     {
       "relation": "contains",
@@ -507,9 +1238,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_features",
-      "confidence_score": 1.0
+      "target": "readme_features"
     },
     {
       "relation": "contains",
@@ -518,9 +1249,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_legal_japan_eu",
-      "confidence_score": 1.0
+      "target": "readme_legal_japan_eu"
     },
     {
       "relation": "contains",
@@ -529,9 +1260,9 @@
       "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_license",
-      "confidence_score": 1.0
+      "target": "readme_license"
     },
     {
       "relation": "contains",
@@ -540,9 +1271,9 @@
       "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_monetization_setup",
-      "confidence_score": 1.0
+      "target": "readme_monetization_setup"
     },
     {
       "relation": "contains",
@@ -551,9 +1282,9 @@
       "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_project_structure",
-      "confidence_score": 1.0
+      "target": "readme_project_structure"
     },
     {
       "relation": "contains",
@@ -562,9 +1293,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_quick_start",
-      "confidence_score": 1.0
+      "target": "readme_quick_start"
     },
     {
       "relation": "contains",
@@ -573,9 +1304,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_jlpt_test_hub",
-      "target": "readme_tech_stack",
-      "confidence_score": 1.0
+      "target": "readme_tech_stack"
     },
     {
       "relation": "contains",
@@ -584,9 +1315,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_deployment_cloudflare_pages_free",
-      "target": "readme_custom_domain",
-      "confidence_score": 1.0
+      "target": "readme_custom_domain"
     },
     {
       "relation": "contains",
@@ -595,9 +1326,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_deployment_cloudflare_pages_free",
-      "target": "readme_update_canonical_url",
-      "confidence_score": 1.0
+      "target": "readme_update_canonical_url"
     },
     {
       "relation": "contains",
@@ -606,9 +1337,9 @@
       "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_monetization_setup",
-      "target": "readme_amazon_associates",
-      "confidence_score": 1.0
+      "target": "readme_amazon_associates"
     },
     {
       "relation": "contains",
@@ -617,9 +1348,9 @@
       "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_monetization_setup",
-      "target": "readme_google_adsense",
-      "confidence_score": 1.0
+      "target": "readme_google_adsense"
     },
     {
       "relation": "contains",
@@ -628,9 +1359,9 @@
       "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_monetization_setup",
-      "target": "readme_japanesepod101_affiliate",
-      "confidence_score": 1.0
+      "target": "readme_japanesepod101_affiliate"
     },
     {
       "relation": "contains",
@@ -639,11 +1370,11 @@
       "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "readme_monetization_setup",
-      "target": "readme_premium_tier_paypal",
-      "confidence_score": 1.0
+      "target": "readme_premium_tier_paypal"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7a0f80d46971cb4ca9db41d43b2569aafd18cb36"
+  "built_at_commit": "3c45504c43b89d01d5aa3d3c53043f00b51c9312"
 }
