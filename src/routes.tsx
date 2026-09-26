@@ -16,17 +16,18 @@ const Intro = React.lazy(() => import('./pages/Intro').then(m => ({ default: m.I
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public routes */}
+      {/* Auth routes — redirect to dashboard if already logged in */}
       <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
       <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
       <Route path="/forgot-password" element={<PublicRoute><ForgotPassword /></PublicRoute>} />
       <Route path="/reset-password" element={<PublicRoute><ResetPassword /></PublicRoute>} />
       <Route path="/verify-email" element={<PublicRoute><VerifyEmail /></PublicRoute>} />
 
-      {/* Main app - no auth required for intro */}
+      {/* Public — anyone can use the app without an account */}
       <Route path="/" element={<Intro />} />
+      <Route path="/test/:level/:mode" element={<TestPage />} />
 
-      {/* Protected routes */}
+      {/* Protected — account features only */}
       <Route
         path="/dashboard/*"
         element={
@@ -43,16 +44,8 @@ const AppRoutes: React.FC = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/test/:level/:mode"
-        element={
-          <ProtectedRoute>
-            <TestPage />
-          </ProtectedRoute>
-        }
-      />
 
-      {/* Catch-all - redirect to home */}
+      {/* Catch-all */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

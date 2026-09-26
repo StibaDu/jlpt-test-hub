@@ -8,7 +8,7 @@ import type { Question, JLPTLevel, TestMode } from '../data';
 export const TestPage: React.FC = () => {
   const { level, mode } = useParams<{ level: JLPTLevel; mode: TestMode }>();
   const navigate = useNavigate();
-  const { subscription } = useAuth();
+  const { user } = useAuth();
   const currentData = levelData[level as JLPTLevel] || levelData.N5;
 
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -21,17 +21,6 @@ export const TestPage: React.FC = () => {
 
   const isMobile = window.innerWidth < 768;
   const maxQuestions = 30;
-
-  // Check if user has Pro for Real mode
-  useEffect(() => {
-    if (mode === 'real') {
-      const isPro = subscription?.status === 'active';
-      if (!isPro) {
-        alert('Real Test mode requires Pro subscription');
-        navigate('/upgrade');
-      }
-    }
-  }, [mode, subscription, navigate]);
 
   // Load questions
   useEffect(() => {
@@ -308,15 +297,24 @@ export const TestPage: React.FC = () => {
               </div>
 
               <div className="space-y-4">
-                <button
-                  onClick={() => navigate('/dashboard')}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 py-3 px-6"
-                >
-                  Back to Dashboard
-                </button>
+                {user ? (
+                  <button
+                    onClick={() => navigate('/dashboard')}
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 py-3 px-6"
+                  >
+                    Back to Dashboard
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => navigate('/signup')}
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 py-3 px-6"
+                  >
+                    Sign up to save your progress →
+                  </button>
+                )}
                 <button
                   onClick={() => navigate(`/test/${level}/${mode}`)}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 py-3 px-6"
+                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl shadow-md transition-all active:scale-95 py-3 px-6"
                 >
                   Retry Test
                 </button>

@@ -11,8 +11,9 @@ export const Intro: React.FC = () => {
             <span className="font-black text-gray-900">JLPT Test Hub</span>
           </Link>
           <div className="flex items-center gap-4">
+            <Link to="/test/N5/learning" className="text-emerald-600 hover:text-emerald-700 text-sm font-bold">Start Practicing</Link>
             <Link to="/login" className="text-gray-600 hover:text-emerald-600 text-sm font-medium">Sign In</Link>
-            <Link to="/signup" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg transition-colors">Get Started</Link>
+            <Link to="/signup" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg transition-colors">Sign Up</Link>
           </div>
         </div>
       </header>
@@ -28,6 +29,7 @@ export const Intro: React.FC = () => {
           <p className="text-gray-500 max-w-xl mx-auto">
             Practice with 150+ real official JLPT questions across N5, N4, and N3 levels.
             Interactive furigana dictionary, instant explanations, and timed simulations.
+            <span className="block mt-2 text-emerald-600 font-bold">No account needed — start practicing instantly.</span>
           </p>
         </div>
 
