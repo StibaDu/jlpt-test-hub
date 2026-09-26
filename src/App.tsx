@@ -779,7 +779,29 @@ interface SelectedKanji extends KanjiEntry {
   furigana: string;
 }
 
+const MAINTENANCE_MODE = true;
+
 export default function App() {
+  if (MAINTENANCE_MODE) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-emerald-600 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-black text-gray-900 mb-3">Under Maintenance</h1>
+          <p className="text-gray-500 text-sm leading-relaxed mb-6">
+            JLPT Test Hub is currently undergoing maintenance to bring you a better experience.
+            We'll be back shortly!
+          </p>
+          <p className="text-gray-400 text-xs">— The JLPT Test Hub Team</p>
+        </div>
+      </div>
+    );
+  }
+
   const [gameState, setGameState] = useState<GameState>('intro');
   const [testMode, setTestMode] = useState<TestMode>('real');
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel>('N5');

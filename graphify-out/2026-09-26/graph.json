@@ -2702,7 +2702,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1479",
+      "source_location": "L1490",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -2714,7 +2714,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L908",
+      "source_location": "L914",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -5013,5 +5013,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "881656b0c4fd669d520df3a2b5043cc3ef77e7e0"
+  "built_at_commit": "ad96a257b590d5bc23a148e6071e62c6de21fc05"
 }
