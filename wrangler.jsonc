@@ -7,7 +7,7 @@
     {
       "binding": "DB",
       "database_name": "jlpt-test-hub",
-      "database_id": ""
+      "database_id": "4f9916bd-153f-4905-ad85-8ba42171ac64"
     }
   ],
   "kv_namespaces": [
