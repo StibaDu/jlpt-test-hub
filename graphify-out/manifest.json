@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1790438922.405096,
-    "ast_hash": "5ab676ac9cd6e830222c83176bbbc82d",
+    "mtime": 1790444677.4827814,
+    "ast_hash": "b6a665bfd22281d597f8446385448beb",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -222,6 +222,16 @@
   "public/ads.txt": {
     "mtime": 1790431447.3233953,
     "ast_hash": "2dbc37980f07a3cb0a857d38ffa18418",
+    "semantic_hash": ""
+  },
+  "src/AuthModal.tsx": {
+    "mtime": 1790444578.7902105,
+    "ast_hash": "c91c66f6a253f2c96e3261ba3e2b70df",
+    "semantic_hash": ""
+  },
+  "src/useAuth.ts": {
+    "mtime": 1790444557.062136,
+    "ast_hash": "4147ac1f33f46474ec3a531d782469fa",
     "semantic_hash": ""
   }
 }

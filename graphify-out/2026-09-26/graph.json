@@ -4,15 +4,26 @@
   "graph": {},
   "nodes": [
     {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "src/main.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_main",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "main.tsx"
+    },
+    {
       "label": "Intro.tsx",
       "file_type": "code",
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_intro",
       "community": 11,
       "community_name": "Intro.tsx",
-      "norm_label": "intro.tsx"
+      "norm_label": "intro.tsx",
+      "id": "src_pages_intro"
     },
     {
       "label": "Intro()",
@@ -20,10 +31,10 @@
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "src_pages_intro_intro",
       "community": 11,
       "community_name": "Intro.tsx",
-      "norm_label": "intro()"
+      "norm_label": "intro()",
+      "id": "src_pages_intro_intro"
     },
     {
       "label": "LevelCard()",
@@ -31,10 +42,10 @@
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L109",
       "_origin": "ast",
-      "id": "src_pages_intro_levelcard",
       "community": 11,
       "community_name": "Intro.tsx",
-      "norm_label": "levelcard()"
+      "norm_label": "levelcard()",
+      "id": "src_pages_intro_levelcard"
     },
     {
       "label": "ModeCard()",
@@ -42,10 +53,10 @@
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L142",
       "_origin": "ast",
-      "id": "src_pages_intro_modecard",
       "community": 11,
       "community_name": "Intro.tsx",
-      "norm_label": "modecard()"
+      "norm_label": "modecard()",
+      "id": "src_pages_intro_modecard"
     },
     {
       "label": "FeatureCard()",
@@ -53,10 +64,10 @@
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L188",
       "_origin": "ast",
-      "id": "src_pages_intro_featurecard",
       "community": 11,
       "community_name": "Intro.tsx",
-      "norm_label": "featurecard()"
+      "norm_label": "featurecard()",
+      "id": "src_pages_intro_featurecard"
     },
     {
       "label": "TestPage.tsx",
@@ -64,10 +75,10 @@
       "source_file": "src/pages/TestPage.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_testpage",
       "community": 8,
       "community_name": "Icons.tsx",
-      "norm_label": "testpage.tsx"
+      "norm_label": "testpage.tsx",
+      "id": "src_pages_testpage"
     },
     {
       "label": "TestPage()",
@@ -75,10 +86,10 @@
       "source_file": "src/pages/TestPage.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_pages_testpage_testpage",
       "community": 8,
       "community_name": "Icons.tsx",
-      "norm_label": "testpage()"
+      "norm_label": "testpage()",
+      "id": "src_pages_testpage_testpage"
     },
     {
       "label": "routes.tsx",
@@ -86,10 +97,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_routes",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "routes.tsx"
+      "norm_label": "routes.tsx",
+      "id": "src_routes"
     },
     {
       "label": "Login",
@@ -97,10 +108,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_routes_login",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "login"
+      "norm_label": "login",
+      "id": "src_routes_login"
     },
     {
       "label": "Signup",
@@ -108,10 +119,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_routes_signup",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "signup"
+      "norm_label": "signup",
+      "id": "src_routes_signup"
     },
     {
       "label": "ForgotPassword",
@@ -119,10 +130,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_routes_forgotpassword",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "forgotpassword"
+      "norm_label": "forgotpassword",
+      "id": "src_routes_forgotpassword"
     },
     {
       "label": "ResetPassword",
@@ -130,10 +141,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_routes_resetpassword",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "resetpassword"
+      "norm_label": "resetpassword",
+      "id": "src_routes_resetpassword"
     },
     {
       "label": "VerifyEmail",
@@ -141,10 +152,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "src_routes_verifyemail",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "verifyemail"
+      "norm_label": "verifyemail",
+      "id": "src_routes_verifyemail"
     },
     {
       "label": "Dashboard",
@@ -152,10 +163,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_routes_dashboard",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "dashboard"
+      "norm_label": "dashboard",
+      "id": "src_routes_dashboard"
     },
     {
       "label": "Upgrade",
@@ -163,10 +174,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_routes_upgrade",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "upgrade"
+      "norm_label": "upgrade",
+      "id": "src_routes_upgrade"
     },
     {
       "label": "TestPage",
@@ -174,10 +185,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_routes_testpage",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "testpage"
+      "norm_label": "testpage",
+      "id": "src_routes_testpage"
     },
     {
       "label": "Intro",
@@ -185,10 +196,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_routes_intro",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "intro"
+      "norm_label": "intro",
+      "id": "src_routes_intro"
     },
     {
       "label": "AppRoutes()",
@@ -196,10 +207,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_routes_approutes",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "approutes()"
+      "norm_label": "approutes()",
+      "id": "src_routes_approutes"
     },
     {
       "label": "App()",
@@ -207,10 +218,10 @@
       "source_file": "src/routes.tsx",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "src_routes_app",
       "community": 7,
       "community_name": "routes.tsx",
-      "norm_label": "app()"
+      "norm_label": "app()",
+      "id": "src_routes_app"
     },
     {
       "label": "App.tsx",
@@ -552,17 +563,6 @@
       "community_name": "App.tsx",
       "norm_label": "app()",
       "id": "src_app_app"
-    },
-    {
-      "label": "main.tsx",
-      "file_type": "code",
-      "source_file": "src/main.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
-      "norm_label": "main.tsx",
-      "id": "src_main"
     },
     {
       "label": "package.json",
@@ -2195,15 +2195,27 @@
   ],
   "links": [
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_main",
+      "target": "src_app",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Intro.tsx",
       "source_location": "L188",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_intro",
-      "target": "src_pages_intro_featurecard",
-      "confidence_score": 1.0
+      "target": "src_pages_intro_featurecard"
     },
     {
       "relation": "contains",
@@ -2212,9 +2224,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_intro",
-      "target": "src_pages_intro_intro",
-      "confidence_score": 1.0
+      "target": "src_pages_intro_intro"
     },
     {
       "relation": "contains",
@@ -2223,9 +2235,9 @@
       "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_intro",
-      "target": "src_pages_intro_levelcard",
-      "confidence_score": 1.0
+      "target": "src_pages_intro_levelcard"
     },
     {
       "relation": "contains",
@@ -2234,9 +2246,9 @@
       "source_location": "L142",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_intro",
-      "target": "src_pages_intro_modecard",
-      "confidence_score": 1.0
+      "target": "src_pages_intro_modecard"
     },
     {
       "relation": "imports_from",
@@ -2246,9 +2258,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_components_icons",
-      "confidence_score": 1.0
+      "target": "src_components_icons"
     },
     {
       "relation": "imports",
@@ -2258,9 +2270,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_components_icons_iconcheck",
-      "confidence_score": 1.0
+      "target": "src_components_icons_iconcheck"
     },
     {
       "relation": "imports",
@@ -2270,9 +2282,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_components_icons_iconclock",
-      "confidence_score": 1.0
+      "target": "src_components_icons_iconclock"
     },
     {
       "relation": "imports",
@@ -2282,9 +2294,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_components_icons_iconx",
-      "confidence_score": 1.0
+      "target": "src_components_icons_iconx"
     },
     {
       "relation": "imports_from",
@@ -2294,9 +2306,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_context_authcontext",
-      "confidence_score": 1.0
+      "target": "src_context_authcontext"
     },
     {
       "relation": "imports",
@@ -2306,9 +2318,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_context_authcontext_useauth",
-      "confidence_score": 1.0
+      "target": "src_context_authcontext_useauth"
     },
     {
       "relation": "contains",
@@ -2317,33 +2329,21 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_testpage",
-      "target": "src_pages_testpage_testpage",
-      "confidence_score": 1.0
+      "target": "src_pages_testpage_testpage"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/main.tsx",
-      "source_location": "L5",
+      "source_file": "src/routes.tsx",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_routes"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/routes.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
       "source": "src_routes",
-      "target": "src_components_protectedroute",
-      "confidence_score": 1.0
+      "target": "src_components_protectedroute"
     },
     {
       "relation": "imports",
@@ -2353,9 +2353,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_components_protectedroute_protectedroute",
-      "confidence_score": 1.0
+      "target": "src_components_protectedroute_protectedroute"
     },
     {
       "relation": "imports",
@@ -2365,9 +2365,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_components_protectedroute_publicroute",
-      "confidence_score": 1.0
+      "target": "src_components_protectedroute_publicroute"
     },
     {
       "relation": "contains",
@@ -2376,9 +2376,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_app",
-      "confidence_score": 1.0
+      "target": "src_routes_app"
     },
     {
       "relation": "contains",
@@ -2387,9 +2387,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_approutes",
-      "confidence_score": 1.0
+      "target": "src_routes_approutes"
     },
     {
       "relation": "contains",
@@ -2398,9 +2398,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_dashboard",
-      "confidence_score": 1.0
+      "target": "src_routes_dashboard"
     },
     {
       "relation": "contains",
@@ -2409,9 +2409,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_forgotpassword",
-      "confidence_score": 1.0
+      "target": "src_routes_forgotpassword"
     },
     {
       "relation": "contains",
@@ -2420,9 +2420,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_intro",
-      "confidence_score": 1.0
+      "target": "src_routes_intro"
     },
     {
       "relation": "contains",
@@ -2431,9 +2431,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_login",
-      "confidence_score": 1.0
+      "target": "src_routes_login"
     },
     {
       "relation": "contains",
@@ -2442,9 +2442,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_resetpassword",
-      "confidence_score": 1.0
+      "target": "src_routes_resetpassword"
     },
     {
       "relation": "contains",
@@ -2453,9 +2453,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_signup",
-      "confidence_score": 1.0
+      "target": "src_routes_signup"
     },
     {
       "relation": "contains",
@@ -2464,9 +2464,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_testpage",
-      "confidence_score": 1.0
+      "target": "src_routes_testpage"
     },
     {
       "relation": "contains",
@@ -2475,9 +2475,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_upgrade",
-      "confidence_score": 1.0
+      "target": "src_routes_upgrade"
     },
     {
       "relation": "contains",
@@ -2486,9 +2486,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_routes",
-      "target": "src_routes_verifyemail",
-      "confidence_score": 1.0
+      "target": "src_routes_verifyemail"
     },
     {
       "relation": "contains",
@@ -2879,30 +2879,6 @@
       "confidence_score": 1.0,
       "source": "src_app_app",
       "target": "src_app_shufflearray"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_context_authcontext_authprovider"
     },
     {
       "relation": "contains",
@@ -4857,5 +4833,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "316d9d95bf712d12d7ea0c393e1c43978182e1a6"
+  "built_at_commit": "f526f620f81d8c58cd3ec97014799f7562f39857"
 }

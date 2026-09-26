@@ -800,6 +800,12 @@ export default function App() {
 
   const auth = useAuth();
 
+  // Ad banner that hides for Pro users
+  const AdBanner = ({ slotId }: { slotId: string }) => {
+    if (auth.isPro) return null;
+    return <GoogleAdBanner slotId={slotId} />;
+  };
+
   // Auto-detect mobile vs desktop
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -891,8 +897,15 @@ export default function App() {
   };
 
   const startTest = (mode: TestMode) => {
+    // Real Test mode requires Pro
+    if (mode === 'real' && !auth.isPro) {
+      setShowPremiumModal(true);
+      return;
+    }
     setTestMode(mode);
-    const selected = shuffleArray(currentData.questionBank).slice(0, currentData.questionsPerTest);
+    // Free users get 10 questions, Pro gets full set
+    const questionCount = auth.isPro ? currentData.questionsPerTest : Math.min(10, currentData.questionsPerTest);
+    const selected = shuffleArray(currentData.questionBank).slice(0, questionCount);
     setTestQuestions(selected);
     setAnswers({});
     setCurrentQuestionIndex(0);
@@ -1235,7 +1248,7 @@ export default function App() {
               <p className={`text-emerald-100 opacity-90 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
             </header>
             <section className={`flex-1 flex flex-col ${isMobile ? 'p-4 overflow-y-auto' : 'p-8'}`}>
-              <GoogleAdBanner slotId="intro-top-banner" />
+              <AdBanner slotId="intro-top-banner" />
 
               <div className={`mb-6 ${isMobile ? '' : 'mb-8'}`}>
                 <h2 className={`text-center font-bold text-gray-700 mb-3 ${isMobile ? 'text-base' : 'text-lg'}`}>{t.selectLevel}</h2>
@@ -1250,6 +1263,11 @@ export default function App() {
               <div className={`grid gap-4 flex-1 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 gap-6'}`}>
                 <div className={`border border-gray-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-white relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
                   <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
+                  {!auth.isPro && (
+                    <div className="absolute top-0 left-0 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
+                      <span>⭐</span> PRO
+                    </div>
+                  )}
                   <div className="text-emerald-600 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconClock className="w-5 h-5" />
                   </div>
@@ -1257,15 +1275,26 @@ export default function App() {
                   <p className={`text-gray-500 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.realTestDesc(currentData.questionsPerTest, currentData.timeMinutes)}
                   </p>
+                  {!auth.isPro && (
+                    <p className="text-amber-600 text-xs font-bold mb-2 flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                      Pro subscription required
+                    </p>
+                  )}
                   <button
                     onClick={() => startTest('real')}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto"
+                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'}`}
                   >
-                    {t.startReal}
+                    {auth.isPro ? t.startReal : '⭐ Upgrade to Unlock'}
                   </button>
                 </div>
                 <div className={`border border-blue-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-blue-50 relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
                   <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.guided}</div>
+                  <div className="absolute top-0 left-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg">
+                    FREE
+                  </div>
                   <div className="text-blue-600 mb-3 bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconBookOpen className="w-5 h-5" />
                   </div>
@@ -1281,7 +1310,7 @@ export default function App() {
                   </button>
                 </div>
               </div>
-              <GoogleAdBanner slotId="intro-bottom-banner" />
+              <AdBanner slotId="intro-bottom-banner" />
 
               {/* Affiliate: Recommended JLPT Books */}
               <BookRecommendations t={t} lang={lang} />
@@ -1516,7 +1545,7 @@ export default function App() {
               </div>
             )}
 
-            <GoogleAdBanner slotId="testing-mid-banner" />
+            <AdBanner slotId="testing-mid-banner" />
             {isMobile && <div className="h-4"></div>}
           </main>
 
@@ -1626,7 +1655,7 @@ export default function App() {
               )}
             </div>
 
-            <GoogleAdBanner slotId="results-banner" />
+            <AdBanner slotId="results-banner" />
 
             {/* Softer donation ask on results */}
             <div className="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 text-center">
