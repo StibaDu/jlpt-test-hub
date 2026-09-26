@@ -34,7 +34,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://jlpt-test-hub-api.kapioka-fam.workers.dev/api';
 
 async function fetchWithAuth(url: string, options: RequestInit = {}) {
   const accessToken = localStorage.getItem('access_token');

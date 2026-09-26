@@ -42,10 +42,11 @@ export const Dashboard: React.FC = () => {
 
   const fetchDashboardData = async () => {
     try {
+      const API = import.meta.env.VITE_API_URL || 'https://jlpt-test-hub-api.kapioka-fam.workers.dev/api';
       const [statsRes, historyRes, weakRes] = await Promise.all([
-        fetch('/api/progress/stats', { credentials: 'include' }),
-        fetch('/api/tests/history?limit=10', { credentials: 'include' }),
-        fetch('/api/progress/weak-points', { credentials: 'include' }),
+        fetch(`${API}/progress/stats`, { credentials: 'include', headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` } }),
+        fetch(`${API}/tests/history?limit=10`, { credentials: 'include', headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` } }),
+        fetch(`${API}/progress/weak-points`, { credentials: 'include', headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` } }),
       ]);
 
       if (statsRes.ok) setStats(await statsRes.json());

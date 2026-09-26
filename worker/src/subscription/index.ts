@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
+import Stripe from 'stripe';
 
 export const subscriptionRoutes = new Hono()
   .get('/status', async (c) => {
@@ -25,16 +26,74 @@ export const subscriptionRoutes = new Hono()
     const { plan } = c.req.valid('json');
     const user = c.get('user');
 
+    // Check existing subscription
     const existing = await c.env.DB.prepare(
       "SELECT * FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing')"
     ).bind(user.sub).first();
 
     if (existing) return c.json({ error: 'Already have an active subscription' }, 400);
 
-    return c.json({
-      sessionId: 'cs_test_' + crypto.randomUUID(),
-      url: `https://checkout.stripe.com/pay/cs_test_${crypto.randomUUID()}`,
+    // Get user email
+    const userRow = await c.env.DB.prepare('SELECT email FROM users WHERE id = ?').bind(user.sub).first();
+    if (!userRow) return c.json({ error: 'User not found' }, 404);
+
+    // Stripe price IDs — replace with your actual price IDs after creating products
+    const PRICE_IDS: Record<string, string> = {
+      monthly: c.env.STRIPE_MONTHLY_PRICE_ID || 'price_monthly_placeholder',
+      yearly: c.env.STRIPE_YEARLY_PRICE_ID || 'price_yearly_placeholder',
+    };
+
+    const priceId = PRICE_IDS[plan];
+    if (!priceId || priceId.includes('placeholder')) {
+      return c.json({ error: 'Stripe not configured yet. Please set up products in Stripe dashboard.' }, 500);
+    }
+
+    // Create Stripe Checkout Session
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const session = await stripe.checkout.sessions.create({
+      customer_email: userRow.email,
+      line_items: [{ price: priceId, quantity: 1 }],
+      mode: 'subscription',
+      success_url: `${c.env.APP_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${c.env.APP_URL}/upgrade`,
+      metadata: { user_id: user.sub, plan },
     });
+
+    return c.json({ sessionId: session.id, url: session.url });
+  })
+  .post('/confirm', zValidator('json', z.object({
+    sessionId: z.string(),
+  })), async (c) => {
+    const { sessionId } = c.req.valid('json');
+    const user = c.get('user');
+
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+    if (session.payment_status !== 'paid' && session.mode === 'subscription') {
+      // For subscriptions, check if subscription exists
+      if (!session.subscription) {
+        return c.json({ error: 'Payment not completed' }, 400);
+      }
+    }
+
+    // Get subscription details
+    const subscription = session.subscription as Stripe.Subscription;
+    const subId = crypto.randomUUID();
+
+    await c.env.DB.prepare(
+      'INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    ).bind(
+      subId, user.sub, 'active',
+      session.metadata?.plan || 'monthly',
+      subscription.id,
+      session.customer as string,
+      subscription.current_period_start,
+      subscription.current_period_end,
+      Date.now(), Date.now()
+    ).run();
+
+    return c.json({ success: true, subscriptionId: subId });
   })
   .post('/cancel', async (c) => {
     const user = c.get('user');
@@ -43,6 +102,12 @@ export const subscriptionRoutes = new Hono()
     ).bind(user.sub).first();
 
     if (!sub) return c.json({ error: 'No active subscription' }, 400);
+
+    // Cancel in Stripe
+    if (sub.stripe_subscription_id) {
+      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+      await stripe.subscriptions.update(sub.stripe_subscription_id, { cancel_at_period_end: true });
+    }
 
     await c.env.DB.prepare(
       'UPDATE subscriptions SET cancel_at_period_end = TRUE, updated_at = ? WHERE id = ?'
@@ -58,9 +123,32 @@ export const subscriptionRoutes = new Hono()
 
     if (!sub) return c.json({ error: 'No subscription to resume' }, 400);
 
+    if (sub.stripe_subscription_id) {
+      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+      await stripe.subscriptions.update(sub.stripe_subscription_id, { cancel_at_period_end: false });
+    }
+
     await c.env.DB.prepare(
       'UPDATE subscriptions SET cancel_at_period_end = FALSE, updated_at = ? WHERE id = ?'
     ).bind(Date.now(), sub.id).run();
 
     return c.json({ message: 'Subscription resumed' });
+  })
+  .post('/billing-portal', async (c) => {
+    const user = c.get('user');
+    const sub = await c.env.DB.prepare(
+      "SELECT stripe_customer_id FROM subscriptions WHERE user_id = ? AND status = 'active'"
+    ).bind(user.sub).first();
+
+    if (!sub || !sub.stripe_customer_id) {
+      return c.json({ error: 'No active subscription' }, 400);
+    }
+
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const session = await stripe.billingPortal.sessions.create({
+      customer: sub.stripe_customer_id,
+      return_url: `${c.env.APP_URL}/dashboard`,
+    });
+
+    return c.json({ url: session.url });
   });

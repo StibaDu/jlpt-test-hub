@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
+import Stripe from 'stripe';
 import { authRoutes } from '../auth';
 import { userRoutes } from '../user';
 import { subscriptionRoutes } from '../subscription';
@@ -13,6 +14,10 @@ type Bindings = {
   SESSIONS: KVNamespace;
   RATE_LIMIT: KVNamespace;
   JWT_SECRET: string;
+  STRIPE_SECRET_KEY: string;
+  STRIPE_WEBHOOK_SECRET: string;
+  STRIPE_MONTHLY_PRICE_ID: string;
+  STRIPE_YEARLY_PRICE_ID: string;
   APP_URL: string;
 };
 
@@ -71,8 +76,74 @@ api.route('/admin', adminRoutes);
 
 app.route('/api', api);
 
-// Webhooks (no auth, verified via signature)
-app.post('/api/webhooks/stripe', async (c) => c.json({ received: true }));
+// Stripe webhook (no auth, verified via signature)
+app.post('/api/webhooks/stripe', async (c) => {
+  const signature = c.req.header('stripe-signature');
+  if (!signature) return c.json({ error: 'Missing signature' }, 400);
+
+  const body = await c.req.text();
+  const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+
+  let event: Stripe.Event;
+  try {
+    event = await stripe.webhooks.constructEventAsync(body, signature, c.env.STRIPE_WEBHOOK_SECRET);
+  } catch (err: any) {
+    return c.json({ error: `Webhook signature verification failed: ${err.message}` }, 400);
+  }
+
+  // Log event
+  await c.env.DB.prepare(
+    'INSERT INTO webhook_events (id, provider, event_type, payload_json, created_at) VALUES (?, ?, ?, ?, ?)'
+  ).bind(crypto.randomUUID(), 'stripe', event.type, JSON.stringify(event), Date.now()).run();
+
+  switch (event.type) {
+    case 'checkout.session.completed': {
+      const session = event.data.object as Stripe.Checkout.Session;
+      const userId = session.metadata?.user_id;
+      const plan = session.metadata?.plan || 'monthly';
+      const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+
+      if (userId) {
+        await c.env.DB.prepare(
+          'INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+        ).bind(
+          crypto.randomUUID(), userId, 'active', plan,
+          subscription.id, session.customer as string,
+          subscription.current_period_start, subscription.current_period_end,
+          Date.now(), Date.now()
+        ).run();
+      }
+      break;
+    }
+    case 'customer.subscription.updated': {
+      const sub = event.data.object as Stripe.Subscription;
+      const status = sub.cancel_at_period_end ? 'active' : (sub.status === 'canceled' ? 'cancelled' : sub.status);
+      await c.env.DB.prepare(
+        'UPDATE subscriptions SET status = ?, current_period_end = ?, cancel_at_period_end = ?, updated_at = ? WHERE stripe_subscription_id = ?'
+      ).bind(status, sub.current_period_end, sub.cancel_at_period_end, Date.now(), sub.id).run();
+      break;
+    }
+    case 'customer.subscription.deleted': {
+      const sub = event.data.object as Stripe.Subscription;
+      await c.env.DB.prepare(
+        "UPDATE subscriptions SET status = 'cancelled', cancelled_at = ?, updated_at = ? WHERE stripe_subscription_id = ?"
+      ).bind(Date.now(), Date.now(), sub.id).run();
+      break;
+    }
+    case 'invoice.payment_failed': {
+      const invoice = event.data.object as Stripe.Invoice;
+      if (invoice.subscription) {
+        await c.env.DB.prepare(
+          "UPDATE subscriptions SET status = 'past_due', updated_at = ? WHERE stripe_subscription_id = ?"
+        ).bind(Date.now(), invoice.subscription as string).run();
+      }
+      break;
+    }
+  }
+
+  return c.json({ received: true });
+});
+
 app.post('/api/webhooks/paypal', async (c) => c.json({ received: true }));
 
 export default app;
