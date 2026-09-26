@@ -41,7 +41,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
         }
         const result = await signup(email, password, name);
         if (result.success) {
-          setSuccess('Account created! Check your email to verify, then log in.');
+          setSuccess('Account created! You can now sign in.');
           setMode('login');
         } else {
           setError(result.error || 'Signup failed');

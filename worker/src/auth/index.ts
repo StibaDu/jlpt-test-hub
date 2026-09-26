@@ -63,13 +63,10 @@ export const authRoutes = new Hono()
     const now = Date.now();
 
     await db.prepare(
-      'INSERT INTO users (id, email, password_hash, name, email_verification_token, email_verification_expires, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
-    ).bind(userId, email.toLowerCase(), passwordHash, name, verificationToken, now + 86400000, now, now).run();
+      'INSERT INTO users (id, email, password_hash, name, email_verified, created_at, updated_at) VALUES (?, ?, ?, ?, TRUE, ?, ?)'
+    ).bind(userId, email.toLowerCase(), passwordHash, name, now, now).run();
 
-    // TODO: Send verification email
-    console.log(`Verify URL: ${c.env.APP_URL}/verify-email?token=${verificationToken}`);
-
-    return c.json({ message: 'Account created. Please check your email to verify.' }, 201);
+    return c.json({ message: 'Account created successfully. You can now log in.' }, 201);
   })
   .post('/login', zValidator('json', z.object({
     email: z.string().email(),
@@ -84,7 +81,8 @@ export const authRoutes = new Hono()
     const valid = await verifyPassword(user.password_hash, password);
     if (!valid) return c.json({ error: 'Invalid credentials' }, 401);
 
-    if (!user.email_verified) return c.json({ error: 'Please verify your email first', code: 'EMAIL_NOT_VERIFIED' }, 403);
+    // Email verification disabled — auto-verified on signup
+    // if (!user.email_verified) return c.json({ error: 'Please verify your email first', code: 'EMAIL_NOT_VERIFIED' }, 403);
 
     const accessToken = await createJWT(
       { sub: user.id, email: user.email, exp: Math.floor(Date.now() / 1000) + 900 },

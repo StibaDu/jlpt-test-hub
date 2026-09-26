@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 40 files · ~53,621 words
+- 40 files · ~53,784 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 206 nodes · 243 edges · 12 communities
+- 206 nodes · 242 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8a09055a`
+- Built from commit: `881656b0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,12 +32,12 @@
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
 4. `users` - 6 edges
-5. `App()` - 5 edges
-6. `scripts` - 5 edges
-7. `Monetization setup` - 5 edges
+5. `scripts` - 5 edges
+6. `Monetization setup` - 5 edges
+7. `App()` - 4 edges
 8. `getConsent()` - 3 edges
 9. `CookieBanner()` - 3 edges
-10. `useAuth()` - 3 edges
+10. `fetchWithAuth()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -120,4 +120,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.11822660098522167 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.0620782726045884 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06072874493927125 - nodes in this community are weakly interconnected._
