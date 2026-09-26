@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels } from './data';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
+import { useAuth } from './useAuth';
+import { AuthModal } from './AuthModal';
 
 interface UiStrings {
   [key: string]: any;
@@ -407,8 +409,23 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade modal
-const PremiumModal = ({ show, onClose, t }: { show: boolean; onClose: () => void; t: any }) => {
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void> }) => {
+  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
+  const [loading, setLoading] = useState(false);
+
   if (!show) return null;
+
+  const handleUpgrade = async () => {
+    if (!isLoggedIn) {
+      onClose();
+      onSignIn();
+      return;
+    }
+    setLoading(true);
+    await onUpgrade(selectedPlan);
+    setLoading(false);
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={onClose}>
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
@@ -444,15 +461,48 @@ const PremiumModal = ({ show, onClose, t }: { show: boolean; onClose: () => void
           <div className="text-xs text-gray-600">{t.proFeature5}</div>
           <div className="text-xs text-gray-600">{t.proFeature6}</div>
         </div>
-        <a
-          href="https://checkout.stripe.com/pay/pro"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
-        >
-          {t.proCTA}
-        </a>
-        <div className="text-center text-xs text-gray-400 mt-2">{t.proPrice}</div>
+        {isPro ? (
+          <>
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-4 text-center">
+              <p className="text-emerald-700 font-bold text-sm">You're a Pro member! 🎉</p>
+            </div>
+            <button
+              onClick={async () => { await onCancelSub(); onClose(); }}
+              className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-4 rounded-xl transition-all active:scale-95 text-sm"
+            >
+              Cancel Subscription
+            </button>
+          </>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <button
+                onClick={() => setSelectedPlan('monthly')}
+                className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+              >
+                <div className="text-xs text-gray-500">Monthly</div>
+                <div className="text-xl font-black text-gray-900">$4.99</div>
+                <div className="text-xs text-gray-400">/month</div>
+              </button>
+              <button
+                onClick={() => setSelectedPlan('yearly')}
+                className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+              >
+                <div className="text-xs text-gray-500">Yearly</div>
+                <div className="text-xl font-black text-gray-900">$29.99</div>
+                <div className="text-xs text-emerald-600 font-bold">Save 50%</div>
+              </button>
+            </div>
+            <button
+              onClick={handleUpgrade}
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+            >
+              {loading ? 'Redirecting to Stripe...' : isLoggedIn ? t.proCTA : 'Sign in to upgrade'}
+            </button>
+            <div className="text-center text-xs text-gray-400 mt-2">{t.proPrice}</div>
+          </>
+        )}
         <button onClick={onClose} className="w-full mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
           {t.proCancel}
         </button>
@@ -746,6 +796,9 @@ export default function App() {
   const [showSellerModal, setShowSellerModal] = useState(false);
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
   const [lang, setLang] = useState<Lang>('en');
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const auth = useAuth();
 
   // Auto-detect mobile vs desktop
   const [isMobile, setIsMobile] = useState(() => {
@@ -861,8 +914,27 @@ export default function App() {
   };
 
   const submitTest = useCallback(() => {
+    // Save test result if logged in
+    if (auth.isLoggedIn && testQuestions.length > 0) {
+      let score = 0;
+      testQuestions.forEach((q, index) => {
+        if (answers[index] === q.correctIndex) score++;
+      });
+      const percentage = Math.round((score / testQuestions.length) * 100);
+      const timeSpent = testMode === 'real' ? (currentData.timeMinutes * 60 - timeRemaining) : 0;
+
+      auth.saveTestResult({
+        level: selectedLevel,
+        mode: testMode,
+        score: percentage,
+        correctCount: score,
+        totalQuestions: testQuestions.length,
+        timeSpent,
+        answers,
+      });
+    }
     setGameState('results');
-  }, []);
+  }, [auth.isLoggedIn, auth.saveTestResult, testQuestions, answers, testMode, selectedLevel, currentData.timeMinutes, timeRemaining]);
 
   useEffect(() => {
     let timer: ReturnType<typeof setInterval> | undefined;
@@ -1051,14 +1123,55 @@ export default function App() {
     return (
       <nav aria-label="Quick Actions" className="flex items-center gap-1.5 ml-auto">
         {renderLevelSwitcher()}
-        <button
-          onClick={() => setShowPremiumModal(true)}
-          title={t.goPro}
-          className="flex items-center gap-1 text-amber-700 hover:text-amber-800 bg-amber-100 hover:bg-amber-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
-        >
-          <span>⭐</span>
-          <span className="hidden sm:inline">{t.goPro}</span>
-        </button>
+        {auth.isLoggedIn ? (
+          <>
+            {auth.isPro && (
+              <span className="flex items-center gap-1 text-amber-700 bg-amber-100 px-2 py-1.5 rounded-md text-xs font-bold">
+                <span>⭐</span>
+                <span className="hidden sm:inline">PRO</span>
+              </span>
+            )}
+            <button
+              onClick={() => setShowPremiumModal(true)}
+              title={t.goPro}
+              className={`flex items-center gap-1 px-2 py-1.5 rounded-md text-xs font-bold transition-colors ${auth.isPro ? 'text-gray-400 bg-gray-100' : 'text-amber-700 hover:text-amber-800 bg-amber-100 hover:bg-amber-200'}`}
+            >
+              {!auth.isPro && <span>⭐</span>}
+              <span className="hidden sm:inline">{auth.isPro ? 'Manage' : t.goPro}</span>
+            </button>
+            <button
+              onClick={auth.logout}
+              title="Sign out"
+              className="flex items-center gap-1 text-gray-600 hover:text-red-600 bg-gray-100 hover:bg-red-50 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+            >
+              <span className="hidden sm:inline">{auth.user?.name?.split(' ')[0] || 'Account'}</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={() => setShowPremiumModal(true)}
+              title={t.goPro}
+              className="flex items-center gap-1 text-amber-700 hover:text-amber-800 bg-amber-100 hover:bg-amber-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+            >
+              <span>⭐</span>
+              <span className="hidden sm:inline">{t.goPro}</span>
+            </button>
+            <button
+              onClick={() => setShowAuthModal(true)}
+              title="Sign in"
+              className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span className="hidden sm:inline">Sign In</span>
+            </button>
+          </>
+        )}
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
@@ -1498,6 +1611,19 @@ export default function App() {
                   {t.backToStart}
                 </button>
               </div>
+
+              {!auth.isLoggedIn && (
+                <div className="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+                  <p className="text-emerald-700 font-bold text-sm mb-2">Want to save your progress?</p>
+                  <p className="text-emerald-600 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
+                  <button
+                    onClick={() => setShowAuthModal(true)}
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
+                  >
+                    Create free account →
+                  </button>
+                </div>
+              )}
             </div>
 
             <GoogleAdBanner slotId="results-banner" />
@@ -1606,7 +1732,33 @@ export default function App() {
       />
       {renderKanjiModal()}
       {renderSupportModal()}
-      <PremiumModal show={showPremiumModal} onClose={() => setShowPremiumModal(false)} t={t} />
+      <PremiumModal
+        show={showPremiumModal}
+        onClose={() => setShowPremiumModal(false)}
+        t={t}
+        isLoggedIn={auth.isLoggedIn}
+        isPro={auth.isPro}
+        onUpgrade={async (plan) => {
+          const result = await auth.upgrade(plan);
+          if (result.success && result.url) {
+            window.location.href = result.url;
+          } else if (result.error) {
+            alert(result.error);
+          }
+        }}
+        onSignIn={() => setShowAuthModal(true)}
+        onCancelSub={async () => {
+          const result = await auth.cancelSubscription();
+          if (result.error) alert(result.error);
+        }}
+      />
+      <AuthModal
+        show={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        login={auth.login}
+        signup={auth.signup}
+        forgotPassword={auth.forgotPassword}
+      />
       <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
       <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
       <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>

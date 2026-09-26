@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 38 files · ~51,650 words
+- 38 files · ~51,638 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 199 nodes · 236 edges · 12 communities
+- 199 nodes · 235 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `84ed7d09`
+- Built from commit: `316d9d95`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,7 +28,7 @@
 - dependencies
 
 ## God Nodes (most connected - your core abstractions)
-1. `useAuth()` - 20 edges
+1. `useAuth()` - 19 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
 4. `users` - 6 edges
@@ -40,8 +40,6 @@
 10. `CookieBanner()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `TestPage()` --calls--> `useAuth()`  [EXTRACTED]
-  src/pages/TestPage.tsx → src/context/AuthContext.tsx
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -50,6 +48,8 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
+- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -90,7 +90,7 @@ Nodes (9): Dashboard, ForgotPassword, Intro, Login, ResetPassword, Signup, TestP
 
 ### Community 8 - "Icons.tsx"
 Cohesion: 0.24
-Nodes (5): IconCheck(), IconClock(), IconX(), SvgProps, TestPage()
+Nodes (4): IconCheck(), IconClock(), IconX(), SvgProps
 
 ### Community 9 - "0001_initial_schema.sql"
 Cohesion: 0.36
@@ -101,7 +101,7 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **76 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+71 more)
+- **76 isolated node(s):** `Login`, `Signup`, `ForgotPassword`, `ResetPassword`, `VerifyEmail` (+71 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -112,8 +112,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
   _High betweenness centrality (0.033) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **What connects `Login`, `Signup`, `ForgotPassword` to the rest of the system?**
   _76 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
