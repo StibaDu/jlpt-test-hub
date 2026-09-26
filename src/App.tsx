@@ -93,7 +93,7 @@ const uiTranslations: UiStrings = {
     freeFeatures: "30 questions per test, both test modes, furigana dictionary",
     proFeatures: "Unlimited questions, test history, progress analytics, weak-point tracking, ad-free, all 150+ questions unlocked, downloadable PDF results",
     proPrice: "$4.99/month or $29.99/year",
-    proCTA: "Upgrade with PayPal",
+    proCTA: "Upgrade with Stripe",
     proCancel: "Maybe later",
     proFeature1: "✓ Unlimited questions per test (vs. 30 free)",
     proFeature2: "✓ Full test history & progress tracking",
@@ -188,7 +188,7 @@ const uiTranslations: UiStrings = {
     freeFeatures: "30 Fragen pro Test, beide Modi, Furigana-Wörterbuch",
     proFeatures: "Unbegrenzte Fragen, Verlauf, Analyse, werbefrei, alle 150+ Fragen, PDF-Export",
     proPrice: "$4.99/Monat oder $29.99/Jahr",
-    proCTA: "Mit PayPal upgraden",
+    proCTA: "Mit Stripe upgraden",
     proCancel: "Vielleicht später",
     proFeature1: "✓ Unbegrenzte Fragen pro Test (vs. 30 kostenlos)",
     proFeature2: "✓ Vollständiger Testverlauf & Fortschrittsverfolgung",
@@ -445,7 +445,7 @@ const PremiumModal = ({ show, onClose, t }: { show: boolean; onClose: () => void
           <div className="text-xs text-gray-600">{t.proFeature6}</div>
         </div>
         <a
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID"
+          href="https://checkout.stripe.com/pay/pro"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
@@ -619,7 +619,7 @@ const TermsContent = () => (
     <p>The free tier includes: 30 questions per test, both test modes (real and learning), the furigana dictionary, and all JLPT levels. No registration required.</p>
 
     <h3 className="font-bold text-gray-800 text-base">4. Premium Subscription (Pro)</h3>
-    <p>Pro subscription is $4.99/month or $29.99/year, billed via PayPal. Features include: unlimited questions per test, test history, ad-free experience, and downloadable results. Subscription auto-renews until cancelled.</p>
+    <p>Pro subscription is $4.99/month or $29.99/year, billed via Stripe. Features include: unlimited questions per test, test history, ad-free experience, and downloadable results. Subscription auto-renews until cancelled.</p>
 
     <h3 className="font-bold text-gray-800 text-base">5. Refund Policy</h3>
     <p><strong>Monthly subscriptions:</strong> You may request a full refund within 7 days of purchase if you have not used Pro features more than once.</p>
@@ -650,7 +650,7 @@ const SellerDisclosureContent = () => (
       <p><strong>所在地 (Address):</strong> [YOUR ADDRESS IN JAPAN]</p>
       <p><strong>連絡先 (Contact):</strong> [YOUR EMAIL] / [YOUR PHONE]</p>
       <p><strong>販売価格 (Price):</strong> Free (basic), $4.99/month or $29.99/year (Pro)</p>
-      <p><strong>支払方法 (Payment):</strong> PayPal, Buy Me a Coffee</p>
+      <p><strong>支払方法 (Payment):</strong> Stripe, Buy Me a Coffee</p>
       <p><strong>引渡し時期 (Delivery):</strong> Immediate (digital service, browser-based)</p>
       <p><strong>返金・キャンセル (Refund/Cancellation):</strong> See Terms of Service. Monthly: 7-day refund window. Annual: 14-day full refund, then pro-rated.</p>
       <p><strong>動作環境 (Requirements):</strong> Modern web browser with JavaScript enabled</p>
