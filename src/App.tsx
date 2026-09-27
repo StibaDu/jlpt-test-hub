@@ -486,7 +486,7 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
@@ -642,7 +642,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                       <p className="text-amber-700 text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
                     </div>
                     <button
-                      onClick={async () => { await onStartSrsReview(); onClose(); }}
+                      onClick={async () => { await onStartSrsReview(); }}
                       className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartDue.replace('{n}', String(srsDueCount))}
@@ -656,7 +656,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                       <p className="text-amber-700 text-xs mt-0.5">{t.srsPracticeDesc.replace('{n}', String(srsNewCount))}</p>
                     </div>
                     <button
-                      onClick={async () => { await onStartSrsPractice(); onClose(); }}
+                      onClick={async () => { await onStartSrsPractice(); }}
                       className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartPractice.replace('{n}', String(Math.min(10, srsNewCount)))}
@@ -738,7 +738,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
 
                       <div className="flex gap-2 mt-3">
                         <button
-                          onClick={() => { onStartNotebookTraining(notebookData.questions.map((wq: any) => wq.question_id)); onClose(); }}
+                          onClick={() => { onStartNotebookTraining(notebookData.questions.map((wq: any) => ({ id: wq.question_id, level: wq.level }))); }}
                           className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                         >
                           {t.notebookTrain} ({Math.min(20, notebookData.questions.length)})
@@ -780,7 +780,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                               {cat.errorRate}%
                             </span>
                             <button
-                              onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, cat.category); onClose(); }}
+                              onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, cat.category); }}
                               className="text-[10px] font-bold text-purple-700 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded-lg transition-colors shrink-0"
                             >
                               {t.catDrill}
@@ -1606,11 +1606,18 @@ export default function App() {
   };
 
   // Launch a drill test from specific question IDs (mistake notebook / category drill / SRS)
-  const startDrillFromIds = (ids: number[], mode: 'learning' | 'real' = 'learning') => {
+  const startDrillFromIds = (ids: Array<number | { id: number; level: string }>, mode: 'learning' | 'real' = 'learning') => {
     if (!ids.length) return;
-    const idSet = new Set(ids);
     const allBanks = [...levelData['N5'].questionBank.map((q: any) => ({ ...q, level: 'N5' as const })), ...levelData['N4'].questionBank.map((q: any) => ({ ...q, level: 'N4' as const })), ...levelData['N3'].questionBank.map((q: any) => ({ ...q, level: 'N3' as const }))];
-    const picked = allBanks.filter((q: any) => idSet.has(q.id));
+    let picked: any[];
+    if (typeof ids[0] === 'object') {
+      // Level-qualified pairs: match exact (id, level)
+      const pairSet = new Set((ids as any[]).map(p => `${p.level}-${p.id}`));
+      picked = allBanks.filter((q: any) => pairSet.has(`${q.level}-${q.id}`));
+    } else {
+      const idSet = new Set(ids as number[]);
+      picked = allBanks.filter((q: any) => idSet.has(q.id));
+    }
     if (picked.length === 0) return;
     setTestMode(mode);
     setTestQuestions(shuffleArray(picked).slice(0, Math.min(20, picked.length)));
@@ -1660,8 +1667,8 @@ export default function App() {
   const startSrsReview = async () => {
     const data = await auth.fetchSrsDue();
     if (!data) return;
-    const dueIds = data.due?.map((q: any) => q.question_id) || [];
-    const newIds = data.newCards?.map((q: any) => q.question_id) || [];
+    const dueIds = data.due?.map((q: any) => ({ id: q.question_id, level: q.level })) || [];
+    const newIds = data.newCards?.map((q: any) => ({ id: q.question_id, level: q.level })) || [];
     const ids = [...dueIds, ...newIds].slice(0, 15);
     if (!ids.length) return;
     // Remember mode for SRS answer recording
@@ -1673,7 +1680,7 @@ export default function App() {
   const startSrsPractice = async () => {
     const data = await auth.fetchSrsDue();
     if (!data) return;
-    const newIds = data.newCards?.map((q: any) => q.question_id) || [];
+    const newIds = data.newCards?.map((q: any) => ({ id: q.question_id, level: q.level })) || [];
     if (!newIds.length) return;
     setTestMode('learning');
     setSrsReviewActive(true);
@@ -2622,7 +2629,7 @@ export default function App() {
                   </div>
                   {auth.isPro && (
                     <button
-                      onClick={() => { setSrsReviewActive(true); startDrillFromIds(results.wrongQuestions.map((w: any) => w.q.id)); }}
+                      onClick={() => { setSrsReviewActive(true); startDrillFromIds(results.wrongQuestions.map((w: any) => ({ id: w.q.id, level: (w.q as any).level || selectedLevel }))); }}
                       className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                     >
                       🎯 {lang === 'de' ? 'Diese Fragen jetzt üben' : 'Drill these now'}
@@ -2843,7 +2850,7 @@ export default function App() {
         onStartSrsPractice={startSrsPractice}
         notebookData={notebookData}
         onStartSrsReview={startSrsReview}
-        onStartNotebookTraining={(ids) => { setSrsReviewActive(true); startDrillFromIds(ids); }}
+        onStartNotebookTraining={(pairs) => { setSrsReviewActive(true); startDrillFromIds(pairs); }}
         onRefreshNotebook={() => auth.fetchMistakeNotebook()}
         onSetNotebookData={setNotebookData}
         onExportNotebookPdf={exportNotebookPdf}
