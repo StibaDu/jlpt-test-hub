@@ -954,7 +954,7 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="#datenschutz" onClick={(e) => { e.preventDefault(); onPrivacy(); }} className={footerLink}>Datenschutz</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
-          <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className={footerLink}>AGB</a>
+          <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className={footerLink}>AGB — Terms &amp; Conditions</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className={footerLink}>Anbieterkennzeichnung</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
