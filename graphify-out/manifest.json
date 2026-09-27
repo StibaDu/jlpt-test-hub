@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "worker/src/progress/index.ts": {
-    "mtime": 1790529930.8992636,
-    "ast_hash": "706331bf9a1ec9c18cbe11b75f5d606b",
+    "mtime": 1790534242.5957928,
+    "ast_hash": "1f0d81f1f754431608ea8cdf83a0d60f",
     "semantic_hash": ""
   },
   "worker/src/subscription/index.ts": {

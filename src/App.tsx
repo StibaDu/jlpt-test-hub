@@ -2858,6 +2858,52 @@ export default function App() {
         </main>
       );
     }
+    if (gameState === 'profile') {
+      return <ProfilePage
+        onClose={goHome}
+        nav={renderNavControls()}
+        isMobile={isMobile}
+        t={t}
+        isLoggedIn={auth.isLoggedIn}
+        isPro={auth.isPro}
+        user={auth.user}
+        subscription={auth.subscription}
+        onUpgrade={async (plan) => {
+          const result = await auth.upgrade(plan);
+          if (result.success && result.url) {
+            window.location.href = result.url;
+          } else if (result.error) {
+            alert(result.error);
+          }
+        }}
+        onSignIn={() => setShowAuthModal(true)}
+        onCancelSub={async () => {
+          const result = await auth.cancelSubscription();
+          if (result.error) alert(result.error);
+        }}
+        onLogout={auth.logout}
+        onFetchProgress={auth.fetchProgress}
+        onFetchWeakness={() => auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); })}
+        lang={lang}
+        weaknessData={weaknessData}
+        srsDueCount={srsDueCount}
+        srsNewCount={srsNewCount}
+        onStartSrsPractice={startSrsPractice}
+        notebookData={notebookData}
+        onStartSrsReview={startSrsReview}
+        onStartNotebookTraining={(pairs) => { setSrsReviewActive(true); startDrillFromIds(pairs); }}
+        onRefreshNotebook={() => auth.fetchMistakeNotebook()}
+        onSetNotebookData={setNotebookData}
+        onExportNotebookPdf={exportNotebookPdf}
+        onStartCategoryDrill={startCategoryDrill}
+        selectedLevelForDrill={selectedLevel}
+        onMasterQuestion={async (qid) => {
+          await auth.masterQuestion(qid, selectedLevel);
+          const fresh = await auth.fetchWeaknessSummary();
+          setWeaknessData(fresh);
+        }}
+      />;
+    }
     return null;
   };
 
@@ -2907,50 +2953,7 @@ export default function App() {
           <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
         </div>
       )}
-      {gameState === 'profile' && <ProfilePage
-        onClose={goHome}
-        nav={renderNavControls()}
-        isMobile={isMobile}
-        t={t}
-        isLoggedIn={auth.isLoggedIn}
-        isPro={auth.isPro}
-        user={auth.user}
-        subscription={auth.subscription}
-        onUpgrade={async (plan) => {
-          const result = await auth.upgrade(plan);
-          if (result.success && result.url) {
-            window.location.href = result.url;
-          } else if (result.error) {
-            alert(result.error);
-          }
-        }}
-        onSignIn={() => setShowAuthModal(true)}
-        onCancelSub={async () => {
-          const result = await auth.cancelSubscription();
-          if (result.error) alert(result.error);
-        }}
-        onLogout={auth.logout}
-        onFetchProgress={auth.fetchProgress}
-        onFetchWeakness={() => auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); })}
-        lang={lang}
-        weaknessData={weaknessData}
-        srsDueCount={srsDueCount}
-        srsNewCount={srsNewCount}
-        onStartSrsPractice={startSrsPractice}
-        notebookData={notebookData}
-        onStartSrsReview={startSrsReview}
-        onStartNotebookTraining={(pairs) => { setSrsReviewActive(true); startDrillFromIds(pairs); }}
-        onRefreshNotebook={() => auth.fetchMistakeNotebook()}
-        onSetNotebookData={setNotebookData}
-        onExportNotebookPdf={exportNotebookPdf}
-        onStartCategoryDrill={startCategoryDrill}
-        selectedLevelForDrill={selectedLevel}
-        onMasterQuestion={async (qid) => {
-          await auth.masterQuestion(qid, selectedLevel);
-          const fresh = await auth.fetchWeaknessSummary();
-          setWeaknessData(fresh);
-        }}
-      />}
+
       <AuthModal
         show={showAuthModal}
         onClose={() => setShowAuthModal(false)}
