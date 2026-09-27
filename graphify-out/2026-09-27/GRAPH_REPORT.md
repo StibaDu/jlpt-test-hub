@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 44 files · ~75,145 words
+- 44 files · ~75,741 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ed8183f5`
+- Built from commit: `51e52181`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,7 +32,7 @@
 1. `useAuth()` - 18 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
-4. `useAuth()` - 7 edges
+4. `useAuth()` - 6 edges
 5. `users` - 6 edges
 6. `App()` - 5 edges
 7. `enqueueResult()` - 5 edges
@@ -41,8 +41,6 @@
 10. `speak()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `useAuth()`  [EXTRACTED]
-  src/App.tsx → src/useAuth.ts
 - `useAuth()` --indirect_call--> `queueSize()`  [INFERRED]
   src/useAuth.ts → src/resultQueue.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -51,6 +49,8 @@
   src/pages/ForgotPassword.tsx → src/context/AuthContext.tsx
 - `Login()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Login.tsx → src/context/AuthContext.tsx
+- `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -125,4 +125,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06028368794326241 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.061170212765957445 - nodes in this community are weakly interconnected._

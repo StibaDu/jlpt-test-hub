@@ -334,15 +334,125 @@
       "norm_label": "app()"
     },
     {
+      "label": "kanjiReadings.ts",
+      "file_type": "code",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_kanjireadings",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "kanjireadings.ts"
+    },
+    {
+      "label": "KanjiReading",
+      "file_type": "code",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "src_data_kanjireadings_kanjireading",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "kanjireading"
+    },
+    {
+      "label": "kanjiReadings",
+      "file_type": "code",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_data_kanjireadings_kanjireadings",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "kanjireadings"
+    },
+    {
+      "label": "lookupReadings()",
+      "file_type": "code",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L288",
+      "_origin": "ast",
+      "id": "src_data_kanjireadings_lookupreadings",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "lookupreadings()"
+    },
+    {
+      "label": "n3.ts",
+      "file_type": "code",
+      "source_file": "src/data/n3.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_n3",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n3.ts"
+    },
+    {
+      "label": "n3Data",
+      "file_type": "code",
+      "source_file": "src/data/n3.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "src_data_n3_n3data",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n3data"
+    },
+    {
+      "label": "n4.ts",
+      "file_type": "code",
+      "source_file": "src/data/n4.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_n4",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n4.ts"
+    },
+    {
+      "label": "n4Data",
+      "file_type": "code",
+      "source_file": "src/data/n4.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "src_data_n4_n4data",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n4data"
+    },
+    {
+      "label": "n5.ts",
+      "file_type": "code",
+      "source_file": "src/data/n5.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_n5",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n5.ts"
+    },
+    {
+      "label": "n5Data",
+      "file_type": "code",
+      "source_file": "src/data/n5.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "src_data_n5_n5data",
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "n5data"
+    },
+    {
       "label": "resultQueue.ts",
       "file_type": "code",
       "source_file": "src/resultQueue.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_resultqueue",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "resultqueue.ts"
+      "norm_label": "resultqueue.ts",
+      "id": "src_resultqueue"
     },
     {
       "label": "QueuedTestResult",
@@ -350,10 +460,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_resultqueue_queuedtestresult",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "queuedtestresult"
+      "norm_label": "queuedtestresult",
+      "id": "src_resultqueue_queuedtestresult"
     },
     {
       "label": "read()",
@@ -361,10 +471,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_resultqueue_read",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "read()"
+      "norm_label": "read()",
+      "id": "src_resultqueue_read"
     },
     {
       "label": "write()",
@@ -372,10 +482,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "src_resultqueue_write",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "write()"
+      "norm_label": "write()",
+      "id": "src_resultqueue_write"
     },
     {
       "label": "newClientTestId()",
@@ -383,10 +493,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_resultqueue_newclienttestid",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "newclienttestid()"
+      "norm_label": "newclienttestid()",
+      "id": "src_resultqueue_newclienttestid"
     },
     {
       "label": "enqueueResult()",
@@ -394,10 +504,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "src_resultqueue_enqueueresult",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "enqueueresult()"
+      "norm_label": "enqueueresult()",
+      "id": "src_resultqueue_enqueueresult"
     },
     {
       "label": "queueSize()",
@@ -405,10 +515,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_resultqueue_queuesize",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "queuesize()"
+      "norm_label": "queuesize()",
+      "id": "src_resultqueue_queuesize"
     },
     {
       "label": "flushQueue()",
@@ -416,10 +526,10 @@
       "source_file": "src/resultQueue.ts",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "src_resultqueue_flushqueue",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "flushqueue()"
+      "norm_label": "flushqueue()",
+      "id": "src_resultqueue_flushqueue"
     },
     {
       "label": "useAuth.ts",
@@ -427,10 +537,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_useauth",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "useauth.ts"
+      "norm_label": "useauth.ts",
+      "id": "src_useauth"
     },
     {
       "label": "User",
@@ -438,10 +548,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_useauth_user",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "user"
+      "norm_label": "user",
+      "id": "src_useauth_user"
     },
     {
       "label": "Subscription",
@@ -449,10 +559,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "src_useauth_subscription",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "subscription"
+      "norm_label": "subscription",
+      "id": "src_useauth_subscription"
     },
     {
       "label": "useAuth()",
@@ -460,10 +570,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_useauth_useauth",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "useauth()"
+      "norm_label": "useauth()",
+      "id": "src_useauth_useauth"
     },
     {
       "label": "tests/index.ts",
@@ -471,10 +581,10 @@
       "source_file": "worker/src/tests/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "worker_src_tests_index",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "tests/index.ts"
+      "norm_label": "tests/index.ts",
+      "id": "worker_src_tests_index"
     },
     {
       "label": "testRoutes",
@@ -482,10 +592,10 @@
       "source_file": "worker/src/tests/index.ts",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "worker_src_tests_index_testroutes",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "testroutes"
+      "norm_label": "testroutes",
+      "id": "worker_src_tests_index_testroutes"
     },
     {
       "label": "auth/index.ts",
@@ -761,116 +871,6 @@
       "community_name": "worker/index.ts",
       "norm_label": "answertoquality()",
       "id": "worker_src_progress_sm2_answertoquality"
-    },
-    {
-      "label": "kanjiReadings.ts",
-      "file_type": "code",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "kanjireadings.ts",
-      "id": "src_data_kanjireadings"
-    },
-    {
-      "label": "KanjiReading",
-      "file_type": "code",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "kanjireading",
-      "id": "src_data_kanjireadings_kanjireading"
-    },
-    {
-      "label": "kanjiReadings",
-      "file_type": "code",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "kanjireadings",
-      "id": "src_data_kanjireadings_kanjireadings"
-    },
-    {
-      "label": "lookupReadings()",
-      "file_type": "code",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L268",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "lookupreadings()",
-      "id": "src_data_kanjireadings_lookupreadings"
-    },
-    {
-      "label": "n3.ts",
-      "file_type": "code",
-      "source_file": "src/data/n3.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n3.ts",
-      "id": "src_data_n3"
-    },
-    {
-      "label": "n3Data",
-      "file_type": "code",
-      "source_file": "src/data/n3.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n3data",
-      "id": "src_data_n3_n3data"
-    },
-    {
-      "label": "n4.ts",
-      "file_type": "code",
-      "source_file": "src/data/n4.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n4.ts",
-      "id": "src_data_n4"
-    },
-    {
-      "label": "n4Data",
-      "file_type": "code",
-      "source_file": "src/data/n4.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n4data",
-      "id": "src_data_n4_n4data"
-    },
-    {
-      "label": "n5.ts",
-      "file_type": "code",
-      "source_file": "src/data/n5.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n5.ts",
-      "id": "src_data_n5"
-    },
-    {
-      "label": "n5Data",
-      "file_type": "code",
-      "source_file": "src/data/n5.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "types.ts",
-      "norm_label": "n5data",
-      "id": "src_data_n5_n5data"
     },
     {
       "label": "tts.ts",
@@ -3261,7 +3261,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L2366",
+      "source_location": "L2376",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3273,7 +3273,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1601",
+      "source_location": "L1611",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3286,11 +3286,149 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/App.tsx",
-      "source_location": "L1462",
+      "source_location": "L1838",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
-      "target": "src_useauth_useauth"
+      "target": "src_data_kanjireadings_lookupreadings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_kanjireadings",
+      "target": "src_data_kanjireadings_kanjireading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_kanjireadings",
+      "target": "src_data_kanjireadings_kanjireadings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/kanjiReadings.ts",
+      "source_location": "L288",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_kanjireadings",
+      "target": "src_data_kanjireadings_lookupreadings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n3.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n3",
+      "target": "src_data_n3_n3data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n3.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n3",
+      "target": "src_data_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n3.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n3",
+      "target": "src_data_types_leveldata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n4.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n4",
+      "target": "src_data_n4_n4data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n4.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n4",
+      "target": "src_data_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n4.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n4",
+      "target": "src_data_types_leveldata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n5.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n5",
+      "target": "src_data_n5_n5data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n5.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n5",
+      "target": "src_data_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/n5.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_n5",
+      "target": "src_data_types_leveldata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3299,9 +3437,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_enqueueresult",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_enqueueresult"
     },
     {
       "relation": "contains",
@@ -3310,9 +3448,9 @@
       "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_flushqueue",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_flushqueue"
     },
     {
       "relation": "contains",
@@ -3321,9 +3459,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_newclienttestid",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_newclienttestid"
     },
     {
       "relation": "contains",
@@ -3332,9 +3470,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_queuedtestresult",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_queuedtestresult"
     },
     {
       "relation": "contains",
@@ -3343,9 +3481,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_queuesize",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_queuesize"
     },
     {
       "relation": "contains",
@@ -3354,9 +3492,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_read",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_read"
     },
     {
       "relation": "contains",
@@ -3365,9 +3503,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue",
-      "target": "src_resultqueue_write",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_write"
     },
     {
       "relation": "imports_from",
@@ -3377,9 +3515,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue",
-      "confidence_score": 1.0
+      "target": "src_resultqueue"
     },
     {
       "relation": "calls",
@@ -3389,9 +3527,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue_enqueueresult",
-      "target": "src_resultqueue_read",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_read"
     },
     {
       "relation": "calls",
@@ -3401,9 +3539,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue_flushqueue",
-      "target": "src_resultqueue_read",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_read"
     },
     {
       "relation": "calls",
@@ -3413,9 +3551,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue_queuesize",
-      "target": "src_resultqueue_read",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_read"
     },
     {
       "relation": "calls",
@@ -3425,9 +3563,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue_enqueueresult",
-      "target": "src_resultqueue_write",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_write"
     },
     {
       "relation": "calls",
@@ -3437,9 +3575,9 @@
       "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_resultqueue_flushqueue",
-      "target": "src_resultqueue_write",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_write"
     },
     {
       "relation": "imports",
@@ -3449,9 +3587,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_newclienttestid",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_newclienttestid"
     },
     {
       "relation": "calls",
@@ -3473,9 +3611,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_enqueueresult",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_enqueueresult"
     },
     {
       "relation": "calls",
@@ -3497,9 +3635,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_queuesize",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_queuesize"
     },
     {
       "relation": "indirect_call",
@@ -3521,9 +3659,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_flushqueue",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_flushqueue"
     },
     {
       "relation": "calls",
@@ -3544,9 +3682,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_subscription",
-      "confidence_score": 1.0
+      "target": "src_useauth_subscription"
     },
     {
       "relation": "contains",
@@ -3555,9 +3693,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_useauth",
-      "confidence_score": 1.0
+      "target": "src_useauth_useauth"
     },
     {
       "relation": "contains",
@@ -3566,9 +3704,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_user",
-      "confidence_score": 1.0
+      "target": "src_useauth_user"
     },
     {
       "relation": "imports_from",
@@ -3578,9 +3716,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2",
-      "confidence_score": 1.0
+      "target": "worker_src_progress_sm2"
     },
     {
       "relation": "imports",
@@ -3590,9 +3728,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2_answertoquality",
-      "confidence_score": 1.0
+      "target": "worker_src_progress_sm2_answertoquality"
     },
     {
       "relation": "imports",
@@ -3602,9 +3740,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2_sm2",
-      "confidence_score": 1.0
+      "target": "worker_src_progress_sm2_sm2"
     },
     {
       "relation": "contains",
@@ -3613,9 +3751,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_tests_index",
-      "target": "worker_src_tests_index_testroutes",
-      "confidence_score": 1.0
+      "target": "worker_src_tests_index_testroutes"
     },
     {
       "relation": "imports_from",
@@ -3767,42 +3905,6 @@
       "target": "worker_src_user_index_userroutes"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n3.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n3",
-      "target": "src_data_types"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n4.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n4",
-      "target": "src_data_types"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n5.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n5",
-      "target": "src_data_types"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/types.ts",
@@ -3900,42 +4002,6 @@
       "confidence_score": 1.0,
       "source": "src_data_types",
       "target": "src_data_types_testmode"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n3.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n3",
-      "target": "src_data_types_leveldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n4.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n4",
-      "target": "src_data_types_leveldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n5.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n5",
-      "target": "src_data_types_leveldata"
     },
     {
       "relation": "contains",
@@ -4040,72 +4106,6 @@
       "confidence_score": 1.0,
       "source": "worker_src_progress_sm2",
       "target": "worker_src_progress_sm2_sm2state"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_kanjireading"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_kanjireadings"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/kanjiReadings.ts",
-      "source_location": "L268",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_lookupreadings"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n3.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n3",
-      "target": "src_data_n3_n3data"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n4.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n4",
-      "target": "src_data_n4_n4data"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/n5.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_data_n5",
-      "target": "src_data_n5_n5data"
     },
     {
       "relation": "contains",
@@ -6365,5 +6365,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ed8183f58ccbb407f13c390903014a93b78c84c2"
+  "built_at_commit": "51e5218193184ed0aaea16455e0005d150a17435"
 }

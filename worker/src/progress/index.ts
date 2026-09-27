@@ -47,7 +47,7 @@ export const progressRoutes = new Hono()
 
     // Weak questions (unmastered, sorted by attempts)
     const weakQs = await c.env.DB.prepare(
-      'SELECT question_id, level, attempts, last_wrong_at FROM weak_questions WHERE user_id = ? AND mastered = FALSE ORDER BY attempts DESC, last_wrong_at DESC LIMIT 50'
+      'SELECT question_id, level, attempts, times_wrong, last_wrong_at FROM weak_questions WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0 ORDER BY times_wrong DESC, last_wrong_at DESC LIMIT 50'
     ).bind(user.sub).all();
 
     const categories = Object.entries(catStats).map(([category, s]) => ({
@@ -66,7 +66,7 @@ export const progressRoutes = new Hono()
   .get('/weak-points', async (c) => {
     const user = c.get('user');
     const weakPoints = await c.env.DB.prepare(
-      'SELECT * FROM weak_questions WHERE user_id = ? AND mastered = FALSE ORDER BY attempts DESC, last_wrong_at DESC LIMIT 50'
+      'SELECT * FROM weak_questions WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0 ORDER BY times_wrong DESC, last_wrong_at DESC LIMIT 50'
     ).bind(user.sub).all();
 
     return c.json({ weakPoints: weakPoints.results });
@@ -88,7 +88,7 @@ export const progressRoutes = new Hono()
       `SELECT question_id, level, attempts, times_wrong, total_attempts, last_wrong_at, last_wrong_option, last_answer, mastered,
               repetitions, ease_factor, interval_days, next_review_at
        FROM weak_questions
-       WHERE user_id = ? AND mastered = FALSE
+       WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0
        ORDER BY times_wrong DESC, last_wrong_at DESC LIMIT 100`
     ).bind(user.sub).all();
 
@@ -111,7 +111,7 @@ export const progressRoutes = new Hono()
 
     const newCards = await c.env.DB.prepare(
       `SELECT question_id, level FROM weak_questions
-       WHERE user_id = ? AND mastered = FALSE AND next_review_at IS NULL
+       WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0 AND next_review_at IS NULL
        ORDER BY last_wrong_at ASC LIMIT 10`
     ).bind(user.sub).all();
 
