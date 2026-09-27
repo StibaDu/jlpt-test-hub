@@ -431,7 +431,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
         <div className="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-100 text-emerald-600 p-2 rounded-xl">
+            <div className="bg-emerald-100 text-emerald-700 p-2 rounded-xl">
               <IconBookOpen className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-gray-900">{t.proTitle}</h3>
@@ -449,7 +449,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
           </div>
           <div className="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-400">
             <div className="text-xs font-bold text-emerald-500 uppercase mb-1">{t.proPro}</div>
-            <div className="text-2xl font-black text-emerald-600 mb-2">$4.99<span className="text-sm font-normal text-gray-600">/mo</span></div>
+            <div className="text-2xl font-black text-emerald-700 mb-2">$4.99<span className="text-sm font-normal text-gray-600">/mo</span></div>
             <p className="text-gray-600 text-xs leading-relaxed">{t.proFeatures}</p>
           </div>
         </div>
@@ -465,7 +465,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
           <>
             <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-4 text-center">
               <p className="text-emerald-700 font-bold text-sm">You're a Pro member! 🎉</p>
-              <p className="text-emerald-600 text-xs mt-1">You can cancel anytime without email or phone call — just click below.</p>
+              <p className="text-emerald-700 text-xs mt-1">You can cancel anytime without email or phone call — just click below.</p>
             </div>
             <button
               onClick={async () => { await onCancelSub(); onClose(); }}
@@ -492,7 +492,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
               >
                 <div className="text-xs text-gray-500">Yearly</div>
                 <div className="text-xl font-black text-gray-900">$29.99</div>
-                <div className="text-xs text-emerald-600 font-bold">Save 50%</div>
+                <div className="text-xs text-emerald-700 font-bold">Save 50%</div>
               </button>
             </div>
             <button
@@ -636,7 +636,7 @@ const ImpressumContent = () => (
       </div>
       <div>
         <p><strong>Streitschlichtung:</strong></p>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </div>
       <div>
         <p><strong>Haftung für Inhalte:</strong></p>
@@ -1019,7 +1019,7 @@ export default function App() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-emerald-600 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <svg className="w-8 h-8 text-emerald-700 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
@@ -1288,7 +1288,7 @@ export default function App() {
         >
           <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
             <div className="flex flex-col">
-              <span className="text-emerald-600 font-bold tracking-widest text-sm mb-1">{selectedKanjiInfo.furigana}</span>
+              <span className="text-emerald-700 font-bold tracking-widest text-sm mb-1">{selectedKanjiInfo.furigana}</span>
               <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-none">{selectedKanjiInfo.kanji}</h3>
             </div>
             <button
@@ -1332,7 +1332,7 @@ export default function App() {
         >
           <div className="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
             <div className="flex items-center gap-2">
-              <div className="bg-pink-100 text-pink-600 p-2 rounded-xl">
+              <div className="bg-pink-100 text-pink-700 p-2 rounded-xl">
                 <IconHeart className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-gray-900">{t.supportModalTitle}</h3>
@@ -1450,7 +1450,7 @@ export default function App() {
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
-          className="flex items-center gap-1 text-pink-600 hover:text-pink-700 bg-pink-50 hover:bg-pink-100 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+          className="flex items-center gap-1 text-pink-700 hover:text-pink-800 bg-pink-50 hover:bg-pink-100 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
         >
           <IconHeart className="w-4 h-4" />
           <span className="hidden sm:inline">{t.supportUs}</span>
@@ -1507,7 +1507,7 @@ export default function App() {
           <div className={`w-full bg-white overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-gray-100'}`}>
             <header className={`bg-emerald-600 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
               <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{currentData.uiStrings.title}</h1>
-              <p className={`text-emerald-100 opacity-90 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
+              <p className={`text-emerald-50 opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
             </header>
             <section className={`flex-1 flex flex-col ${isMobile ? 'p-4 overflow-y-auto' : 'p-8'}`}>
               <AdBanner slotId="intro-top-banner" />
@@ -1526,11 +1526,11 @@ export default function App() {
                 <div className={`border border-gray-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-white relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
                   <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
                   {!auth.isPro && (
-                    <div className="absolute top-0 left-0 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
+                    <div className="absolute top-0 left-0 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
                       <span>⭐</span> {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true' ? 'PRO' : '1 FREE TRIAL'; } catch { return '1 FREE TRIAL'; } })()}
                     </div>
                   )}
-                  <div className="text-emerald-600 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                  <div className="text-emerald-700 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconClock className="w-5 h-5" />
                   </div>
                   <h2 className={`font-bold text-gray-800 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
@@ -1538,7 +1538,7 @@ export default function App() {
                     {t.realTestDesc(currentData.questionsPerTest, currentData.timeMinutes)}
                   </p>
                   {!auth.isPro && (
-                    <p className="text-amber-600 text-xs font-bold mb-2 flex items-center gap-1">
+                    <p className="text-amber-700 text-xs font-bold mb-2 flex items-center gap-1">
                       {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch { return false; } })()
                         ? <>🔒 Pro subscription required for more attempts</>
                         : <>🎁 Try it once free — no account needed</>
@@ -1547,7 +1547,7 @@ export default function App() {
                   )}
                   <button
                     onClick={() => startTest('real')}
-                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'}`}
+                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-600 hover:bg-amber-700 text-white'}`}
                   >
                     {auth.isPro
                       ? t.startReal
@@ -1669,21 +1669,21 @@ export default function App() {
                     </thead>
                     <tbody>
                       <tr className="border-b border-gray-100">
-                        <td className="px-4 py-2 font-bold text-emerald-600">N5</td>
+                        <td className="px-4 py-2 font-bold text-emerald-700">N5</td>
                         <td className="px-4 py-2 text-gray-600">~100</td>
                         <td className="px-4 py-2 text-gray-600">~800</td>
                         <td className="px-4 py-2 text-gray-600">90 min</td>
                         <td className="px-4 py-2 text-gray-600">80/180</td>
                       </tr>
                       <tr className="border-b border-gray-100">
-                        <td className="px-4 py-2 font-bold text-emerald-600">N4</td>
+                        <td className="px-4 py-2 font-bold text-emerald-700">N4</td>
                         <td className="px-4 py-2 text-gray-600">~300</td>
                         <td className="px-4 py-2 text-gray-600">~1,500</td>
                         <td className="px-4 py-2 text-gray-600">115 min</td>
                         <td className="px-4 py-2 text-gray-600">90/180</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-2 font-bold text-emerald-600">N3</td>
+                        <td className="px-4 py-2 font-bold text-emerald-700">N3</td>
                         <td className="px-4 py-2 text-gray-600">~650</td>
                         <td className="px-4 py-2 text-gray-600">~3,000–4,000</td>
                         <td className="px-4 py-2 text-gray-600">125 min</td>
@@ -1744,7 +1744,7 @@ export default function App() {
             <article className={`bg-white shadow-sm border border-gray-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
               <div className={`text-gray-500 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
                 <span>{renderFurigana(currentData.instruction, handleKanjiClick)}</span>
-                {testMode === 'learning' && <span className="text-blue-400 italic shrink-0 ml-2">{t.clickKanji}</span>}
+                {testMode === 'learning' && <span className="text-blue-600 italic shrink-0 ml-2">{t.clickKanji}</span>}
               </div>
               <h2 className={`text-gray-900 leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
                 {renderFurigana(currentQuestion.text, handleKanjiClick)}
@@ -1788,7 +1788,7 @@ export default function App() {
                         <span className={`font-medium leading-relaxed block break-words w-full ${isMobile ? 'text-lg' : 'text-xl'}`}>
                           {renderFurigana(option, handleKanjiClick)}
                         </span>
-                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-600 ml-auto shrink-0`} />}
+                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-700 ml-auto shrink-0`} />}
                         {showFeedback && isSelected && !isCorrectOption && <IconX className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-red-600 ml-auto shrink-0`} />}
                       </div>
                     </button>
@@ -1867,7 +1867,7 @@ export default function App() {
                     <IconCheck className={isMobile ? 'w-8 h-8' : 'w-12 h-12'} />
                   </div>
                 ) : (
-                  <div className={`inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mx-auto ${isMobile ? 'w-16 h-16 mb-3' : 'w-24 h-24 mb-4'}`}>
+                  <div className={`inline-flex items-center justify-center rounded-full bg-red-100 text-red-700 mx-auto ${isMobile ? 'w-16 h-16 mb-3' : 'w-24 h-24 mb-4'}`}>
                     <IconX className={isMobile ? 'w-8 h-8' : 'w-12 h-12'} />
                   </div>
                 )}
@@ -1888,7 +1888,7 @@ export default function App() {
                 <div className={`w-px h-16 bg-gray-200 hidden ${isMobile ? '' : 'md:block'}`}></div>
                 <div className="text-center">
                   <div className="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-xs">{t.percentage}</div>
-                  <div className={`font-black ${isMobile ? 'text-4xl' : 'text-5xl'} ${results.isPass ? 'text-emerald-600' : 'text-red-600'}`}>
+                  <div className={`font-black ${isMobile ? 'text-4xl' : 'text-5xl'} ${results.isPass ? 'text-emerald-700' : 'text-red-700'}`}>
                     {results.percentage.toFixed(0)}%
                   </div>
                 </div>
@@ -1911,7 +1911,7 @@ export default function App() {
               {!auth.isLoggedIn && (
                 <div className="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
                   <p className="text-emerald-700 font-bold text-sm mb-2">Want to save your progress?</p>
-                  <p className="text-emerald-600 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
+                  <p className="text-emerald-700 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
                   <button
                     onClick={() => setShowAuthModal(true)}
                     className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
@@ -1927,7 +1927,7 @@ export default function App() {
             {/* Softer donation ask on results */}
             <div className="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 text-center">
               <p className="text-pink-700 font-bold text-sm mb-2">{t.foundHelpful}</p>
-              <p className="text-pink-600 text-xs mb-3">{t.supportFree}</p>
+              <p className="text-pink-700 text-xs mb-3">{t.supportFree}</p>
               <a
                 href="https://buymeacoffee.com/created.by"
                 target="_blank"
@@ -1949,7 +1949,7 @@ export default function App() {
                   </div>
                   <button
                     onClick={() => setShowPremiumModal(true)}
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
+                    className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
                   >
                     {t.goPro}
                   </button>
@@ -1981,7 +1981,7 @@ export default function App() {
                           let icon: React.ReactNode = null;
                           if (optIdx === q.correctIndex) {
                             bgClass = "bg-emerald-100 border-emerald-400 text-emerald-900 font-semibold";
-                            icon = <IconCheck className="w-4 h-4 text-emerald-600 shrink-0" />;
+                            icon = <IconCheck className="w-4 h-4 text-emerald-700 shrink-0" />;
                           } else if (optIdx === userAnswer) {
                             bgClass = "bg-red-100 border-red-400 text-red-900";
                             icon = <IconX className="w-4 h-4 text-red-600 shrink-0" />;
@@ -1998,7 +1998,7 @@ export default function App() {
                         })}
                       </div>
                       {isSkipped && (
-                        <p className={`text-red-500 font-medium ${isMobile ? 'mt-2 text-sm' : 'mt-4'}`}>{t.unanswered}</p>
+                        <p className={`text-red-700 font-medium ${isMobile ? 'mt-2 text-sm' : 'mt-4'}`}>{t.unanswered}</p>
                       )}
                       <div className={`bg-gray-50 rounded-lg border border-gray-100 ${isMobile ? 'mt-3 p-3' : 'mt-4 p-4'}`}>
                         <h4 className="text-xs font-bold text-gray-600 uppercase mb-1">{t.explanation}</h4>
