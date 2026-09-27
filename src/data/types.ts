@@ -7,6 +7,9 @@ export type JLPTLevel = 'N5' | 'N4' | 'N3';
 export interface KanjiEntry {
   meaning: Record<Lang, string>;
   desc: Record<Lang, string>;
+  onyomi?: string;   // Sino-Japanese reading, katakana (e.g. 'コウ')
+  kunyomi?: string;  // Native Japanese reading, hiragana (e.g. 'つぎ')
+  jlpt?: JLPTLevel;  // Level where this entry is introduced
 }
 
 export type QuestionCategory =

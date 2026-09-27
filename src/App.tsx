@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels } from './data';
+import { lookupReadings } from './data/kanjiReadings';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 import { useAuth } from './useAuth';
 import { AuthModal } from './AuthModal';
@@ -1496,6 +1497,35 @@ export default function App() {
 
   const renderKanjiModal = () => {
     if (!selectedKanjiInfo) return null;
+    const entry = currentData.kanjiDictionary[selectedKanjiInfo.kanji];
+    const fallback = entry ? null : lookupReadings(selectedKanjiInfo.kanji);
+    const onyomi = entry?.onyomi || fallback?.onyomi || '';
+    const kunyomi = entry?.kunyomi || fallback?.kunyomi || '';
+    const jlpt = entry?.jlpt || fallback?.jlpt || '';
+    const hasReadings = onyomi || kunyomi;
+    const jlptColor = jlpt === 'N5' ? 'bg-emerald-100 text-emerald-700' : jlpt === 'N4' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700';
+
+    // Helper: render a single reading with 🔊 button
+    const ReadingRow = ({ label, reading, bg }: { reading: string; bg: string; label: string }) => {
+      if (!reading) return null;
+      return (
+        <div className={`flex items-center gap-2 rounded-lg px-3 py-2 ${bg}`}>
+          <span className="text-xs font-bold text-gray-500 uppercase tracking-wider shrink-0 w-20">{label}</span>
+          <span className="font-bold text-gray-800 text-sm flex-1">{reading}</span>
+          {ttsSupported() && (
+            <button
+              onClick={() => speak(reading, ttsRate)}
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 transition-colors text-sm shrink-0"
+              title={`${label} anhören`}
+              aria-label={`${label} anhören`}
+            >
+              🔊
+            </button>
+          )}
+        </div>
+      );
+    };
+
     return (
       <div
         className={`${isMobile ? 'absolute' : 'fixed'} inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
@@ -1505,6 +1535,7 @@ export default function App() {
           className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200"
           onClick={e => e.stopPropagation()}
         >
+          {/* Header: kanji + furigana + TTS + badge + close */}
           <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1">
@@ -1520,7 +1551,12 @@ export default function App() {
                   </button>
                 )}
               </div>
-              <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-none">{selectedKanjiInfo.kanji}</h3>
+              <div className="flex items-center gap-2">
+                <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-none">{selectedKanjiInfo.kanji}</h3>
+                {jlpt && (
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${jlptColor}`}>{jlpt}</span>
+                )}
+              </div>
             </div>
             <button
               onClick={() => setSelectedKanjiInfo(null)}
@@ -1529,13 +1565,30 @@ export default function App() {
               <IconX className="w-5 h-5" />
             </button>
           </div>
+
           <div className="space-y-5">
+            {/* Meaning */}
             <div>
               <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.meaning}</h4>
               <p className="text-xl md:text-2xl font-bold text-gray-800">
                 {selectedKanjiInfo.meaning ? selectedKanjiInfo.meaning[lang] : t.unknown}
               </p>
             </div>
+
+            {/* Readings (On'yomi / Kun'yomi) — only for single kanji */}
+            {hasReadings && (
+              <div>
+                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">
+                  {lang === 'de' ? 'Lesungen' : 'Readings'}
+                </h4>
+                <div className="space-y-1.5">
+                  <ReadingRow reading={onyomi} bg="bg-indigo-50" label="音 On" />
+                  <ReadingRow reading={kunyomi} bg="bg-green-50" label="訓 Kun" />
+                </div>
+              </div>
+            )}
+
+            {/* Context description */}
             {selectedKanjiInfo.desc && selectedKanjiInfo.desc[lang] && (
               <div>
                 <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.context}</h4>
@@ -1543,6 +1596,13 @@ export default function App() {
                   {selectedKanjiInfo.desc[lang]}
                 </p>
               </div>
+            )}
+
+            {/* Fallback: not in dictionary note */}
+            {!entry && (
+              <p className="text-[10px] text-gray-400 italic text-center">
+                {lang === 'de' ? 'Nicht im Wörterbuch — Lesungen als Referenz angezeigt' : 'Not in dictionary — readings shown as reference'}
+              </p>
             )}
           </div>
         </div>
