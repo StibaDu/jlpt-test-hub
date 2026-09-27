@@ -189,7 +189,10 @@ export const n5Data: LevelData = {
   "皆": { meaning: { en: "Everyone / All", de: "Alle / Jeder" }, desc: { en: "All the people (皆 - mina).", de: "Alle Leute (皆 - mina)." }, onyomi: "カイ", kunyomi: "みな,みんな", jlpt: 'N5' },
   "立": { meaning: { en: "To stand", de: "Stehen" }, desc: { en: "To be in an upright position (立つ - tatsu).", de: "In aufrechter Position sein (立つ - tatsu)." }, onyomi: "リツ", kunyomi: "た(つ),た(てる)", jlpt: 'N5' },
   "雪": { meaning: { en: "Snow", de: "Schnee" }, desc: { en: "Frozen precipitation (雪 - yuki).", de: "Gefrorener Niederschlag (雪 - yuki)." }, onyomi: "セツ", kunyomi: "ゆき", jlpt: 'N5' },
-  "食": { meaning: { en: "To eat", de: "Essen" }, desc: { en: "To consume food (食べる - taberu).", de: "Nahrung zu sich nehmen (食べる - taberu)." }, onyomi: "ショク,ジキ", kunyomi: "た(べる),く(う)", jlpt: 'N5' }
+  "食": { meaning: { en: "To eat", de: "Essen" }, desc: { en: "To consume food (食べる - taberu).", de: "Nahrung zu sich nehmen (食べる - taberu)." }, onyomi: "ショク,ジキ", kunyomi: "た(べる),く(う)", jlpt: 'N5' },
+  "可愛": { meaning: { en: "Cute / Lovely", de: "Niedlich / Lieb" }, desc: { en: "Charming and delightful (可愛い - kawaii).", de: "Charmant und entzückend (可愛い - kawaii)." }, jlpt: 'N5' },
+  "図書館": { meaning: { en: "Library", de: "Bibliothek" }, desc: { en: "A place where books are kept for reading (図書館 - toshokan).", de: "Ein Ort, an dem Bücher zum Lesen aufbewahrt werden (図書館 - toshokan)." }, jlpt: 'N5' },
+  "試験": { meaning: { en: "Exam / Test", de: "Prüfung / Test" }, desc: { en: "A formal test of knowledge or ability (試験 - shiken).", de: "Eine formelle Prüfung von Wissen oder Fähigkeit (試験 - shiken)." }, jlpt: 'N5' }
  },
  questionBank: [
   // ===== Official JLPT N5 2018 Grammar Sample Questions (問題1) =====

@@ -159,6 +159,7 @@ export const n4Data: LevelData = {
   "小": { meaning: { en: "Small", de: "Klein" }, desc: { en: "Of a size less than normal (小さい - chiisai).", de: "Von geringerer Größe als normal (小さい - chiisai)." }, onyomi: "ショウ", kunyomi: "ちい(さい),こ,お", jlpt: 'N4' },
   "必要": { meaning: { en: "Necessary", de: "Notwendig" }, desc: { en: "Required or needed (必要 - hitsuyo).", de: "Erforderlich oder gebraucht (必要 - hitsuyo)." }, jlpt: 'N4' },
   "思": { meaning: { en: "To think", de: "Denken" }, desc: { en: "To have an opinion (思う - omou).", de: "Eine Meinung haben (思う - omou)." }, onyomi: "シ", kunyomi: "おも(う),おも(い)", jlpt: 'N4' },
+  "ため": { meaning: { en: "For the sake of / because", de: "Um zu / weil" }, desc: { en: "Purpose or reason (〜ため - tame). Grammar particle.", de: "Zweck oder Grund (〜ため - tame). Grammatikpartikel." }, jlpt: 'N4' },
   "怪我": { meaning: { en: "Injury", de: "Verletzung" }, desc: { en: "Physical harm (怪我 - kega).", de: "Körperlicher Schaden (怪我 - kega)." }, jlpt: 'N4' },
   "悪": { meaning: { en: "Bad / Evil", de: "Schlecht" }, desc: { en: "Not good (悪い - warui).", de: "Nicht gut (悪い - warui)." }, onyomi: "アク,オ", kunyomi: "わる(い),あく", jlpt: 'N4' },
   "手伝": { meaning: { en: "To help / Assist", de: "Helfen" }, desc: { en: "To assist someone (手伝う - tetsudau).", de: "Jemandem helfen (手伝う - tetsudau)." }, jlpt: 'N4' },

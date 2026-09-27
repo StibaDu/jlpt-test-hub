@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "worker/src/auth/index.ts": {
-    "mtime": 1790533270.601825,
-    "ast_hash": "c5f2eaf37227f10eae5ad7ff143d6ec1",
+    "mtime": 1790533365.8342624,
+    "ast_hash": "8ff7ec689b4212a051600b499db02061",
     "semantic_hash": ""
   },
   "worker/src/progress/index.ts": {

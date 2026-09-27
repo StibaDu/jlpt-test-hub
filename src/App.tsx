@@ -1508,6 +1508,16 @@ export default function App() {
   const currentData: LevelData = levelData[selectedLevel];
   const t = uiTranslations[lang];
 
+  // Merged kanji/word dictionary across ALL levels — a word taught in N4 must resolve
+  // even when clicked during an N5 test (words appear in questions before their "home" level).
+  const mergedDictionary = useMemo(() => {
+    const merged: Record<string, any> = {};
+    for (const lvl of ['N5', 'N4', 'N3'] as const) {
+      Object.assign(merged, levelData[lvl].kanjiDictionary);
+    }
+    return merged;
+  }, []);
+
   useEffect(() => {
     document.title = lang === 'de'
       ? `Kostenloser JLPT ${selectedLevel} Testsimulator & Vorbereitung | JLPT Test Hub`
@@ -1818,13 +1828,13 @@ export default function App() {
 
   const handleKanjiClick = (kanji: string, furigana: string) => {
     if (testMode === 'real') return; // No dictionary help in Real Test mode
-    const entry = currentData.kanjiDictionary[kanji];
+    const entry = mergedDictionary[kanji];
     setSelectedKanjiInfo({ kanji, furigana, ...(entry ?? { meaning: { en: t.unknown, de: t.unknown }, desc: { en: '', de: '' } }) });
   };
 
   const renderKanjiModal = () => {
     if (!selectedKanjiInfo) return null;
-    const entry = currentData.kanjiDictionary[selectedKanjiInfo.kanji];
+    const entry = mergedDictionary[selectedKanjiInfo.kanji];
     const fallback = entry ? null : lookupReadings(selectedKanjiInfo.kanji);
     const onyomi = entry?.onyomi || fallback?.onyomi || '';
     const kunyomi = entry?.kunyomi || fallback?.kunyomi || '';
