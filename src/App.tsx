@@ -2079,9 +2079,10 @@ export default function App() {
     );
   };
 
-  const renderNavControls = () => {
+  const renderNavControls = (opts?: { compact?: boolean }) => {
+    const compact = opts?.compact && isMobile;
     return (
-      <nav aria-label="Quick Actions" className="flex items-center gap-2 ml-auto">
+      <nav aria-label="Quick Actions" className={`flex items-center ml-auto ${compact ? 'gap-1' : 'gap-2'}`}>
         {gameState !== 'intro' && (
           <button
             onClick={goHome}
@@ -2094,7 +2095,7 @@ export default function App() {
             </svg>
           </button>
         )}
-        {renderLevelSwitcher()}
+        {!(compact && gameState === 'testing') && renderLevelSwitcher()}
         {gameState === 'testing' && (
           <button
             onClick={restartTest}
@@ -2108,6 +2109,7 @@ export default function App() {
           </button>
         )}
         {/* Support — compact icon */}
+        {!compact && (
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
@@ -2116,8 +2118,9 @@ export default function App() {
         >
           <IconHeart className="w-4 h-4" />
         </button>
+        )}
         {/* Pro — only for logged-out or free users */}
-        {!auth.isPro && (
+        {!auth.isPro && !compact && (
           <button
             onClick={() => setGameState('profile')}
             title={t.goPro}
@@ -2171,7 +2174,7 @@ export default function App() {
       return (
         <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-0' : 'min-h-screen p-4'}`}>
           <div className="absolute top-4 right-4 z-[60]">
-            {renderNavControls()}
+            {renderNavControls({ compact: true })}
           </div>
           <div className={`w-full bg-white overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-gray-100'}`}>
             <header className={`bg-emerald-600 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
@@ -2388,9 +2391,9 @@ export default function App() {
       return (
         <div className="bg-gray-50 text-gray-800 flex flex-col font-sans flex-1 min-h-full">
           <header className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm shrink-0">
-            <div className={`mx-auto flex justify-between items-center ${isMobile ? 'px-4 py-3 pt-8' : 'max-w-4xl px-4 py-4'}`}>
-              <div className="flex items-center gap-2">
-                <div className={`text-xs md:text-sm font-semibold uppercase tracking-wide ${testMode === 'learning' ? 'text-blue-500' : 'text-gray-500'}`}>
+            <div className={`mx-auto flex justify-between items-center ${isMobile ? 'px-2 py-2 pt-7 gap-1' : 'max-w-4xl px-4 py-4'}`}>
+              <div className={`flex items-center min-w-0 ${isMobile ? 'gap-1.5' : 'gap-2'}`}>
+                <div className={`font-semibold uppercase tracking-wide truncate ${isMobile ? 'text-[10px]' : 'text-xs md:text-sm'} ${testMode === 'learning' ? 'text-blue-500' : 'text-gray-500'}`}>
                   {testMode === 'learning' ? (isMobile ? t.learn : t.learningMode) : t.question}
                 </div>
                 <div className={`bg-gray-100 text-gray-800 font-bold rounded-md flex items-center ${isMobile ? 'px-2 py-0.5 text-xs' : 'px-3 py-1'}`}>
@@ -2405,7 +2408,7 @@ export default function App() {
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-3">
+              <div className={`flex items-center shrink-0 ${isMobile ? 'gap-1' : 'gap-3'}`}>
                 {testMode === 'real' ? (
                   <div className={`flex items-center gap-1.5 font-mono font-bold rounded-lg border ${isMobile ? 'text-sm px-2 py-1' : 'text-lg px-4 py-1.5'} ${timeRemaining < 300 ? 'bg-red-50 text-red-600 border-red-200' : 'bg-emerald-50 text-emerald-700 border-emerald-100'}`}>
                     <IconClock className={isMobile ? "w-4 h-4" : "w-5 h-5"} />
@@ -2416,7 +2419,7 @@ export default function App() {
                     <IconBookOpen className="w-3 h-3 md:w-4 md:h-4" /> {isMobile ? t.untimed : t.untimedPractice}
                   </div>
                 )}
-                {renderNavControls()}
+                {renderNavControls({ compact: true })}
               </div>
             </div>
             <div className="h-1 bg-gray-100 w-full">
