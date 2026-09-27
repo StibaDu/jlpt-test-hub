@@ -2096,7 +2096,7 @@ export default function App() {
           </button>
         )}
         {!(compact && gameState === 'testing') && renderLevelSwitcher()}
-        {gameState === 'testing' && (
+        {gameState === 'testing' && !compact && (
           <button
             onClick={restartTest}
             title={t.restart}
@@ -2109,7 +2109,6 @@ export default function App() {
           </button>
         )}
         {/* Support — compact icon */}
-        {!compact && (
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
@@ -2118,7 +2117,6 @@ export default function App() {
         >
           <IconHeart className="w-4 h-4" />
         </button>
-        )}
         {/* Pro — only for logged-out or free users */}
         {!auth.isPro && !compact && (
           <button
