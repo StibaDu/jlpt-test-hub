@@ -623,7 +623,7 @@ const ImpressumContent = () => (
       </div>
       <div>
         <p><strong>Kontakt:</strong></p>
-        <p>E-Mail: [YOUR EMAIL]</p>
+        <p>E-Mail: createdby.jp@gmail.com</p>
         <p>Telefon: [YOUR PHONE]</p>
       </div>
       <div>
@@ -664,7 +664,7 @@ const PrivacyPolicyContent = () => (
 
     <h3 className="font-bold text-gray-800 text-base mt-4">1. Verantwortlicher</h3>
     <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Datenverarbeitung auf dieser Website:</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>[YOUR NAME]</strong><br/>[YOUR STREET ADDRESS]<br/>[YOUR POSTAL CODE] [YOUR CITY]<br/>Germany<br/>E-Mail: [YOUR EMAIL]<br/>Telefon: [YOUR PHONE]</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>[YOUR NAME]</strong><br/>[YOUR STREET ADDRESS]<br/>[YOUR POSTAL CODE] [YOUR CITY]<br/>Germany<br/>E-Mail: createdby.jp@gmail.com<br/>Telefon: [YOUR PHONE]</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">2. Verarbeitungszwecke und Rechtsgrundlagen</h3>
     <p>Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:</p>
@@ -809,7 +809,7 @@ const PrivacyPolicyContent = () => (
       <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) — Sie können der Verarbeitung widersprechen.</li>
       <li><strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) — Ihre Einwilligung können Sie jederzeit ohne Angabe von Gründen widerrufen, mit Wirkung für die Zukunft.</li>
     </ul>
-    <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>[YOUR EMAIL]</strong> oder schreiben Sie an: [YOUR NAME], [YOUR ADDRESS]. Wir antworten innerhalb von 30 Tagen.</p>
+    <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>createdby.jp@gmail.com</strong> oder schreiben Sie an: [YOUR NAME], [YOUR ADDRESS]. Wir antworten innerhalb von 30 Tagen.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">7. Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
     <p>Sie können Ihre Einwilligung zur Cookie-Nutzung jederzeit widerrufen:</p>
@@ -837,7 +837,7 @@ const PrivacyPolicyContent = () => (
 
     <h3 className="font-bold text-gray-800 text-base mt-4">13. Kontakt für Datenschutzanfragen</h3>
     <p>Für Datenschutzanfragen (Auskunft, Löschung, Berichtigung usw.):</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> [YOUR EMAIL]<br/><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> createdby.jp@gmail.com<br/><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
   </>
 );
 
@@ -855,7 +855,7 @@ const TermsContent = () => (
     <p><strong>Pro-Abonnement:</strong> $4.99/Monat oder $29.99/Jahr über Stripe. Enthält: Unbegrenzte Real-Tests, volle 30 Fragen pro Test, werbefrei, Test-Verlauf.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">3. Widerrufsrecht (§ 355 BGB)</h3>
-    <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung kontaktieren Sie uns unter [YOUR EMAIL]. Das Widerrufsrecht erlischt vorzeitig, wenn Sie die Pro-Funktionen während der Widerrufsfrist vollständig nutzen.</p>
+    <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung kontaktieren Sie uns unter createdby.jp@gmail.com. Das Widerrufsrecht erlischt vorzeitig, wenn Sie die Pro-Funktionen während der Widerrufsfrist vollständig nutzen.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">4. Kündigung</h3>
     <p>Pro-Abonnements können jederzeit gekündigt werden. Die Kündigung wird am Ende der Abrechnungsperiode wirksam. Die Nutzung der kostenlosen Version ist davon nicht betroffen.</p>
@@ -881,7 +881,7 @@ const SellerDisclosureContent = () => (
     <div className="space-y-3">
       <p><strong>Anbieter:</strong> [YOUR NAME]</p>
       <p><strong>Adresse:</strong> [YOUR STREET ADDRESS], [YOUR POSTAL CODE] [YOUR CITY], Germany</p>
-      <p><strong>E-Mail:</strong> [YOUR EMAIL]</p>
+      <p><strong>E-Mail:</strong> createdby.jp@gmail.com</p>
       <p><strong>Telefon:</strong> [YOUR PHONE]</p>
       <p><strong>USt-IdNr.:</strong> Kleinunternehmer gemäß § 19 UStG</p>
       <p><strong>Zahlungsarten:</strong> Stripe (Kreditkarte), Buy Me a Coffee</p>
@@ -926,12 +926,17 @@ const AccessibilityContent = () => (
     </ul>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">5. Feedback-Mechanismus</h3>
-    <p>Sie können uns auf Barrieren auf dieser Website melden:</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg">
-      <strong>E-Mail:</strong> [YOUR EMAIL]<br/>
-      <strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]
-    </p>
-    <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von 5 Werktagen zu beantworten.</p>
+    <p>Sie können uns auf Barrieren auf dieser Website melden — per E-Mail oder über unser Kontaktformular:</p>
+    <div className="mt-2 bg-gray-50 p-4 rounded-lg space-y-2">
+      <p>
+        <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung auf jlpttesthub.com" className="text-emerald-700 underline font-bold hover:text-emerald-800">
+          createdby.jp@gmail.com
+        </a>
+        {' '}— Klicken Sie hier, um direkt eine E-Mail zu öffnen
+      </p>
+      <p><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
+    </div>
+    <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von [YOUR NAME] bearbeitet.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">6. Erstellt am / Überprüft am</h3>
     <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 27. September 2026 überprüft.</p>
@@ -954,6 +959,8 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
           <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className={footerLink}>Anbieterkennzeichnung</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className={footerLink}>Barrierefreiheit</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung" className={footerLink + " text-emerald-400"}>Barrierefreiheit melden</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <button onClick={onCookies} className={footerLink}>Cookie-Einstellungen</button>
         </div>

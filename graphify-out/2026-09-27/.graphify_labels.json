@@ -6,6 +6,7 @@
   "4": "devDependencies",
   "5": "package.json",
   "6": "worker/index.ts",
+  "7": "routes.tsx",
   "8": "Icons.tsx",
   "9": "0001_initial_schema.sql",
   "10": "dependencies",
