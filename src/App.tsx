@@ -944,15 +944,15 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
     <footer className="bg-gray-900 text-gray-400 py-6 px-4 mt-8 shrink-0">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
-          <button onClick={onImpressum} className="hover:text-emerald-400 transition-colors font-bold">Impressum</button>
+          <a href="#impressum" onClick={(e) => { e.preventDefault(); onImpressum(); }} className="hover:text-emerald-400 transition-colors font-bold">Impressum</a>
           <span className="text-gray-600">·</span>
-          <button onClick={onPrivacy} className="hover:text-emerald-400 transition-colors">Datenschutz</button>
+          <a href="#datenschutz" onClick={(e) => { e.preventDefault(); onPrivacy(); }} className="hover:text-emerald-400 transition-colors">Datenschutz</a>
           <span className="text-gray-600">·</span>
-          <button onClick={onTerms} className="hover:text-emerald-400 transition-colors">AGB</button>
+          <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className="hover:text-emerald-400 transition-colors">AGB</a>
           <span className="text-gray-600">·</span>
-          <button onClick={onSeller} className="hover:text-emerald-400 transition-colors">Anbieterkennzeichnung</button>
+          <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className="hover:text-emerald-400 transition-colors">Anbieterkennzeichnung</a>
           <span className="text-gray-600">·</span>
-          <button onClick={onAccessibility} className="hover:text-emerald-400 transition-colors">Barrierefreiheit</button>
+          <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className="hover:text-emerald-400 transition-colors">Barrierefreiheit</a>
           <span className="text-gray-600">·</span>
           <button onClick={onCookies} className="hover:text-emerald-400 transition-colors">Cookie-Einstellungen</button>
         </div>
