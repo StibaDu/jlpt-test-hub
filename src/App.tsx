@@ -1537,6 +1537,11 @@ export default function App() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
+  // Scroll to top whenever the screen changes (test start, results, profile, home)
+  useEffect(() => {
+    try { window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }); } catch { window.scrollTo(0, 0); }
+  }, [gameState]);
+
   // Flush offline-queued test results whenever a user is logged in (app load, after login/signup)
   useEffect(() => {
     if (auth.isLoggedIn) {
