@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "worker/src/auth/index.ts": {
-    "mtime": 1790518986.3870118,
-    "ast_hash": "f7915ab28bf83bcee939f0013bb8721a",
+    "mtime": 1790533270.601825,
+    "ast_hash": "c5f2eaf37227f10eae5ad7ff143d6ec1",
     "semantic_hash": ""
   },
   "worker/src/progress/index.ts": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "worker/src/user/index.ts": {
-    "mtime": 1790437364.1855621,
-    "ast_hash": "2896606fb2210bd74053cf6c9ce15faf",
+    "mtime": 1790533272.9855967,
+    "ast_hash": "bc187d2593168f464fea245bb209ba6b",
     "semantic_hash": ""
   },
   "worker/src/worker/index.ts": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "src/useAuth.ts": {
-    "mtime": 1790529983.8060632,
-    "ast_hash": "ca08288da77bb890a60fdfb77be64f09",
+    "mtime": 1790533325.9950874,
+    "ast_hash": "0e551fd303b809d27480683f64f31ede",
     "semantic_hash": ""
   },
   "src/tts.ts": {

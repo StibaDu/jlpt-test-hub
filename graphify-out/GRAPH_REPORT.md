@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 43 files · ~73,304 words
+- 43 files · ~74,417 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 239 nodes · 296 edges · 13 communities
+- 240 nodes · 297 edges · 13 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2d3175e8`
+- Built from commit: `bc18adc8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -82,7 +82,7 @@ Cohesion: 0.20
 Nodes (9): name, private, scripts, build, dev, lint, preview, type (+1 more)
 
 ### Community 6 - "worker/index.ts"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (14): adminRoutes, authRoutes, TODO: Send reset email, progressRoutes, answerToQuality(), sm2(), SM2State, subscriptionRoutes (+6 more)
 
 ### Community 7 - "types.ts"
@@ -106,7 +106,7 @@ Cohesion: 0.38
 Nodes (9): getJapaneseVoice(), getSavedRate(), hasGoodJapaneseVoice(), listJapaneseVoices(), QUALITY_KEYWORDS, saveRate(), speak(), stopSpeaking() (+1 more)
 
 ## Knowledge Gaps
-- **94 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+89 more)
+- **94 isolated node(s):** `User`, `Subscription`, `UiStrings`, `uiTranslations`, `SvgProps` (+89 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -118,7 +118,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+- **What connects `User`, `Subscription`, `UiStrings` to the rest of the system?**
   _94 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

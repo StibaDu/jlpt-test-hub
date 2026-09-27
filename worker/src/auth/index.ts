@@ -178,6 +178,22 @@ export const authRoutes = new Hono()
     });
   })
   .post('/logout', async (c) => {
+    // Revoke the refresh token from the cookie (if present) so it can't be reused
+    const cookieHeader = c.req.header('Cookie') || '';
+    const cookies = Object.fromEntries(
+      cookieHeader.split(';').map(pair => {
+        const idx = pair.indexOf('=');
+        return idx > -1 ? [pair.slice(0, idx).trim(), pair.slice(idx + 1).trim()] : ['', ''];
+      })
+    );
+    const refreshToken = cookies['refresh_token'];
+    if (refreshToken) {
+      const payload = await verifyJWT(refreshToken, c.env.JWT_SECRET);
+      if (payload?.sub) {
+        await c.env.DB.prepare('UPDATE refresh_tokens SET revoked = TRUE WHERE user_id = ?')
+          .bind(payload.sub).run();
+      }
+    }
     c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
     return c.json({ message: 'Logged out' });
   })
