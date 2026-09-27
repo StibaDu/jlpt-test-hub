@@ -970,7 +970,7 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
   );
 };
 
-const renderFurigana = (text: string, onKanjiClick?: (kanji: string, furigana: string) => void) => {
+const renderFurigana = (text: string, onKanjiClick?: (kanji: string, furigana: string) => void, showFurigana: boolean = true) => {
   if (!text) return null;
   const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g);
   const result: React.ReactNode[] = [];
@@ -996,7 +996,7 @@ const renderFurigana = (text: string, onKanjiClick?: (kanji: string, furigana: s
         >
           <ruby>
             {kanji}
-            <rt className="text-[0.6em] text-emerald-700 font-normal select-none leading-none">{furigana}</rt>
+            {showFurigana && <rt className="text-[0.6em] text-emerald-700 font-normal select-none leading-none">{furigana}</rt>}
           </ruby>
         </span>
       );
@@ -1279,6 +1279,7 @@ export default function App() {
   };
 
   const handleKanjiClick = (kanji: string, furigana: string) => {
+    if (testMode === 'real') return; // No dictionary help in Real Test mode
     const entry = currentData.kanjiDictionary[kanji];
     setSelectedKanjiInfo({ kanji, furigana, ...(entry ?? { meaning: { en: t.unknown, de: t.unknown }, desc: { en: '', de: '' } }) });
   };
@@ -1761,11 +1762,11 @@ export default function App() {
           <main className={`flex-1 w-full mx-auto flex flex-col ${isMobile ? 'max-w-full px-3 py-4' : 'max-w-4xl px-4 py-8 md:py-12'}`}>
             <article className={`bg-white shadow-sm border border-gray-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
               <div className={`text-gray-500 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
-                <span>{renderFurigana(currentData.instruction, handleKanjiClick)}</span>
+                <span>{renderFurigana(currentData.instruction, handleKanjiClick, testMode === 'learning')}</span>
                 {testMode === 'learning' && <span className="text-blue-600 italic shrink-0 ml-2">{t.clickKanji}</span>}
               </div>
               <h2 className={`text-gray-900 leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
-                {renderFurigana(currentQuestion.text, handleKanjiClick)}
+                {renderFurigana(currentQuestion.text, handleKanjiClick, testMode === 'learning')}
               </h2>
               <div className={`mt-6 grid gap-3 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 md:mt-10 md:gap-4'}`}>
                 {currentQuestion.options.map((option, idx) => {
@@ -1804,7 +1805,7 @@ export default function App() {
                           {idx + 1}
                         </span>
                         <span className={`font-medium leading-relaxed block break-words w-full ${isMobile ? 'text-lg' : 'text-xl'}`}>
-                          {renderFurigana(option, handleKanjiClick)}
+                          {renderFurigana(option, handleKanjiClick, testMode === 'learning')}
                         </span>
                         {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-700 ml-auto shrink-0`} />}
                         {showFeedback && isSelected && !isCorrectOption && <IconX className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-red-600 ml-auto shrink-0`} />}

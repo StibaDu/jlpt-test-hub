@@ -367,6 +367,28 @@
       "norm_label": "app()"
     },
     {
+      "label": "Upgrade.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Upgrade.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_upgrade",
+      "community": 2,
+      "community_name": "useAuth",
+      "norm_label": "upgrade.tsx"
+    },
+    {
+      "label": "Upgrade()",
+      "file_type": "code",
+      "source_file": "src/pages/Upgrade.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "src_pages_upgrade_upgrade",
+      "community": 2,
+      "community_name": "useAuth",
+      "norm_label": "upgrade()"
+    },
+    {
       "label": "AuthModal.tsx",
       "file_type": "code",
       "source_file": "src/AuthModal.tsx",
@@ -603,8 +625,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "routes.tsx",
       "id": "src_routes"
     },
@@ -614,8 +636,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "login",
       "id": "src_routes_login"
     },
@@ -625,8 +647,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "signup",
       "id": "src_routes_signup"
     },
@@ -636,8 +658,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "forgotpassword",
       "id": "src_routes_forgotpassword"
     },
@@ -647,8 +669,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "resetpassword",
       "id": "src_routes_resetpassword"
     },
@@ -658,8 +680,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "verifyemail",
       "id": "src_routes_verifyemail"
     },
@@ -669,8 +691,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "dashboard",
       "id": "src_routes_dashboard"
     },
@@ -680,8 +702,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "upgrade",
       "id": "src_routes_upgrade"
     },
@@ -691,8 +713,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "testpage",
       "id": "src_routes_testpage"
     },
@@ -702,8 +724,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "intro",
       "id": "src_routes_intro"
     },
@@ -713,8 +735,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "approutes()",
       "id": "src_routes_approutes"
     },
@@ -724,8 +746,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L54",
       "_origin": "ast",
-      "community": 7,
-      "community_name": "routes.tsx",
+      "community": 2,
+      "community_name": "useAuth",
       "norm_label": "app()",
       "id": "src_routes_app"
     },
@@ -1907,28 +1929,6 @@
       "id": "src_pages_signup_signup"
     },
     {
-      "label": "Upgrade.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
-      "norm_label": "upgrade.tsx",
-      "id": "src_pages_upgrade"
-    },
-    {
-      "label": "Upgrade()",
-      "file_type": "code",
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
-      "norm_label": "upgrade()",
-      "id": "src_pages_upgrade_upgrade"
-    },
-    {
       "label": "VerifyEmail.tsx",
       "file_type": "code",
       "source_file": "src/pages/VerifyEmail.tsx",
@@ -2735,7 +2735,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1754",
+      "source_location": "L1764",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -2752,6 +2752,41 @@
       "_origin": "ast",
       "source": "src_app_app",
       "target": "src_app_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Upgrade.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_upgrade",
+      "target": "src_context_authcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Upgrade.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_upgrade",
+      "target": "src_context_authcontext_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Upgrade.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_upgrade",
+      "target": "src_pages_upgrade_upgrade",
       "confidence_score": 1.0
     },
     {
@@ -3894,18 +3929,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_pages_upgrade",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/VerifyEmail.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -4104,30 +4127,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_signup_signup",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_pages_upgrade",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_pages_upgrade_upgrade",
       "target": "src_context_authcontext_useauth"
     },
     {
@@ -4706,17 +4705,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/Upgrade.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_pages_upgrade",
-      "target": "src_pages_upgrade_upgrade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/VerifyEmail.tsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -5035,5 +5023,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "00260c6894058146de57a620aec10d0943a646a3"
+  "built_at_commit": "56654aae75bec8ca3fb51cce132be6d9b9bd3631"
 }
