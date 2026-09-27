@@ -208,55 +208,55 @@ interface SvgProps {
 }
 
 const IconClock = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
   </svg>
 );
 
 const IconCheck = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   </svg>
 );
 
 const IconX = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
   </svg>
 );
 
 const IconAlertCircle = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
   </svg>
 );
 
 const IconBookOpen = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
   </svg>
 );
 
 const IconGlobe = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
   </svg>
 );
 
 const IconHome = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
   </svg>
 );
 
 const IconRefreshCw = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
   </svg>
 );
 
 const IconHeart = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
   </svg>
 );
@@ -293,7 +293,7 @@ const GoogleAdBanner = ({ slotId = "auto-ads-slot" }: { slotId?: string }) => {
       */}
       <div className="flex flex-col items-center justify-center py-2 space-y-1">
         <span className="font-bold tracking-widest uppercase text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded">Advertisement</span>
-        <div className="h-12 flex items-center justify-center text-gray-400 font-mono text-xs">
+        <div className="h-12 flex items-center justify-center text-gray-600 font-mono text-xs">
           Google AdSense Responsive Unit [{slotId}]
         </div>
       </div>
@@ -443,13 +443,13 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
         <p className="text-gray-600 text-sm leading-relaxed mb-6">{t.proDesc}</p>
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-            <div className="text-xs font-bold text-gray-400 uppercase mb-1">{t.proFree}</div>
+            <div className="text-xs font-bold text-gray-600 uppercase mb-1">{t.proFree}</div>
             <div className="text-2xl font-black text-gray-700 mb-2">$0</div>
             <p className="text-gray-500 text-xs leading-relaxed">{t.freeFeatures}</p>
           </div>
           <div className="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-400">
             <div className="text-xs font-bold text-emerald-500 uppercase mb-1">{t.proPro}</div>
-            <div className="text-2xl font-black text-emerald-600 mb-2">$4.99<span className="text-sm font-normal text-gray-400">/mo</span></div>
+            <div className="text-2xl font-black text-emerald-600 mb-2">$4.99<span className="text-sm font-normal text-gray-600">/mo</span></div>
             <p className="text-gray-600 text-xs leading-relaxed">{t.proFeatures}</p>
           </div>
         </div>
@@ -473,7 +473,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             >
               Cancel Subscription (Self-Service)
             </button>
-            <p className="text-center text-xs text-gray-400 mt-2">Your Pro features remain active until the end of your billing period. Confirmation will be shown immediately.</p>
+            <p className="text-center text-xs text-gray-600 mt-2">Your Pro features remain active until the end of your billing period. Confirmation will be shown immediately.</p>
           </>
         ) : (
           <>
@@ -484,7 +484,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
               >
                 <div className="text-xs text-gray-500">Monthly</div>
                 <div className="text-xl font-black text-gray-900">$4.99</div>
-                <div className="text-xs text-gray-400">/month</div>
+                <div className="text-xs text-gray-600">/month</div>
               </button>
               <button
                 onClick={() => setSelectedPlan('yearly')}
@@ -502,7 +502,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             >
               {loading ? 'Redirecting to Stripe...' : isLoggedIn ? t.proCTA : 'Sign in to upgrade'}
             </button>
-            <div className="text-center text-xs text-gray-400 mt-2">{t.proPrice}</div>
+            <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
           </>
         )}
         <button onClick={onClose} className="w-full mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
@@ -1028,7 +1028,7 @@ export default function App() {
             JLPT Test Hub is currently undergoing maintenance to bring you a better experience.
             We'll be back shortly!
           </p>
-          <p className="text-gray-400 text-xs">— The JLPT Test Hub Team</p>
+          <p className="text-gray-600 text-xs">— The JLPT Test Hub Team</p>
         </div>
       </div>
     );
@@ -1300,14 +1300,14 @@ export default function App() {
           </div>
           <div className="space-y-5">
             <div>
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t.meaning}</h4>
+              <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.meaning}</h4>
               <p className="text-xl md:text-2xl font-bold text-gray-800">
                 {selectedKanjiInfo.meaning ? selectedKanjiInfo.meaning[lang] : t.unknown}
               </p>
             </div>
             {selectedKanjiInfo.desc && selectedKanjiInfo.desc[lang] && (
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t.context}</h4>
+                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.context}</h4>
                 <p className="text-gray-600 leading-relaxed text-sm bg-gray-50 p-4 rounded-xl">
                   {selectedKanjiInfo.desc[lang]}
                 </p>
@@ -1588,7 +1588,7 @@ export default function App() {
               {/* Affiliate: Study in Japan */}
               <StudyInJapanBanner t={t} lang={lang} />
 
-              <div className={`text-center text-gray-400 shrink-0 ${isMobile ? 'mt-4 text-xs' : 'mt-8 text-sm'}`}>
+              <div className={`text-center text-gray-600 shrink-0 ${isMobile ? 'mt-4 text-xs' : 'mt-8 text-sm'}`}>
                 {t.passReq}
               </div>
 
@@ -1715,7 +1715,7 @@ export default function App() {
                   {testMode === 'learning' ? (isMobile ? t.learn : t.learningMode) : t.question}
                 </div>
                 <div className={`bg-gray-100 text-gray-800 font-bold rounded-md flex items-center ${isMobile ? 'px-2 py-0.5 text-xs' : 'px-3 py-1'}`}>
-                  {currentQuestionIndex + 1} <span className="text-gray-400 font-normal ml-1">/ {testQuestions.length}</span>
+                  {currentQuestionIndex + 1} <span className="text-gray-600 font-normal ml-1">/ {testQuestions.length}</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -1754,7 +1754,7 @@ export default function App() {
                   const isSelected = answers[currentQuestionIndex] === idx;
                   const isCorrectOption = idx === currentQuestion.correctIndex;
                   let buttonStyle = "border-gray-200 hover:border-emerald-300 hover:bg-gray-50 text-gray-700 cursor-pointer";
-                  let badgeStyle = "border-gray-300 text-gray-400";
+                  let badgeStyle = "border-gray-400 text-gray-600";
                   if (testMode === 'real') {
                     if (isSelected) {
                       buttonStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 shadow-sm cursor-pointer";
@@ -1882,7 +1882,7 @@ export default function App() {
                 <div className="text-center">
                   <div className="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-xs">{t.yourScore}</div>
                   <div className={`font-black text-gray-800 ${isMobile ? 'text-4xl' : 'text-5xl'}`}>
-                    {results.score} <span className="text-xl text-gray-400">/ {testQuestions.length}</span>
+                    {results.score} <span className="text-xl text-gray-600">/ {testQuestions.length}</span>
                   </div>
                 </div>
                 <div className={`w-px h-16 bg-gray-200 hidden ${isMobile ? '' : 'md:block'}`}></div>
@@ -2001,7 +2001,7 @@ export default function App() {
                         <p className={`text-red-500 font-medium ${isMobile ? 'mt-2 text-sm' : 'mt-4'}`}>{t.unanswered}</p>
                       )}
                       <div className={`bg-gray-50 rounded-lg border border-gray-100 ${isMobile ? 'mt-3 p-3' : 'mt-4 p-4'}`}>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase mb-1">{t.explanation}</h4>
+                        <h4 className="text-xs font-bold text-gray-600 uppercase mb-1">{t.explanation}</h4>
                         <p className={`text-gray-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>{q.explanation[lang]}</p>
                       </div>
                     </div>
