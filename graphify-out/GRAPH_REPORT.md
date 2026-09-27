@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 43 files · ~74,417 words
+- 43 files · ~74,494 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bc18adc8`
+- Built from commit: `73d6db68`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

@@ -4,50 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "useAuth.ts",
-      "file_type": "code",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_useauth",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "useauth.ts"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "src_useauth_user",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "user"
-    },
-    {
-      "label": "Subscription",
-      "file_type": "code",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "src_useauth_subscription",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "subscription"
-    },
-    {
-      "label": "useAuth()",
-      "file_type": "code",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "src_useauth_useauth",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "useauth()"
-    },
-    {
       "label": "auth/index.ts",
       "file_type": "code",
       "source_file": "worker/src/auth/index.ts",
@@ -117,12 +73,56 @@
       "label": "TODO: Send reset email",
       "file_type": "rationale",
       "source_file": "worker/src/auth/index.ts",
-      "source_location": "L209",
+      "source_location": "L225",
       "_origin": "ast",
-      "id": "worker_src_auth_index_rationale_209",
+      "id": "worker_src_auth_index_rationale_225",
       "community": 6,
       "community_name": "worker/index.ts",
       "norm_label": "todo: send reset email"
+    },
+    {
+      "label": "useAuth.ts",
+      "file_type": "code",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "useauth.ts",
+      "id": "src_useauth"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "user",
+      "id": "src_useauth_user"
+    },
+    {
+      "label": "Subscription",
+      "file_type": "code",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "subscription",
+      "id": "src_useauth_subscription"
+    },
+    {
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "useauth()",
+      "id": "src_useauth_useauth"
     },
     {
       "label": "user/index.ts",
@@ -130,10 +130,10 @@
       "source_file": "worker/src/user/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "worker_src_user_index",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "user/index.ts"
+      "norm_label": "user/index.ts",
+      "id": "worker_src_user_index"
     },
     {
       "label": "userRoutes",
@@ -141,10 +141,10 @@
       "source_file": "worker/src/user/index.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "worker_src_user_index_userroutes",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "userroutes"
+      "norm_label": "userroutes",
+      "id": "worker_src_user_index_userroutes"
     },
     {
       "label": "App.tsx",
@@ -2646,63 +2646,6 @@
   ],
   "links": [
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_useauth"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_useauth",
-      "target": "src_useauth_subscription",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_useauth",
-      "target": "src_useauth_useauth",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/useAuth.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_useauth",
-      "target": "src_useauth_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_useauth_useauth"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "worker/src/auth/index.ts",
@@ -2761,10 +2704,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "worker/src/auth/index.ts",
-      "source_location": "L209",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "worker_src_auth_index_rationale_209",
+      "source": "worker_src_auth_index_rationale_225",
       "target": "worker_src_auth_index",
       "confidence_score": 1.0
     },
@@ -2793,15 +2736,72 @@
       "target": "worker_src_auth_index_authroutes"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_useauth",
+      "target": "src_useauth_subscription"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_useauth",
+      "target": "src_useauth_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/useAuth.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_useauth",
+      "target": "src_useauth_user"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_useauth_useauth"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "worker/src/user/index.ts",
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_user_index",
-      "target": "worker_src_user_index_userroutes",
-      "confidence_score": 1.0
+      "target": "worker_src_user_index_userroutes"
     },
     {
       "relation": "imports_from",
@@ -6020,5 +6020,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bc18adc80c2f53160ef6b01df191a863291635d3"
+  "built_at_commit": "73d6db68a2bc44feae52cc4f129b8336d46b37b8"
 }

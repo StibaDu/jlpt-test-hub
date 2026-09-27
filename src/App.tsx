@@ -1480,6 +1480,16 @@ export default function App() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
+  // Flush offline-queued test results whenever a user is logged in (app load, after login/signup)
+  useEffect(() => {
+    if (auth.isLoggedIn) {
+      auth.flushQueuedResults().then(n => {
+        if (n > 0) setQueuedFlushed(n);
+        setTimeout(() => setQueuedFlushed(0), 6000);
+      });
+    }
+  }, [auth.isLoggedIn]);
+
   // Pro data: fetch weakness summary + SRS due count when a Pro user logs in
   useEffect(() => {
     if (auth.isLoggedIn && auth.isPro) {
@@ -1688,14 +1698,16 @@ export default function App() {
   };
 
   const [srsReviewActive, setSrsReviewActive] = useState(false);
+  const [queuedFlushed, setQueuedFlushed] = useState(0);
 
   const goHome = () => {
     setGameState('intro');
   };
 
   const submitTest = useCallback(() => {
-    // Save test result if logged in
-    if (auth.isLoggedIn && testQuestions.length > 0) {
+    // Always save: logged-in users hit the server (auto-retry), guests queue locally
+    // until signup/login, then the queue flushes with the account attached.
+    if (testQuestions.length > 0) {
       let score = 0;
       testQuestions.forEach((q, index) => {
         if (answers[index] === q.correctIndex) score++;
@@ -1722,7 +1734,7 @@ export default function App() {
       });
 
       // SRS review session: record each answer to the SM-2 scheduler
-      if (srsReviewActive) {
+      if (srsReviewActive && auth.isLoggedIn) {
         questionResults.forEach(qr => {
           // Resolve the actual level of this question (drills may span levels)
           const q = testQuestions.find(tq => tq.id === qr.questionId) as any;
@@ -2796,6 +2808,16 @@ export default function App() {
       />
       {renderKanjiModal()}
       {renderSupportModal()}
+      {queuedFlushed > 0 && (
+        <div
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[200] bg-emerald-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg"
+          role="status"
+        >
+          {lang === 'de'
+            ? `${queuedFlushed} gespeichert${queuedFlushed === 1 ? 'es Testergebnis' : 'e Testergebnisse'} hochgeladen`
+            : `Uploaded ${queuedFlushed} saved test result${queuedFlushed === 1 ? '' : 's'}`}
+        </div>
+      )}
       {/* Notebook PDF — rendered at root so it prints from any page */}
       {printMode === 'notebook' && (
         <div id="print-report" className="hidden print:block">

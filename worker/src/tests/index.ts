@@ -12,6 +12,7 @@ export const testRoutes = new Hono()
     totalQuestions: z.number(),
     timeSpent: z.number(),
     answers: z.record(z.number()),
+    clientTestId: z.string().min(8).max(64).optional(),
     questionResults: z.optional(z.array(z.object({
       questionId: z.number(),
       correct: z.boolean(),
@@ -20,7 +21,17 @@ export const testRoutes = new Hono()
     }))),
   })), async (c) => {
     const user = c.get('user');
-    const { level, mode, score, correctCount, totalQuestions, timeSpent, answers, questionResults } = c.req.valid('json');
+    const { level, mode, score, correctCount, totalQuestions, timeSpent, answers, questionResults, clientTestId } = c.req.valid('json');
+
+    // Idempotency: a retried submission with the same clientTestId is not double-counted
+    if (clientTestId) {
+      const existing = await c.env.DB.prepare(
+        'SELECT id FROM test_attempts WHERE user_id = ? AND client_test_id = ?'
+      ).bind(user.sub, clientTestId).first();
+      if (existing) {
+        return c.json({ id: existing.id, score, correctCount, totalQuestions, passed: score >= 60, duplicate: true });
+      }
+    }
 
     const attemptId = crypto.randomUUID();
     // Store per-question data (with category) for weakness analysis; keep raw answers for review
@@ -32,8 +43,8 @@ export const testRoutes = new Hono()
       : answers;
 
     await c.env.DB.prepare(
-      'INSERT INTO test_attempts (id, user_id, level, mode, score, correct_count, total_questions, time_spent_seconds, completed_at, answers_json) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-    ).bind(attemptId, user.sub, level, mode, score, correctCount, totalQuestions, timeSpent, Date.now(), JSON.stringify(answersForStorage)).run();
+      'INSERT INTO test_attempts (id, user_id, level, mode, score, correct_count, total_questions, time_spent_seconds, completed_at, answers_json, client_test_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    ).bind(attemptId, user.sub, level, mode, score, correctCount, totalQuestions, timeSpent, Date.now(), JSON.stringify(answersForStorage), clientTestId ?? null).run();
 
     await c.env.DB.prepare(
       `INSERT INTO user_progress (user_id, total_tests_taken, total_questions_answered, total_correct, total_time_spent_seconds, updated_at)

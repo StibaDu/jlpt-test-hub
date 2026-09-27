@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { enqueueResult, newClientTestId, queueSize, flushQueue } from './resultQueue';
 
 const API_BASE = 'https://jlpt-test-hub-api.kapioka-fam.workers.dev/api';
 
@@ -210,6 +211,8 @@ export function useAuth() {
     }
   };
 
+  const saveTestResultRef = useRef<(r: any) => Promise<{ saved: boolean; queued: boolean; clientTestId: string }>>(async () => ({ saved: false, queued: true, clientTestId: '' }));
+
   const saveTestResult = async (result: {
     level: string;
     mode: string;
@@ -218,18 +221,44 @@ export function useAuth() {
     totalQuestions: number;
     timeSpent: number;
     answers: Record<number, number>;
-    questionResults: Array<{ questionId: number; correct: boolean; category: string }>;
-  }): Promise<void> => {
-    if (!user) return;
+    questionResults: Array<{ questionId: number; correct: boolean; category: string; selectedOption?: number }>;
+    clientTestId?: string;
+  }): Promise<{ saved: boolean; queued: boolean; clientTestId: string }> => {
+    // Every result gets a clientTestId — the server treats retries as duplicates,
+    // so a queued result can never be double-counted.
+    const clientTestId = result.clientTestId || newClientTestId();
+    const payload = { ...result, clientTestId };
+
+    if (!user) {
+      // Guests: queue locally — flushed automatically right after signup/login
+      enqueueResult(payload, clientTestId);
+      return { saved: false, queued: true, clientTestId };
+    }
 
     try {
-      await apiFetch('/tests/submit', {
+      const res = await apiFetch('/tests/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(result),
+        body: JSON.stringify(payload),
       });
-    } catch {}
+      if (res.ok) return { saved: true, queued: false, clientTestId };
+      // Server refused (non-auth failure) — queue and report queued
+      enqueueResult(payload, clientTestId);
+      return { saved: false, queued: true, clientTestId };
+    } catch {
+      // Network failure — queue so it's retried on the next app load
+      enqueueResult(payload, clientTestId);
+      return { saved: false, queued: true, clientTestId };
+    }
   };
+
+  saveTestResultRef.current = saveTestResult;
+
+  const flushQueuedResults = useCallback(async (): Promise<number> => {
+    if (!user) return 0;
+    // saveTestResult already carries clientTestId from queued items → idempotent server-side
+    return flushQueue(async (payload, clientTestId) => saveTestResultRef.current({ ...payload, clientTestId }));
+  }, [user]);
 
   const cancelSubscription = async (): Promise<{ success: boolean; error?: string }> => {
     if (!getAccessToken()) return { success: false, error: 'Not logged in' };
@@ -338,6 +367,8 @@ export function useAuth() {
     forgotPassword,
     upgrade,
     saveTestResult,
+    flushQueuedResults,
+    queuedCount: queueSize,
     cancelSubscription,
     refreshProfile: fetchProfile,
   };
