@@ -108,7 +108,12 @@ const uiTranslations: UiStrings = {
     foundHelpful: "Found this helpful?",
     // Pro features
     srsTitle: "🔁 Spaced Review",
-    srsDueDesc: "{n} questions are due for review — reviewing them now locks them into memory",
+    srsDueDesc: "{n} questions are due for review today — reviewing them now locks them into memory",
+    srsPracticeDesc: "{n} mistakes not yet scheduled — start them now and spaced repetition will schedule them automatically",
+    srsStartDue: "Review {n}",
+    srsStartPractice: "Practice {n}",
+    srsModeBadge: "🔁 REVIEW MODE",
+    srsModeHint: "Answers update your review schedule",
     srsStart: "Start Review",
     notebookTitle: "📚 Mistake Notebook",
     notebookTrain: "🎯 Practice Mistakes",
@@ -266,7 +271,12 @@ const uiTranslations: UiStrings = {
     foundHelpful: "Nützlich gefunden?",
     // Pro-Features
     srsTitle: "🔁 Wiederholungs-Queue",
-    srsDueDesc: "{n} Fragen sind zur Wiederholung fällig — jetzt wiederholen sichert sie ins Langzeitgedächtnis",
+    srsDueDesc: "{n} Fragen sind heute zur Wiederholung fällig — jetzt wiederholen sichert sie ins Langzeitgedächtnis",
+    srsPracticeDesc: "{n} Fehler noch nicht eingeplant — jetzt starten, die Wiederholungs-Queue plant sie automatisch",
+    srsStartDue: "{n} wiederholen",
+    srsStartPractice: "{n} üben",
+    srsModeBadge: "🔁 WIEDERHOLUNGS-MODUS",
+    srsModeHint: "Antworten aktualisieren deinen Wiederholungsplan",
     srsStart: "Wiederholen starten",
     notebookTitle: "📚 Fehlerheft",
     notebookTrain: "🎯 Fehler üben",
@@ -476,7 +486,7 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
@@ -623,20 +633,36 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             )}
 
             {/* === PRO: SRS Review Queue === */}
-            {isPro && srsDueCount > 0 && (
-              <div className="bg-amber-50 rounded-xl p-4 border border-amber-300">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>
-                    <p className="text-amber-700 text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
+            {isPro && (srsDueCount > 0 || srsNewCount > 0) && (
+              <div className="bg-amber-50 rounded-xl p-4 border border-amber-300 space-y-2">
+                {srsDueCount > 0 && (
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>
+                      <p className="text-amber-700 text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
+                    </div>
+                    <button
+                      onClick={async () => { await onStartSrsReview(); onClose(); }}
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                    >
+                      {t.srsStartDue.replace('{n}', String(srsDueCount))}
+                    </button>
                   </div>
-                  <button
-                    onClick={async () => { await onStartSrsReview(); onClose(); }}
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
-                  >
-                    {t.srsStart}
-                  </button>
-                </div>
+                )}
+                {srsNewCount > 0 && (
+                  <div className={`flex items-center justify-between gap-3 ${srsDueCount > 0 ? 'pt-2 border-t border-amber-200' : ''}`}>
+                    <div>
+                      {srsDueCount === 0 && <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>}
+                      <p className="text-amber-700 text-xs mt-0.5">{t.srsPracticeDesc.replace('{n}', String(srsNewCount))}</p>
+                    </div>
+                    <button
+                      onClick={async () => { await onStartSrsPractice(); onClose(); }}
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                    >
+                      {t.srsStartPractice.replace('{n}', String(Math.min(10, srsNewCount)))}
+                    </button>
+                  </div>
+                )}
               </div>
             )}
 
@@ -1427,6 +1453,7 @@ export default function App() {
   const [weaknessData, setWeaknessData] = useState<any>(null);
   const [notebookData, setNotebookData] = useState<any>(null);
   const [srsDueCount, setSrsDueCount] = useState(0);
+  const [srsNewCount, setSrsNewCount] = useState(0);
   const [ttsRate, setTtsRate] = useState(() => getSavedRate());
   const [showVoiceHint, setShowVoiceHint] = useState(() => {
     try { return localStorage.getItem('jlpt-voice-hint-dismissed') !== 'true'; } catch { return true; }
@@ -1457,7 +1484,10 @@ export default function App() {
   useEffect(() => {
     if (auth.isLoggedIn && auth.isPro) {
       auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); });
-      auth.fetchSrsDue().then(d => setSrsDueCount(d?.dueCount || 0));
+      auth.fetchSrsDue().then(d => {
+        setSrsDueCount(d?.due?.length || 0);
+        setSrsNewCount(d?.newCards?.length || 0);
+      });
     } else if (!auth.isLoggedIn) {
       setWeaknessData(null);
       setNotebookData(null);
@@ -1555,6 +1585,7 @@ export default function App() {
       try { localStorage.setItem('jlpt-real-trial-used', 'true'); } catch {}
     }
     setTestMode(mode);
+    setSrsReviewActive(false);
     // Free users get 10 questions, Pro gets full set
     const questionCount = auth.isPro ? currentData.questionsPerTest : Math.min(10, currentData.questionsPerTest);
     const selected = shuffleArray(currentData.questionBank).slice(0, questionCount);
@@ -1595,6 +1626,7 @@ export default function App() {
     const bank = levelData[level as 'N5' | 'N4' | 'N3']?.questionBank || [];
     const inCategory = bank.filter((q: any) => q.category === category);
     if (!inCategory.length) return;
+    setSrsReviewActive(true);
     let ids: number[] = inCategory.map((q: any) => q.id);
     if (auth.isPro) {
       const drill = await auth.fetchDrillQuestions(level, category);
@@ -1636,6 +1668,16 @@ export default function App() {
     setTestMode('learning');
     setSrsReviewActive(true);
     startDrillFromIds(ids);
+  };
+
+  const startSrsPractice = async () => {
+    const data = await auth.fetchSrsDue();
+    if (!data) return;
+    const newIds = data.newCards?.map((q: any) => q.question_id) || [];
+    if (!newIds.length) return;
+    setTestMode('learning');
+    setSrsReviewActive(true);
+    startDrillFromIds(newIds.slice(0, 10));
   };
 
   const [srsReviewActive, setSrsReviewActive] = useState(false);
@@ -1684,7 +1726,8 @@ export default function App() {
         // Refresh due count after reviews
         setTimeout(async () => {
           const due = await auth.fetchSrsDue();
-          setSrsDueCount(due?.dueCount || 0);
+          setSrsDueCount(due?.due?.length || 0);
+          setSrsNewCount(due?.newCards?.length || 0);
         }, 1500);
       }
     }
@@ -2267,6 +2310,14 @@ export default function App() {
                 <div className={`bg-gray-100 text-gray-800 font-bold rounded-md flex items-center ${isMobile ? 'px-2 py-0.5 text-xs' : 'px-3 py-1'}`}>
                   {currentQuestionIndex + 1} <span className="text-gray-600 font-normal ml-1">/ {testQuestions.length}</span>
                 </div>
+                {srsReviewActive && (
+                  <div
+                    className="bg-amber-100 text-amber-800 font-bold rounded-md flex items-center gap-1 px-2 py-0.5 text-xs"
+                    title={t.srsModeHint}
+                  >
+                    {t.srsModeBadge}
+                  </div>
+                )}
               </div>
               <div className="flex items-center gap-3">
                 {testMode === 'real' ? (
@@ -2571,7 +2622,7 @@ export default function App() {
                   </div>
                   {auth.isPro && (
                     <button
-                      onClick={() => { setSrsReviewActive(false); startDrillFromIds(results.wrongQuestions.map((w: any) => w.q.id)); }}
+                      onClick={() => { setSrsReviewActive(true); startDrillFromIds(results.wrongQuestions.map((w: any) => w.q.id)); }}
                       className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                     >
                       🎯 {lang === 'de' ? 'Diese Fragen jetzt üben' : 'Drill these now'}
@@ -2694,7 +2745,7 @@ export default function App() {
             </section>
 
             {/* Hidden print/PDF report — visible only in print */}
-            {printMode === 'test' ? (
+            {printMode === 'test' && (
             <div id="print-report" className="hidden print:block">
               <h1>JLPT Test Hub — {lang === 'de' ? 'Testergebnis' : 'Test Result'}</h1>
               <div className="print-meta">
@@ -2711,27 +2762,6 @@ export default function App() {
                     <p>{q.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
                     <p>Richtige Antwort: {q.options[q.correctIndex].replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
                     <p className="print-meta">Erklärung: {q.explanation[lang]}</p>
-                  </div>
-                );
-              })}
-              <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
-            </div>
-            ) : (
-            /* Notebook PDF export */
-            <div id="print-report" className="hidden print:block">
-              <h1>JLPT Test Hub — {lang === 'de' ? 'Fehlerheft' : 'Mistake Notebook'}</h1>
-              <div className="print-meta">
-                <p><strong>{lang === 'de' ? 'Datum' : 'Date'}:</strong> {new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')} | <strong>{lang === 'de' ? 'Fehler' : 'Mistakes'}:</strong> {notebookData?.questions?.length || 0}</p>
-              </div>
-              {(notebookData?.questions || []).map((wq: any) => {
-                const q = findQuestion(wq.question_id, wq.level);
-                if (!q) return null;
-                return (
-                  <div key={`nb-${wq.level}-${wq.question_id}`} className="print-q">
-                    <p><strong>{wq.level} #{wq.question_id}</strong> [{q.category}] — {wq.times_wrong || wq.attempts}{lang === 'de' ? '× falsch' : '× wrong'}</p>
-                    <p>{q.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
-                    <p className="print-correct">{lang === 'de' ? 'Richtige Antwort' : 'Correct answer'}: {q.options[q.correctIndex].replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
-                    <p className="print-meta">{lang === 'de' ? 'Erklärung' : 'Explanation'}: {q.explanation[lang]}</p>
                   </div>
                 );
               })}
@@ -2759,6 +2789,28 @@ export default function App() {
       />
       {renderKanjiModal()}
       {renderSupportModal()}
+      {/* Notebook PDF — rendered at root so it prints from any page */}
+      {printMode === 'notebook' && (
+        <div id="print-report" className="hidden print:block">
+          <h1>JLPT Test Hub — {lang === 'de' ? 'Fehlerheft' : 'Mistake Notebook'}</h1>
+          <div className="print-meta">
+            <p><strong>{lang === 'de' ? 'Datum' : 'Date'}:</strong> {new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')} | <strong>{lang === 'de' ? 'Fehler' : 'Mistakes'}:</strong> {notebookData?.questions?.length || 0}</p>
+          </div>
+          {(notebookData?.questions || []).map((wq: any) => {
+            const q = findQuestion(wq.question_id, wq.level);
+            if (!q) return null;
+            return (
+              <div key={`nb-${wq.level}-${wq.question_id}`} className="print-q">
+                <p><strong>{wq.level} #{wq.question_id}</strong> [{q.category}] — {wq.times_wrong || wq.attempts}{lang === 'de' ? '× falsch' : '× wrong'}</p>
+                <p>{q.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                <p className="print-correct">{lang === 'de' ? 'Richtige Antwort' : 'Correct answer'}: {q.options[q.correctIndex].replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                <p className="print-meta">{lang === 'de' ? 'Erklärung' : 'Explanation'}: {q.explanation[lang]}</p>
+              </div>
+            );
+          })}
+          <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
+        </div>
+      )}
       {gameState === 'profile' && <ProfilePage
         onClose={goHome}
         nav={renderNavControls()}
@@ -2787,9 +2839,11 @@ export default function App() {
         lang={lang}
         weaknessData={weaknessData}
         srsDueCount={srsDueCount}
+        srsNewCount={srsNewCount}
+        onStartSrsPractice={startSrsPractice}
         notebookData={notebookData}
         onStartSrsReview={startSrsReview}
-        onStartNotebookTraining={(ids) => { setSrsReviewActive(false); startDrillFromIds(ids); }}
+        onStartNotebookTraining={(ids) => { setSrsReviewActive(true); startDrillFromIds(ids); }}
         onRefreshNotebook={() => auth.fetchMistakeNotebook()}
         onSetNotebookData={setNotebookData}
         onExportNotebookPdf={exportNotebookPdf}

@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1790527233.3152387,
-    "ast_hash": "ee4206459e49f3ffe277e1d57638c90c",
+    "mtime": 1790530223.0947454,
+    "ast_hash": "901f6bf7f500bc48a73346b48897812d",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "worker/src/progress/index.ts": {
-    "mtime": 1790520648.4888391,
-    "ast_hash": "96eb808cdad825ff38dc3a785257a8e6",
+    "mtime": 1790529930.8992636,
+    "ast_hash": "706331bf9a1ec9c18cbe11b75f5d606b",
     "semantic_hash": ""
   },
   "worker/src/subscription/index.ts": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "worker/src/tests/index.ts": {
-    "mtime": 1790520557.8802154,
-    "ast_hash": "1571b21627fe1d4f977629352f076a42",
+    "mtime": 1790529942.5612934,
+    "ast_hash": "bd32747c0271c96e20684bef1821bc25",
     "semantic_hash": ""
   },
   "worker/src/user/index.ts": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "src/useAuth.ts": {
-    "mtime": 1790520654.946416,
-    "ast_hash": "fccf62cc5a8c8c830c3f67c32d830397",
+    "mtime": 1790529983.8060632,
+    "ast_hash": "ca08288da77bb890a60fdfb77be64f09",
     "semantic_hash": ""
   },
   "src/tts.ts": {
@@ -242,6 +242,11 @@
   "src/data/kanjiReadings.ts": {
     "mtime": 1790525543.3417566,
     "ast_hash": "36c0fd7ecb085b3decd1a3a4afe192f0",
+    "semantic_hash": ""
+  },
+  "worker/src/progress/sm2.ts": {
+    "mtime": 1790529919.3273013,
+    "ast_hash": "e13a32fd8e2535e7f3c3754637fe1f3b",
     "semantic_hash": ""
   }
 }
