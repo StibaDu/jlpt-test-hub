@@ -61,3 +61,41 @@ ruby {
 /* Hide scrollbars in mobile frame */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Print/PDF export styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-report, #print-report * {
+    visibility: visible;
+  }
+  #print-report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 12pt;
+  }
+  #print-report .print-q {
+    page-break-inside: avoid;
+    margin-bottom: 12pt;
+  }
+  #print-report .print-correct {
+    color: #047857;
+    font-weight: bold;
+  }
+  #print-report .print-wrong {
+    color: #b91c1c;
+    font-weight: bold;
+  }
+  #print-report h1 {
+    font-size: 20pt;
+    margin-bottom: 4pt;
+  }
+  #print-report .print-meta {
+    color: #555;
+    font-size: 10pt;
+    margin-bottom: 12pt;
+  }
+}

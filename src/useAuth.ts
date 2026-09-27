@@ -202,6 +202,7 @@ export function useAuth() {
     totalQuestions: number;
     timeSpent: number;
     answers: Record<number, number>;
+    questionResults: Array<{ questionId: number; correct: boolean; category: string }>;
   }): Promise<void> => {
     const token = getAccessToken();
     if (!token || !user) return;
@@ -239,6 +240,32 @@ export function useAuth() {
     }
   };
 
+  const masterQuestion = useCallback(async (questionId: number, level: string): Promise<void> => {
+    const token = getAccessToken();
+    if (!token) return;
+    try {
+      await fetch(`${API_BASE}/progress/weak-points/${questionId}/${level}/master`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
+      });
+    } catch {}
+  }, []);
+
+  const fetchWeaknessSummary = useCallback(async (): Promise<any> => {
+    const token = getAccessToken();
+    if (!token) return null;
+    try {
+      const res = await fetch(`${API_BASE}/progress/weakness-summary`, {
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
+      });
+      return res.ok ? await res.json() : null;
+    } catch {
+      return null;
+    }
+  }, []);
+
   const fetchProgress = useCallback(async (): Promise<{ stats: any; history: any[] } | null> => {
     const token = getAccessToken();
     if (!token) return null;
@@ -268,6 +295,8 @@ export function useAuth() {
     isLoggedIn: !!user,
     isPro: subscription?.subscribed === true,
     fetchProgress,
+    fetchWeaknessSummary,
+    masterQuestion,
     login,
     signup,
     logout,

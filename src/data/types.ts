@@ -9,12 +9,22 @@ export interface KanjiEntry {
   desc: Record<Lang, string>;
 }
 
+export type QuestionCategory =
+  | 'Partikel'
+  | 'Verb & Konjugation'
+  | 'Kanji & Lesung'
+  | 'Vokabeln'
+  | 'Adjektive'
+  | 'Satzbau & Struktur'
+  | 'Höflichkeit & Ausdruck';
+
 export interface Question {
   id: number;
   text: string;
   options: string[];
   correctIndex: number;
   explanation: Record<Lang, string>;
+  category: QuestionCategory;
 }
 
 export interface LevelData {

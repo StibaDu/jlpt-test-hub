@@ -3,6 +3,7 @@ import { levelData, allLevels } from './data';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 import { useAuth } from './useAuth';
 import { AuthModal } from './AuthModal';
+import { speak, stopSpeaking, getSavedRate, saveRate, ttsSupported } from './tts';
 
 interface UiStrings {
   [key: string]: any;
@@ -93,15 +94,15 @@ const uiTranslations: UiStrings = {
     proFree: "Free",
     proPro: "Pro",
     freeFeatures: "30 questions per test, both test modes, furigana dictionary",
-    proFeatures: "Unlimited questions, test history, progress analytics, weak-point tracking, ad-free, all 150+ questions unlocked, downloadable PDF results",
+    proFeatures: "Unlimited Real Tests, full 30 questions, weakness analysis, weakness training, PDF export, test history, ad-free",
     proPrice: "$4.99/month or $29.99/year",
     proCTA: "Upgrade with Stripe",
     proCancel: "Maybe later",
     proFeature1: "✓ Unlimited questions per test (vs. 30 free)",
     proFeature2: "✓ Full test history & progress tracking",
-    proFeature3: "✓ Weak-point analytics by category",
+    proFeature3: "✓ Schwachstellen-Analyse nach Kategorie + gezieltes Training",
     proFeature4: "✓ All 150+ official questions unlocked",
-    proFeature5: "✓ Downloadable PDF results & explanations",
+    proFeature5: "✓ PDF-Export deiner Ergebnisse mit Erklärungen",
     proFeature6: "✓ Ad-free experience",
     foundHelpful: "Found this helpful?",
     supportFree: "Support free JLPT prep",
@@ -188,7 +189,7 @@ const uiTranslations: UiStrings = {
     proFree: "Kostenlos",
     proPro: "Pro",
     freeFeatures: "30 Fragen pro Test, beide Modi, Furigana-Wörterbuch",
-    proFeatures: "Unbegrenzte Fragen, Verlauf, Analyse, werbefrei, alle 150+ Fragen, PDF-Export",
+    proFeatures: "Unbegrenzte Real-Tests, 30 Fragen, Schwachstellen-Analyse, Training, PDF-Export, werbefrei",
     proPrice: "$4.99/Monat oder $29.99/Jahr",
     proCTA: "Mit Stripe upgraden",
     proCancel: "Vielleicht später",
@@ -409,12 +410,13 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null> }) => {
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onStartWeaknessTraining, onMasterQuestion }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onStartWeaknessTraining: () => void; onMasterQuestion: (questionId: number, level: string) => Promise<void> }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
+  const [weaknessData, setWeaknessData] = useState<any>(null);
 
   useEffect(() => {
     if (show && isLoggedIn && view === 'profile' && !progressData) {
@@ -423,6 +425,9 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
         setProgressData(data);
         setProgressLoading(false);
       });
+    }
+    if (show && isLoggedIn && view === 'profile' && !weaknessData) {
+      onFetchWeakness().then(setWeaknessData);
     }
   }, [show, isLoggedIn, view]);
 
@@ -536,6 +541,86 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             ) : (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
                 <p className="text-gray-500 text-xs">Fortschritt nicht verfügbar</p>
+              </div>
+            )}
+
+            {/* Schwachstellen-Analyse (Pro) */}
+            {isPro ? (
+              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-bold text-purple-900 text-sm">🎯 Schwachstellen-Analyse</h4>
+                    {weaknessData.totalWeak > 0 && (
+                      <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
+                        {weaknessData.totalWeak} schwach
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Category bars */}
+                  {weaknessData.categories?.length > 0 ? (
+                    <div className="space-y-2 mb-3">
+                      {weaknessData.categories.slice(0, 5).map((cat: any) => (
+                        <div key={cat.category} className="flex items-center gap-2">
+                          <span className="text-xs text-gray-700 w-32 truncate" title={cat.category}>{cat.category}</span>
+                          <div className="flex-1 h-2.5 bg-white rounded-full overflow-hidden border border-purple-100">
+                            <div
+                              className={`h-full rounded-full ${cat.errorRate >= 60 ? 'bg-red-500' : cat.errorRate >= 35 ? 'bg-amber-500' : 'bg-emerald-500'}`}
+                              style={{ width: `${Math.max(cat.errorRate, 3)}%` }}
+                            ></div>
+                          </div>
+                          <span className={`text-xs font-bold w-10 text-right ${cat.errorRate >= 35 ? 'text-red-700' : 'text-emerald-700'}`}>
+                            {cat.errorRate}%
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-purple-700 text-xs text-center py-2">
+                      🎉 Noch keine Schwachstellen — lege mit einem Test los!
+                    </p>
+                  )}
+
+                {/* Weak questions list + training button */}
+                {weaknessData.weakQuestions?.length > 0 && (
+                  <div className="mt-2 space-y-1.5 max-h-36 overflow-y-auto">
+                    {weaknessData.weakQuestions.slice(0, 6).map((wq: any) => (
+                      <div key={`${wq.level}-${wq.question_id}`} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-purple-100 text-xs">
+                        <span className="font-bold text-gray-700">{wq.level} #{wq.question_id}</span>
+                        <span className="text-red-600 text-xs">{wq.attempts}× falsch</span>
+                        <button
+                          onClick={async () => { await onMasterQuestion(wq.question_id, wq.level); }}
+                          className="text-purple-700 hover:text-purple-900 font-bold text-xs underline"
+                          title="Als gemeistert markieren"
+                        >
+                          gemeistert ✓
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {weaknessData.totalWeak >= 5 && (
+                  <button
+                    onClick={() => { onStartWeaknessTraining(); onClose(); }}
+                    className="w-full mt-3 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                  >
+                    🎯 Schwerpunkte üben ({Math.min(10, weaknessData.totalWeak)} Fragen)
+                  </button>
+                )}
+              </div>
+            ) : (
+              /* Locked preview for free users */
+              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 relative overflow-hidden">
+                <div className="filter blur-sm select-none pointer-events-none space-y-2" aria-hidden="true">
+                  <div className="h-3 bg-purple-200 rounded w-3/4"></div>
+                  <div className="h-2.5 bg-purple-100 rounded w-full"></div>
+                  <div className="h-2.5 bg-purple-100 rounded w-5/6"></div>
+                  <div className="h-2.5 bg-purple-100 rounded w-2/3"></div>
+                </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <p className="text-purple-900 font-bold text-sm">🔒 Schwachstellen-Analyse</p>
+                  <p className="text-purple-700 text-xs mt-1">Pro-Feature — erkennt deine Schwächen automatisch</p>
+                </div>
               </div>
             )}
 
@@ -1171,6 +1256,8 @@ export default function App() {
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
   const [lang, setLang] = useState<Lang>('en');
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [weaknessData, setWeaknessData] = useState<any>(null);
+  const [ttsRate, setTtsRate] = useState(() => getSavedRate());
 
   const auth = useAuth();
 
@@ -1298,6 +1385,19 @@ export default function App() {
     setGameState('testing');
   };
 
+  const startWeaknessTraining = () => {
+    if (!auth.isPro || !weaknessData?.weakQuestions?.length) return;
+    setTestMode('learning');
+    const weakIds = new Set(weaknessData.weakQuestions.map((wq: any) => wq.question_id));
+    const weakQuestions = currentData.questionBank.filter(q => weakIds.has(q.id));
+    setTestQuestions(shuffleArray(weakQuestions).slice(0, Math.min(10, weakQuestions.length)));
+    setAnswers({});
+    setCurrentQuestionIndex(0);
+    setLearningAnswerRevealed(false);
+    setTimeRemaining(0);
+    setGameState('testing');
+  };
+
   const restartTest = () => {
     startTest(testMode);
   };
@@ -1316,6 +1416,12 @@ export default function App() {
       const percentage = Math.round((score / testQuestions.length) * 100);
       const timeSpent = testMode === 'real' ? (currentData.timeMinutes * 60 - timeRemaining) : 0;
 
+      const questionResults = testQuestions.map((q, index) => ({
+        questionId: q.id,
+        correct: answers[index] === q.correctIndex,
+        category: q.category,
+      }));
+
       auth.saveTestResult({
         level: selectedLevel,
         mode: testMode,
@@ -1324,6 +1430,7 @@ export default function App() {
         totalQuestions: testQuestions.length,
         timeSpent,
         answers,
+        questionResults,
       });
     }
     setGameState('results');
@@ -1356,6 +1463,7 @@ export default function App() {
   };
 
   const nextQuestion = () => {
+    stopSpeaking();
     if (currentQuestionIndex < testQuestions.length - 1) {
       const nextIdx = currentQuestionIndex + 1;
       setCurrentQuestionIndex(nextIdx);
@@ -1364,6 +1472,7 @@ export default function App() {
   };
 
   const prevQuestion = () => {
+    stopSpeaking();
     if (currentQuestionIndex > 0) {
       const prevIdx = currentQuestionIndex - 1;
       setCurrentQuestionIndex(prevIdx);
@@ -1407,7 +1516,19 @@ export default function App() {
         >
           <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
             <div className="flex flex-col">
-              <span className="text-emerald-700 font-bold tracking-widest text-sm mb-1">{selectedKanjiInfo.furigana}</span>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-emerald-700 font-bold tracking-widest text-sm">{selectedKanjiInfo.furigana}</span>
+                {ttsSupported() && (
+                  <button
+                    onClick={() => speak(selectedKanjiInfo.furigana, ttsRate)}
+                    className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition-colors text-sm"
+                    title="Aussprache anhören"
+                    aria-label="Aussprache anhören"
+                  >
+                    🔊
+                  </button>
+                )}
+              </div>
               <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-none">{selectedKanjiInfo.kanji}</h3>
             </div>
             <button
@@ -1753,8 +1874,8 @@ export default function App() {
                     </summary>
                     <p className="text-gray-600 mt-2 leading-relaxed">
                       {lang === 'de'
-                        ? 'Pro ($4.99/Monat oder $29.99/Jahr) umfasst: unbegrenzte Real-Tests im Prüfungsformat, volle 30 Fragen pro Test, werbefreies Erlebnis, und automatische Speicherung Ihrer Testergebnisse. Jederzeit kündbar ohne E-Mail oder Anruf — direkt im Kundenbereich.'
-                        : 'Pro ($4.99/month or $29.99/year) includes: unlimited Real Tests in exam format, the full 30 questions per test, an ad-free experience, and automatic saving of your test results. Cancel anytime without email or phone call — directly in the app.'}
+                        ? 'Pro ($4.99/Monat oder $29.99/Jahr) umfasst: unbegrenzte Real-Tests im Prüfungsformat, volle 30 Fragen pro Test, Schwachstellen-Analyse nach Kategorie mit gezieltem Trainingsmodus, PDF-Export mit Erklärungen, automatische Speicherung Ihrer Testergebnisse und werbefreies Erlebnis. Jederzeit kündbar ohne E-Mail oder Anruf — direkt in der App.'
+                        : 'Pro ($4.99/month or $29.99/year) includes: unlimited Real Tests in exam format, the full 30 questions per test, weakness analysis by category with targeted training mode, PDF export of your results with explanations, automatic saving of your test history, and an ad-free experience. Cancel anytime without email or phone call — directly in the app.'}
                     </p>
                   </details>
                   <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
@@ -1873,11 +1994,40 @@ export default function App() {
             <article className={`bg-white shadow-sm border border-gray-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
               <div className={`text-gray-500 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
                 <span>{renderFurigana(currentData.instruction, handleKanjiClick, testMode === 'learning')}</span>
-                {testMode === 'learning' && <span className="text-blue-600 italic shrink-0 ml-2">{t.clickKanji}</span>}
+                {testMode === 'learning' && (
+                  <div className="flex items-center gap-2 shrink-0 ml-2">
+                    <span className="text-blue-600 italic">{t.clickKanji}</span>
+                    {ttsSupported() && (
+                      <select
+                        value={ttsRate}
+                        onChange={(e) => { const r = parseFloat(e.target.value); setTtsRate(r); saveRate(r); }}
+                        className="text-xs border border-blue-200 rounded-md px-1 py-0.5 bg-white text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                        title="Sprachgeschwindigkeit"
+                        aria-label="Sprachgeschwindigkeit"
+                      >
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1.0">1.0x</option>
+                      </select>
+                    )}
+                  </div>
+                )}
               </div>
-              <h2 className={`text-gray-900 leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
-                {renderFurigana(currentQuestion.text, handleKanjiClick, testMode === 'learning')}
-              </h2>
+              <div className="flex items-start gap-2">
+                <h2 className={`flex-1 text-gray-900 leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
+                  {renderFurigana(currentQuestion.text, handleKanjiClick, testMode === 'learning')}
+                </h2>
+                {testMode === 'learning' && ttsSupported() && (
+                  <button
+                    onClick={() => speak(currentQuestion.text, ttsRate)}
+                    title="Vorlesen"
+                    className="shrink-0 mt-1 w-9 h-9 flex items-center justify-center rounded-full bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition-colors"
+                    aria-label="Frage vorlesen"
+                  >
+                    🔊
+                  </button>
+                )}
+              </div>
               <div className={`mt-6 grid gap-3 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 md:mt-10 md:gap-4'}`}>
                 {currentQuestion.options.map((option, idx) => {
                   const isSelected = answers[currentQuestionIndex] === idx;
@@ -2087,7 +2237,18 @@ export default function App() {
             )}
 
             <section className={`space-y-4 ${isMobile ? 'mb-8' : 'space-y-6'}`}>
-              <h2 className={`font-bold text-gray-800 px-2 ${isMobile ? 'text-lg mb-3' : 'text-2xl mb-6'}`}>{t.detailedReview}</h2>
+              <div className="flex items-center justify-between px-2 mb-3">
+                <h2 className={`font-bold text-gray-800 ${isMobile ? 'text-lg' : 'text-2xl'}`}>{t.detailedReview}</h2>
+                {auth.isPro && (
+                  <button
+                    onClick={() => window.print()}
+                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors"
+                    title="Als PDF exportieren"
+                  >
+                    📄 Als PDF exportieren
+                  </button>
+                )}
+              </div>
               {testQuestions.map((q, index) => {
                 const userAnswer = answers[index];
                 const isCorrect = userAnswer === q.correctIndex;
@@ -2138,6 +2299,29 @@ export default function App() {
                 );
               })}
             </section>
+
+            {/* Hidden print/PDF report — visible only in print */}
+            <div id="print-report" className="hidden print:block">
+              <h1>JLPT Test Hub — Testergebnis</h1>
+              <div className="print-meta">
+                <p><strong>Level:</strong> {selectedLevel} | <strong>Modus:</strong> {testMode === 'real' ? 'Real Test' : 'Lernmodus'} | <strong>Datum:</strong> {new Date().toLocaleDateString('de-DE')}</p>
+                <p><strong>Ergebnis:</strong> {results.score}/{testQuestions.length} ({results.percentage.toFixed(0)}%) — {results.isPass ? 'BESTANDEN' : 'NICHT BESTANDEN'} (60% benötigt)</p>
+                {auth.user && <p><strong>Name:</strong> {auth.user.name} ({auth.user.email})</p>}
+              </div>
+              {testQuestions.map((q, index) => {
+                const ua = answers[index];
+                const ok = ua === q.correctIndex;
+                return (
+                  <div key={`pr-${index}`} className="print-q">
+                    <p><strong>Frage {index + 1}</strong> [{q.category}] — <span className={ok ? 'print-correct' : 'print-wrong'}>{ok ? '✓ Richtig' : ua === undefined ? '— Nicht beantwortet' : `✗ Falsch (richtig: ${q.correctIndex + 1})`}</span></p>
+                    <p>{q.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                    <p>Richtige Antwort: {q.options[q.correctIndex].replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                    <p className="print-meta">Erklärung: {q.explanation[lang]}</p>
+                  </div>
+                );
+              })}
+              <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
+            </div>
           </div>
         </main>
       );
@@ -2182,6 +2366,13 @@ export default function App() {
         }}
         onLogout={auth.logout}
         onFetchProgress={auth.fetchProgress}
+        onFetchWeakness={auth.fetchWeaknessSummary}
+        onStartWeaknessTraining={startWeaknessTraining}
+        onMasterQuestion={async (qid) => {
+          await auth.masterQuestion(qid, selectedLevel);
+          const fresh = await auth.fetchWeaknessSummary();
+          setWeaknessData(fresh);
+        }}
       />
       <AuthModal
         show={showAuthModal}

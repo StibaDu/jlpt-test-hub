@@ -11,14 +11,27 @@ export const testRoutes = new Hono()
     totalQuestions: z.number(),
     timeSpent: z.number(),
     answers: z.record(z.number()),
+    questionResults: z.optional(z.array(z.object({
+      questionId: z.number(),
+      correct: z.boolean(),
+      category: z.string().optional(),
+    }))),
   })), async (c) => {
     const user = c.get('user');
-    const { level, mode, score, correctCount, totalQuestions, timeSpent, answers } = c.req.valid('json');
+    const { level, mode, score, correctCount, totalQuestions, timeSpent, answers, questionResults } = c.req.valid('json');
 
     const attemptId = crypto.randomUUID();
+    // Store per-question data (with category) for weakness analysis; keep raw answers for review
+    const answersForStorage = questionResults && questionResults.length > 0
+      ? questionResults.reduce((acc, qr) => {
+          acc[qr.questionId] = { correct: qr.correct, category: qr.category || 'Vokabeln' };
+          return acc;
+        }, {} as Record<string, any>)
+      : answers;
+
     await c.env.DB.prepare(
       'INSERT INTO test_attempts (id, user_id, level, mode, score, correct_count, total_questions, time_spent_seconds, completed_at, answers_json) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-    ).bind(attemptId, user.sub, level, mode, score, correctCount, totalQuestions, timeSpent, Date.now(), JSON.stringify(answers)).run();
+    ).bind(attemptId, user.sub, level, mode, score, correctCount, totalQuestions, timeSpent, Date.now(), JSON.stringify(answersForStorage)).run();
 
     await c.env.DB.prepare(
       `INSERT INTO user_progress (user_id, total_tests_taken, total_questions_answered, total_correct, total_time_spent_seconds, updated_at)
@@ -31,6 +44,30 @@ export const testRoutes = new Hono()
          last_studied_at = ?,
          updated_at = ?`
     ).bind(user.sub, totalQuestions, correctCount, timeSpent, Date.now(), totalQuestions, correctCount, timeSpent, Date.now(), Date.now()).run();
+
+    // Populate weak_questions for weakness analysis
+    if (questionResults && questionResults.length > 0) {
+      for (const qr of questionResults) {
+        if (qr.correct) {
+          // Correct answer → mark as mastered
+          await c.env.DB.prepare(
+            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered)
+             VALUES (?, ?, ?, ?, 0, NULL, TRUE)
+             ON CONFLICT(user_id, question_id, level) DO UPDATE SET mastered = TRUE`
+          ).bind(crypto.randomUUID(), user.sub, qr.questionId, level).run();
+        } else {
+          // Wrong answer → increment attempts, set last_wrong_at, unmaster
+          await c.env.DB.prepare(
+            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered)
+             VALUES (?, ?, ?, ?, 1, ?, FALSE)
+             ON CONFLICT(user_id, question_id, level) DO UPDATE SET
+               attempts = attempts + 1,
+               last_wrong_at = ?,
+               mastered = FALSE`
+          ).bind(crypto.randomUUID(), user.sub, qr.questionId, level, Date.now(), Date.now()).run();
+        }
+      }
+    }
 
     return c.json({ id: attemptId, score, correctCount, totalQuestions, passed: score >= 60 });
   })
