@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 40 files · ~56,967 words
+- 41 files · ~58,810 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 208 nodes · 244 edges · 12 communities
+- 231 nodes · 284 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3573c063`
+- Built from commit: `d0c6a853`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +22,7 @@
 - devDependencies
 - package.json
 - worker/index.ts
-- routes.tsx
+- types.ts
 - Icons.tsx
 - 0001_initial_schema.sql
 - dependencies
@@ -30,16 +30,18 @@
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
-3. `JLPT Test Hub` - 10 edges
-4. `users` - 6 edges
-5. `App()` - 5 edges
-6. `scripts` - 5 edges
-7. `Monetization setup` - 5 edges
-8. `getConsent()` - 3 edges
-9. `CookieBanner()` - 3 edges
-10. `useAuth()` - 3 edges
+3. `App()` - 11 edges
+4. `JLPT Test Hub` - 10 edges
+5. `speak()` - 6 edges
+6. `users` - 6 edges
+7. `ttsSupported()` - 5 edges
+8. `stopSpeaking()` - 5 edges
+9. `scripts` - 5 edges
+10. `Monetization setup` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `App()` --references--> `JLPTLevel`  [EXTRACTED]
+  src/App.tsx → src/data/types.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -48,8 +50,6 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
-- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
-  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -65,12 +65,12 @@ Cohesion: 0.12
 Nodes (16): Amazon Associates, Before going live — placeholder checklist, Custom domain, Deployment (Cloudflare Pages — free), Features, Google AdSense, JapanesePod101 Affiliate, JLPT Test Hub (+8 more)
 
 ### Community 2 - "useAuth"
-Cohesion: 0.12
-Nodes (18): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+10 more)
+Cohesion: 0.07
+Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+19 more)
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.06
-Nodes (16): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+8 more)
+Nodes (23): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+15 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.09
@@ -84,9 +84,9 @@ Nodes (9): name, private, scripts, build, dev, lint, preview, type (+1 more)
 Cohesion: 0.12
 Nodes (11): adminRoutes, authRoutes, TODO: Send reset email, progressRoutes, subscriptionRoutes, testRoutes, userRoutes, admin (+3 more)
 
-### Community 7 - "routes.tsx"
-Cohesion: 0.17
-Nodes (9): Dashboard, ForgotPassword, Intro, Login, ResetPassword, Signup, TestPage, Upgrade (+1 more)
+### Community 7 - "types.ts"
+Cohesion: 0.16
+Nodes (11): n3Data, n4Data, n5Data, DeviceMode, GameState, KanjiEntry, Lang, LevelData (+3 more)
 
 ### Community 8 - "Icons.tsx"
 Cohesion: 0.24
@@ -101,23 +101,23 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **80 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+75 more)
+- **90 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+85 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+- **Why does `JLPTLevel` connect `App.tsx` to `types.ts`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
-  _80 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _90 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
-  _Cohesion score 0.11576354679802955 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.05853658536585366 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05952380952380952 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._

@@ -39,7 +39,7 @@ const uiTranslations: UiStrings = {
     untimedPractice: "Untimed Practice",
     clickKanji: "Click Kanji",
     correct: "Correct!",
-    incorrect: "Incorrect. The correct answer was option",
+    incorrect: "Falsch — nicht ganz",
     explanation: "Explanation",
     noExp: "Explanation not available for this question.",
     prev: "Previous",
@@ -136,7 +136,7 @@ const uiTranslations: UiStrings = {
     untimedPractice: "Übung ohne Zeitlimit",
     clickKanji: "Kanji klicken",
     correct: "Richtig!",
-    incorrect: "Falsch. Die richtige Antwort war Option",
+    incorrect: "Falsch — nicht ganz",
     explanation: "Erklärung",
     noExp: "Für diese Frage ist keine Erklärung verfügbar.",
     prev: "Zurück",
@@ -2040,16 +2040,48 @@ export default function App() {
 
             {showFeedback && (
               <div className={`rounded-xl md:rounded-2xl border ${isMobile ? 'p-4 mb-4' : 'p-6 mb-6'} ${isAnswerCorrect ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'} animate-in fade-in slide-in-from-bottom-4 duration-300`}>
-                <div className={`flex items-center gap-2 mb-2 ${isMobile ? 'text-sm' : 'text-base'}`}>
+                {/* Banner */}
+                <div className={`flex items-center gap-2 mb-3 ${isMobile ? 'text-sm' : 'text-base'}`}>
                   {isAnswerCorrect ? (
                     <span className="font-bold text-emerald-700 flex items-center gap-1"><IconCheck className="w-5 h-5" /> {t.correct}</span>
                   ) : (
-                    <span className="font-bold text-amber-700 flex items-center gap-1"><IconAlertCircle className="w-5 h-5" /> {t.incorrect} {currentQuestion.correctIndex + 1}.</span>
+                    <span className="font-bold text-amber-700 flex items-center gap-1"><IconAlertCircle className="w-5 h-5" /> {t.incorrect}</span>
                   )}
+                  {/* Category tag */}
+                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-white/70 px-2 py-0.5 rounded-full shrink-0">
+                    {currentQuestion.category}
+                  </span>
                 </div>
-                <p className={`text-gray-700 leading-relaxed mt-1 ${isMobile ? 'text-sm' : 'text-base'}`}>
-                  {currentQuestion.explanation[lang] || t.noExp}
-                </p>
+
+                {/* Your answer vs correct answer — only when wrong */}
+                {!isAnswerCorrect && (
+                  <div className={`mb-4 space-y-2 ${isMobile ? 'text-sm' : 'text-base'}`}>
+                    <div className="flex items-center gap-2">
+                      <span className="shrink-0 text-red-600 font-bold text-xs uppercase tracking-wider">✗ {lang === 'de' ? 'Deine Antwort' : 'Your answer'}</span>
+                      <span className="text-red-700 line-through font-medium">{renderFurigana(currentQuestion.options[answers[currentQuestionIndex]], handleKanjiClick, testMode === 'learning')}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="shrink-0 text-emerald-700 font-bold text-xs uppercase tracking-wider">✓ {lang === 'de' ? 'Richtig' : 'Correct'}</span>
+                      <span className="text-emerald-700 font-bold">{renderFurigana(currentQuestion.options[currentQuestion.correctIndex], handleKanjiClick, testMode === 'learning')}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Educational explanation — rendered with ❌/💡 structure */}
+                <div className={`text-gray-700 leading-relaxed ${isMobile ? 'text-sm' : 'text-base'}`}>
+                  {(currentQuestion.explanation[lang] || t.noExp).split(/(?=❌|💡)/).filter((s: string) => s.trim()).map((segment: string, i: number) => {
+                    const isTip = segment.startsWith('💡');
+                    if (i === 0) {
+                      return <p key={i} className="font-medium leading-relaxed">{segment.trim()}</p>;
+                    }
+                    return (
+                      <p key={i} className={`mt-1.5 leading-relaxed flex gap-1.5 ${isTip ? 'text-gray-700' : 'text-gray-600'}`}>
+                        <span className="shrink-0">{isTip ? '💡' : '❌'}</span>
+                        <span className={isTip ? 'font-medium' : ''}>{segment.replace(/^[❌💡]\s*/, '').trim()}</span>
+                      </p>
+                    );
+                  })}
+                </div>
               </div>
             )}
 
