@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 40 files · ~53,851 words
+- 40 files · ~53,959 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8ec76e8e`
+- Built from commit: `6440463f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -96,7 +96,7 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **79 isolated node(s):** `AuthModalProps`, `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG` (+74 more)
+- **79 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+74 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -108,7 +108,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **What connects `AuthModalProps`, `UiStrings`, `uiTranslations` to the rest of the system?**
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
   _79 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

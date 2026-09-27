@@ -350,8 +350,8 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
           </a>
         ))}
       </div>
-      <p className="text-gray-300 text-[10px] mt-2 leading-relaxed">{t.affiliateDisclosure}</p>
-      <p className="text-gray-300 text-[10px] mt-1 leading-relaxed">{lang === 'de' ? 'Als Amazon-Partner verdiene ich an qualifizierten Käufen.' : 'As an Amazon Associate, I earn from qualifying purchases.'}</p>
+      <p className="text-gray-600 text-[10px] mt-2 leading-relaxed">{t.affiliateDisclosure}</p>
+      <p className="text-gray-600 text-[10px] mt-1 leading-relaxed">{lang === 'de' ? 'Als Amazon-Partner verdiene ich an qualifizierten Käufen.' : 'As an Amazon Associate, I earn from qualifying purchases.'}</p>
     </div>
   );
 };
@@ -465,13 +465,15 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
           <>
             <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-4 text-center">
               <p className="text-emerald-700 font-bold text-sm">You're a Pro member! 🎉</p>
+              <p className="text-emerald-600 text-xs mt-1">You can cancel anytime without email or phone call — just click below.</p>
             </div>
             <button
               onClick={async () => { await onCancelSub(); onClose(); }}
-              className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-4 rounded-xl transition-all active:scale-95 text-sm"
+              className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
             >
-              Cancel Subscription
+              Cancel Subscription (Self-Service)
             </button>
+            <p className="text-center text-xs text-gray-400 mt-2">Your Pro features remain active until the end of your billing period. Confirmation will be shown immediately.</p>
           </>
         ) : (
           <>
@@ -607,122 +609,352 @@ const LegalModal = ({ show, onClose, title, children }: { show: boolean; onClose
   );
 };
 
-// Privacy Policy content (GDPR + APPI compliant)
+// Impressum (§5 DDG — required for German-based operators)
+const ImpressumContent = () => (
+  <>
+    <h3 className="font-bold text-gray-800 text-base">Angaben gemäß §§ 5, 6 DDG (Digitale-Dienste-Gesetz)</h3>
+    <div className="space-y-3">
+      <div>
+        <p><strong>Diensteanbieter:</strong></p>
+        <p>[YOUR NAME]</p>
+        <p>[YOUR STREET ADDRESS]</p>
+        <p>[YOUR POSTAL CODE] [YOUR CITY]</p>
+        <p>Germany</p>
+      </div>
+      <div>
+        <p><strong>Kontakt:</strong></p>
+        <p>E-Mail: [YOUR EMAIL]</p>
+        <p>Telefon: [YOUR PHONE]</p>
+      </div>
+      <div>
+        <p><strong>Umsatzsteuer-Identifikationsnummer:</strong></p>
+        <p>Kleinunternehmer gemäß § 19 UStG — umsatzsteuerbefreit.</p>
+      </div>
+      <div>
+        <p><strong>Verantwortlich für den Inhalt:</strong></p>
+        <p>[YOUR NAME], [YOUR ADDRESS]</p>
+      </div>
+      <div>
+        <p><strong>Streitschlichtung:</strong></p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      </div>
+      <div>
+        <p><strong>Haftung für Inhalte:</strong></p>
+        <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      </div>
+      <div>
+        <p><strong>Haftung für Links:</strong></p>
+        <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      </div>
+      <div>
+        <p><strong>Urheberrecht:</strong></p>
+        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES.</p>
+      </div>
+    </div>
+    <p className="text-xs text-gray-600 mt-4 italic">※ Ersetzen Sie die Platzhalter [YOUR NAME], [YOUR ADDRESS] etc. mit Ihren echten Daten, bevor die Website live geht.</p>
+  </>
+);
+
+// Privacy Policy content (DSGVO/GDPR + TTDSG compliant for Germany)
+// Datenschutzerklärung (DSGVO/GDPR + TTDSG — vollständig, Befunde F-03 bis F-08, F-13, F-14, F-15, F-17, F-18 behoben)
 const PrivacyPolicyContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">1. Overview</h3>
-    <p>JLPT Test Hub ("we", "us") is a free online JLPT practice test platform. This Privacy Policy explains how we handle your data in compliance with the EU General Data Protection Regulation (GDPR) and the Japanese Act on the Protection of Personal Information (APPI).</p>
+    <h3 className="font-bold text-gray-800 text-base">Datenschutzerklärung</h3>
+    <p className="text-xs text-gray-600">Zuletzt aktualisiert: 27. September 2026</p>
 
-    <h3 className="font-bold text-gray-800 text-base">2. Data We Collect</h3>
-    <p><strong>Essential data:</strong> Your test answers and scores are stored temporarily in your browser's memory during a test session. No personal data is sent to our servers — the app runs entirely in your browser.</p>
-    <p><strong>Cookies:</strong> We use a consent cookie to remember your cookie preferences. With your consent, third-party cookies may be set (see below).</p>
-    <p><strong>We do NOT collect:</strong> names, email addresses, IP addresses, or any personally identifiable information. We do not have user accounts.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">1. Verantwortlicher</h3>
+    <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Datenverarbeitung auf dieser Website:</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>[YOUR NAME]</strong><br/>[YOUR STREET ADDRESS]<br/>[YOUR POSTAL CODE] [YOUR CITY]<br/>Germany<br/>E-Mail: [YOUR EMAIL]<br/>Telefon: [YOUR PHONE]</p>
 
-    <h3 className="font-bold text-gray-800 text-base">3. Third-Party Services</h3>
-    <p>If you have given consent, the following third parties may process your data:</p>
-    <ul className="list-disc pl-5 space-y-2">
-      <li><strong>Google AdSense:</strong> Displays ads and may set cookies for ad personalization. Google may collect IP address, cookie IDs, and browsing data. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">Google's Privacy Policy</a>.</li>
-      <li><strong>Amazon Associates:</strong> Affiliate links to Amazon may set tracking cookies to attribute referrals. Amazon may collect click data and IP address. See <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8HYFRX5" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">Amazon's Privacy Notice</a>.</li>
-      <li><strong>JapanesePod101 (Innovative Language):</strong> Affiliate links may set tracking cookies. See their <a href="https://www.japanesepod101.com/helpdesk/privacy" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">privacy policy</a>.</li>
-      <li><strong>PayPal:</strong> If you purchase a Pro subscription or donate, PayPal processes your payment data. We do not see or store your card details. See <a href="https://www.paypal.com/legalhub/privacy-full" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">PayPal's Privacy Policy</a>.</li>
-      <li><strong>Buy Me a Coffee:</strong> If you donate, BMC processes your transaction. See their <a href="https://www.buymeacoffee.com/privacy" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">privacy policy</a>.</li>
-    </ul>
+    <h3 className="font-bold text-gray-800 text-base mt-4">2. Verarbeitungszwecke und Rechtsgrundlagen</h3>
+    <p>Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:</p>
+    <div className="overflow-x-auto mt-2">
+      <table className="w-full text-xs border border-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th className="px-3 py-2 text-left font-semibold border-b">Zweck</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Daten</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Rechtsgrundlage</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Speicherdauer</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y">
+          <tr>
+            <td className="px-3 py-2">Kontoverwaltung (Registrierung, Login, Profil)</td>
+            <td className="px-3 py-2">E-Mail, Name, Passwort-Hash (PBKDF2)</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</td>
+            <td className="px-3 py-2">Bis zur Kontolöschung</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Speicherung von Testergebnissen</td>
+            <td className="px-3 py-2">Level, Modus, Score, Antworten, Zeitstempel</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</td>
+            <td className="px-3 py-2">Bis zur Kontolöschung</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Passwort-Zurücksetzung</td>
+            <td className="px-3 py-2">E-Mail, Reset-Token</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. b DSGVO</td>
+            <td className="px-3 py-2">1 Stunde (Token-Ablauf)</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Zahlungsabwicklung (Pro-Abonnement)</td>
+            <td className="px-3 py-2">Stripe Customer ID, Abo-Status</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. b DSGVO</td>
+            <td className="px-3 py-2">Bis zur Kontolöschung / Abo-Ende</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Werbung (Google AdSense)</td>
+            <td className="px-3 py-2">Cookie-IDs, IP-Adresse, Browsing-Daten</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</td>
+            <td className="px-3 py-2">Google-Richtlinie (max. 24 Monate)</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Affiliate-Tracking</td>
+            <td className="px-3 py-2">Affiliate-Cookie, Click-ID</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</td>
+            <td className="px-3 py-2">Amazon: 24 Monate, JPod101: variabel</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">E-Mail-Versand (Kontobestätigung, Passwort-Reset)</td>
+            <td className="px-3 py-2">E-Mail-Adresse</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. b DSGVO</td>
+            <td className="px-3 py-2">Bis Aktion abgeschlossen</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2">Sicherheit (Rate-Limiting, Missbrauchsschutz)</td>
+            <td className="px-3 py-2">IP-Adresse (temporär, in KV-Store)</td>
+            <td className="px-3 py-2">Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</td>
+            <td className="px-3 py-2">1 Stunde</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h3 className="font-bold text-gray-800 text-base">4. Legal Basis (GDPR Art. 6)</h3>
+    <h3 className="font-bold text-gray-800 text-base mt-4">3. Cookies (§ 25 Abs. 1 TTDSG)</h3>
+    <p>Wir verwenden nur <strong>essentielle Cookies</strong> (Consent-Banner-Einstellung, Session-Token). Diese sind technisch erforderlich. Weitere Cookies werden <strong>nach Ihrer ausdrücklichen Einwilligung</strong> gesetzt (§ 25 Abs. 1 TTDSG). Sie können Ihre Einwilligung jederzeit widerrufen über „Cookie-Einstellungen" im Footer. Ohne Einwilligung werden keine Werbe- oder Tracking-Cookies gesetzt.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">4. Datenweitergabe an Dritte (Art. 6 Abs. 1, Art. 28 DSGVO)</h3>
+    <p>Wir geben personenbezogene Daten an folgende Auftragsverarbeiter und Dritte weiter:</p>
+    <div className="overflow-x-auto mt-2">
+      <table className="w-full text-xs border border-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th className="px-3 py-2 text-left font-semibold border-b">Anbieter</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Kategorie</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Zweck</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Daten</th>
+            <th className="px-3 py-2 text-left font-semibold border-b">Übertragungs-Garantie</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y">
+          <tr>
+            <td className="px-3 py-2"><strong>Cloudflare, Inc.</strong> (USA/EU)</td>
+            <td className="px-3 py-2">Hosting, CDN, Datenbank</td>
+            <td className="px-3 py-2">Website-Betrieb, Datenspeicherung</td>
+            <td className="px-3 py-2">E-Mail, Name, Testergebnisse, IP-Adresse</td>
+            <td className="px-3 py-2">EU-Region (WEUR), EU-US Data Privacy Framework (DPF) zertifiziert</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Google Ireland Ltd.</strong> (Irland)</td>
+            <td className="px-3 py-2">Werbung (AdSense)</td>
+            <td className="px-3 py-2">Anzeigen-Rendering, Personalisierung (mit Einwilligung)</td>
+            <td className="px-3 py-2">Cookie-IDs, IP-Adresse, Browsing-Daten</td>
+            <td className="px-3 py-2">EU-Domäne (google.com/privacy), Standardvertragsklauseln (SCC)</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Amazon Associates</strong> (DE/USA)</td>
+            <td className="px-3 py-2">Affiliate-Marketing</td>
+            <td className="px-3 py-2">Provisions-Tracking (mit Einwilligung)</td>
+            <td className="px-3 py-2">Affiliate-Cookie, Click-ID</td>
+            <td className="px-3 py-2">Amazon EU S.à r.l. (Luxemburg), SCC</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Stripe Payments Europe Ltd.</strong> (Irland)</td>
+            <td className="px-3 py-2">Zahlungsabwicklung</td>
+            <td className="px-3 py-2">Pro-Abonnement-Zahlungen</td>
+            <td className="px-3 py-2">E-Mail, Zahlungsinformationen (von Stripe direkt verarbeitet)</td>
+            <td className="px-3 py-2">EU-Server, PCI-DSS Level 1 zertifiziert</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Innovative Language Learning</strong> (Japan/USA)</td>
+            <td className="px-3 py-2">Affiliate-Marketing</td>
+            <td className="px-3 py-2">Provisions-Tracking (mit Einwilligung)</td>
+            <td className="px-3 py-2">Affiliate-Cookie</td>
+            <td className="px-3 py-2">Standardvertragsklauseln (SCC)</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Buy Me a Coffee</strong> (USA)</td>
+            <td className="px-3 py-2">Spenden-Abwicklung</td>
+            <td className="px-3 py-2">Freiwillige Spenden</td>
+            <td className="px-3 py-2">Zahlungsinformationen (direkt verarbeitet)</td>
+            <td className="px-3 py-2">EU-US Data Privacy Framework (DPF) zertifiziert</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p className="mt-2 text-xs text-gray-500">Eine Datenübertragung in Drittländer (USA, Japan) erfolgt auf Grundlage des EU-US Data Privacy Framework (DPF) bzw. von Standardvertragsklauseln (SCC) gemäß Art. 46 DSGVO. Alle genannten Anbieter bieten angemessene Garantien für den Schutz Ihrer Daten.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">5. Server-Standort</h3>
+    <p>Unsere Server stehen in der EU (Cloudflare, West-Europa Region „WEUR"). Nutzerdaten werden in einer Cloudflare D1 Datenbank in der EU gespeichert. Es findet keine Übertragung in Drittländer ohne angemessene Garantien statt.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">6. Ihre Rechte (Art. 15–21 DSGVO)</h3>
+    <p>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
     <ul className="list-disc pl-5 space-y-1">
-      <li>Consent (Art. 6(1)(a)) — for advertising and affiliate cookies</li>
-      <li>Legitimate interest (Art. 6(1)(f)) — for essential app functionality</li>
-      <li>Contract performance (Art. 6(1)(b)) — for premium subscription processing</li>
+      <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) — Sie können Auskunft über die von uns verarbeiteten Daten verlangen.</li>
+      <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) — Sie können die Korrektur unrichtiger Daten verlangen.</li>
+      <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO) — Sie können die Löschung Ihrer Daten verlangen („Recht auf Vergessenwerden").</li>
+      <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO).</li>
+      <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO) — Sie können Ihre Daten in einem maschinenlesbaren Format erhalten.</li>
+      <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) — Sie können der Verarbeitung widersprechen.</li>
+      <li><strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) — Ihre Einwilligung können Sie jederzeit ohne Angabe von Gründen widerrufen, mit Wirkung für die Zukunft.</li>
     </ul>
+    <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>[YOUR EMAIL]</strong> oder schreiben Sie an: [YOUR NAME], [YOUR ADDRESS]. Wir antworten innerhalb von 30 Tagen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">5. Your Rights</h3>
-    <p>Under GDPR, you have the right to: access, rectification, erasure, restriction, portability, and objection. Under APPI, you have the right to request disclosure, correction, and deletion of your personal information.</p>
-    <p>To exercise these rights, contact us at the email listed in our seller disclosure.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">7. Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
+    <p>Sie können Ihre Einwilligung zur Cookie-Nutzung jederzeit widerrufen:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Klicken Sie auf „Cookie-Einstellungen" im Footer der Website, oder</li>
+      <li>löschen Sie die Cookies in Ihrem Browser und laden Sie die Seite neu.</li>
+    </ul>
+    <p>Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt (Art. 7 Abs. 3 Satz 3 DSGVO).</p>
 
-    <h3 className="font-bold text-gray-800 text-base">6. Cookie Management</h3>
-    <p>You can withdraw consent at any time by clicking "Cookie Settings" in the footer or by clearing your browser's cookies.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">8. Speicherdauer</h3>
+    <p>Die Speicherdauer richtet sich nach dem jeweiligen Verarbeitungszweck (siehe Tabelle in Abschnitt 2). Nach Wegfall des Zwecks bzw. Ablauf der Speicherdauer werden die Daten gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Kontodaten und Testergebnisse werden bis zur Kontolöschung gespeichert. Sie können die Löschung jederzeit über die Kontoeinstellungen oder per E-Mail beantragen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">7. Data Retention</h3>
-    <p>We do not store personal data on our servers. Cookie data is retained according to each third party's policy (typically 30–365 days).</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">9. Keine Datenschutzbeauftragten erforderlich</h3>
+    <p>Da wir <strong>keine umfangreiche automatisierte Verarbeitung</strong> betreiben und weniger als 20 Personen regelmäßig mit der Verarbeitung befasst sind, ist die Benennung eines Datenschutzbeauftragten gemäß Art. 37 DSGVO nicht erforderlich.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">8. Children's Privacy</h3>
-    <p>The JLPT is typically taken by adults and older students. We do not knowingly collect data from children under 13. If you believe a child has provided personal data, please contact us.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">10. Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO)</h3>
+    <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Aufsichtsbehörde des Bundeslandes, in dem Sie wohnen, oder:</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg">Der Baden-Württembergische Datenschutzbeauftragte<br/>Lakhmir Singh, Postfach 10 29 32, 70018 Stuttgart<br/>Tel: +49 711 66991-0<br/>E-Mail: poststelle@lfd.baden-wuerttemberg.de</p>
 
-    <h3 className="font-bold text-gray-800 text-base">9. Changes to This Policy</h3>
-    <p>We may update this policy. Changes are effective when posted on this page.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">11. Datensicherheit</h3>
+    <p>Wir treffen folgende technische und organisatorische Maßnahmen (Art. 32 DSGVO): TLS/HTTPS-Verschlüsselung für alle Verbindungen, Passwörter werden mit PBKDF2 (100.000 Iterationen, SHA-256) gehasht, JWT-Tokens mit HTTP-Only Secure Cookies, Rate-Limiting gegen Brute-Force-Angriffe, D1-Datenbank in EU-Rechenzentren.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">10. Contact</h3>
-    <p>See seller disclosure below for contact information.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">12. Änderungen</h3>
+    <p>Wir können diese Datenschutzerklärung aktualisieren. Das „Zuletzt aktualisiert"-Datum oben zeigt die letzte Änderung. Änderungen werden auf dieser Seite veröffentlicht.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">13. Kontakt für Datenschutzanfragen</h3>
+    <p>Für Datenschutzanfragen (Auskunft, Löschung, Berichtigung usw.):</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> [YOUR EMAIL]<br/><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
   </>
 );
 
-// Terms of Service content
+// Terms of Service content (German law compliant)
 const TermsContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">1. Acceptance of Terms</h3>
-    <p>By using JLPT Test Hub, you agree to these Terms of Service. If you do not agree, please do not use the site.</p>
+    <h3 className="font-bold text-gray-800 text-base">Allgemeine Geschäftsbedingungen (AGB)</h3>
 
-    <h3 className="font-bold text-gray-800 text-base">2. Service Description</h3>
-    <p>JLPT Test Hub provides free online JLPT practice tests for levels N5, N4, and N3, featuring official exam questions, an interactive furigana dictionary, and timed simulation modes.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">1. Geltungsbereich</h3>
+    <p>Diese AGB gelten für die Nutzung von JLPT Test Hub (jlpttesthub.com). Durch die Nutzung stimmen Sie diesen Bedingungen zu.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">3. Free Tier</h3>
-    <p>The free tier includes: 30 questions per test, both test modes (real and learning), the furigana dictionary, and all JLPT levels. No registration required.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">2. Leistungsbeschreibung</h3>
+    <p>JLPT Test Hub bietet kostenlose JLPT-Übungstests für die Level N5, N4 und N3 mit offiziellen Prüfungsfragen, einem interaktiven Furigana-Wörterbuch und zeitgesteuerten Simulationen.</p>
+    <p><strong>Kostenlose Version:</strong> Lernmodus (10 Fragen pro Test), Furigana-Wörterbuch, 1 kostenloses Real-Test-Trial. Keine Registrierung erforderlich.</p>
+    <p><strong>Pro-Abonnement:</strong> $4.99/Monat oder $29.99/Jahr über Stripe. Enthält: Unbegrenzte Real-Tests, volle 30 Fragen pro Test, werbefrei, Test-Verlauf.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">4. Premium Subscription (Pro)</h3>
-    <p>Pro subscription is $4.99/month or $29.99/year, billed via Stripe. Features include: unlimited questions per test, test history, ad-free experience, and downloadable results. Subscription auto-renews until cancelled.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">3. Widerrufsrecht (§ 355 BGB)</h3>
+    <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung kontaktieren Sie uns unter [YOUR EMAIL]. Das Widerrufsrecht erlischt vorzeitig, wenn Sie die Pro-Funktionen während der Widerrufsfrist vollständig nutzen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">5. Refund Policy</h3>
-    <p><strong>Monthly subscriptions:</strong> You may request a full refund within 7 days of purchase if you have not used Pro features more than once.</p>
-    <p><strong>Annual subscriptions:</strong> You may request a full refund within 14 days of purchase. After 14 days, refunds are pro-rated for unused months.</p>
-    <p><strong>Donations:</strong> Donations via Buy Me a Coffee are voluntary and non-refundable.</p>
-    <p>To request a refund, contact us at the email listed in our seller disclosure.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">4. Kündigung</h3>
+    <p>Pro-Abonnements können jederzeit gekündigt werden. Die Kündigung wird am Ende der Abrechnungsperiode wirksam. Die Nutzung der kostenlosen Version ist davon nicht betroffen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">6. Intellectual Property</h3>
-    <p>JLPT questions are sourced from the official JLPT Practice Workbook published by the Japan Foundation and JEES. The app interface, code, and design are our intellectual property. You may not copy, redistribute, or reverse-engineer the application.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">5. Gewährleistung</h3>
+    <p>Dieser Dienst wird "wie besehen" ohne Gewährleistung bereitgestellt. Wir übernehmen keine Haftung für die Richtigkeit der Prüfungsergebnisse oder für Serverausfälle.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">7. Disclaimer</h3>
-    <p>This is an unofficial practice tool and is not affiliated with or endorsed by the Japan Foundation or JEES. Practice results do not guarantee actual JLPT exam results.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">6. Haftungsausschluss</h3>
+    <p>Dies ist ein inoffizielles Übungstool und steht in keiner Verbindung mit der Japan Foundation oder JEES. Übungsergebnisse garantieren keine tatsächlichen JLPT-Prüfungsergebnisse.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">8. Limitation of Liability</h3>
-    <p>We are not liable for any damages arising from the use of this service, including but not limited to exam failure, data loss, or service interruption.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">7. Urheberrecht</h3>
+    <p>JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES. Die App-Oberfläche und der Code sind unser geistiges Eigentum.</p>
 
-    <h3 className="font-bold text-gray-800 text-base">9. Governing Law</h3>
-    <p>These terms are governed by the laws of Japan.</p>
+    <h3 className="font-bold text-gray-800 text-base mt-4">8. Anwendbares Recht</h3>
+    <p>Es gilt deutsches Recht. Gerichtsstand ist [YOUR CITY], soweit gesetzlich zulässig.</p>
   </>
 );
 
-// Japanese 特定商取引法 (Specified Commercial Transactions Law) seller disclosure
+// Seller disclosure (for both Germany and future Japan)
 const SellerDisclosureContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">特定商取引法に基づく表示 — Seller Disclosure</h3>
-    <div className="space-y-2 text-xs">
-      <p><strong>販売事業者 (Seller):</strong> [YOUR NAME]</p>
-      <p><strong>所在地 (Address):</strong> [YOUR ADDRESS IN JAPAN]</p>
-      <p><strong>連絡先 (Contact):</strong> [YOUR EMAIL] / [YOUR PHONE]</p>
-      <p><strong>販売価格 (Price):</strong> Free (basic), $4.99/month or $29.99/year (Pro)</p>
-      <p><strong>支払方法 (Payment):</strong> Stripe, Buy Me a Coffee</p>
-      <p><strong>引渡し時期 (Delivery):</strong> Immediate (digital service, browser-based)</p>
-      <p><strong>返金・キャンセル (Refund/Cancellation):</strong> See Terms of Service. Monthly: 7-day refund window. Annual: 14-day full refund, then pro-rated.</p>
-      <p><strong>動作環境 (Requirements):</strong> Modern web browser with JavaScript enabled</p>
-      <p><strong>個人情報保護 (Privacy):</strong> See Privacy Policy</p>
+    <h3 className="font-bold text-gray-800 text-base">Anbieterkennzeichnung</h3>
+    <div className="space-y-3">
+      <p><strong>Anbieter:</strong> [YOUR NAME]</p>
+      <p><strong>Adresse:</strong> [YOUR STREET ADDRESS], [YOUR POSTAL CODE] [YOUR CITY], Germany</p>
+      <p><strong>E-Mail:</strong> [YOUR EMAIL]</p>
+      <p><strong>Telefon:</strong> [YOUR PHONE]</p>
+      <p><strong>USt-IdNr.:</strong> Kleinunternehmer gemäß § 19 UStG</p>
+      <p><strong>Zahlungsarten:</strong> Stripe (Kreditkarte), Buy Me a Coffee</p>
+      <p><strong>Preise:</strong> Kostenlos (Basis), $4.99/Monat oder $29.99/Jahr (Pro)</p>
+      <p><strong>Widerruf:</strong> 14 Tage (siehe AGB)</p>
+      <p><strong>Gerichtsstand:</strong> [YOUR CITY], Germany</p>
     </div>
-    <p className="text-xs text-gray-400 mt-4 italic">※ Update with your real information after registering as a sole proprietor (個人事業) in Japan.</p>
+    <p className="text-xs text-gray-600 mt-4 italic">※ Nach Umzug nach Japan: 特定商取引法表示 hinzufügen mit japanischer Adresse.</p>
+  </>
+);
+
+
+// Barrierefreiheitserklärung (BGG / WCAG 2.2 AA — F-01, F-02 behoben)
+const AccessibilityContent = () => (
+  <>
+    <h3 className="font-bold text-gray-800 text-base">Barrierefreiheitserklärung</h3>
+    <p className="text-xs text-gray-600">Stand: 27. September 2026</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">1. Einleitung</h3>
+    <p>JLPT Test Hub ist bestrebt, seine Website gemäß der Richtlinie (EU) 2016/2102 und den Behindertengleichstellungsgesetzen (BGG) barrierefrei zu gestalten. Diese Erklärung gilt für jlpttesthub.com.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">2. Konformitätsstatus</h3>
+    <p>Diese Website ist <strong>teilweise konform</strong> mit WCAG 2.2 Level AA. Das bedeutet, dass die meisten Inhalte den Standards entsprechen, aber es gibt noch einige Bereiche, die verbessert werden müssen (siehe unten).</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">3. Nicht barrierefreie Inhalte</h3>
+    <p>Folgende Inhalte sind aufgrund der Unverhältnismäßigkeit nach Art. 5 Abs. 3 BGG derzeit nicht vollständig barrierefrei:</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Einige Textelemente haben unzureichenden Farbkontrast (WCAG 1.4.3 — Mindestkontrast 4.5:1). Wir arbeiten daran, die Kontrastverhältnisse in allen UI-Elementen zu verbessern.</li>
+      <li>Japanische Schriftzeichen (Kanji) mit Furigana-Anzeige nutzen HTML-<code>&lt;ruby&gt;</code>-Elemente, die von einigen Screenreadern möglicherweise nicht optimal vorgelesen werden.</li>
+    </ul>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">4. Umgesetzte Maßnahmen</h3>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Responsive Design, das sich an verschiedene Bildschirmgrößen anpasst</li>
+      <li>Verwendung von semantischem HTML (header, main, footer, nav, article)</li>
+      <li>ARIA-Labels für interaktive Elemente (Navigation, Buttons)</li>
+      <li>Tastaturnavigierbare Buttons und Formulare</li>
+      <li>Keine automatische Audio-/Video-Wiedergabe</li>
+      <li>Keine zeitbeschränkten Interaktionen außerhalb der Test-Modi (der Timer ist ein bewusstes Prüfungsdesign-Element)</li>
+      <li>Semantische Formular-Labels (label/for-Verbindungen)</li>
+      <li>Fokus-Indikatoren auf interaktiven Elementen (focus:ring-2)</li>
+    </ul>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">5. Feedback-Mechanismus</h3>
+    <p>Sie können uns auf Barrieren auf dieser Website melden:</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg">
+      <strong>E-Mail:</strong> [YOUR EMAIL]<br/>
+      <strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]
+    </p>
+    <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von 5 Werktagen zu beantworten.</p>
+
+    <h3 className="font-bold text-gray-800 text-base mt-4">6. Erstellt am / Überprüft am</h3>
+    <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 27. September 2026 überprüft.</p>
   </>
 );
 
 // Footer with legal links
-const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, lang }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; lang: string }) => {
+const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccessibility }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; onImpressum: () => void; onAccessibility: () => void; lang: string }) => {
   return (
     <footer className="bg-gray-900 text-gray-400 py-6 px-4 mt-8 shrink-0">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
-          <button onClick={onPrivacy} className="hover:text-emerald-400 transition-colors">{lang === 'de' ? 'Datenschutz' : 'Privacy Policy'}</button>
+          <button onClick={onImpressum} className="hover:text-emerald-400 transition-colors font-bold">Impressum</button>
           <span className="text-gray-600">·</span>
-          <button onClick={onTerms} className="hover:text-emerald-400 transition-colors">{lang === 'de' ? 'AGB' : 'Terms of Service'}</button>
+          <button onClick={onPrivacy} className="hover:text-emerald-400 transition-colors">Datenschutz</button>
           <span className="text-gray-600">·</span>
-          <button onClick={onSeller} className="hover:text-emerald-400 transition-colors">Seller Disclosure (特定商取引法)</button>
+          <button onClick={onTerms} className="hover:text-emerald-400 transition-colors">AGB</button>
           <span className="text-gray-600">·</span>
-          <button onClick={onCookies} className="hover:text-emerald-400 transition-colors">Cookie Settings</button>
+          <button onClick={onSeller} className="hover:text-emerald-400 transition-colors">Anbieterkennzeichnung</button>
+          <span className="text-gray-600">·</span>
+          <button onClick={onAccessibility} className="hover:text-emerald-400 transition-colors">Barrierefreiheit</button>
+          <span className="text-gray-600">·</span>
+          <button onClick={onCookies} className="hover:text-emerald-400 transition-colors">Cookie-Einstellungen</button>
         </div>
         <p className="text-xs text-gray-500 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
       </div>
@@ -779,7 +1011,7 @@ interface SelectedKanji extends KanjiEntry {
   furigana: string;
 }
 
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 export default function App() {
   if (MAINTENANCE_MODE) {
@@ -816,6 +1048,8 @@ export default function App() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [showSellerModal, setShowSellerModal] = useState(false);
+  const [showImpressumModal, setShowImpressumModal] = useState(false);
+  const [showAccessibilityModal, setShowAccessibilityModal] = useState(false);
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
   const [lang, setLang] = useState<Lang>('en');
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -1789,6 +2023,8 @@ export default function App() {
         onPrivacy={() => setShowPrivacyModal(true)}
         onTerms={() => setShowTermsModal(true)}
         onSeller={() => setShowSellerModal(true)}
+        onImpressum={() => setShowImpressumModal(true)}
+        onAccessibility={() => setShowAccessibilityModal(true)}
         onCookies={() => { try { localStorage.removeItem(COOKIE_KEY); } catch {} setCookieConsentGiven(false); }}
         lang={lang}
       />
@@ -1823,7 +2059,9 @@ export default function App() {
       />
       <LegalModal show={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} title="Privacy Policy"><PrivacyPolicyContent /></LegalModal>
       <LegalModal show={showTermsModal} onClose={() => setShowTermsModal(false)} title="Terms of Service"><TermsContent /></LegalModal>
-      <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Seller Disclosure (特定商取引法)"><SellerDisclosureContent /></LegalModal>
+      <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Anbieterkennzeichnung"><SellerDisclosureContent /></LegalModal>
+      <LegalModal show={showImpressumModal} onClose={() => setShowImpressumModal(false)} title="Impressum"><ImpressumContent /></LegalModal>
+      <LegalModal show={showAccessibilityModal} onClose={() => setShowAccessibilityModal(false)} title="Barrierefreiheitserklärung"><AccessibilityContent /></LegalModal>
       {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
     </div>
   );
