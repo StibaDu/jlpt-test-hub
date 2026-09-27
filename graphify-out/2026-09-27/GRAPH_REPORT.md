@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 41 files · ~58,767 words
+- 41 files · ~64,689 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 231 nodes · 288 edges · 13 communities
+- 231 nodes · 282 edges · 13 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `96d562be`
+- Built from commit: `1eae4e1a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,14 +31,14 @@
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
-3. `App()` - 10 edges
-4. `JLPT Test Hub` - 10 edges
-5. `ttsSupported()` - 6 edges
-6. `speak()` - 6 edges
-7. `users` - 6 edges
-8. `hasGoodJapaneseVoice()` - 5 edges
-9. `stopSpeaking()` - 5 edges
-10. `scripts` - 5 edges
+3. `JLPT Test Hub` - 10 edges
+4. `users` - 6 edges
+5. `ttsSupported()` - 5 edges
+6. `speak()` - 5 edges
+7. `scripts` - 5 edges
+8. `Monetization setup` - 5 edges
+9. `App()` - 4 edges
+10. `getJapaneseVoice()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -70,7 +70,7 @@ Cohesion: 0.12
 Nodes (18): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+10 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (25): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+17 more)
 
 ### Community 4 - "devDependencies"
@@ -125,4 +125,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.11576354679802955 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06560283687943262 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06028368794326241 - nodes in this community are weakly interconnected._

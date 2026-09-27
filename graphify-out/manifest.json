@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1790524640.179908,
-    "ast_hash": "3c219600c0e4e00388676bacf966e578",
+    "mtime": 1790525612.8854585,
+    "ast_hash": "259ac0775fab0616d9dba09ed264e6e4",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -25,23 +25,23 @@
     "semantic_hash": ""
   },
   "src/data/n3.ts": {
-    "mtime": 1790524569.778731,
-    "ast_hash": "f0fb55609471a76eff1adbb224b84d94",
+    "mtime": 1790525481.6246996,
+    "ast_hash": "1b809f5196cae24ae4700ec397e391f7",
     "semantic_hash": ""
   },
   "src/data/n4.ts": {
-    "mtime": 1790524083.4519079,
-    "ast_hash": "a44a885461ebf29892f36a746c78d14c",
+    "mtime": 1790525481.6230893,
+    "ast_hash": "8dcd50c65d9548e73215c62534a9184b",
     "semantic_hash": ""
   },
   "src/data/n5.ts": {
-    "mtime": 1790523946.6801994,
-    "ast_hash": "c81a8b9fbc4a74a8c02f9b6a972f3686",
+    "mtime": 1790525481.6218312,
+    "ast_hash": "fc15ab526ae86931140de69adb31e41b",
     "semantic_hash": ""
   },
   "src/data/types.ts": {
-    "mtime": 1790520467.0104175,
-    "ast_hash": "c8b41c3a804604bc23cd0d18b794a147",
+    "mtime": 1790525188.0916212,
+    "ast_hash": "e516884b3dda2120f1e69f1a1fa321df",
     "semantic_hash": ""
   },
   "src/main.tsx": {
@@ -237,6 +237,11 @@
   "src/tts.ts": {
     "mtime": 1790521755.747471,
     "ast_hash": "2b663a61289e9999386abf900f97c85e",
+    "semantic_hash": ""
+  },
+  "src/data/kanjiReadings.ts": {
+    "mtime": 1790525543.3417566,
+    "ast_hash": "36c0fd7ecb085b3decd1a3a4afe192f0",
     "semantic_hash": ""
   }
 }
