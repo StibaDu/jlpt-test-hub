@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-27)
 
 ## Corpus Check
-- 40 files · ~56,565 words
+- 40 files · ~56,967 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 208 nodes · 243 edges · 12 communities
+- 208 nodes · 244 edges · 12 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e85e218a`
+- Built from commit: `3573c063`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,12 +32,12 @@
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
 4. `users` - 6 edges
-5. `scripts` - 5 edges
-6. `Monetization setup` - 5 edges
-7. `App()` - 4 edges
+5. `App()` - 5 edges
+6. `scripts` - 5 edges
+7. `Monetization setup` - 5 edges
 8. `getConsent()` - 3 edges
 9. `CookieBanner()` - 3 edges
-10. `fetchWithAuth()` - 3 edges
+10. `useAuth()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -101,7 +101,7 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ## Knowledge Gaps
-- **80 isolated node(s):** `Bindings`, `app`, `api`, `admin`, `UiStrings` (+75 more)
+- **80 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+75 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -113,11 +113,11 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
-- **What connects `Bindings`, `app`, `api` to the rest of the system?**
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
   _80 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.11576354679802955 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.05731707317073171 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05853658536585366 - nodes in this community are weakly interconnected._
