@@ -107,6 +107,59 @@ const uiTranslations: UiStrings = {
     proFeature6: "✓ Ad-free experience",
     foundHelpful: "Found this helpful?",
     supportFree: "Support free JLPT prep",
+    // Profile modal
+    profileSubscription: "Subscription",
+    profilePro: "Pro Subscription",
+    profileFree: "Free Version",
+    profileRenews: "Renews",
+    profileFreeDesc: "Learning Mode: 10 questions • 1 Real Test trial",
+    profileCancelSoon: "Cancels at period end",
+    profileLoading: "Loading progress...",
+    profileProgress: "Your Progress",
+    profileTests: "Tests",
+    profileAccuracy: "Accuracy",
+    profileCorrect: "Correct",
+    profileMinutes: "Minutes",
+    profileLastTests: "Recent Tests",
+    profileModeReal: "Real",
+    profileModeLearning: "Learn",
+    profileNoTests: "No tests completed yet — start now!",
+    profileNotAvailable: "Progress not available",
+    profileWeaknessTitle: "🎯 Weakness Analysis",
+    profileWeakBadge: "weak",
+    profileWeaknessEmpty: "🎉 No weaknesses yet — take a test!",
+    profileWrongCount: "× wrong",
+    profileMastered: "mastered ✓",
+    profileMasteredTitle: "Mark as mastered",
+    profileTrain: "🎯 Train Weak Points",
+    questionsShort: "questions",
+    profileLocked: "🔒 Weakness Analysis",
+    profileLockedDesc: "Pro feature — automatically identifies your weak spots",
+    profileCancel: "Cancel Subscription (Self-Service)",
+    profileUpgrade: "⭐ Upgrade to Pro —",
+    profileSignOut: "Sign Out",
+    profileCreated: "Created",
+    profileMonthly: "Monthly",
+    profileYearly: "Yearly",
+    profilePerMonth: "/month",
+    profileSave50: "Save 50%",
+    profileRedirecting: "Redirecting to Stripe...",
+    profileBackToProfile: "Back to Profile",
+    profileCancelPending: "Cancellation at period end",
+    ttsListen: "Listen",
+    ttsPronounce: "Hear pronunciation",
+    ttsSpeed: "Speech speed",
+    ttsReadQuestion: "Read question aloud",
+    ttsVoiceImprove: "Improve voice?",
+    navSignIn: "Sign In",
+    navOpenProfile: "Open Profile",
+    kanjiMastered: "Mark as mastered",
+    kanjiNotInDict: "Not in dictionary — readings shown as reference",
+    kanjiReadings: "Readings",
+    kanjiOnLabel: "音 On",
+    kanjiKunLabel: "訓 Kun",
+    kanjiListen: "Listen",
+
   },
   de: {
     chooseExp: "Wählen Sie Ihr Erlebnis",
@@ -202,6 +255,16 @@ const uiTranslations: UiStrings = {
     proFeature6: "✓ Werbungsfrei",
     foundHelpful: "Nützlich gefunden?",
     supportFree: "Kostenlose JLPT-Vorbereitung unterstützen",
+    // Profil-Modal
+profileModeReal: "Real",
+    profileWeaknessLoading: "Lade Schwachstellen-Daten…",
+    profileWeakCount: "schwach",
+    profileLockedTitle: "🔒 Schwachstellen-Analyse",
+    navHome: "Startseite",
+    navRestart: "Neu starten",
+    ttsReadingOn: "On-Lesung anhören",
+    ttsReadingKun: "Kun-Lesung anhören",
+
   }
 };
 
@@ -393,13 +456,12 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onStartWeaknessTraining, onMasterQuestion }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onStartWeaknessTraining: () => void; onMasterQuestion: (questionId: number, level: string) => Promise<void> }) => {
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onStartWeaknessTraining, onMasterQuestion, lang, weaknessData }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onStartWeaknessTraining: () => void; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
-  const [weaknessData, setWeaknessData] = useState<any>(null);
 
   useEffect(() => {
     if (show && isLoggedIn && view === 'profile' && !progressData) {
@@ -410,7 +472,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
       });
     }
     if (show && isLoggedIn && view === 'profile' && !weaknessData) {
-      onFetchWeakness().then(setWeaknessData);
+      onFetchWeakness();
     }
   }, [show, isLoggedIn, view]);
 
@@ -463,15 +525,15 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             <div className={`rounded-xl p-4 border ${isPro ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">{isPro ? 'Pro Abonnement' : 'Kostenlose Version'}</h4>
+                  <h4 className="font-bold text-gray-900 text-sm">{isPro ? t.profilePro : t.profileFree}</h4>
                   <p className="text-gray-500 text-xs mt-0.5">
                     {isPro
-                      ? `Renews ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString('de-DE') : 'N/A'}`
-                      : 'Lernmodus: 10 Fragen • 1 Real-Test-Trial'}
+                      ? `${t.profileRenews} ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'}`
+                      : t.profileFreeDesc}
                   </p>
                 </div>
                 {subscription?.cancelAtPeriodEnd && (
-                  <span className="text-xs text-amber-600 font-bold">Kündigung zum Periodenende</span>
+                  <span className="text-xs text-amber-600 font-bold">{t.profileCancelSoon}</span>
                 )}
               </div>
             </div>
@@ -479,51 +541,51 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             {/* Progress Stats */}
             {progressLoading ? (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-500 text-xs">Lade Fortschritt...</p>
+                <p className="text-gray-500 text-xs">{t.profileLoading}</p>
               </div>
             ) : progressData?.stats ? (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                <h4 className="font-bold text-gray-900 text-sm mb-3">Dein Fortschritt</h4>
+                <h4 className="font-bold text-gray-900 text-sm mb-3">{t.profileProgress}</h4>
                 <div className="grid grid-cols-2 gap-2 mb-3">
                   <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
                     <div className="text-xl font-black text-emerald-700">{progressData.stats.totalTestsTaken || 0}</div>
-                    <div className="text-[10px] text-gray-600">Tests</div>
+                    <div className="text-[10px] text-gray-600">{t.profileTests}</div>
                   </div>
                   <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
                     <div className="text-xl font-black text-emerald-700">{progressData.stats.accuracy || 0}%</div>
-                    <div className="text-[10px] text-gray-600">Trefferquote</div>
+                    <div className="text-[10px] text-gray-600">{t.profileAccuracy}</div>
                   </div>
                   <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
                     <div className="text-xl font-black text-emerald-700">{progressData.stats.totalCorrect || 0}</div>
-                    <div className="text-[10px] text-gray-600">Richtig</div>
+                    <div className="text-[10px] text-gray-600">{t.profileCorrect}</div>
                   </div>
                   <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
                     <div className="text-xl font-black text-emerald-700">{Math.floor((progressData.stats.totalTimeSpentSeconds || 0) / 60)}</div>
-                    <div className="text-[10px] text-gray-600">Minuten</div>
+                    <div className="text-[10px] text-gray-600">{t.profileMinutes}</div>
                   </div>
                 </div>
                 {progressData.history.length > 0 && (
                   <div>
-                    <h5 className="text-xs font-bold text-gray-700 mb-1.5">Letzte Tests</h5>
+                    <h5 className="text-xs font-bold text-gray-700 mb-1.5">{t.profileLastTests}</h5>
                     <div className="space-y-1 max-h-40 overflow-y-auto">
                       {progressData.history.slice(0, 5).map((h: any) => (
                         <div key={h.id} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-gray-100 text-xs">
                           <span className="font-bold text-gray-700">{h.level}</span>
-                          <span className="text-gray-500">{h.mode === 'real' ? 'Real' : 'Lernen'}</span>
+                          <span className="text-gray-500">{h.mode === 'real' ? t.profileModeReal : t.profileModeLearning}</span>
                           <span className={`font-bold ${h.score >= 60 ? 'text-emerald-700' : 'text-red-700'}`}>{h.score}%</span>
-                          <span className="text-gray-400 text-[10px]">{new Date(h.completed_at).toLocaleDateString('de-DE')}</span>
+                          <span className="text-gray-400 text-[10px]">{new Date(h.completed_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
                 {progressData?.stats?.totalTestsTaken === 0 && (
-                  <p className="text-gray-500 text-xs text-center">Noch keine Tests abgeschlossen — starte jetzt!</p>
+                  <p className="text-gray-500 text-xs text-center">{t.profileNoTests}</p>
                 )}
               </div>
             ) : (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-500 text-xs">Fortschritt nicht verfügbar</p>
+                <p className="text-gray-500 text-xs">{t.profileNotAvailable}</p>
               </div>
             )}
 
@@ -531,15 +593,15 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             {isPro ? (
               !weaknessData ? (
                 <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 text-center">
-                  <p className="text-purple-700 text-xs">Lade Schwachstellen-Daten…</p>
+                  <p className="text-purple-700 text-xs">{t.profileWeaknessLoading}</p>
                 </div>
               ) : (
               <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-purple-900 text-sm">🎯 Schwachstellen-Analyse</h4>
+                    <h4 className="font-bold text-purple-900 text-sm">{t.profileWeaknessTitle}</h4>
                     {weaknessData?.totalWeak > 0 && (
                       <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
-                        {weaknessData.totalWeak} schwach
+                        {weaknessData.totalWeak} {t.profileWeakCount}
                       </span>
                     )}
                   </div>
@@ -564,7 +626,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                     </div>
                   ) : (
                     <p className="text-purple-700 text-xs text-center py-2">
-                      🎉 Noch keine Schwachstellen — lege mit einem Test los!
+                      {t.profileWeaknessEmpty}
                     </p>
                   )}
 
@@ -574,13 +636,13 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                     {weaknessData.weakQuestions.slice(0, 6).map((wq: any) => (
                       <div key={`${wq.level}-${wq.question_id}`} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-purple-100 text-xs">
                         <span className="font-bold text-gray-700">{wq.level} #{wq.question_id}</span>
-                        <span className="text-red-600 text-xs">{wq.attempts}× falsch</span>
+                        <span className="text-red-600 text-xs">{wq.attempts}{t.profileWrongCount}</span>
                         <button
                           onClick={async () => { await onMasterQuestion(wq.question_id, wq.level); }}
                           className="text-purple-700 hover:text-purple-900 font-bold text-xs underline"
-                          title="Als gemeistert markieren"
+                          title={t.profileMasteredTitle}
                         >
-                          gemeistert ✓
+                          {t.profileMastered}
                         </button>
                       </div>
                     ))}
@@ -592,7 +654,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                     onClick={() => { onStartWeaknessTraining(); onClose(); }}
                     className="w-full mt-3 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                   >
-                    🎯 Schwerpunkte üben ({Math.min(10, weaknessData.totalWeak)} Fragen)
+                    {t.profileTrain} ({Math.min(10, weaknessData.totalWeak)} {t.questionsShort ?? 'Fragen'})
                   </button>
                 )}
               </div>
@@ -607,8 +669,8 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   <div className="h-2.5 bg-purple-100 rounded w-2/3"></div>
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-purple-900 font-bold text-sm">🔒 Schwachstellen-Analyse</p>
-                  <p className="text-purple-700 text-xs mt-1">Pro-Feature — erkennt deine Schwächen automatisch</p>
+                  <p className="text-purple-900 font-bold text-sm">{t.profileLockedTitle}</p>
+                  <p className="text-purple-700 text-xs mt-1">{t.profileLockedDesc}</p>
                 </div>
               </div>
             )}
@@ -627,7 +689,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   onClick={() => setView('upgrade')}
                   className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                 >
-                  ⭐ Upgrade to Pro — {t.proCTA}
+                  {t.profileUpgrade} {t.proCTA}
                 </button>
               )}
               <button
@@ -641,7 +703,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             {/* Account info */}
             <div className="text-xs text-gray-500 space-y-1 pt-2 border-t border-gray-100">
               <p><strong>E-Mail:</strong> {user.email}</p>
-              <p><strong>Konto erstellt:</strong> {new Date(user.created_at).toLocaleDateString('de-DE')}</p>
+              <p><strong>{t.profileCreated}:</strong> {new Date(user.created_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</p>
             </div>
 
             <button onClick={onClose} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
@@ -665,17 +727,17 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   onClick={() => setSelectedPlan('monthly')}
                   className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
                 >
-                  <div className="text-xs text-gray-500">Monthly</div>
+                  <div className="text-xs text-gray-500">{t.profileMonthly}</div>
                   <div className="text-xl font-black text-gray-900">$4.99</div>
-                  <div className="text-xs text-gray-600">/month</div>
+                  <div className="text-xs text-gray-600">{t.profilePerMonth}</div>
                 </button>
                 <button
                   onClick={() => setSelectedPlan('yearly')}
                   className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
                 >
-                  <div className="text-xs text-gray-500">Yearly</div>
+                  <div className="text-xs text-gray-500">{t.profileYearly}</div>
                   <div className="text-xl font-black text-gray-900">$29.99</div>
-                  <div className="text-xs text-emerald-700 font-bold">Save 50%</div>
+                  <div className="text-xs text-emerald-700 font-bold">{t.profileSave50}</div>
                 </button>
               </div>
               <button
@@ -683,7 +745,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                 disabled={loading}
                 className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
               >
-                {loading ? 'Redirecting to Stripe...' : t.proCTA}
+                {loading ? t.profileRedirecting : t.proCTA}
               </button>
               <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
               <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
@@ -1381,7 +1443,9 @@ export default function App() {
     if (!auth.isPro || !weaknessData?.weakQuestions?.length) return;
     setTestMode('learning');
     const weakIds = new Set(weaknessData.weakQuestions.map((wq: any) => wq.question_id));
-    const weakQuestions = currentData.questionBank.filter(q => weakIds.has(q.id));
+    const allBanks = [levelData['N5'].questionBank, levelData['N4'].questionBank, levelData['N3'].questionBank];
+    const weakQuestions = allBanks.flatMap(bank => bank.filter((q: any) => weakIds.has(q.id)));
+    if (weakQuestions.length === 0) return;
     setTestQuestions(shuffleArray(weakQuestions).slice(0, Math.min(10, weakQuestions.length)));
     setAnswers({});
     setCurrentQuestionIndex(0);
@@ -1516,8 +1580,8 @@ export default function App() {
             <button
               onClick={() => speak(reading, ttsRate)}
               className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 transition-colors text-sm shrink-0"
-              title={`${label} anhören`}
-              aria-label={`${label} anhören`}
+              title={lang === 'de' ? `${label} anhören` : `Listen to ${label}`}
+              aria-label={lang === 'de' ? `${label} anhören` : `Listen to ${label}`}
             >
               🔊
             </button>
@@ -1544,8 +1608,8 @@ export default function App() {
                   <button
                     onClick={() => speak(selectedKanjiInfo.furigana, ttsRate)}
                     className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition-colors text-sm"
-                    title="Aussprache anhören"
-                    aria-label="Aussprache anhören"
+                    title={t.ttsPronounce}
+                    aria-label={t.ttsPronounce}
                   >
                     🔊
                   </button>
@@ -1747,7 +1811,7 @@ export default function App() {
           <button
             onClick={() => setShowPremiumModal(true)}
             title={auth.user?.name || 'Profil'}
-            aria-label="Profil öffnen"
+            aria-label={t.navOpenProfile}
             className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm transition-colors shrink-0"
           >
             {auth.user?.name?.charAt(0).toUpperCase() || '?'}
@@ -1758,8 +1822,8 @@ export default function App() {
         ) : (
           <button
             onClick={() => setShowAuthModal(true)}
-            title="Anmelden"
-            aria-label="Anmelden"
+            title={t.navSignIn}
+            aria-label={t.navSignIn}
             className="flex items-center gap-1.5 h-9 px-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
@@ -2038,8 +2102,8 @@ export default function App() {
                           value={ttsRate}
                           onChange={(e) => { const r = parseFloat(e.target.value); setTtsRate(r); saveRate(r); }}
                           className="text-xs border border-blue-200 rounded-md px-1 py-0.5 bg-white text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-400"
-                          title="Sprachgeschwindigkeit"
-                          aria-label="Sprachgeschwindigkeit"
+                          title={t.ttsSpeed}
+                          aria-label={t.ttsSpeed}
                         >
                           <option value="0.5">0.5x</option>
                           <option value="0.75">0.75x</option>
@@ -2049,9 +2113,9 @@ export default function App() {
                           <button
                             onClick={() => { setShowVoiceHint(false); try { localStorage.setItem('jlpt-voice-hint-dismissed', 'true'); } catch {} }}
                             className="text-[10px] text-blue-600 underline cursor-help"
-                            title="Klicke zum Ausblenden. Für bessere Qualität: Systemeinstellungen → Sprache → japanische Stimme installieren"
+                            title={lang === 'de' ? "Klicke zum Ausblenden. Für bessere Qualität: Systemeinstellungen → Sprache → japanische Stimme installieren" : "Click to hide. For better quality: System Settings → Language → install a Japanese voice"}
                           >
-                            Stimme verbessern?
+                            {t.ttsVoiceImprove}
                           </button>
                         )}
                       </div>
@@ -2066,9 +2130,9 @@ export default function App() {
                 {testMode === 'learning' && ttsSupported() && (
                   <button
                     onClick={() => speak(currentQuestion.text, ttsRate)}
-                    title="Vorlesen"
+                    title={t.ttsReadQuestion}
                     className="shrink-0 mt-1 w-9 h-9 flex items-center justify-center rounded-full bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition-colors"
-                    aria-label="Frage vorlesen"
+                    aria-label={t.ttsReadQuestion}
                   >
                     🔊
                   </button>
@@ -2321,7 +2385,7 @@ export default function App() {
                   <button
                     onClick={() => window.print()}
                     className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors"
-                    title="Als PDF exportieren"
+                    title={lang === 'de' ? "Als PDF exportieren" : "Export as PDF"}
                   >
                     📄 Als PDF exportieren
                   </button>
@@ -2380,11 +2444,11 @@ export default function App() {
 
             {/* Hidden print/PDF report — visible only in print */}
             <div id="print-report" className="hidden print:block">
-              <h1>JLPT Test Hub — Testergebnis</h1>
+              <h1>JLPT Test Hub — {lang === 'de' ? 'Testergebnis' : 'Test Result'}</h1>
               <div className="print-meta">
-                <p><strong>Level:</strong> {selectedLevel} | <strong>Modus:</strong> {testMode === 'real' ? 'Real Test' : 'Lernmodus'} | <strong>Datum:</strong> {new Date().toLocaleDateString('de-DE')}</p>
-                <p><strong>Ergebnis:</strong> {results.score}/{testQuestions.length} ({results.percentage.toFixed(0)}%) — {results.isPass ? 'BESTANDEN' : 'NICHT BESTANDEN'} (60% benötigt)</p>
-                {auth.user && <p><strong>Name:</strong> {auth.user.name} ({auth.user.email})</p>}
+                <p><strong>{lang === 'de' ? 'Level' : 'Level'}:</strong> {selectedLevel} | <strong>{lang === 'de' ? 'Modus' : 'Mode'}:</strong> {testMode === 'real' ? (lang === 'de' ? 'Real-Test' : 'Real Test') : (lang === 'de' ? 'Lernmodus' : 'Learning Mode')} | <strong>{lang === 'de' ? 'Datum' : 'Date'}:</strong> {new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</p>
+                <p><strong>{lang === 'de' ? 'Ergebnis' : 'Result'}:</strong> {results.score}/{testQuestions.length} ({results.percentage.toFixed(0)}%) — {results.isPass ? (lang === 'de' ? 'BESTANDEN' : 'PASSED') : (lang === 'de' ? 'NICHT BESTANDEN' : 'NOT PASSED')} ({lang === 'de' ? '60% benötigt' : '60% required'})</p>
+                {auth.user && <p><strong>{lang === 'de' ? 'Name' : 'Name'}:</strong> {auth.user.name} ({auth.user.email})</p>}
               </div>
               {testQuestions.map((q, index) => {
                 const ua = answers[index];
@@ -2444,7 +2508,9 @@ export default function App() {
         }}
         onLogout={auth.logout}
         onFetchProgress={auth.fetchProgress}
-        onFetchWeakness={auth.fetchWeaknessSummary}
+        onFetchWeakness={() => auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); })}
+        lang={lang}
+        weaknessData={weaknessData}
         onStartWeaknessTraining={startWeaknessTraining}
         onMasterQuestion={async (qid) => {
           await auth.masterQuestion(qid, selectedLevel);
