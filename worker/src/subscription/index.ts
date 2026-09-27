@@ -49,7 +49,7 @@ export const subscriptionRoutes = new Hono()
     }
 
     // Create Stripe Checkout Session
-    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.create({
       customer_email: userRow.email,
       line_items: [{ price: priceId, quantity: 1 }],
@@ -67,7 +67,7 @@ export const subscriptionRoutes = new Hono()
     const { sessionId } = c.req.valid('json');
     const user = c.get('user');
 
-    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status !== 'paid' && session.mode === 'subscription') {
@@ -105,7 +105,7 @@ export const subscriptionRoutes = new Hono()
 
     // Cancel in Stripe
     if (sub.stripe_subscription_id) {
-      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
       await stripe.subscriptions.update(sub.stripe_subscription_id, { cancel_at_period_end: true });
     }
 
@@ -124,7 +124,7 @@ export const subscriptionRoutes = new Hono()
     if (!sub) return c.json({ error: 'No subscription to resume' }, 400);
 
     if (sub.stripe_subscription_id) {
-      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+      const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
       await stripe.subscriptions.update(sub.stripe_subscription_id, { cancel_at_period_end: false });
     }
 
@@ -144,7 +144,7 @@ export const subscriptionRoutes = new Hono()
       return c.json({ error: 'No active subscription' }, 400);
     }
 
-    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+    const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
     const session = await stripe.billingPortal.sessions.create({
       customer: sub.stripe_customer_id,
       return_url: `${c.env.APP_URL}/dashboard`,

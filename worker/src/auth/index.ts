@@ -85,7 +85,7 @@ export const authRoutes = new Hono()
     // if (!user.email_verified) return c.json({ error: 'Please verify your email first', code: 'EMAIL_NOT_VERIFIED' }, 403);
 
     const accessToken = await createJWT(
-      { sub: user.id, email: user.email, exp: Math.floor(Date.now() / 1000) + 900 },
+      { sub: user.id, email: user.email, role: user.role || 'user', exp: Math.floor(Date.now() / 1000) + 900 },
       c.env.JWT_SECRET
     );
     const refreshToken = await createJWT(
@@ -105,7 +105,7 @@ export const authRoutes = new Hono()
     c.header('Set-Cookie', `refresh_token=${refreshToken}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=2592000`);
 
     return c.json({
-      user: { id: user.id, email: user.email, name: user.name, email_verified: user.email_verified },
+      user: { id: user.id, email: user.email, name: user.name, email_verified: user.email_verified, role: user.role || 'user' },
       accessToken,
     });
   })

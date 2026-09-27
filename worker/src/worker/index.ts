@@ -72,7 +72,15 @@ api.route('/user', userRoutes);
 api.route('/subscription', subscriptionRoutes);
 api.route('/tests', testRoutes);
 api.route('/progress', progressRoutes);
-api.route('/admin', adminRoutes);
+// Admin routes — require role=admin
+const admin = new Hono<{ Bindings: Bindings }>();
+admin.use('*', async (c, next) => {
+  const u = c.get('user');
+  if (u.role !== 'admin') return c.json({ error: 'Forbidden' }, 403);
+  await next();
+});
+admin.route('/', adminRoutes);
+api.route('/admin', admin);
 
 app.route('/api', api);
 
@@ -82,7 +90,7 @@ app.post('/api/webhooks/stripe', async (c) => {
   if (!signature) return c.json({ error: 'Missing signature' }, 400);
 
   const body = await c.req.text();
-  const stripe = new Stripe(c.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+  const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
 
   let event: Stripe.Event;
   try {
