@@ -38,12 +38,29 @@ async function createJWT(payload: any, secret: string): Promise<string> {
   const headerB64 = btoa(JSON.stringify(header)).replace(/=/g, '');
   const payloadB64 = btoa(JSON.stringify(payload)).replace(/=/g, '');
   const data = `${headerB64}.${payloadB64}`;
-  
+
   const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(data));
   const sigB64 = btoa(String.fromCharCode(...new Uint8Array(signature))).replace(/=/g, '');
   return `${data}.${sigB64}`;
 }
+
+async function verifyJWT(token: string, secret: string): Promise<any | null> {
+  try {
+    const [headerB64, payloadB64, sigB64] = token.split('.');
+    const encoder = new TextEncoder();
+    const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify']);
+    const sigBytes = Uint8Array.from(atob(sigB64), ch => ch.charCodeAt(0));
+    const valid = await crypto.subtle.verify('HMAC', key, sigBytes, encoder.encode(`${headerB64}.${payloadB64}`));
+    if (!valid) return null;
+    const payload = JSON.parse(atob(payloadB64));
+    if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) return null;
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
 
 export const authRoutes = new Hono()
   .post('/signup', zValidator('json', z.object({
@@ -102,7 +119,58 @@ export const authRoutes = new Hono()
       'INSERT INTO refresh_tokens (id, user_id, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?, ?)'
     ).bind(crypto.randomUUID(), user.id, hashHex, Date.now() + 2592000000, Date.now()).run();
 
-    c.header('Set-Cookie', `refresh_token=${refreshToken}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=2592000`);
+    c.header('Set-Cookie', `refresh_token=${refreshToken}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=2592000`);
+
+    return c.json({
+      user: { id: user.id, email: user.email, name: user.name, email_verified: user.email_verified, role: user.role || 'user' },
+      accessToken,
+    });
+  })
+  // Refresh access token using the HttpOnly refresh cookie
+  .post('/refresh', async (c) => {
+    const cookieHeader = c.req.header('Cookie') || '';
+    const cookies = Object.fromEntries(
+      cookieHeader.split(';').map(pair => {
+        const idx = pair.indexOf('=');
+        return idx > -1 ? [pair.slice(0, idx).trim(), pair.slice(idx + 1).trim()] : ['', ''];
+      })
+    );
+    const refreshToken = cookies['refresh_token'];
+    if (!refreshToken) return c.json({ error: 'No refresh token' }, 401);
+
+    // Validate JWT signature + expiry
+    const payload = await verifyJWT(refreshToken, c.env.JWT_SECRET);
+    if (!payload || payload.type !== 'refresh') {
+      c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
+      return c.json({ error: 'Invalid refresh token' }, 401);
+    }
+
+    // Check DB: token must not be revoked or expired
+    const encoder = new TextEncoder();
+    const tokenHash = await crypto.subtle.digest('SHA-256', encoder.encode(refreshToken));
+    const hashHex = Array.from(new Uint8Array(tokenHash)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+    const stored = await c.env.DB.prepare(
+      'SELECT id, user_id, revoked, expires_at FROM refresh_tokens WHERE token_hash = ?'
+    ).bind(hashHex).first<any>();
+
+    if (!stored || stored.revoked || stored.expires_at < Date.now()) {
+      c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
+      return c.json({ error: 'Refresh token expired or revoked' }, 401);
+    }
+
+    // Load user (may have been deleted / role changed)
+    const user = await c.env.DB.prepare('SELECT id, email, name, role, email_verified FROM users WHERE id = ?')
+      .bind(payload.sub).first<any>();
+    if (!user) {
+      c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
+      return c.json({ error: 'User not found' }, 401);
+    }
+
+    const accessToken = await createJWT(
+      { sub: user.id, email: user.email, role: user.role || 'user', exp: Math.floor(Date.now() / 1000) + 900 },
+      c.env.JWT_SECRET
+    );
 
     return c.json({
       user: { id: user.id, email: user.email, name: user.name, email_verified: user.email_verified, role: user.role || 'user' },
@@ -110,7 +178,7 @@ export const authRoutes = new Hono()
     });
   })
   .post('/logout', async (c) => {
-    c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0');
+    c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
     return c.json({ message: 'Logged out' });
   })
   .get('/verify-email', async (c) => {

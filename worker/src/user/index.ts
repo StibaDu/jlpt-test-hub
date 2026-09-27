@@ -47,6 +47,6 @@ export const userRoutes = new Hono()
     await c.env.DB.prepare('UPDATE refresh_tokens SET revoked = TRUE WHERE user_id = ?').bind(user.sub).run();
     await c.env.DB.prepare("UPDATE subscriptions SET status = 'cancelled', cancelled_at = ? WHERE user_id = ? AND status = 'active'")
       .bind(Date.now(), user.sub).run();
-    c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0');
+    c.header('Set-Cookie', 'refresh_token=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
     return c.json({ message: 'Account deleted successfully' });
   });

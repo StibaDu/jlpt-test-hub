@@ -43,10 +43,7 @@ export function useAuth() {
     if (!token) { setLoading(false); return; }
 
     try {
-      const res = await fetch(`${API_BASE}/user/profile`, {
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch('/user/profile');
 
       if (res.ok) {
         const data = await res.json();
@@ -94,6 +91,29 @@ export function useAuth() {
     } catch {
       return false;
     }
+  };
+
+  // Central fetch wrapper: retries once after refreshing an expired access token.
+  // Prevents silent data loss when the 15-minute token expires mid-session.
+  const apiFetch = async (path: string, options: RequestInit = {}, retried = false): Promise<Response> => {
+    const token = getAccessToken();
+    const res = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      credentials: 'include',
+      headers: {
+        ...(options.headers || {}),
+        Authorization: token ? `Bearer ${token}` : '',
+      },
+    });
+    if (res.status === 401 && !retried && token) {
+      const refreshed = await tryRefresh();
+      if (refreshed) {
+        return apiFetch(path, options, true);
+      }
+      // Refresh failed — session is genuinely dead
+      clearAuth();
+    }
+    return res;
   };
 
   useEffect(() => {
@@ -172,14 +192,10 @@ export function useAuth() {
     if (!token) return { success: false, error: 'Please sign in first' };
 
     try {
-      const res = await fetch(`${API_BASE}/subscription/create-checkout`, {
+      const res = await apiFetch('/subscription/create-checkout', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ plan }),
-        credentials: 'include',
       });
 
       if (!res.ok) {
@@ -204,32 +220,22 @@ export function useAuth() {
     answers: Record<number, number>;
     questionResults: Array<{ questionId: number; correct: boolean; category: string }>;
   }): Promise<void> => {
-    const token = getAccessToken();
-    if (!token || !user) return;
+    if (!user) return;
 
     try {
-      await fetch(`${API_BASE}/tests/submit`, {
+      await apiFetch('/tests/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(result),
-        credentials: 'include',
       });
     } catch {}
   };
 
   const cancelSubscription = async (): Promise<{ success: boolean; error?: string }> => {
-    const token = getAccessToken();
-    if (!token) return { success: false, error: 'Not logged in' };
+    if (!getAccessToken()) return { success: false, error: 'Not logged in' };
 
     try {
-      const res = await fetch(`${API_BASE}/subscription/cancel`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch('/subscription/cancel', { method: 'POST' });
       if (res.ok) {
         await fetchProfile();
         return { success: true };
@@ -241,25 +247,16 @@ export function useAuth() {
   };
 
   const masterQuestion = useCallback(async (questionId: number, level: string): Promise<void> => {
-    const token = getAccessToken();
-    if (!token) return;
+    if (!getAccessToken()) return;
     try {
-      await fetch(`${API_BASE}/progress/weak-points/${questionId}/${level}/master`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      await apiFetch(`/progress/weak-points/${questionId}/${level}/master`, { method: 'POST' });
     } catch {}
   }, []);
 
   const fetchWeaknessSummary = useCallback(async (): Promise<any> => {
-    const token = getAccessToken();
-    if (!token) return null;
+    if (!getAccessToken()) return null;
     try {
-      const res = await fetch(`${API_BASE}/progress/weakness-summary`, {
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch('/progress/weakness-summary');
       return res.ok ? await res.json() : null;
     } catch {
       return null;
@@ -267,13 +264,9 @@ export function useAuth() {
   }, []);
 
   const fetchMistakeNotebook = useCallback(async (): Promise<any> => {
-    const token = getAccessToken();
-    if (!token) return null;
+    if (!getAccessToken()) return null;
     try {
-      const res = await fetch(`${API_BASE}/progress/mistake-notebook`, {
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch('/progress/mistake-notebook');
       return res.ok ? await res.json() : null;
     } catch {
       return null;
@@ -281,13 +274,9 @@ export function useAuth() {
   }, []);
 
   const fetchSrsDue = useCallback(async (): Promise<any> => {
-    const token = getAccessToken();
-    if (!token) return null;
+    if (!getAccessToken()) return null;
     try {
-      const res = await fetch(`${API_BASE}/progress/srs/due`, {
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch('/progress/srs/due');
       return res.ok ? await res.json() : null;
     } catch {
       return null;
@@ -295,29 +284,20 @@ export function useAuth() {
   }, []);
 
   const submitSrsAnswer = useCallback(async (questionId: number, level: string, correct: boolean): Promise<void> => {
-    const token = getAccessToken();
-    if (!token) return;
+    if (!getAccessToken()) return;
     try {
-      await fetch(`${API_BASE}/progress/srs/answer`, {
+      await apiFetch('/progress/srs/answer', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ questionId, level, correct }),
       });
     } catch {}
   }, []);
 
   const fetchDrillQuestions = useCallback(async (level: string, category: string): Promise<{ answeredWrong: number[]; answeredCount: number } | null> => {
-    const token = getAccessToken();
-    if (!token) return null;
+    if (!getAccessToken()) return null;
     try {
-      const res = await fetch(`${API_BASE}/progress/drill/${level}/${encodeURIComponent(category)}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: 'include',
-      });
+      const res = await apiFetch(`/progress/drill/${level}/${encodeURIComponent(category)}`);
       return res.ok ? await res.json() : null;
     } catch {
       return null;
@@ -325,18 +305,11 @@ export function useAuth() {
   }, []);
 
   const fetchProgress = useCallback(async (): Promise<{ stats: any; history: any[] } | null> => {
-    const token = getAccessToken();
-    if (!token) return null;
+    if (!getAccessToken()) return null;
     try {
       const [statsRes, historyRes] = await Promise.all([
-        fetch(`${API_BASE}/progress/stats`, {
-          headers: { Authorization: `Bearer ${token}` },
-          credentials: 'include',
-        }),
-        fetch(`${API_BASE}/tests/history?limit=10`, {
-          headers: { Authorization: `Bearer ${token}` },
-          credentials: 'include',
-        }),
+        apiFetch('/progress/stats'),
+        apiFetch('/tests/history?limit=10'),
       ]);
       const stats = statsRes.ok ? await statsRes.json() : null;
       const history = historyRes.ok ? (await historyRes.json()).attempts || [] : [];
