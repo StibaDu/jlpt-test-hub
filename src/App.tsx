@@ -106,6 +106,16 @@ const uiTranslations: UiStrings = {
     proFeature5: "✓ PDF-Export deiner Ergebnisse mit Erklärungen",
     proFeature6: "✓ Ad-free experience",
     foundHelpful: "Found this helpful?",
+    // Pro features
+    srsTitle: "🔁 Spaced Review",
+    srsDueDesc: "{n} questions are due for review — reviewing them now locks them into memory",
+    srsStart: "Start Review",
+    notebookTitle: "📚 Mistake Notebook",
+    notebookTrain: "🎯 Practice Mistakes",
+    notebookShowMore: "Show {n} more",
+    notebookShowLess: "Show less",
+    catBreakdown: "Accuracy by category",
+    catDrill: "Drill",
     supportFree: "Support free JLPT prep",
     // Profile modal
     profileSubscription: "Subscription",
@@ -254,6 +264,16 @@ const uiTranslations: UiStrings = {
     proFeature5: "✓ PDF-Ergebnisse herunterladbar",
     proFeature6: "✓ Werbungsfrei",
     foundHelpful: "Nützlich gefunden?",
+    // Pro-Features
+    srsTitle: "🔁 Wiederholungs-Queue",
+    srsDueDesc: "{n} Fragen sind zur Wiederholung fällig — jetzt wiederholen sichert sie ins Langzeitgedächtnis",
+    srsStart: "Wiederholen starten",
+    notebookTitle: "📚 Fehlerheft",
+    notebookTrain: "🎯 Fehler üben",
+    notebookShowMore: "{n} mehr anzeigen",
+    notebookShowLess: "Weniger anzeigen",
+    catBreakdown: "Trefferquote nach Kategorie",
+    catDrill: "Üben",
     supportFree: "Kostenlose JLPT-Vorbereitung unterstützen",
     // Profil-Modal
 profileModeReal: "Real",
@@ -456,12 +476,18 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onStartWeaknessTraining, onMasterQuestion, lang, weaknessData }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onStartWeaknessTraining: () => void; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any }) => {
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
+  const [showNotebook, setShowNotebook] = useState(false);
+
+  const findQuestion = (qid: number, level: string) => {
+    const bank = levelData[level as 'N5' | 'N4' | 'N3']?.questionBank || [];
+    return bank.find((q: any) => q.id === qid) || null;
+  };
 
   useEffect(() => {
     if (show && isLoggedIn && view === 'profile' && !progressData) {
@@ -473,6 +499,10 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
     }
     if (show && isLoggedIn && view === 'profile' && !weaknessData) {
       onFetchWeakness();
+    }
+    if (show && isLoggedIn && isPro && !notebookData) {
+      onSetNotebookData(null);
+      onRefreshNotebook().then(d => { if (d) onSetNotebookData(d); });
     }
   }, [show, isLoggedIn, view]);
 
@@ -589,74 +619,148 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
               </div>
             )}
 
-            {/* Schwachstellen-Analyse (Pro) — null-safe */}
+            {/* === PRO: SRS Review Queue === */}
+            {isPro && srsDueCount > 0 && (
+              <div className="bg-amber-50 rounded-xl p-4 border border-amber-300">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>
+                    <p className="text-amber-700 text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
+                  </div>
+                  <button
+                    onClick={async () => { await onStartSrsReview(); onClose(); }}
+                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                  >
+                    {t.srsStart}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* === PRO: Mistake Notebook === */}
             {isPro ? (
-              !weaknessData ? (
+              !notebookData ? (
                 <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 text-center">
                   <p className="text-purple-700 text-xs">{t.profileWeaknessLoading}</p>
                 </div>
               ) : (
               <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-purple-900 text-sm">{t.profileWeaknessTitle}</h4>
-                    {weaknessData?.totalWeak > 0 && (
+                    <h4 className="font-bold text-purple-900 text-sm">{t.notebookTitle}</h4>
+                    {notebookData?.total > 0 && (
                       <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
-                        {weaknessData.totalWeak} {t.profileWeakCount}
+                        {notebookData.total}
                       </span>
                     )}
                   </div>
 
-                  {/* Category bars */}
-                  {weaknessData?.categories && weaknessData.categories.length > 0 ? (
-                    <div className="space-y-2 mb-3">
-                      {weaknessData.categories.slice(0, 5).map((cat: any) => (
-                        <div key={cat.category} className="flex items-center gap-2">
-                          <span className="text-xs text-gray-700 w-32 truncate" title={cat.category}>{cat.category}</span>
-                          <div className="flex-1 h-2.5 bg-white rounded-full overflow-hidden border border-purple-100">
-                            <div
-                              className={`h-full rounded-full ${cat.errorRate >= 60 ? 'bg-red-500' : cat.errorRate >= 35 ? 'bg-amber-500' : 'bg-emerald-500'}`}
-                              style={{ width: `${Math.max(cat.errorRate, 3)}%` }}
-                            ></div>
-                          </div>
-                          <span className={`text-xs font-bold w-10 text-right ${cat.errorRate >= 35 ? 'text-red-700' : 'text-emerald-700'}`}>
-                            {cat.errorRate}%
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
+                  {/* Notebook empty state */}
+                  {(!notebookData?.questions || notebookData.questions.length === 0) ? (
                     <p className="text-purple-700 text-xs text-center py-2">
                       {t.profileWeaknessEmpty}
                     </p>
-                  )}
+                  ) : (
+                    <>
+                      {/* Actual wrong questions with explanations */}
+                      <div className="space-y-2.5 max-h-80 overflow-y-auto pr-1">
+                        {notebookData.questions.slice(0, showNotebook ? 20 : 4).map((wq: any) => {
+                          const q = findQuestion(wq.question_id, wq.level);
+                          if (!q) return null;
+                          const wrongOpt = wq.last_wrong_option !== null && wq.last_wrong_option !== undefined ? q.options[wq.last_wrong_option] : null;
+                          const correctOpt = q.options[q.correctIndex];
+                          return (
+                            <div key={`${wq.level}-${wq.question_id}`} className="bg-white rounded-xl p-3 border border-purple-100">
+                              <div className="flex items-center justify-between mb-1.5">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                                  {wq.level} · {q.category} · {wq.times_wrong || wq.attempts}{t.profileWrongCount}
+                                </span>
+                                <button
+                                  onClick={async () => {
+                                    await onMasterQuestion(wq.question_id, wq.level);
+                                    const fresh = await onRefreshNotebook();
+                                    if (fresh) onSetNotebookData(fresh);
+                                  }}
+                                  className="text-purple-700 hover:text-purple-900 font-bold text-[10px] underline shrink-0"
+                                  title={t.profileMasteredTitle}
+                                >
+                                  {t.profileMastered}
+                                </button>
+                              </div>
+                              <p className="text-sm text-gray-900 font-medium mb-2">{q.text}</p>
+                              <div className="space-y-1 text-xs">
+                                {wrongOpt && (
+                                  <div className="flex items-start gap-1.5 text-red-700">
+                                    <span className="shrink-0">❌</span>
+                                    <span>{lang === 'de' ? 'Deine Antwort:' : 'Your answer:'} <strong>{wrongOpt}</strong></span>
+                                  </div>
+                                )}
+                                <div className="flex items-start gap-1.5 text-emerald-700">
+                                  <span className="shrink-0">✓</span>
+                                  <span>{lang === 'de' ? 'Richtig:' : 'Correct:'} <strong>{correctOpt}</strong></span>
+                                </div>
+                                <div className="mt-1.5 pt-1.5 border-t border-gray-100 text-gray-600 leading-relaxed">
+                                  {q.explanation[lang as Lang]}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
 
-                {/* Weak questions list + training button */}
-                {weaknessData?.weakQuestions && weaknessData.weakQuestions.length > 0 && (
-                  <div className="mt-2 space-y-1.5 max-h-36 overflow-y-auto">
-                    {weaknessData.weakQuestions.slice(0, 6).map((wq: any) => (
-                      <div key={`${wq.level}-${wq.question_id}`} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-purple-100 text-xs">
-                        <span className="font-bold text-gray-700">{wq.level} #{wq.question_id}</span>
-                        <span className="text-red-600 text-xs">{wq.attempts}{t.profileWrongCount}</span>
+                      <div className="flex gap-2 mt-3">
                         <button
-                          onClick={async () => { await onMasterQuestion(wq.question_id, wq.level); }}
-                          className="text-purple-700 hover:text-purple-900 font-bold text-xs underline"
-                          title={t.profileMasteredTitle}
+                          onClick={() => { onStartNotebookTraining(notebookData.questions.map((wq: any) => wq.question_id)); onClose(); }}
+                          className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                         >
-                          {t.profileMastered}
+                          {t.notebookTrain} ({Math.min(20, notebookData.questions.length)})
+                        </button>
+                        <button
+                          onClick={() => onExportNotebookPdf()}
+                          className="bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-2.5 px-3.5 rounded-xl transition-all active:scale-95 text-sm"
+                          title={lang === 'de' ? 'Als PDF exportieren' : 'Export as PDF'}
+                        >
+                          📄 PDF
                         </button>
                       </div>
-                    ))}
-                  </div>
-                )}
+                      {notebookData.questions.length > 4 && (
+                        <button
+                          onClick={() => setShowNotebook(!showNotebook)}
+                          className="w-full mt-2 text-purple-700 hover:text-purple-900 font-bold text-xs underline"
+                        >
+                          {showNotebook ? t.notebookShowLess : t.notebookShowMore.replace('{n}', String(notebookData.questions.length - 4))}
+                        </button>
+                      )}
+                    </>
+                  )}
 
-                {weaknessData?.totalWeak >= 5 && (
-                  <button
-                    onClick={() => { onStartWeaknessTraining(); onClose(); }}
-                    className="w-full mt-3 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
-                  >
-                    {t.profileTrain} ({Math.min(10, weaknessData.totalWeak)} {t.questionsShort ?? 'Fragen'})
-                  </button>
-                )}
+                  {/* Category bars with drill buttons */}
+                  {weaknessData?.categories && weaknessData.categories.length > 0 && (
+                    <div className="mt-4 pt-3 border-t border-purple-100">
+                      <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">{t.catBreakdown}</h5>
+                      <div className="space-y-1.5">
+                        {weaknessData.categories.slice(0, 5).map((cat: any) => (
+                          <div key={cat.category} className="flex items-center gap-2">
+                            <span className="text-xs text-gray-700 w-28 truncate" title={cat.category}>{cat.category}</span>
+                            <div className="flex-1 h-2.5 bg-white rounded-full overflow-hidden border border-purple-100">
+                              <div
+                                className={`h-full rounded-full ${cat.errorRate >= 60 ? 'bg-red-500' : cat.errorRate >= 35 ? 'bg-amber-500' : 'bg-emerald-500'}`}
+                                style={{ width: `${Math.max(cat.errorRate, 3)}%` }}
+                              ></div>
+                            </div>
+                            <span className={`text-xs font-bold w-9 text-right ${cat.errorRate >= 35 ? 'text-red-700' : 'text-emerald-700'}`}>
+                              {cat.errorRate}%
+                            </span>
+                            <button
+                              onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, cat.category); onClose(); }}
+                              className="text-[10px] font-bold text-purple-700 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded-lg transition-colors shrink-0"
+                            >
+                              {t.catDrill}
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
               </div>
               )
             ) : (
@@ -682,7 +786,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   onClick={async () => { await onCancelSub(); }}
                   className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2.5 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
                 >
-                  Cancel Subscription (Self-Service)
+                  {t.profileCancel}
                 </button>
               ) : (
                 <button
@@ -696,7 +800,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                 onClick={() => { onLogout(); onClose(); }}
                 className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
               >
-                Sign Out
+                {t.profileSignOut}
               </button>
             </div>
 
@@ -1308,6 +1412,8 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [weaknessData, setWeaknessData] = useState<any>(null);
+  const [notebookData, setNotebookData] = useState<any>(null);
+  const [srsDueCount, setSrsDueCount] = useState(0);
   const [ttsRate, setTtsRate] = useState(() => getSavedRate());
   const [showVoiceHint, setShowVoiceHint] = useState(() => {
     try { return localStorage.getItem('jlpt-voice-hint-dismissed') !== 'true'; } catch { return true; }
@@ -1333,6 +1439,18 @@ export default function App() {
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
+
+  // Pro data: fetch weakness summary + SRS due count when a Pro user logs in
+  useEffect(() => {
+    if (auth.isLoggedIn && auth.isPro) {
+      auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); });
+      auth.fetchSrsDue().then(d => setSrsDueCount(d?.dueCount || 0));
+    } else if (!auth.isLoggedIn) {
+      setWeaknessData(null);
+      setNotebookData(null);
+      setSrsDueCount(0);
+    }
+  }, [auth.isLoggedIn, auth.isPro]);
 
   const currentData: LevelData = levelData[selectedLevel];
   const t = uiTranslations[lang];
@@ -1439,14 +1557,19 @@ export default function App() {
     setGameState('testing');
   };
 
-  const startWeaknessTraining = () => {
-    if (!auth.isPro || !weaknessData?.weakQuestions?.length) return;
-    setTestMode('learning');
-    const weakIds = new Set(weaknessData.weakQuestions.map((wq: any) => wq.question_id));
-    const allBanks = [levelData['N5'].questionBank, levelData['N4'].questionBank, levelData['N3'].questionBank];
-    const weakQuestions = allBanks.flatMap(bank => bank.filter((q: any) => weakIds.has(q.id)));
-    if (weakQuestions.length === 0) return;
-    setTestQuestions(shuffleArray(weakQuestions).slice(0, Math.min(10, weakQuestions.length)));
+  const restartTest = () => {
+    startTest(testMode);
+  };
+
+  // Launch a drill test from specific question IDs (mistake notebook / category drill / SRS)
+  const startDrillFromIds = (ids: number[], mode: 'learning' | 'real' = 'learning') => {
+    if (!ids.length) return;
+    const idSet = new Set(ids);
+    const allBanks = [...levelData['N5'].questionBank.map((q: any) => ({ ...q, level: 'N5' as const })), ...levelData['N4'].questionBank.map((q: any) => ({ ...q, level: 'N4' as const })), ...levelData['N3'].questionBank.map((q: any) => ({ ...q, level: 'N3' as const }))];
+    const picked = allBanks.filter((q: any) => idSet.has(q.id));
+    if (picked.length === 0) return;
+    setTestMode(mode);
+    setTestQuestions(shuffleArray(picked).slice(0, Math.min(20, picked.length)));
     setAnswers({});
     setCurrentQuestionIndex(0);
     setLearningAnswerRevealed(false);
@@ -1454,9 +1577,55 @@ export default function App() {
     setGameState('testing');
   };
 
-  const restartTest = () => {
-    startTest(testMode);
+  // Feat 2: Category drill — prioritize questions the user got wrong, fill up with unseen
+  const startCategoryDrill = async (level: string, category: string) => {
+    const bank = levelData[level as 'N5' | 'N4' | 'N3']?.questionBank || [];
+    const inCategory = bank.filter((q: any) => q.category === category);
+    if (!inCategory.length) return;
+    let ids: number[] = inCategory.map((q: any) => q.id);
+    if (auth.isPro) {
+      const drill = await auth.fetchDrillQuestions(level, category);
+      if (drill?.answeredWrong?.length) {
+        const wrongIds = drill.answeredWrong.filter((id: number) => idSetHas(inCategory, id));
+        const rest = ids.filter(id => !wrongIds.includes(id));
+        ids = [...wrongIds, ...rest];
+      }
+    }
+    startDrillFromIds(ids.slice(0, 10));
   };
+
+  const idSetHas = (bank: any[], id: number) => bank.some((q: any) => q.id === id);
+
+  // Find a question across all levels (for Mistake Notebook display)
+  const findQuestion = (qid: number, level: string) => {
+    const bank = levelData[level as 'N5' | 'N4' | 'N3']?.questionBank || [];
+    return bank.find((q: any) => q.id === qid) || null;
+  };
+
+  // Feat 5: PDF export of Mistake Notebook
+  const exportNotebookPdf = () => {
+    if (!notebookData?.questions?.length) return;
+    setPrintMode('notebook');
+    setTimeout(() => { window.print(); }, 100);
+  };
+
+  const [printMode, setPrintMode] = useState<'test' | 'notebook'>('test');
+
+  // Feat 3: SRS review session — due cards first, then new cards
+  const startSrsReview = async () => {
+    const data = await auth.fetchSrsDue();
+    if (!data) return;
+    const dueIds = data.due?.map((q: any) => q.question_id) || [];
+    const newIds = data.newCards?.map((q: any) => q.question_id) || [];
+    const ids = [...dueIds, ...newIds].slice(0, 15);
+    if (!ids.length) return;
+    // Remember mode for SRS answer recording
+    setTestMode('learning');
+    setSrsReviewActive(true);
+    startDrillFromIds(ids);
+  };
+
+  const [srsReviewActive, setSrsReviewActive] = useState(false);
 
   const goHome = () => {
     setGameState('intro');
@@ -1476,6 +1645,7 @@ export default function App() {
         questionId: q.id,
         correct: answers[index] === q.correctIndex,
         category: q.category,
+        selectedOption: answers[index] !== undefined ? answers[index] : undefined,
       }));
 
       auth.saveTestResult({
@@ -1488,9 +1658,25 @@ export default function App() {
         answers,
         questionResults,
       });
+
+      // SRS review session: record each answer to the SM-2 scheduler
+      if (srsReviewActive) {
+        questionResults.forEach(qr => {
+          // Resolve the actual level of this question (drills may span levels)
+          const q = testQuestions.find(tq => tq.id === qr.questionId) as any;
+          const qLevel = q?.level || selectedLevel;
+          auth.submitSrsAnswer(qr.questionId, qLevel, qr.correct);
+        });
+        setSrsReviewActive(false);
+        // Refresh due count after reviews
+        setTimeout(async () => {
+          const due = await auth.fetchSrsDue();
+          setSrsDueCount(due?.dueCount || 0);
+        }, 1500);
+      }
     }
     setGameState('results');
-  }, [auth.isLoggedIn, auth.saveTestResult, testQuestions, answers, testMode, selectedLevel, currentData.timeMinutes, timeRemaining]);
+  }, [auth.isLoggedIn, auth.saveTestResult, srsReviewActive, testQuestions, answers, testMode, selectedLevel, currentData.timeMinutes, timeRemaining]);
 
   useEffect(() => {
     let timer: ReturnType<typeof setInterval> | undefined;
@@ -1539,12 +1725,14 @@ export default function App() {
   const results = useMemo(() => {
     if (gameState !== 'results') return null;
     let score = 0;
+    const wrongQuestions: Array<{ q: any; picked: number | undefined }> = [];
     testQuestions.forEach((q, index) => {
       if (answers[index] === q.correctIndex) score++;
+      else wrongQuestions.push({ q, picked: answers[index] });
     });
     const percentage = testQuestions.length > 0 ? (score / testQuestions.length) * 100 : 0;
     const isPass = percentage >= currentData.passThreshold * 100;
-    return { score, percentage, isPass };
+    return { score, percentage, isPass, wrongQuestions };
   }, [gameState, testQuestions, answers, currentData]);
 
   const formatTime = (seconds: number) => {
@@ -2329,6 +2517,56 @@ export default function App() {
                 </button>
               </div>
 
+              {/* === PRO: Post-test weakness report — wrong questions inline with explanations === */}
+              {results.wrongQuestions.length > 0 && (
+                <div className="mt-6 text-left bg-red-50 rounded-xl p-4 border border-red-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-bold text-red-900 text-sm">{lang === 'de' ? '📋 Deine Fehler im Detail' : '📋 Your Mistakes in Detail'}</h3>
+                    <span className="text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">
+                      {results.wrongQuestions.length} {lang === 'de' ? 'Fehler' : 'mistakes'}
+                    </span>
+                  </div>
+                  <div className="space-y-2.5 max-h-96 overflow-y-auto pr-1">
+                    {results.wrongQuestions.map(({ q, picked }) => (
+                      <div key={`${(q as any).level || selectedLevel}-${q.id}`} className="bg-white rounded-xl p-3 border border-red-100">
+                        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1">
+                          {(q as any).level || selectedLevel} · {q.category}
+                        </p>
+                        <p className="text-sm text-gray-900 font-medium mb-2">{q.text}</p>
+                        <div className="space-y-1 text-xs">
+                          {picked !== undefined ? (
+                            <div className="flex items-start gap-1.5 text-red-700">
+                              <span className="shrink-0">❌</span>
+                              <span>{lang === 'de' ? 'Deine Antwort:' : 'Your answer:'} <strong>{q.options[picked]}</strong></span>
+                            </div>
+                          ) : (
+                            <div className="flex items-start gap-1.5 text-gray-500">
+                              <span className="shrink-0">—</span>
+                              <span>{lang === 'de' ? 'Nicht beantwortet' : 'Not answered'}</span>
+                            </div>
+                          )}
+                          <div className="flex items-start gap-1.5 text-emerald-700">
+                            <span className="shrink-0">✓</span>
+                            <span>{lang === 'de' ? 'Richtig:' : 'Correct:'} <strong>{q.options[q.correctIndex]}</strong></span>
+                          </div>
+                          <div className="mt-1.5 pt-1.5 border-t border-gray-100 text-gray-600 leading-relaxed">
+                            {q.explanation[lang]}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {auth.isPro && (
+                    <button
+                      onClick={() => { setSrsReviewActive(false); startDrillFromIds(results.wrongQuestions.map((w: any) => w.q.id)); }}
+                      className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                    >
+                      🎯 {lang === 'de' ? 'Diese Fragen jetzt üben' : 'Drill these now'}
+                    </button>
+                  )}
+                </div>
+              )}
+
               {!auth.isLoggedIn && (
                 <div className="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
                   <p className="text-emerald-700 font-bold text-sm mb-2">Want to save your progress?</p>
@@ -2443,6 +2681,7 @@ export default function App() {
             </section>
 
             {/* Hidden print/PDF report — visible only in print */}
+            {printMode === 'test' ? (
             <div id="print-report" className="hidden print:block">
               <h1>JLPT Test Hub — {lang === 'de' ? 'Testergebnis' : 'Test Result'}</h1>
               <div className="print-meta">
@@ -2464,6 +2703,28 @@ export default function App() {
               })}
               <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
             </div>
+            ) : (
+            /* Notebook PDF export */
+            <div id="print-report" className="hidden print:block">
+              <h1>JLPT Test Hub — {lang === 'de' ? 'Fehlerheft' : 'Mistake Notebook'}</h1>
+              <div className="print-meta">
+                <p><strong>{lang === 'de' ? 'Datum' : 'Date'}:</strong> {new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')} | <strong>{lang === 'de' ? 'Fehler' : 'Mistakes'}:</strong> {notebookData?.questions?.length || 0}</p>
+              </div>
+              {(notebookData?.questions || []).map((wq: any) => {
+                const q = findQuestion(wq.question_id, wq.level);
+                if (!q) return null;
+                return (
+                  <div key={`nb-${wq.level}-${wq.question_id}`} className="print-q">
+                    <p><strong>{wq.level} #{wq.question_id}</strong> [{q.category}] — {wq.times_wrong || wq.attempts}{lang === 'de' ? '× falsch' : '× wrong'}</p>
+                    <p>{q.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                    <p className="print-correct">{lang === 'de' ? 'Richtige Antwort' : 'Correct answer'}: {q.options[q.correctIndex].replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')}</p>
+                    <p className="print-meta">{lang === 'de' ? 'Erklärung' : 'Explanation'}: {q.explanation[lang]}</p>
+                  </div>
+                );
+              })}
+              <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
+            </div>
+            )}
           </div>
         </main>
       );
@@ -2511,7 +2772,15 @@ export default function App() {
         onFetchWeakness={() => auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); })}
         lang={lang}
         weaknessData={weaknessData}
-        onStartWeaknessTraining={startWeaknessTraining}
+        srsDueCount={srsDueCount}
+        notebookData={notebookData}
+        onStartSrsReview={startSrsReview}
+        onStartNotebookTraining={(ids) => { setSrsReviewActive(false); startDrillFromIds(ids); }}
+        onRefreshNotebook={() => auth.fetchMistakeNotebook()}
+        onSetNotebookData={setNotebookData}
+        onExportNotebookPdf={exportNotebookPdf}
+        onStartCategoryDrill={startCategoryDrill}
+        selectedLevelForDrill={selectedLevel}
         onMasterQuestion={async (qid) => {
           await auth.masterQuestion(qid, selectedLevel);
           const fresh = await auth.fetchWeaknessSummary();

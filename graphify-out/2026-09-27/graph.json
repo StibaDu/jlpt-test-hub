@@ -339,10 +339,10 @@
       "source_file": "src/data/kanjiReadings.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_kanjireadings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "kanjireadings.ts"
+      "norm_label": "kanjireadings.ts",
+      "id": "src_data_kanjireadings"
     },
     {
       "label": "KanjiReading",
@@ -350,10 +350,10 @@
       "source_file": "src/data/kanjiReadings.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_data_kanjireadings_kanjireading",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "kanjireading"
+      "norm_label": "kanjireading",
+      "id": "src_data_kanjireadings_kanjireading"
     },
     {
       "label": "kanjiReadings",
@@ -361,10 +361,10 @@
       "source_file": "src/data/kanjiReadings.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_data_kanjireadings_kanjireadings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "kanjireadings"
+      "norm_label": "kanjireadings",
+      "id": "src_data_kanjireadings_kanjireadings"
     },
     {
       "label": "lookupReadings()",
@@ -372,10 +372,10 @@
       "source_file": "src/data/kanjiReadings.ts",
       "source_location": "L268",
       "_origin": "ast",
-      "id": "src_data_kanjireadings_lookupreadings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "lookupreadings()"
+      "norm_label": "lookupreadings()",
+      "id": "src_data_kanjireadings_lookupreadings"
     },
     {
       "label": "n3.ts",
@@ -383,10 +383,10 @@
       "source_file": "src/data/n3.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_n3",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n3.ts"
+      "norm_label": "n3.ts",
+      "id": "src_data_n3"
     },
     {
       "label": "n3Data",
@@ -394,10 +394,10 @@
       "source_file": "src/data/n3.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_data_n3_n3data",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n3data"
+      "norm_label": "n3data",
+      "id": "src_data_n3_n3data"
     },
     {
       "label": "n4.ts",
@@ -405,10 +405,10 @@
       "source_file": "src/data/n4.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_n4",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n4.ts"
+      "norm_label": "n4.ts",
+      "id": "src_data_n4"
     },
     {
       "label": "n4Data",
@@ -416,10 +416,10 @@
       "source_file": "src/data/n4.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_data_n4_n4data",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n4data"
+      "norm_label": "n4data",
+      "id": "src_data_n4_n4data"
     },
     {
       "label": "n5.ts",
@@ -427,10 +427,10 @@
       "source_file": "src/data/n5.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_n5",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n5.ts"
+      "norm_label": "n5.ts",
+      "id": "src_data_n5"
     },
     {
       "label": "n5Data",
@@ -438,10 +438,10 @@
       "source_file": "src/data/n5.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_data_n5_n5data",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "n5data"
+      "norm_label": "n5data",
+      "id": "src_data_n5_n5data"
     },
     {
       "label": "types.ts",
@@ -449,10 +449,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_types",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "types.ts"
+      "norm_label": "types.ts",
+      "id": "src_data_types"
     },
     {
       "label": "Lang",
@@ -460,10 +460,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_types_lang",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "lang"
+      "norm_label": "lang",
+      "id": "src_data_types_lang"
     },
     {
       "label": "GameState",
@@ -471,10 +471,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "src_data_types_gamestate",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "gamestate"
+      "norm_label": "gamestate",
+      "id": "src_data_types_gamestate"
     },
     {
       "label": "TestMode",
@@ -482,10 +482,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "src_data_types_testmode",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "testmode"
+      "norm_label": "testmode",
+      "id": "src_data_types_testmode"
     },
     {
       "label": "DeviceMode",
@@ -493,10 +493,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "src_data_types_devicemode",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "devicemode"
+      "norm_label": "devicemode",
+      "id": "src_data_types_devicemode"
     },
     {
       "label": "JLPTLevel",
@@ -504,10 +504,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_data_types_jlptlevel",
-      "community": 3,
-      "community_name": "App.tsx",
-      "norm_label": "jlptlevel"
+      "community": 7,
+      "community_name": "types.ts",
+      "norm_label": "jlptlevel",
+      "id": "src_data_types_jlptlevel"
     },
     {
       "label": "KanjiEntry",
@@ -515,10 +515,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_data_types_kanjientry",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "kanjientry"
+      "norm_label": "kanjientry",
+      "id": "src_data_types_kanjientry"
     },
     {
       "label": "QuestionCategory",
@@ -526,10 +526,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "src_data_types_questioncategory",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "questioncategory"
+      "norm_label": "questioncategory",
+      "id": "src_data_types_questioncategory"
     },
     {
       "label": "Question",
@@ -537,10 +537,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_data_types_question",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "question"
+      "norm_label": "question",
+      "id": "src_data_types_question"
     },
     {
       "label": "LevelData",
@@ -548,10 +548,10 @@
       "source_file": "src/data/types.ts",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_data_types_leveldata",
       "community": 7,
       "community_name": "types.ts",
-      "norm_label": "leveldata"
+      "norm_label": "leveldata",
+      "id": "src_data_types_leveldata"
     },
     {
       "label": "tts.ts",
@@ -3118,7 +3118,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L2007",
+      "source_location": "L2031",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3138,39 +3138,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1501",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_data_kanjireadings_lookupreadings"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1346",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_data_types_jlptlevel"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/kanjiReadings.ts",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_kanjireading",
-      "confidence_score": 1.0
+      "target": "src_data_kanjireadings_kanjireading"
     },
     {
       "relation": "contains",
@@ -3179,9 +3155,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_kanjireadings",
-      "confidence_score": 1.0
+      "target": "src_data_kanjireadings_kanjireadings"
     },
     {
       "relation": "contains",
@@ -3190,9 +3166,9 @@
       "source_location": "L268",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_kanjireadings",
-      "target": "src_data_kanjireadings_lookupreadings",
-      "confidence_score": 1.0
+      "target": "src_data_kanjireadings_lookupreadings"
     },
     {
       "relation": "contains",
@@ -3201,9 +3177,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n3",
-      "target": "src_data_n3_n3data",
-      "confidence_score": 1.0
+      "target": "src_data_n3_n3data"
     },
     {
       "relation": "imports_from",
@@ -3213,9 +3189,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n3",
-      "target": "src_data_types",
-      "confidence_score": 1.0
+      "target": "src_data_types"
     },
     {
       "relation": "imports",
@@ -3225,9 +3201,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n3",
-      "target": "src_data_types_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_types_leveldata"
     },
     {
       "relation": "contains",
@@ -3236,9 +3212,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n4",
-      "target": "src_data_n4_n4data",
-      "confidence_score": 1.0
+      "target": "src_data_n4_n4data"
     },
     {
       "relation": "imports_from",
@@ -3248,9 +3224,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n4",
-      "target": "src_data_types",
-      "confidence_score": 1.0
+      "target": "src_data_types"
     },
     {
       "relation": "imports",
@@ -3260,9 +3236,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n4",
-      "target": "src_data_types_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_types_leveldata"
     },
     {
       "relation": "contains",
@@ -3271,9 +3247,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n5",
-      "target": "src_data_n5_n5data",
-      "confidence_score": 1.0
+      "target": "src_data_n5_n5data"
     },
     {
       "relation": "imports_from",
@@ -3283,9 +3259,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n5",
-      "target": "src_data_types",
-      "confidence_score": 1.0
+      "target": "src_data_types"
     },
     {
       "relation": "imports",
@@ -3295,9 +3271,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_n5",
-      "target": "src_data_types_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_types_leveldata"
     },
     {
       "relation": "contains",
@@ -3306,9 +3282,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_devicemode",
-      "confidence_score": 1.0
+      "target": "src_data_types_devicemode"
     },
     {
       "relation": "contains",
@@ -3317,9 +3293,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_gamestate",
-      "confidence_score": 1.0
+      "target": "src_data_types_gamestate"
     },
     {
       "relation": "contains",
@@ -3328,9 +3304,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_jlptlevel",
-      "confidence_score": 1.0
+      "target": "src_data_types_jlptlevel"
     },
     {
       "relation": "contains",
@@ -3339,9 +3315,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_kanjientry",
-      "confidence_score": 1.0
+      "target": "src_data_types_kanjientry"
     },
     {
       "relation": "contains",
@@ -3350,9 +3326,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_lang",
-      "confidence_score": 1.0
+      "target": "src_data_types_lang"
     },
     {
       "relation": "contains",
@@ -3361,9 +3337,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_types_leveldata"
     },
     {
       "relation": "contains",
@@ -3372,9 +3348,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_question",
-      "confidence_score": 1.0
+      "target": "src_data_types_question"
     },
     {
       "relation": "contains",
@@ -3383,9 +3359,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_questioncategory",
-      "confidence_score": 1.0
+      "target": "src_data_types_questioncategory"
     },
     {
       "relation": "contains",
@@ -3394,9 +3370,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_types",
-      "target": "src_data_types_testmode",
-      "confidence_score": 1.0
+      "target": "src_data_types_testmode"
     },
     {
       "relation": "contains",
@@ -5873,5 +5849,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9d2a74b32e182ad3af3cda11f9d6628631906b13"
+  "built_at_commit": "0bce8905d0c19b9232752f17d05ec409d6e8fb81"
 }

@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
+import { sm2, answerToQuality } from '../progress/sm2';
 
 export const testRoutes = new Hono()
   .post('/submit', zValidator('json', z.object({
@@ -15,6 +16,7 @@ export const testRoutes = new Hono()
       questionId: z.number(),
       correct: z.boolean(),
       category: z.string().optional(),
+      selectedOption: z.number().optional(),
     }))),
   })), async (c) => {
     const user = c.get('user');
@@ -45,26 +47,61 @@ export const testRoutes = new Hono()
          updated_at = ?`
     ).bind(user.sub, totalQuestions, correctCount, timeSpent, Date.now(), totalQuestions, correctCount, timeSpent, Date.now(), Date.now()).run();
 
-    // Populate weak_questions for weakness analysis
+    // Populate weak_questions + feed SM-2 scheduler
     if (questionResults && questionResults.length > 0) {
       for (const qr of questionResults) {
+        const quality = answerToQuality(qr.correct);
+        const next = sm2(quality, { repetitions: 0, easeFactor: 2.5, intervalDays: 0 });
+
         if (qr.correct) {
-          // Correct answer → mark as mastered
+          // Correct: upsert, keep existing SRS state, advance schedule
+          const existing = await c.env.DB.prepare(
+            'SELECT repetitions, ease_factor, interval_days FROM weak_questions WHERE user_id = ? AND question_id = ? AND level = ?'
+          ).bind(user.sub, qr.questionId, level).first<any>();
+          const prev = existing
+            ? { repetitions: existing.repetitions ?? 0, easeFactor: existing.ease_factor ?? 2.5, intervalDays: existing.interval_days ?? 0 }
+            : { repetitions: 0, easeFactor: 2.5, intervalDays: 0 };
+          const sched = sm2(5, prev);
+          const graduated = sched.repetitions >= 5;
+
           await c.env.DB.prepare(
-            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered)
-             VALUES (?, ?, ?, ?, 0, NULL, TRUE)
-             ON CONFLICT(user_id, question_id, level) DO UPDATE SET mastered = TRUE`
-          ).bind(crypto.randomUUID(), user.sub, qr.questionId, level).run();
+            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered, repetitions, ease_factor, interval_days, next_review_at, last_answer, total_attempts)
+             VALUES (?, ?, ?, ?, 0, NULL, ?, ?, ?, ?, ?, 'correct', 1)
+             ON CONFLICT(user_id, question_id, level) DO UPDATE SET
+               mastered = ?,
+               repetitions = ?,
+               ease_factor = ?,
+               interval_days = ?,
+               next_review_at = ?,
+               last_answer = 'correct',
+               total_attempts = COALESCE(total_attempts, 0) + 1`
+          ).bind(
+            crypto.randomUUID(), user.sub, qr.questionId, level, graduated ? 1 : 0,
+            sched.repetitions, sched.easeFactor, sched.intervalDays, sched.nextReviewAt,
+            graduated ? 1 : 0,
+            sched.repetitions, sched.easeFactor, sched.intervalDays, sched.nextReviewAt
+          ).run();
         } else {
-          // Wrong answer → increment attempts, set last_wrong_at, unmaster
+          // Wrong: reset schedule (due tomorrow), track wrong option, unmaster
           await c.env.DB.prepare(
-            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered)
-             VALUES (?, ?, ?, ?, 1, ?, FALSE)
+            `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, last_wrong_at, mastered, times_wrong, total_attempts, last_wrong_option, last_answer, repetitions, ease_factor, interval_days, next_review_at)
+             VALUES (?, ?, ?, ?, 1, ?, FALSE, 1, 1, ?, 'wrong', 0, 2.5, 1, ?)
              ON CONFLICT(user_id, question_id, level) DO UPDATE SET
                attempts = attempts + 1,
+               times_wrong = COALESCE(times_wrong, 0) + 1,
+               total_attempts = COALESCE(total_attempts, 0) + 1,
                last_wrong_at = ?,
-               mastered = FALSE`
-          ).bind(crypto.randomUUID(), user.sub, qr.questionId, level, Date.now(), Date.now()).run();
+               last_wrong_option = ?,
+               last_answer = 'wrong',
+               mastered = FALSE,
+               repetitions = 0,
+               interval_days = 1,
+               next_review_at = ?`
+          ).bind(
+            crypto.randomUUID(), user.sub, qr.questionId, level,
+            Date.now(), qr.selectedOption ?? null, Date.now() + 24 * 60 * 60 * 1000,
+            Date.now(), qr.selectedOption ?? null, Date.now() + 24 * 60 * 60 * 1000
+          ).run();
         }
       }
     }

@@ -266,6 +266,64 @@ export function useAuth() {
     }
   }, []);
 
+  const fetchMistakeNotebook = useCallback(async (): Promise<any> => {
+    const token = getAccessToken();
+    if (!token) return null;
+    try {
+      const res = await fetch(`${API_BASE}/progress/mistake-notebook`, {
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
+      });
+      return res.ok ? await res.json() : null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const fetchSrsDue = useCallback(async (): Promise<any> => {
+    const token = getAccessToken();
+    if (!token) return null;
+    try {
+      const res = await fetch(`${API_BASE}/progress/srs/due`, {
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
+      });
+      return res.ok ? await res.json() : null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const submitSrsAnswer = useCallback(async (questionId: number, level: string, correct: boolean): Promise<void> => {
+    const token = getAccessToken();
+    if (!token) return;
+    try {
+      await fetch(`${API_BASE}/progress/srs/answer`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: 'include',
+        body: JSON.stringify({ questionId, level, correct }),
+      });
+    } catch {}
+  }, []);
+
+  const fetchDrillQuestions = useCallback(async (level: string, category: string): Promise<{ answeredWrong: number[]; answeredCount: number } | null> => {
+    const token = getAccessToken();
+    if (!token) return null;
+    try {
+      const res = await fetch(`${API_BASE}/progress/drill/${level}/${encodeURIComponent(category)}`, {
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: 'include',
+      });
+      return res.ok ? await res.json() : null;
+    } catch {
+      return null;
+    }
+  }, []);
+
   const fetchProgress = useCallback(async (): Promise<{ stats: any; history: any[] } | null> => {
     const token = getAccessToken();
     if (!token) return null;
@@ -296,6 +354,10 @@ export function useAuth() {
     isPro: subscription?.subscribed === true,
     fetchProgress,
     fetchWeaknessSummary,
+    fetchMistakeNotebook,
+    fetchSrsDue,
+    submitSrsAnswer,
+    fetchDrillQuestions,
     masterQuestion,
     login,
     signup,
