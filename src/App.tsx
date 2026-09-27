@@ -1922,7 +1922,7 @@ export default function App() {
 
     return (
       <div
-        className={`${isMobile ? 'absolute' : 'fixed'} inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
+        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
         onClick={() => setSelectedKanjiInfo(null)}
       >
         <div
@@ -2008,7 +2008,7 @@ export default function App() {
     if (!showSupportModal) return null;
     return (
       <div
-        className={`${isMobile ? 'absolute' : 'fixed'} inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
+        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
         onClick={() => setShowSupportModal(false)}
       >
         <div
