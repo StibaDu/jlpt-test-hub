@@ -476,7 +476,7 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (ids: number[]) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
@@ -490,23 +490,21 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
   };
 
   useEffect(() => {
-    if (show && isLoggedIn && view === 'profile' && !progressData) {
+    if (isLoggedIn && view === 'profile' && !progressData) {
       setProgressLoading(true);
       onFetchProgress().then(data => {
         setProgressData(data);
         setProgressLoading(false);
       });
     }
-    if (show && isLoggedIn && view === 'profile' && !weaknessData) {
+    if (isLoggedIn && view === 'profile' && !weaknessData) {
       onFetchWeakness();
     }
-    if (show && isLoggedIn && isPro && !notebookData) {
+    if (isLoggedIn && isPro && !notebookData) {
       onSetNotebookData(null);
       onRefreshNotebook().then(d => { if (d) onSetNotebookData(d); });
     }
-  }, [show, isLoggedIn, view]);
-
-  if (!show) return null;
+  }, [isLoggedIn, view, isPro, notebookData]);
 
   const handleUpgrade = async () => {
     if (!isLoggedIn) {
@@ -519,11 +517,15 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
     setLoading(false);
   };
 
-  // PROFILE VIEW — shown for all logged-in users (free and pro)
+  // PROFILE PAGE — full page for all logged-in users (free and pro)
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={onClose}>
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
-        <div className="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
+    <main className={`bg-gray-50 text-gray-800 font-sans flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+      <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
+        {nav}
+      </div>
+      <div className={`mx-auto w-full ${isMobile ? 'max-w-full' : 'max-w-3xl'}`}>
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="flex justify-between items-start p-6 border-b border-gray-100">
           <div className="flex items-center gap-2">
             <div className="bg-emerald-100 text-emerald-700 p-2 rounded-xl">
               <IconBookOpen className="w-6 h-6" />
@@ -534,6 +536,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             <IconX className="w-5 h-5" />
           </button>
         </div>
+        <div className="p-6 md:p-8">
         {/* PROFILE VIEW */}
         {user && (
           <div className="space-y-4">
@@ -815,11 +818,21 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             </button>
           </div>
         )}
+        {!user && (
+          <div className="text-center py-10">
+            <p className="text-gray-600 text-sm mb-4">{lang === 'de' ? 'Melde dich an, um dein Profil, deinen Fortschritt und dein Fehlerheft zu sehen.' : 'Sign in to see your profile, progress, and mistake notebook.'}</p>
+            <button
+              onClick={() => { onClose(); onSignIn(); }}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+            >
+              {t.navSignIn}
+            </button>
+          </div>
+        )}
 
         {/* UPGRADE VIEW — shown when free user clicks upgrade */}
         {view === 'upgrade' && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setView('profile')}>
-            <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 border border-gray-100" onClick={e => e.stopPropagation()}>
+          <div className="p-6 md:p-8">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-lg font-bold text-gray-900">{t.proTitle}</h3>
                 <button onClick={() => setView('profile')} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors">
@@ -853,13 +866,14 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
               </button>
               <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
               <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
-                Back to Profile
+                {t.profileBackToProfile}
               </button>
-            </div>
           </div>
         )}
+        </div>
       </div>
-    </div>
+      </div>
+    </main>
   );
 };
 
@@ -1402,7 +1416,6 @@ export default function App() {
   const [learningAnswerRevealed, setLearningAnswerRevealed] = useState(false);
   const [selectedKanjiInfo, setSelectedKanjiInfo] = useState<SelectedKanji | null>(null);
   const [showSupportModal, setShowSupportModal] = useState(false);
-  const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [showSellerModal, setShowSellerModal] = useState(false);
@@ -1535,7 +1548,7 @@ export default function App() {
       let trialUsed = false;
       try { trialUsed = localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch {}
       if (trialUsed) {
-        setShowPremiumModal(true);
+        setGameState('profile');
         return;
       }
       // Mark trial as used
@@ -1977,7 +1990,7 @@ export default function App() {
         {/* Pro — only for logged-out or free users */}
         {!auth.isPro && (
           <button
-            onClick={() => setShowPremiumModal(true)}
+            onClick={() => setGameState('profile')}
             title={t.goPro}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-amber-100 hover:bg-amber-200 text-amber-700 transition-colors shrink-0 font-bold text-sm"
             aria-label={t.goPro}
@@ -1997,7 +2010,7 @@ export default function App() {
         {/* Account: avatar opens profile modal / sign-in button */}
         {auth.isLoggedIn ? (
           <button
-            onClick={() => setShowPremiumModal(true)}
+            onClick={() => setGameState('profile')}
             title={auth.user?.name || 'Profil'}
             aria-label={t.navOpenProfile}
             className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm transition-colors shrink-0"
@@ -2607,7 +2620,7 @@ export default function App() {
                     <p className="text-amber-700 text-xs mt-1">{t.proFeature1}</p>
                   </div>
                   <button
-                    onClick={() => setShowPremiumModal(true)}
+                    onClick={() => setGameState('profile')}
                     className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
                   >
                     {t.goPro}
@@ -2746,9 +2759,10 @@ export default function App() {
       />
       {renderKanjiModal()}
       {renderSupportModal()}
-      <PremiumModal
-        show={showPremiumModal}
-        onClose={() => setShowPremiumModal(false)}
+      {gameState === 'profile' && <ProfilePage
+        onClose={goHome}
+        nav={renderNavControls()}
+        isMobile={isMobile}
         t={t}
         isLoggedIn={auth.isLoggedIn}
         isPro={auth.isPro}
@@ -2786,7 +2800,7 @@ export default function App() {
           const fresh = await auth.fetchWeaknessSummary();
           setWeaknessData(fresh);
         }}
-      />
+      />}
       <AuthModal
         show={showAuthModal}
         onClose={() => setShowAuthModal(false)}
