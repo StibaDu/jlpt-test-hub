@@ -177,11 +177,11 @@ export const Upgrade: React.FC = () => {
             <h3 className="text-xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
             <div className="space-y-4">
               {[
-                { q: 'Can I cancel anytime?', a: 'Yes, you can cancel anytime. Your Pro features remain active until the end of your billing period.' },
-                { q: 'What payment methods do you accept?', a: 'We accept all major credit cards via Stripe and PayPal.' },
-                { q: 'Is there a free trial?', a: 'We don\'t offer a free trial, but the Free tier gives you full access to Learning Mode and 30 questions per Real Test.' },
+                { q: 'Can I cancel anytime?', a: 'Yes, you can cancel anytime without email or phone call — directly in the app via the "Manage" button. Your Pro features remain active until the end of your billing period.' },
+                { q: 'What payment methods do you accept?', a: 'We accept all major credit cards (Visa, Mastercard, Amex) via Stripe. Payments are processed securely by Stripe.' },
+                { q: 'Is there a free version?', a: 'Yes! Learning Mode is free forever (10 questions per test, furigana dictionary, instant explanations) and you get 1 free Real Test trial. No account needed to try it.' },
                 { q: 'Can I switch between monthly and yearly?', a: 'Yes, you can switch plans at any time. Changes take effect at your next billing cycle.' },
-                { q: 'What payment methods do you accept?', a: 'We accept all major credit cards (Visa, Mastercard, Amex) and PayPal via Stripe.' },
+                { q: 'What does Pro include?', a: 'Unlimited Real Tests in exam format, the full 30 questions per test, an ad-free experience, and automatic saving of your test results.' },
               ].map((faq, i) => (
                 <details key={i} className="group bg-white rounded-xl border border-gray-100 overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer list-none">

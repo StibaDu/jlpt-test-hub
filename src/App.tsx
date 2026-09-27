@@ -63,7 +63,7 @@ const uiTranslations: UiStrings = {
     restart: "Restart",
     supportUs: "Support Project",
     supportModalTitle: "Support Free JLPT Prep",
-    supportModalDesc: "This project is 100% free with no paywalls or subscriptions. If this tool helped you prepare for your JLPT exam, consider supporting server upkeep or buying us a coffee!",
+    supportModalDesc: "JLPT Test Hub offers a free tier (Learning Mode + 1 Real Test trial) and an optional Pro subscription ($4.99/month) for unlimited practice. If this tool helped you prepare for your JLPT exam, consider supporting server upkeep or buying us a coffee!",
     coffeeBtn: "☕ Buy a Coffee ($5)",
     close: "Close",
     correctLabel: "Correct",
@@ -160,7 +160,7 @@ const uiTranslations: UiStrings = {
     restart: "Neu starten",
     supportUs: "Projekt unterstützen",
     supportModalTitle: "Kostenlose JLPT Vorbereitung unterstützen",
-    supportModalDesc: "Dieses Projekt ist zu 100% kostenlos ohne Paywalls oder Abos. Wenn Ihnen dieses Tool bei der Vorbereitung auf Ihre JLPT-Prüfung geholfen hat, unterstützen Sie gerne die Serverkosten!",
+    supportModalDesc: "JLPT Test Hub bietet eine kostenlose Version (Lernmodus + 1 Real-Test-Trial) und ein optionales Pro-Abonnement ($4.99/Monat) für unbegrenzte Praxis. Wenn Ihnen dieses Tool bei der Vorbereitung auf Ihre JLPT-Prüfung geholfen hat, unterstützen Sie gerne die Serverkosten!",
     coffeeBtn: "☕ Einen Kaffee spendieren ($5)",
     close: "Schließen",
     correctLabel: "Richtig",
@@ -1632,8 +1632,18 @@ export default function App() {
                     </summary>
                     <p className="text-gray-600 mt-2 leading-relaxed">
                       {lang === 'de'
-                        ? 'Ja. JLPT Test Hub ist zu 100% kostenlos — keine Anmeldung, keine Paywalls, keine Abos. Alle Fragen, das Furigana-Wörterbuch und beide Testmodi sind komplett frei.'
-                        : 'Yes. JLPT Test Hub is 100% free with no signup, no paywalls, and no subscriptions. All questions, the furigana dictionary, and both test modes are completely free.'}
+                        ? 'Ja — der Lernmodus ist dauerhaft kostenlos (10 Fragen pro Test, Furigana-Wörterbuch, Erklärungen) und Sie erhalten 1 kostenloses Real-Test-Trial, ganz ohne Konto. Für unbegrenzte Real-Tests, volle 30 Fragen und werbefreies Erlebnis gibt es das Pro-Abonnement ($4.99/Monat oder $29.99/Jahr).'
+                        : 'Yes — Learning Mode is free forever (10 questions per test, furigana dictionary, instant explanations) and you get 1 free Real Test trial, no account needed. For unlimited Real Tests, the full 30 questions per test, and an ad-free experience, there is the Pro subscription ($4.99/month or $29.99/year).'}
+                    </p>
+                  </details>
+                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                      {lang === 'de' ? 'Was ist im Pro-Abonnement enthalten?' : 'What does the Pro subscription include?'}
+                    </summary>
+                    <p className="text-gray-600 mt-2 leading-relaxed">
+                      {lang === 'de'
+                        ? 'Pro ($4.99/Monat oder $29.99/Jahr) umfasst: unbegrenzte Real-Tests im Prüfungsformat, volle 30 Fragen pro Test, werbefreies Erlebnis, und automatische Speicherung Ihrer Testergebnisse. Jederzeit kündbar ohne E-Mail oder Anruf — direkt im Kundenbereich.'
+                        : 'Pro ($4.99/month or $29.99/year) includes: unlimited Real Tests in exam format, the full 30 questions per test, an ad-free experience, and automatic saving of your test results. Cancel anytime without email or phone call — directly in the app.'}
                     </p>
                   </details>
                   <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
