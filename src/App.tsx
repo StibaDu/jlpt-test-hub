@@ -409,10 +409,22 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void }) => {
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null> }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
+  const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
+  const [progressLoading, setProgressLoading] = useState(false);
+
+  useEffect(() => {
+    if (show && isLoggedIn && view === 'profile' && !progressData) {
+      setProgressLoading(true);
+      onFetchProgress().then(data => {
+        setProgressData(data);
+        setProgressLoading(false);
+      });
+    }
+  }, [show, isLoggedIn, view]);
 
   if (!show) return null;
 
@@ -475,6 +487,57 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                 )}
               </div>
             </div>
+
+            {/* Progress Stats */}
+            {progressLoading ? (
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
+                <p className="text-gray-500 text-xs">Lade Fortschritt...</p>
+              </div>
+            ) : progressData?.stats ? (
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <h4 className="font-bold text-gray-900 text-sm mb-3">Dein Fortschritt</h4>
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
+                    <div className="text-xl font-black text-emerald-700">{progressData.stats.totalTestsTaken || 0}</div>
+                    <div className="text-[10px] text-gray-600">Tests</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
+                    <div className="text-xl font-black text-emerald-700">{progressData.stats.accuracy || 0}%</div>
+                    <div className="text-[10px] text-gray-600">Trefferquote</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
+                    <div className="text-xl font-black text-emerald-700">{progressData.stats.totalCorrect || 0}</div>
+                    <div className="text-[10px] text-gray-600">Richtig</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
+                    <div className="text-xl font-black text-emerald-700">{Math.floor((progressData.stats.totalTimeSpentSeconds || 0) / 60)}</div>
+                    <div className="text-[10px] text-gray-600">Minuten</div>
+                  </div>
+                </div>
+                {progressData.history.length > 0 && (
+                  <div>
+                    <h5 className="text-xs font-bold text-gray-700 mb-1.5">Letzte Tests</h5>
+                    <div className="space-y-1 max-h-40 overflow-y-auto">
+                      {progressData.history.slice(0, 5).map((h: any) => (
+                        <div key={h.id} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-gray-100 text-xs">
+                          <span className="font-bold text-gray-700">{h.level}</span>
+                          <span className="text-gray-500">{h.mode === 'real' ? 'Real' : 'Lernen'}</span>
+                          <span className={`font-bold ${h.score >= 60 ? 'text-emerald-700' : 'text-red-700'}`}>{h.score}%</span>
+                          <span className="text-gray-400 text-[10px]">{new Date(h.completed_at).toLocaleDateString('de-DE')}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {progressData.stats.totalTestsTaken === 0 && (
+                  <p className="text-gray-500 text-xs text-center">Noch keine Tests abgeschlossen — starte jetzt!</p>
+                )}
+              </div>
+            ) : (
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
+                <p className="text-gray-500 text-xs">Fortschritt nicht verfügbar</p>
+              </div>
+            )}
 
             {/* Actions */}
             <div className="space-y-2">
@@ -2118,6 +2181,7 @@ export default function App() {
           if (result.error) alert(result.error);
         }}
         onLogout={auth.logout}
+        onFetchProgress={auth.fetchProgress}
       />
       <AuthModal
         show={showAuthModal}

@@ -7,6 +7,8 @@ interface User {
   email: string;
   name: string;
   email_verified: boolean;
+  role?: string;
+  created_at?: number;
 }
 
 interface Subscription {
@@ -49,7 +51,16 @@ export function useAuth() {
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
-        setSubscription(data.subscription);
+        // /user/profile returns {status, plan, current_period_end, cancel_at_period_end}
+        // Normalize to include 'subscribed' flag
+        const sub = data.subscription;
+        setSubscription(sub ? {
+          subscribed: sub.status === 'active',
+          plan: sub.plan || null,
+          status: sub.status || null,
+          currentPeriodEnd: sub.current_period_end ?? null,
+          cancelAtPeriodEnd: sub.cancel_at_period_end === true || sub.cancel_at_period_end === 1,
+        } : null);
       } else if (res.status === 401) {
         // Try refresh
         const refreshed = await tryRefresh();
@@ -228,12 +239,35 @@ export function useAuth() {
     }
   };
 
+  const fetchProgress = useCallback(async (): Promise<{ stats: any; history: any[] } | null> => {
+    const token = getAccessToken();
+    if (!token) return null;
+    try {
+      const [statsRes, historyRes] = await Promise.all([
+        fetch(`${API_BASE}/progress/stats`, {
+          headers: { Authorization: `Bearer ${token}` },
+          credentials: 'include',
+        }),
+        fetch(`${API_BASE}/tests/history?limit=10`, {
+          headers: { Authorization: `Bearer ${token}` },
+          credentials: 'include',
+        }),
+      ]);
+      const stats = statsRes.ok ? await statsRes.json() : null;
+      const history = historyRes.ok ? (await historyRes.json()).attempts || [] : [];
+      return { stats, history };
+    } catch {
+      return null;
+    }
+  }, []);
+
   return {
     user,
     subscription,
     loading,
     isLoggedIn: !!user,
     isPro: subscription?.subscribed === true,
+    fetchProgress,
     login,
     signup,
     logout,
