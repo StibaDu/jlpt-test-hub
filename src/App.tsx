@@ -3,7 +3,7 @@ import { levelData, allLevels } from './data';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 import { useAuth } from './useAuth';
 import { AuthModal } from './AuthModal';
-import { speak, stopSpeaking, getSavedRate, saveRate, ttsSupported } from './tts';
+import { speak, stopSpeaking, getSavedRate, saveRate, ttsSupported, hasGoodJapaneseVoice } from './tts';
 
 interface UiStrings {
   [key: string]: any;
@@ -235,24 +235,6 @@ const IconAlertCircle = ({ className }: SvgProps) => (
 const IconBookOpen = ({ className }: SvgProps) => (
   <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-  </svg>
-);
-
-const IconGlobe = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-);
-
-const IconHome = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-  </svg>
-);
-
-const IconRefreshCw = ({ className }: SvgProps) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
   </svg>
 );
 
@@ -534,7 +516,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                     </div>
                   </div>
                 )}
-                {progressData.stats.totalTestsTaken === 0 && (
+                {progressData?.stats?.totalTestsTaken === 0 && (
                   <p className="text-gray-500 text-xs text-center">Noch keine Tests abgeschlossen — starte jetzt!</p>
                 )}
               </div>
@@ -544,12 +526,17 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
               </div>
             )}
 
-            {/* Schwachstellen-Analyse (Pro) */}
+            {/* Schwachstellen-Analyse (Pro) — null-safe */}
             {isPro ? (
+              !weaknessData ? (
+                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 text-center">
+                  <p className="text-purple-700 text-xs">Lade Schwachstellen-Daten…</p>
+                </div>
+              ) : (
               <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="font-bold text-purple-900 text-sm">🎯 Schwachstellen-Analyse</h4>
-                    {weaknessData.totalWeak > 0 && (
+                    {weaknessData?.totalWeak > 0 && (
                       <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
                         {weaknessData.totalWeak} schwach
                       </span>
@@ -557,7 +544,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   </div>
 
                   {/* Category bars */}
-                  {weaknessData.categories?.length > 0 ? (
+                  {weaknessData?.categories && weaknessData.categories.length > 0 ? (
                     <div className="space-y-2 mb-3">
                       {weaknessData.categories.slice(0, 5).map((cat: any) => (
                         <div key={cat.category} className="flex items-center gap-2">
@@ -581,7 +568,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   )}
 
                 {/* Weak questions list + training button */}
-                {weaknessData.weakQuestions?.length > 0 && (
+                {weaknessData?.weakQuestions && weaknessData.weakQuestions.length > 0 && (
                   <div className="mt-2 space-y-1.5 max-h-36 overflow-y-auto">
                     {weaknessData.weakQuestions.slice(0, 6).map((wq: any) => (
                       <div key={`${wq.level}-${wq.question_id}`} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-purple-100 text-xs">
@@ -599,7 +586,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   </div>
                 )}
 
-                {weaknessData.totalWeak >= 5 && (
+                {weaknessData?.totalWeak >= 5 && (
                   <button
                     onClick={() => { onStartWeaknessTraining(); onClose(); }}
                     className="w-full mt-3 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
@@ -608,6 +595,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
                   </button>
                 )}
               </div>
+              )
             ) : (
               /* Locked preview for free users */
               <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 relative overflow-hidden">
@@ -1258,6 +1246,9 @@ export default function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [weaknessData, setWeaknessData] = useState<any>(null);
   const [ttsRate, setTtsRate] = useState(() => getSavedRate());
+  const [showVoiceHint, setShowVoiceHint] = useState(() => {
+    try { return localStorage.getItem('jlpt-voice-hint-dismissed') !== 'true'; } catch { return true; }
+  });
 
   const auth = useAuth();
 
@@ -1636,90 +1627,63 @@ export default function App() {
 
   const renderNavControls = () => {
     return (
-      <nav aria-label="Quick Actions" className="flex items-center gap-1.5 ml-auto">
+      <nav aria-label="Quick Actions" className="flex items-center gap-2 ml-auto">
         {renderLevelSwitcher()}
-        {auth.isLoggedIn ? (
-          <>
-            {auth.isPro && (
-              <span className="flex items-center gap-1 text-amber-700 bg-amber-100 px-2 py-1.5 rounded-md text-xs font-bold">
-                <span>⭐</span>
-                <span className="hidden sm:inline">PRO</span>
-              </span>
-            )}
-            <button
-              onClick={() => setShowPremiumModal(true)}
-              title={t.goPro}
-              className={`flex items-center gap-1 px-2 py-1.5 rounded-md text-xs font-bold transition-colors ${auth.isPro ? 'text-gray-400 bg-gray-100' : 'text-amber-700 hover:text-amber-800 bg-amber-100 hover:bg-amber-200'}`}
-            >
-              {!auth.isPro && <span>⭐</span>}
-              <span className="hidden sm:inline">{auth.isPro ? 'Manage' : t.goPro}</span>
-            </button>
-            <button
-              onClick={auth.logout}
-              title="Sign out"
-              className="flex items-center gap-1 text-gray-600 hover:text-red-600 bg-gray-100 hover:bg-red-50 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
-            >
-              <span className="hidden sm:inline">{auth.user?.name?.split(' ')[0] || 'Account'}</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={() => setShowPremiumModal(true)}
-              title={t.goPro}
-              className="flex items-center gap-1 text-amber-700 hover:text-amber-800 bg-amber-100 hover:bg-amber-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
-            >
-              <span>⭐</span>
-              <span className="hidden sm:inline">{t.goPro}</span>
-            </button>
-            <button
-              onClick={() => setShowAuthModal(true)}
-              title="Sign in"
-              className="flex items-center gap-1 text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <span className="hidden sm:inline">Sign In</span>
-            </button>
-          </>
-        )}
+        {/* Support — compact icon */}
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
-          className="flex items-center gap-1 text-pink-700 hover:text-pink-800 bg-pink-50 hover:bg-pink-100 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+          aria-label={t.supportUs}
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-pink-50 hover:bg-pink-100 text-pink-700 transition-colors shrink-0"
         >
           <IconHeart className="w-4 h-4" />
-          <span className="hidden sm:inline">{t.supportUs}</span>
         </button>
-        <button
-          onClick={goHome}
-          title={t.home}
-          className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 bg-gray-100 hover:bg-gray-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
-        >
-          <IconHome className="w-4 h-4" />
-          <span className="hidden sm:inline">{t.home}</span>
-        </button>
-        {gameState === 'testing' && (
+        {/* Pro — only for logged-out or free users */}
+        {!auth.isPro && (
           <button
-            onClick={restartTest}
-            title={t.restart}
-            className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 bg-gray-100 hover:bg-gray-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+            onClick={() => setShowPremiumModal(true)}
+            title={t.goPro}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-amber-100 hover:bg-amber-200 text-amber-700 transition-colors shrink-0 font-bold text-sm"
+            aria-label={t.goPro}
           >
-            <IconRefreshCw className="w-4 h-4" />
-            <span className="hidden sm:inline">{t.restart}</span>
+            ⭐
           </button>
         )}
+        {/* Language */}
         <button
           onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
-          className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 bg-gray-100 hover:bg-gray-200 px-2 py-1.5 rounded-md text-xs font-bold transition-colors"
+          title={lang === 'en' ? 'Deutsch' : 'English'}
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors shrink-0 font-bold text-xs"
+          aria-label="Language"
         >
-          <IconGlobe className="w-4 h-4" />
           {lang === 'en' ? 'DE' : 'EN'}
         </button>
+        {/* Account: avatar opens profile modal / sign-in button */}
+        {auth.isLoggedIn ? (
+          <button
+            onClick={() => setShowPremiumModal(true)}
+            title={auth.user?.name || 'Profil'}
+            aria-label="Profil öffnen"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm transition-colors shrink-0"
+          >
+            {auth.user?.name?.charAt(0).toUpperCase() || '?'}
+            {auth.isPro && (
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-amber-400 rounded-full flex items-center justify-center text-[8px] shadow-sm border border-white">⭐</span>
+            )}
+          </button>
+        ) : (
+          <button
+            onClick={() => setShowAuthModal(true)}
+            title="Anmelden"
+            aria-label="Anmelden"
+            className="flex items-center gap-1.5 h-9 px-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span className="hidden sm:inline">Sign In</span>
+          </button>
+        )}
       </nav>
     );
   };
@@ -1728,21 +1692,8 @@ export default function App() {
     if (gameState === 'intro') {
       return (
         <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-0' : 'min-h-screen p-4'}`}>
-          <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
-            <button
-              onClick={() => setShowSupportModal(true)}
-              className="flex items-center gap-1.5 bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 px-3 py-1.5 rounded-full shadow-sm transition-all active:scale-95 font-bold text-sm"
-            >
-              <IconHeart className="w-4 h-4" />
-              <span>{t.supportUs}</span>
-            </button>
-            <button
-              onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
-              className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-700 hover:text-emerald-600 hover:border-emerald-300 px-3 py-1.5 rounded-full shadow-sm transition-all active:scale-95 font-bold text-sm"
-            >
-              <IconGlobe className="w-4 h-4" />
-              {lang === 'en' ? 'Deutsch' : 'English'}
-            </button>
+          <div className="absolute top-4 right-4 z-[60]">
+            {renderNavControls()}
           </div>
           <div className={`w-full bg-white overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-gray-100'}`}>
             <header className={`bg-emerald-600 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
@@ -1998,17 +1949,28 @@ export default function App() {
                   <div className="flex items-center gap-2 shrink-0 ml-2">
                     <span className="text-blue-600 italic">{t.clickKanji}</span>
                     {ttsSupported() && (
-                      <select
-                        value={ttsRate}
-                        onChange={(e) => { const r = parseFloat(e.target.value); setTtsRate(r); saveRate(r); }}
-                        className="text-xs border border-blue-200 rounded-md px-1 py-0.5 bg-white text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-400"
-                        title="Sprachgeschwindigkeit"
-                        aria-label="Sprachgeschwindigkeit"
-                      >
-                        <option value="0.5">0.5x</option>
-                        <option value="0.75">0.75x</option>
-                        <option value="1.0">1.0x</option>
-                      </select>
+                      <div className="relative flex items-center gap-1">
+                        <select
+                          value={ttsRate}
+                          onChange={(e) => { const r = parseFloat(e.target.value); setTtsRate(r); saveRate(r); }}
+                          className="text-xs border border-blue-200 rounded-md px-1 py-0.5 bg-white text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                          title="Sprachgeschwindigkeit"
+                          aria-label="Sprachgeschwindigkeit"
+                        >
+                          <option value="0.5">0.5x</option>
+                          <option value="0.75">0.75x</option>
+                          <option value="1.0">1.0x</option>
+                        </select>
+                        {showVoiceHint && !hasGoodJapaneseVoice() && (
+                          <button
+                            onClick={() => { setShowVoiceHint(false); try { localStorage.setItem('jlpt-voice-hint-dismissed', 'true'); } catch {} }}
+                            className="text-[10px] text-blue-600 underline cursor-help"
+                            title="Klicke zum Ausblenden. Für bessere Qualität: Systemeinstellungen → Sprache → japanische Stimme installieren"
+                          >
+                            Stimme verbessern?
+                          </button>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}

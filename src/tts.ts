@@ -1,11 +1,52 @@
 // Web Speech API TTS helper — free, no server, works offline
+// Voice ranking: prefer high-quality neural/natural voices over robotic defaults
+
+/** Known high-quality voice name keywords, ranked best first */
+const QUALITY_KEYWORDS = ['natural', 'neural', 'google', 'premium', 'enhanced', 'siri', 'eloquence'];
 
 export const ttsSupported = (): boolean =>
   typeof window !== 'undefined' && 'speechSynthesis' in window;
 
-const getJapaneseVoice = (): SpeechSynthesisVoice | null => {
+/**
+ * Rank available ja-JP voices by quality.
+ * Returns the best voice, or null if none exists.
+ */
+export const getJapaneseVoice = (): SpeechSynthesisVoice | null => {
   const voices = window.speechSynthesis.getVoices();
-  return voices.find(v => v.lang.startsWith('ja')) || null;
+  const jpVoices = voices.filter(v => v.lang.startsWith('ja'));
+  if (jpVoices.length === 0) return null;
+
+  // Score each voice: higher = better
+  const scored = jpVoices.map(v => {
+    const name = (v.name || '').toLowerCase();
+    let score = 0;
+    QUALITY_KEYWORDS.forEach((kw, i) => {
+      if (name.includes(kw)) score += 100 - i * 10;
+    });
+    // Local (pre-installed OS) voices are usually better than remote
+    if (v.localService) score += 5;
+    return { voice: v, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored[0].voice;
+};
+
+/**
+ * Check if the best available Japanese voice is likely robotic
+ * (i.e., no quality keywords matched). Used to show a hint.
+ */
+export const hasGoodJapaneseVoice = (): boolean => {
+  const voice = getJapaneseVoice();
+  if (!voice) return false;
+  const name = (voice.name || '').toLowerCase();
+  return QUALITY_KEYWORDS.some(kw => name.includes(kw));
+};
+
+/** All Japanese voices available on the device (for debugging/settings) */
+export const listJapaneseVoices = (): SpeechSynthesisVoice[] => {
+  if (!ttsSupported()) return [];
+  return window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('ja'));
 };
 
 export const speak = (text: string, rate: number = 1.0): void => {
