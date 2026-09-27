@@ -1,16 +1,16 @@
-# Graph Report - jlpt-n5-simulator  (2026-09-27)
+# Graph Report - jlpt-n5-simulator  (2026-09-26)
 
 ## Corpus Check
-- 40 files · ~55,148 words
+- 40 files · ~53,959 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 207 nodes · 243 edges · 12 communities
+- 205 nodes · 241 edges · 11 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c2bda119`
+- Built from commit: `6440463f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +22,6 @@
 - devDependencies
 - package.json
 - worker/index.ts
-- routes.tsx
 - Icons.tsx
 - 0001_initial_schema.sql
 - dependencies
@@ -54,7 +53,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 0 thin omitted)
+## Communities (11 total, 0 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -65,8 +64,8 @@ Cohesion: 0.12
 Nodes (16): Amazon Associates, Before going live — placeholder checklist, Custom domain, Deployment (Cloudflare Pages — free), Features, Google AdSense, JapanesePod101 Affiliate, JLPT Test Hub (+8 more)
 
 ### Community 2 - "useAuth"
-Cohesion: 0.12
-Nodes (19): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+11 more)
+Cohesion: 0.08
+Nodes (28): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+20 more)
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.06
@@ -83,10 +82,6 @@ Nodes (9): name, private, scripts, build, dev, lint, preview, type (+1 more)
 ### Community 6 - "worker/index.ts"
 Cohesion: 0.13
 Nodes (10): adminRoutes, authRoutes, TODO: Send reset email, progressRoutes, subscriptionRoutes, testRoutes, userRoutes, api (+2 more)
-
-### Community 7 - "routes.tsx"
-Cohesion: 0.17
-Nodes (9): Dashboard, ForgotPassword, Intro, Login, ResetPassword, Signup, TestPage, Upgrade (+1 more)
 
 ### Community 8 - "Icons.tsx"
 Cohesion: 0.24
@@ -110,7 +105,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
@@ -118,6 +113,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
-  _Cohesion score 0.11822660098522167 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07560975609756097 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.05731707317073171 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06072874493927125 - nodes in this community are weakly interconnected._

@@ -528,7 +528,7 @@ const setConsent = (consent: { essential: boolean; advertising: boolean; affilia
 };
 
 // Cookie consent banner (GDPR-compliant)
-const CookieBanner = ({ onConsent }: { onConsent: () => void }) => {
+const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onOpenPrivacy: () => void }) => {
   const [showSettings, setShowSettings] = useState(false);
   const [advertising, setAdvertising] = useState(false);
   const [affiliate, setAffiliate] = useState(false);
@@ -555,7 +555,7 @@ const CookieBanner = ({ onConsent }: { onConsent: () => void }) => {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
             <div className="flex-1 text-sm text-gray-200">
               <span className="font-bold">🍪 Cookies & Privacy</span>
-              <span className="ml-2 text-gray-400">We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our <a href="#/privacy" className="underline text-emerald-400">Privacy Policy</a>.</span>
+              <span className="ml-2 text-gray-400">We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our <button onClick={onOpenPrivacy} className="underline text-emerald-400 hover:text-emerald-300">Privacy Policy</button>.</span>
             </div>
             <div className="flex gap-2 shrink-0">
               <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Reject</button>
@@ -2062,7 +2062,7 @@ export default function App() {
       <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Anbieterkennzeichnung"><SellerDisclosureContent /></LegalModal>
       <LegalModal show={showImpressumModal} onClose={() => setShowImpressumModal(false)} title="Impressum"><ImpressumContent /></LegalModal>
       <LegalModal show={showAccessibilityModal} onClose={() => setShowAccessibilityModal(false)} title="Barrierefreiheitserklärung"><AccessibilityContent /></LegalModal>
-      {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} />}
+      {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} onOpenPrivacy={() => setShowPrivacyModal(true)} />}
     </div>
   );
 }
