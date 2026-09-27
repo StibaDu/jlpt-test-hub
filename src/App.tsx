@@ -938,23 +938,24 @@ const AccessibilityContent = () => (
   </>
 );
 
-// Footer with legal links
+// Footer with legal links — WCAG 2.5.8 target size: min 24×24px hit area
 const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccessibility }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; onImpressum: () => void; onAccessibility: () => void; lang: string }) => {
+  const footerLink = "inline-flex items-center min-h-[24px] px-1 hover:text-emerald-400 transition-colors";
   return (
     <footer className="bg-gray-900 text-gray-400 py-6 px-4 mt-8 shrink-0">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
-          <a href="#impressum" onClick={(e) => { e.preventDefault(); onImpressum(); }} className="hover:text-emerald-400 transition-colors font-bold">Impressum</a>
-          <span className="text-gray-600">·</span>
-          <a href="#datenschutz" onClick={(e) => { e.preventDefault(); onPrivacy(); }} className="hover:text-emerald-400 transition-colors">Datenschutz</a>
-          <span className="text-gray-600">·</span>
-          <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className="hover:text-emerald-400 transition-colors">AGB</a>
-          <span className="text-gray-600">·</span>
-          <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className="hover:text-emerald-400 transition-colors">Anbieterkennzeichnung</a>
-          <span className="text-gray-600">·</span>
-          <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className="hover:text-emerald-400 transition-colors">Barrierefreiheit</a>
-          <span className="text-gray-600">·</span>
-          <button onClick={onCookies} className="hover:text-emerald-400 transition-colors">Cookie-Einstellungen</button>
+        <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-xs">
+          <a href="#impressum" onClick={(e) => { e.preventDefault(); onImpressum(); }} className={footerLink + " font-bold"}>Impressum</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href="#datenschutz" onClick={(e) => { e.preventDefault(); onPrivacy(); }} className={footerLink}>Datenschutz</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className={footerLink}>AGB</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className={footerLink}>Anbieterkennzeichnung</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className={footerLink}>Barrierefreiheit</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <button onClick={onCookies} className={footerLink}>Cookie-Einstellungen</button>
         </div>
         <p className="text-xs text-gray-500 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
       </div>
