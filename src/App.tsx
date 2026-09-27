@@ -408,10 +408,11 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
   );
 };
 
-// Premium upgrade modal
-const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void> }) => {
+// Premium upgrade + profile modal
+const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn, onCancelSub, user, subscription, onLogout }: { show: boolean; onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
+  const [view, setView] = useState<'profile' | 'upgrade'>('profile');
 
   if (!show) return null;
 
@@ -426,6 +427,7 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
     setLoading(false);
   };
 
+  // PROFILE VIEW — shown for all logged-in users (free and pro)
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={onClose}>
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
@@ -440,74 +442,119 @@ const PremiumModal = ({ show, onClose, t, isLoggedIn, isPro, onUpgrade, onSignIn
             <IconX className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed mb-6">{t.proDesc}</p>
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-            <div className="text-xs font-bold text-gray-600 uppercase mb-1">{t.proFree}</div>
-            <div className="text-2xl font-black text-gray-700 mb-2">$0</div>
-            <p className="text-gray-500 text-xs leading-relaxed">{t.freeFeatures}</p>
-          </div>
-          <div className="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-400">
-            <div className="text-xs font-bold text-emerald-500 uppercase mb-1">{t.proPro}</div>
-            <div className="text-2xl font-black text-emerald-700 mb-2">$4.99<span className="text-sm font-normal text-gray-600">/mo</span></div>
-            <p className="text-gray-600 text-xs leading-relaxed">{t.proFeatures}</p>
-          </div>
-        </div>
-        <div className="space-y-2 mb-6">
-          <div className="text-xs text-gray-600">{t.proFeature1}</div>
-          <div className="text-xs text-gray-600">{t.proFeature2}</div>
-          <div className="text-xs text-gray-600">{t.proFeature3}</div>
-          <div className="text-xs text-gray-600">{t.proFeature4}</div>
-          <div className="text-xs text-gray-600">{t.proFeature5}</div>
-          <div className="text-xs text-gray-600">{t.proFeature6}</div>
-        </div>
-        {isPro ? (
-          <>
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-4 text-center">
-              <p className="text-emerald-700 font-bold text-sm">You're a Pro member! 🎉</p>
-              <p className="text-emerald-700 text-xs mt-1">You can cancel anytime without email or phone call — just click below.</p>
+        {/* PROFILE VIEW */}
+        {user && (
+          <div className="space-y-4">
+            {/* User info */}
+            <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-3">
+              <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xl font-black shrink-0">
+                {user.name?.charAt(0).toUpperCase() || '?'}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-gray-900 text-sm">{user.name}</p>
+                <p className="text-gray-500 text-xs truncate">{user.email}</p>
+              </div>
+              {isPro && (
+                <span className="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full shrink-0">⭐ PRO</span>
+              )}
             </div>
-            <button
-              onClick={async () => { await onCancelSub(); onClose(); }}
-              className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
-            >
-              Cancel Subscription (Self-Service)
-            </button>
-            <p className="text-center text-xs text-gray-600 mt-2">Your Pro features remain active until the end of your billing period. Confirmation will be shown immediately.</p>
-          </>
-        ) : (
-          <>
-            <div className="grid grid-cols-2 gap-3 mb-4">
+
+            {/* Subscription status */}
+            <div className={`rounded-xl p-4 border ${isPro ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-bold text-gray-900 text-sm">{isPro ? 'Pro Abonnement' : 'Kostenlose Version'}</h4>
+                  <p className="text-gray-500 text-xs mt-0.5">
+                    {isPro
+                      ? `Renews ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString('de-DE') : 'N/A'}`
+                      : 'Lernmodus: 10 Fragen • 1 Real-Test-Trial'}
+                  </p>
+                </div>
+                {subscription?.cancelAtPeriodEnd && (
+                  <span className="text-xs text-amber-600 font-bold">Kündigung zum Periodenende</span>
+                )}
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="space-y-2">
+              {isPro ? (
+                <button
+                  onClick={async () => { await onCancelSub(); }}
+                  className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2.5 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
+                >
+                  Cancel Subscription (Self-Service)
+                </button>
+              ) : (
+                <button
+                  onClick={() => setView('upgrade')}
+                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                >
+                  ⭐ Upgrade to Pro — {t.proCTA}
+                </button>
+              )}
               <button
-                onClick={() => setSelectedPlan('monthly')}
-                className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+                onClick={() => { onLogout(); onClose(); }}
+                className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
               >
-                <div className="text-xs text-gray-500">Monthly</div>
-                <div className="text-xl font-black text-gray-900">$4.99</div>
-                <div className="text-xs text-gray-600">/month</div>
-              </button>
-              <button
-                onClick={() => setSelectedPlan('yearly')}
-                className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
-              >
-                <div className="text-xs text-gray-500">Yearly</div>
-                <div className="text-xl font-black text-gray-900">$29.99</div>
-                <div className="text-xs text-emerald-700 font-bold">Save 50%</div>
+                Sign Out
               </button>
             </div>
-            <button
-              onClick={handleUpgrade}
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
-            >
-              {loading ? 'Redirecting to Stripe...' : isLoggedIn ? t.proCTA : 'Sign in to upgrade'}
+
+            {/* Account info */}
+            <div className="text-xs text-gray-500 space-y-1 pt-2 border-t border-gray-100">
+              <p><strong>E-Mail:</strong> {user.email}</p>
+              <p><strong>Konto erstellt:</strong> {new Date(user.created_at).toLocaleDateString('de-DE')}</p>
+            </div>
+
+            <button onClick={onClose} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+              {t.proCancel}
             </button>
-            <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
-          </>
+          </div>
         )}
-        <button onClick={onClose} className="w-full mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
-          {t.proCancel}
-        </button>
+
+        {/* UPGRADE VIEW — shown when free user clicks upgrade */}
+        {view === 'upgrade' && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setView('profile')}>
+            <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 border border-gray-100" onClick={e => e.stopPropagation()}>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold text-gray-900">{t.proTitle}</h3>
+                <button onClick={() => setView('profile')} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors">
+                  <IconX className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <button
+                  onClick={() => setSelectedPlan('monthly')}
+                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+                >
+                  <div className="text-xs text-gray-500">Monthly</div>
+                  <div className="text-xl font-black text-gray-900">$4.99</div>
+                  <div className="text-xs text-gray-600">/month</div>
+                </button>
+                <button
+                  onClick={() => setSelectedPlan('yearly')}
+                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+                >
+                  <div className="text-xs text-gray-500">Yearly</div>
+                  <div className="text-xl font-black text-gray-900">$29.99</div>
+                  <div className="text-xs text-emerald-700 font-bold">Save 50%</div>
+                </button>
+              </div>
+              <button
+                onClick={handleUpgrade}
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+              >
+                {loading ? 'Redirecting to Stripe...' : t.proCTA}
+              </button>
+              <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
+              <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+                Back to Profile
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -2055,6 +2102,8 @@ export default function App() {
         t={t}
         isLoggedIn={auth.isLoggedIn}
         isPro={auth.isPro}
+        user={auth.user}
+        subscription={auth.subscription}
         onUpgrade={async (plan) => {
           const result = await auth.upgrade(plan);
           if (result.success && result.url) {
@@ -2068,6 +2117,7 @@ export default function App() {
           const result = await auth.cancelSubscription();
           if (result.error) alert(result.error);
         }}
+        onLogout={auth.logout}
       />
       <AuthModal
         show={showAuthModal}

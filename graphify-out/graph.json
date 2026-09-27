@@ -372,10 +372,10 @@
       "source_file": "src/pages/Upgrade.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_upgrade",
       "community": 2,
       "community_name": "useAuth",
-      "norm_label": "upgrade.tsx"
+      "norm_label": "upgrade.tsx",
+      "id": "src_pages_upgrade"
     },
     {
       "label": "Upgrade()",
@@ -383,10 +383,10 @@
       "source_file": "src/pages/Upgrade.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_pages_upgrade_upgrade",
       "community": 2,
       "community_name": "useAuth",
-      "norm_label": "upgrade()"
+      "norm_label": "upgrade()",
+      "id": "src_pages_upgrade_upgrade"
     },
     {
       "label": "AuthModal.tsx",
@@ -2735,7 +2735,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1764",
+      "source_location": "L1765",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -2762,9 +2762,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_upgrade",
-      "target": "src_context_authcontext",
-      "confidence_score": 1.0
+      "target": "src_context_authcontext"
     },
     {
       "relation": "imports",
@@ -2774,9 +2774,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_upgrade",
-      "target": "src_context_authcontext_useauth",
-      "confidence_score": 1.0
+      "target": "src_context_authcontext_useauth"
     },
     {
       "relation": "contains",
@@ -2785,9 +2785,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_pages_upgrade",
-      "target": "src_pages_upgrade_upgrade",
-      "confidence_score": 1.0
+      "target": "src_pages_upgrade_upgrade"
     },
     {
       "relation": "contains",
@@ -5023,5 +5023,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "56654aae75bec8ca3fb51cce132be6d9b9bd3631"
+  "built_at_commit": "918dedf19082d63267a820e46d7ce9c53c290652"
 }

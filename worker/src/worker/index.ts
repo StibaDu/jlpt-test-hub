@@ -25,7 +25,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.use('*', logger());
 app.use('*', cors({
-  origin: ['https://jlpttesthub.com', 'http://localhost:5173', 'http://localhost:5174'],
+  origin: ['https://jlpttesthub.com', 'https://www.jlpttesthub.com', 'https://jlpt-test-hub.pages.dev', 'http://localhost:5173', 'http://localhost:5174'],
   allowHeaders: ['Content-Type', 'Authorization'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
