@@ -119,7 +119,12 @@ const uiTranslations: UiStrings = {
     notebookTrain: "🎯 Practice Mistakes",
     notebookShowMore: "Show {n} more",
     notebookShowLess: "Show less",
-    catBreakdown: "Accuracy by category",
+    insightTitle: "📊 Where you stand",
+    insightFocus: "Focus here — biggest gains",
+    insightMid: "Getting there",
+    insightStrong: "Strong — keep it up",
+    insightLowData: "Not enough data yet",
+    insightTip: "{cat} causes most of your mistakes ({acc}% correct). A drill targets exactly those questions.",
     catDrill: "Drill",
     supportFree: "Support free JLPT prep",
     // Profile modal
@@ -282,7 +287,12 @@ const uiTranslations: UiStrings = {
     notebookTrain: "🎯 Fehler üben",
     notebookShowMore: "{n} mehr anzeigen",
     notebookShowLess: "Weniger anzeigen",
-    catBreakdown: "Trefferquote nach Kategorie",
+    insightTitle: "📊 Wo du stehst",
+    insightFocus: "Hier ansetzen — größter Fortschritt",
+    insightMid: "Auf dem Weg",
+    insightStrong: "Stark — weiter so",
+    insightLowData: "Noch zu wenige Daten",
+    insightTip: "{cat} verursacht die meisten deiner Fehler ({acc}% richtig). Eine Übung trainiert genau diese Fragen.",
     catDrill: "Üben",
     supportFree: "Kostenlose JLPT-Vorbereitung unterstützen",
     // Profil-Modal
@@ -762,34 +772,81 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     </>
                   )}
 
-                  {/* Category bars with drill buttons */}
-                  {weaknessData?.categories && weaknessData.categories.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-purple-100">
-                      <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">{t.catBreakdown}</h5>
-                      <div className="space-y-1.5">
-                        {weaknessData.categories.slice(0, 5).map((cat: any) => (
-                          <div key={cat.category} className="flex items-center gap-2">
-                            <span className="text-xs text-gray-700 w-28 truncate" title={cat.category}>{cat.category}</span>
-                            <div className="flex-1 h-2.5 bg-white rounded-full overflow-hidden border border-purple-100">
-                              <div
-                                className={`h-full rounded-full ${cat.errorRate >= 60 ? 'bg-red-500' : cat.errorRate >= 35 ? 'bg-amber-500' : 'bg-emerald-500'}`}
-                                style={{ width: `${Math.max(cat.errorRate, 3)}%` }}
-                              ></div>
-                            </div>
-                            <span className={`text-xs font-bold w-9 text-right ${cat.errorRate >= 35 ? 'text-red-700' : 'text-emerald-700'}`}>
-                              {cat.errorRate}%
-                            </span>
-                            <button
-                              onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, cat.category); }}
-                              className="text-[10px] font-bold text-purple-700 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded-lg transition-colors shrink-0"
-                            >
-                              {t.catDrill}
-                            </button>
-                          </div>
-                        ))}
+                  {/* Insight panel: where you stand, plain language, worst first */}
+                  {(() => {
+                    const cats = weaknessData?.categories || [];
+                    if (!cats.length) return null;
+                    const withData = cats
+                      .map((c: any) => ({ ...c, accuracy: 100 - c.errorRate }))
+                      .filter((c: any) => c.total >= 5)
+                      .sort((a: any, b: any) => a.accuracy - b.accuracy);
+                    const lowData = cats
+                      .map((c: any) => ({ ...c, accuracy: 100 - c.errorRate }))
+                      .filter((c: any) => c.total < 5);
+                    const focus = withData.filter((c: any) => c.accuracy < 50);
+                    const mid = withData.filter((c: any) => c.accuracy >= 50 && c.accuracy < 80);
+                    const strong = withData.filter((c: any) => c.accuracy >= 80);
+                    const topWeak = withData[0];
+                    const shortName = (cat: string) => cat.replace(' & Konjugation', '').replace(' & Lesung', '').replace(' & Struktur', '').replace('Höflichkeit & Ausdruck', 'Keigo');
+                    const Row = ({ c, tone }: { c: any; tone: 'red' | 'amber' | 'emerald' }) => (
+                      <div className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${tone === 'red' ? 'bg-red-500' : tone === 'amber' ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
+                        <span className="text-xs text-gray-700 flex-1 min-w-0 truncate" title={c.category}>{shortName(c.category)}</span>
+                        <span className={`text-xs font-bold shrink-0 ${tone === 'red' ? 'text-red-700' : tone === 'amber' ? 'text-amber-700' : 'text-emerald-700'}`}>
+                          {c.accuracy}% ({c.total})
+                        </span>
+                        <button
+                          onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, c.category); }}
+                          className="text-[10px] font-bold text-purple-700 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded-lg transition-colors shrink-0"
+                        >
+                          {t.catDrill}
+                        </button>
                       </div>
-                    </div>
-                  )}
+                    );
+                    return (
+                      <div className="mt-4 pt-3 border-t border-purple-100">
+                        <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">{t.insightTitle}</h5>
+
+                        {focus.length > 0 && (
+                          <div className="mb-2">
+                            <p className="text-[10px] font-bold text-red-700 uppercase tracking-wide mb-1">{t.insightFocus}</p>
+                            <div className="space-y-1.5">
+                              {focus.map((c: any) => <Row key={c.category} c={c} tone="red" />)}
+                            </div>
+                          </div>
+                        )}
+                        {mid.length > 0 && (
+                          <div className="mb-2">
+                            <p className="text-[10px] font-bold text-amber-700 uppercase tracking-wide mb-1">{t.insightMid}</p>
+                            <div className="space-y-1.5">
+                              {mid.map((c: any) => <Row key={c.category} c={c} tone="amber" />)}
+                            </div>
+                          </div>
+                        )}
+                        {strong.length > 0 && (
+                          <div className="mb-2">
+                            <p className="text-[10px] font-bold text-emerald-700 uppercase tracking-wide mb-1">{t.insightStrong}</p>
+                            <div className="space-y-1.5">
+                              {strong.map((c: any) => <Row key={c.category} c={c} tone="emerald" />)}
+                            </div>
+                          </div>
+                        )}
+                        {lowData.length > 0 && (
+                          <p className="text-[10px] text-gray-500 mb-2">
+                            {t.insightLowData}: {lowData.map((c: any) => shortName(c.category)).join(', ')}
+                          </p>
+                        )}
+
+                        {topWeak && topWeak.accuracy < 80 && (
+                          <div className="mt-3 bg-purple-100 rounded-lg p-2.5">
+                            <p className="text-[11px] text-purple-900 leading-relaxed">
+                              💡 {t.insightTip.replace('{cat}', shortName(topWeak.category)).replace('{acc}', String(topWeak.accuracy))}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
               </div>
               )
             ) : (
