@@ -1063,15 +1063,15 @@ const ImpressumContent = () => (
     <div className="space-y-3">
       <div>
         <p><strong>Diensteanbieter:</strong></p>
-        <p>[YOUR NAME]</p>
-        <p>[YOUR STREET ADDRESS]</p>
-        <p>[YOUR POSTAL CODE] [YOUR CITY]</p>
+        <p>Sebastian Thomas</p>
+        <p>Maubacher Str. 17</p>
+        <p>71522 Backnang</p>
         <p>Germany</p>
       </div>
       <div>
         <p><strong>Kontakt:</strong></p>
         <p>E-Mail: createdby.jp@gmail.com</p>
-        <p>Telefon: [YOUR PHONE]</p>
+        <p></p>
       </div>
       <div>
         <p><strong>Umsatzsteuer-Identifikationsnummer:</strong></p>
@@ -1079,7 +1079,7 @@ const ImpressumContent = () => (
       </div>
       <div>
         <p><strong>Verantwortlich für den Inhalt:</strong></p>
-        <p>[YOUR NAME], [YOUR ADDRESS]</p>
+        <p>Sebastian Thomas, Maubacher Str. 17, 71522 Backnang</p>
       </div>
       <div>
         <p><strong>Streitschlichtung:</strong></p>
@@ -1098,7 +1098,6 @@ const ImpressumContent = () => (
         <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES.</p>
       </div>
     </div>
-    <p className="text-xs text-gray-600 mt-4 italic">※ Ersetzen Sie die Platzhalter [YOUR NAME], [YOUR ADDRESS] etc. mit Ihren echten Daten, bevor die Website live geht.</p>
   </>
 );
 
@@ -1111,7 +1110,7 @@ const PrivacyPolicyContent = () => (
 
     <h3 className="font-bold text-gray-800 text-base mt-4">1. Verantwortlicher</h3>
     <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Datenverarbeitung auf dieser Website:</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>[YOUR NAME]</strong><br/>[YOUR STREET ADDRESS]<br/>[YOUR POSTAL CODE] [YOUR CITY]<br/>Germany<br/>E-Mail: createdby.jp@gmail.com<br/>Telefon: [YOUR PHONE]</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>Sebastian Thomas</strong><br/>Maubacher Str. 17<br/>71522 Backnang<br/>Germany<br/>E-Mail: createdby.jp@gmail.com</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">2. Verarbeitungszwecke und Rechtsgrundlagen</h3>
     <p>Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:</p>
@@ -1256,7 +1255,7 @@ const PrivacyPolicyContent = () => (
       <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) — Sie können der Verarbeitung widersprechen.</li>
       <li><strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) — Ihre Einwilligung können Sie jederzeit ohne Angabe von Gründen widerrufen, mit Wirkung für die Zukunft.</li>
     </ul>
-    <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>createdby.jp@gmail.com</strong> oder schreiben Sie an: [YOUR NAME], [YOUR ADDRESS]. Wir antworten innerhalb von 30 Tagen.</p>
+    <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>createdby.jp@gmail.com</strong> oder schreiben Sie an: Sebastian Thomas, Maubacher Str. 17, 71522 Backnang. Wir antworten innerhalb von 30 Tagen.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">7. Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
     <p>Sie können Ihre Einwilligung zur Cookie-Nutzung jederzeit widerrufen:</p>
@@ -1284,7 +1283,7 @@ const PrivacyPolicyContent = () => (
 
     <h3 className="font-bold text-gray-800 text-base mt-4">13. Kontakt für Datenschutzanfragen</h3>
     <p>Für Datenschutzanfragen (Auskunft, Löschung, Berichtigung usw.):</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> createdby.jp@gmail.com<br/><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
+    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> createdby.jp@gmail.com<br/><strong>Post:</strong> Sebastian Thomas, Maubacher Str. 17, 71522 Backnang</p>
   </>
 );
 
@@ -1317,7 +1316,7 @@ const TermsContent = () => (
     <p>JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES. Die App-Oberfläche und der Code sind unser geistiges Eigentum.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">8. Anwendbares Recht</h3>
-    <p>Es gilt deutsches Recht. Gerichtsstand ist [YOUR CITY], soweit gesetzlich zulässig.</p>
+    <p>Es gilt deutsches Recht. Gerichtsstand ist Backnang, soweit gesetzlich zulässig.</p>
   </>
 );
 
@@ -1326,15 +1325,14 @@ const SellerDisclosureContent = () => (
   <>
     <h3 className="font-bold text-gray-800 text-base">Anbieterkennzeichnung</h3>
     <div className="space-y-3">
-      <p><strong>Anbieter:</strong> [YOUR NAME]</p>
-      <p><strong>Adresse:</strong> [YOUR STREET ADDRESS], [YOUR POSTAL CODE] [YOUR CITY], Germany</p>
+      <p><strong>Anbieter:</strong> Sebastian Thomas</p>
+      <p><strong>Adresse:</strong> Maubacher Str. 17, 71522 Backnang, Germany</p>
       <p><strong>E-Mail:</strong> createdby.jp@gmail.com</p>
-      <p><strong>Telefon:</strong> [YOUR PHONE]</p>
       <p><strong>USt-IdNr.:</strong> Kleinunternehmer gemäß § 19 UStG</p>
       <p><strong>Zahlungsarten:</strong> Stripe (Kreditkarte), Buy Me a Coffee</p>
       <p><strong>Preise:</strong> Kostenlos (Basis), $4.99/Monat oder $29.99/Jahr (Pro)</p>
       <p><strong>Widerruf:</strong> 14 Tage (siehe AGB)</p>
-      <p><strong>Gerichtsstand:</strong> [YOUR CITY], Germany</p>
+      <p><strong>Gerichtsstand:</strong> Backnang, Germany</p>
     </div>
     <p className="text-xs text-gray-600 mt-4 italic">※ Nach Umzug nach Japan: 特定商取引法表示 hinzufügen mit japanischer Adresse.</p>
   </>
@@ -1381,9 +1379,9 @@ const AccessibilityContent = () => (
         </a>
         {' '}— Klicken Sie hier, um direkt eine E-Mail zu öffnen
       </p>
-      <p><strong>Post:</strong> [YOUR NAME], [YOUR ADDRESS]</p>
+      <p><strong>Post:</strong> Sebastian Thomas, Maubacher Str. 17, 71522 Backnang</p>
     </div>
-    <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von [YOUR NAME] bearbeitet.</p>
+    <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von Sebastian Thomas bearbeitet.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">6. Erstellt am / Überprüft am</h3>
     <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 27. September 2026 überprüft.</p>
