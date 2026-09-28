@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-28)
 
 ## Corpus Check
-- 44 files · ~76,109 words
+- 44 files · ~76,272 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 248 nodes · 318 edges · 13 communities
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
+- 248 nodes · 314 edges · 13 communities
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `24549e07`
+- Built from commit: `bfb3c831`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,17 +32,15 @@
 1. `useAuth()` - 18 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
 3. `JLPT Test Hub` - 10 edges
-4. `useAuth()` - 6 edges
-5. `users` - 6 edges
-6. `enqueueResult()` - 5 edges
-7. `flushQueue()` - 5 edges
-8. `ttsSupported()` - 5 edges
-9. `speak()` - 5 edges
-10. `scripts` - 5 edges
+4. `users` - 6 edges
+5. `ttsSupported()` - 5 edges
+6. `speak()` - 5 edges
+7. `scripts` - 5 edges
+8. `Monetization setup` - 5 edges
+9. `App()` - 4 edges
+10. `read()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `useAuth()` --indirect_call--> `queueSize()`  [INFERRED]
-  src/useAuth.ts → src/resultQueue.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -51,6 +49,8 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
+- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -102,11 +102,11 @@ Cohesion: 0.12
 Nodes (17): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+9 more)
 
 ### Community 12 - "useAuth.ts"
-Cohesion: 0.36
+Cohesion: 0.30
 Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `Bindings`, `app`, `api`, `admin`, `UiStrings` (+90 more)
+- **95 isolated node(s):** `User`, `Subscription`, `Bindings`, `app`, `api` (+90 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -118,7 +118,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **What connects `Bindings`, `app`, `api` to the rest of the system?**
+- **What connects `User`, `Subscription`, `Bindings` to the rest of the system?**
   _95 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

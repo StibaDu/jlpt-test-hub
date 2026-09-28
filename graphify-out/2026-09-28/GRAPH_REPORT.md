@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e982c5b8`
+- Built from commit: `24549e07`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -106,7 +106,7 @@ Cohesion: 0.36
 Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+90 more)
+- **95 isolated node(s):** `Bindings`, `app`, `api`, `admin`, `UiStrings` (+90 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -118,7 +118,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+- **What connects `Bindings`, `app`, `api` to the rest of the system?**
   _95 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

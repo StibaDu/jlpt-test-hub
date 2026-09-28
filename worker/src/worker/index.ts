@@ -83,9 +83,6 @@ admin.use('*', async (c, next) => {
 admin.route('/', adminRoutes);
 api.route('/admin', admin);
 
-app.route('/api', api);
-
-// Stripe webhook (no auth, verified via signature)
 app.post('/api/webhooks/stripe', async (c) => {
   const signature = c.req.header('stripe-signature');
   if (!signature) return c.json({ error: 'Missing signature' }, 400);
@@ -112,13 +109,25 @@ app.post('/api/webhooks/stripe', async (c) => {
       const plan = session.metadata?.plan || 'monthly';
       const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
 
+      // Newer Stripe API: periods live on the subscription item, not the subscription root
+      const subItem = subscription.items?.data?.[0] as any;
+      const periodStart = (subscription as any).current_period_start ?? subItem?.current_period_start ?? Math.floor(Date.now() / 1000);
+      const periodEnd = (subscription as any).current_period_end ?? subItem?.current_period_end ?? Math.floor(Date.now() / 1000);
+
       if (userId) {
+        // Idempotent: if the subscription row already exists, refresh it instead of duplicating
         await c.env.DB.prepare(
-          'INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+          `INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, cancel_at_period_end, created_at, updated_at)
+           VALUES (?, ?, 'active', ?, ?, ?, ?, ?, 0, ?, ?)
+           ON CONFLICT(stripe_subscription_id) DO UPDATE SET
+             status = 'active',
+             current_period_start = excluded.current_period_start,
+             current_period_end = excluded.current_period_end,
+             updated_at = excluded.updated_at`
         ).bind(
-          crypto.randomUUID(), userId, 'active', plan,
+          crypto.randomUUID(), userId, plan,
           subscription.id, session.customer as string,
-          subscription.current_period_start, subscription.current_period_end,
+          periodStart * 1000, periodEnd * 1000,
           Date.now(), Date.now()
         ).run();
       }
@@ -127,9 +136,12 @@ app.post('/api/webhooks/stripe', async (c) => {
     case 'customer.subscription.updated': {
       const sub = event.data.object as Stripe.Subscription;
       const status = sub.cancel_at_period_end ? 'active' : (sub.status === 'canceled' ? 'cancelled' : sub.status);
+      // Newer Stripe API: period end lives on the subscription item
+      const subItemUpd = sub.items?.data?.[0] as any;
+      const periodEndUpd = (sub as any).current_period_end ?? subItemUpd?.current_period_end;
       await c.env.DB.prepare(
         'UPDATE subscriptions SET status = ?, current_period_end = ?, cancel_at_period_end = ?, updated_at = ? WHERE stripe_subscription_id = ?'
-      ).bind(status, sub.current_period_end, sub.cancel_at_period_end, Date.now(), sub.id).run();
+      ).bind(status, periodEndUpd ? periodEndUpd * 1000 : null, sub.cancel_at_period_end, Date.now(), sub.id).run();
       break;
     }
     case 'customer.subscription.deleted': {
@@ -153,6 +165,9 @@ app.post('/api/webhooks/stripe', async (c) => {
   return c.json({ received: true });
 });
 
+app.route('/api', api);
+
+// Stripe webhook (no auth, verified via signature)
 app.post('/api/webhooks/paypal', async (c) => c.json({ received: true }));
 
 export default app;

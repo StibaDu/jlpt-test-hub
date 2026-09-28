@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "worker/src/subscription/index.ts": {
-    "mtime": 1790519241.9123163,
-    "ast_hash": "6422ba6a0af353098f4d955009bb3a71",
+    "mtime": 1790608625.5949574,
+    "ast_hash": "47a64e4ecf538dd56117035bbdda451f",
     "semantic_hash": ""
   },
   "worker/src/tests/index.ts": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "src/useAuth.ts": {
-    "mtime": 1790533594.1286585,
-    "ast_hash": "d5489767599aeaf51e90b7c9365ee7f3",
+    "mtime": 1790608640.1826913,
+    "ast_hash": "a66d09a9fd6fcdccdf4ed9004b7903b7",
     "semantic_hash": ""
   },
   "src/tts.ts": {
