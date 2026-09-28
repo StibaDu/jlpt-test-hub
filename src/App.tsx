@@ -496,12 +496,13 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<void>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, onResumeSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<string | undefined>; onResumeSub: () => Promise<string | undefined>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
+  const [subActionMsg, setSubActionMsg] = useState<string | null>(null);
   const [showNotebook, setShowNotebook] = useState(false);
 
   const findQuestion = (qid: number, level: string) => {
@@ -865,16 +866,39 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
               </div>
             )}
 
+            {subActionMsg && (
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-center" role="status">
+                <p className="text-emerald-800 text-xs font-bold">{subActionMsg}</p>
+              </div>
+            )}
+
             {/* Actions */}
             <div className="space-y-2">
               {isPro ? (
-                <button
-                  onClick={async () => { await onCancelSub(); }}
-                  className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-2.5 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
+                <>
+                  <button
+                  onClick={async () => {
+                    const msg = await onCancelSub();
+                    setSubActionMsg(msg || null);
+                  }}
+                  disabled={subscription?.cancelAtPeriodEnd}
+                  className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 disabled:opacity-40 text-red-600 font-bold py-2.5 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
                 >
-                  {t.profileCancel}
+                  {subscription?.cancelAtPeriodEnd ? t.profileCancelPending : t.profileCancel}
                 </button>
-              ) : (
+                {subscription?.cancelAtPeriodEnd && (
+                  <button
+                    onClick={async () => {
+                      const msg = await onResumeSub();
+                      setSubActionMsg(msg || null);
+                    }}
+                    className="w-full flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold py-2.5 px-4 rounded-xl border border-emerald-200 transition-all active:scale-95 text-sm"
+                  >
+                    {lang === 'de' ? '↩︎ Abonnement fortsetzen' : '↩︎ Resume subscription'}
+                  </button>
+                )}
+              </>
+                ) : (
                 <button
                   onClick={() => setView('upgrade')}
                   className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
@@ -2883,7 +2907,19 @@ export default function App() {
         onSignIn={() => setShowAuthModal(true)}
         onCancelSub={async () => {
           const result = await auth.cancelSubscription();
-          if (result.error) alert(result.error);
+          if (result.error) return result.error;
+          await auth.refreshProfile();
+          return lang === 'de'
+            ? '✓ Kündigung zum Periodenende vorgemerkt'
+            : '✓ Your subscription will end at the period end';
+        }}
+        onResumeSub={async () => {
+          const result = await auth.resumeSubscription();
+          if (result.error) return result.error;
+          await auth.refreshProfile();
+          return lang === 'de'
+            ? '✓ Abonnement fortgesetzt'
+            : '✓ Subscription resumed';
         }}
         onLogout={auth.logout}
         onFetchProgress={auth.fetchProgress}

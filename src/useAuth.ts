@@ -205,7 +205,7 @@ export function useAuth() {
           const data = await res.json();
           if (data.error) errorMsg = data.error;
         } catch {
-          if (res.status >= 500) errorMsg = lang === undefined ? 'Payment system unavailable — please try again in a few minutes.' : errorMsg;
+          if (res.status >= 500) errorMsg = 'Payment system unavailable — please try again in a few minutes.';
         }
         return { success: false, error: errorMsg };
       }
@@ -265,6 +265,21 @@ export function useAuth() {
     // saveTestResult already carries clientTestId from queued items → idempotent server-side
     return flushQueue(async (payload, clientTestId) => saveTestResultRef.current({ ...payload, clientTestId }));
   }, [user]);
+
+  const resumeSubscription = async (): Promise<{ success: boolean; error?: string }> => {
+    if (!getAccessToken()) return { success: false, error: 'Not logged in' };
+
+    try {
+      const res = await apiFetch('/subscription/resume', { method: 'POST' });
+      if (res.ok) {
+        await fetchProfile();
+        return { success: true };
+      }
+      return { success: false, error: 'Failed to resume' };
+    } catch {
+      return { success: false, error: 'Network error' };
+    }
+  };
 
   const cancelSubscription = async (): Promise<{ success: boolean; error?: string }> => {
     if (!getAccessToken()) return { success: false, error: 'Not logged in' };
@@ -376,6 +391,7 @@ export function useAuth() {
     flushQueuedResults,
     queuedCount: queueSize,
     cancelSubscription,
+    resumeSubscription,
     refreshProfile: fetchProfile,
   };
 }
