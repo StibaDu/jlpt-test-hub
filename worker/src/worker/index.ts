@@ -33,6 +33,7 @@ app.use('*', cors({
 
 app.get('/health', (c) => c.json({ status: 'ok', timestamp: Date.now() }));
 
+
 // Public routes
 app.route('/api/auth', authRoutes);
 
