@@ -200,8 +200,14 @@ export function useAuth() {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        return { success: false, error: data.error || 'Failed to create checkout' };
+        let errorMsg = 'Failed to create checkout';
+        try {
+          const data = await res.json();
+          if (data.error) errorMsg = data.error;
+        } catch {
+          if (res.status >= 500) errorMsg = lang === undefined ? 'Payment system unavailable — please try again in a few minutes.' : errorMsg;
+        }
+        return { success: false, error: errorMsg };
       }
 
       const data = await res.json();

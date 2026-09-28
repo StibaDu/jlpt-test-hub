@@ -50,14 +50,32 @@ export const subscriptionRoutes = new Hono()
 
     // Create Stripe Checkout Session
     const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
-    const session = await stripe.checkout.sessions.create({
-      customer_email: userRow.email,
-      line_items: [{ price: priceId, quantity: 1 }],
-      mode: 'subscription',
-      success_url: `${c.env.APP_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${c.env.APP_URL}/upgrade`,
-      metadata: { user_id: user.sub, plan },
-    });
+    let session;
+    try {
+      session = await stripe.checkout.sessions.create({
+        customer_email: userRow.email,
+        line_items: [{ price: priceId, quantity: 1 }],
+        mode: 'subscription',
+        success_url: `${c.env.APP_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${c.env.APP_URL}/upgrade`,
+        metadata: { user_id: user.sub, plan },
+      });
+    } catch (err: any) {
+      const code = err?.code || err?.raw?.code || '';
+      const msg = err?.message || err?.raw?.message || 'Unknown error';
+      console.error('Stripe checkout failed:', code, msg);
+      // Config problems (expired/invalid key, bad price) must NOT surface as 500 "network error"
+      if (code === 'api_key_expired' || msg.includes('Expired API Key')) {
+        return c.json({ error: 'Payment system temporarily unavailable — configuration error. Please try again later.' }, 503);
+      }
+      if (code === 'resource_missing' || msg.includes('No such price')) {
+        return c.json({ error: 'Payment system misconfigured (price). Please contact support.' }, 503);
+      }
+      if (msg.includes('Invalid API Key')) {
+        return c.json({ error: 'Payment system temporarily unavailable — configuration error. Please try again later.' }, 503);
+      }
+      return c.json({ error: 'Could not start checkout. Please try again.' }, 502);
+    }
 
     return c.json({ sessionId: session.id, url: session.url });
   })
