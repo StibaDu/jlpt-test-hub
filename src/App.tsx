@@ -7,6 +7,7 @@ import {
 import { lookupReadings } from './data/kanjiReadings';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 import { useAuth } from './useAuth';
+import { toRomaji } from './romaji';
 import { AuthModal } from './AuthModal';
 import { speak, stopSpeaking, getSavedRate, saveRate, ttsSupported, hasGoodJapaneseVoice } from './tts';
 
@@ -2403,19 +2404,20 @@ export default function App() {
                           <div className="bg-white/5 rounded-lg p-2" title="音 On'yomi">
                             <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
                             <div className="text-sm text-gray-100 font-bold">{card.onyomi}</div>
+                            <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.onyomi)}</div>
                           </div>
                         )}
                         {card.kunyomi && (
                           <div className="bg-white/5 rounded-lg p-2">
                             <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
                             <div className="text-sm text-gray-100 font-bold">{card.kunyomi}</div>
+                            <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.kunyomi)}</div>
                           </div>
                         )}
                       </div>
                       <div>
                         <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
                         <div className="text-lg text-white font-bold">{card[emphasize === 'de' ? 'meaningDe' : 'meaningEn']}</div>
-                        <div className="text-xs text-gray-300">{card[emphasize === 'de' ? 'meaningEn' : 'meaningDe']}</div>
                       </div>
                       {(card.descEn || card.descDe) && (
                         <p className="text-xs text-gray-300 leading-relaxed">{emphasize === 'de' ? card.descDe : card.descEn}</p>
@@ -2430,12 +2432,12 @@ export default function App() {
                         <div className="bg-white/5 rounded-lg p-2 inline-block">
                           <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mr-1">{lang === 'de' ? 'Lesung' : 'Reading'}</span>
                           <span className="text-sm text-gray-100 font-bold">{card.kunyomi}</span>
+                          <span className="text-[10px] text-emerald-300 italic ml-1">{toRomaji(card.kunyomi)}</span>
                         </div>
                       )}
                       <div>
                         <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
                         <div className="text-lg text-white font-bold">{emphasize === 'de' ? card.meaningDe : card.meaningEn}</div>
-                        <div className="text-xs text-gray-300">{emphasize === 'de' ? card.meaningEn : card.meaningDe}</div>
                       </div>
                       {card.exampleSentence && (
                         <div className="bg-white/5 rounded-lg p-2.5">
@@ -2452,6 +2454,9 @@ export default function App() {
                       <div className="bg-white/10 rounded-lg p-2.5">
                         <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Lösung' : 'Answer'}</div>
                         <div className="text-xl text-white font-black">{card.correctAnswer}</div>
+                        {toRomaji(card.correctAnswer) !== card.correctAnswer && toRomaji(card.correctAnswer) && (
+                          <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.correctAnswer)}</div>
+                        )}
                       </div>
                       {card.wrongOptions && card.wrongOptions.length > 0 && (
                         <div>
