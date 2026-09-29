@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 45 files · ~81,067 words
+- 45 files · ~81,277 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 267 nodes · 359 edges · 13 communities
+- 267 nodes · 364 edges · 13 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6d27f68d`
+- Built from commit: `7c93130b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,14 +31,14 @@
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
 2. `Launch Checklist — JLPT Test Hub` - 12 edges
-3. `JLPT Test Hub` - 10 edges
-4. `buildGrammarCards()` - 6 edges
-5. `speak()` - 6 edges
-6. `users` - 6 edges
-7. `stripFurigana()` - 5 edges
-8. `buildDeck()` - 5 edges
-9. `ttsSupported()` - 5 edges
-10. `scripts` - 5 edges
+3. `App()` - 11 edges
+4. `JLPT Test Hub` - 10 edges
+5. `buildGrammarCards()` - 7 edges
+6. `buildDeck()` - 6 edges
+7. `speak()` - 6 edges
+8. `users` - 6 edges
+9. `stripFurigana()` - 5 edges
+10. `buildVocabCards()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -71,23 +71,23 @@ Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, A
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.06
-Nodes (25): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+17 more)
+Nodes (22): ADSENSE_CONFIG, CookieBanner(), getConsent(), SelectedKanji, setConsent(), SvgProps, UiStrings, uiTranslations (+14 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.09
 Nodes (23): autoprefixer, oxlint, devDependencies, autoprefixer, oxlint, postcss, tailwindcss, @types/node (+15 more)
 
 ### Community 5 - "flashcards.ts"
-Cohesion: 0.20
-Nodes (16): JLPTLevel, allDecks(), buildDeck(), buildGrammarCards(), buildKanjiCards(), buildVocabCards(), buildWeakGrammarDeck(), DECK_SIZE_LIMIT (+8 more)
+Cohesion: 0.19
+Nodes (18): App(), renderFurigana(), shuffleArray(), allDecks(), buildDeck(), buildGrammarCards(), buildKanjiCards(), buildVocabCards() (+10 more)
 
 ### Community 6 - "worker/index.ts"
 Cohesion: 0.10
 Nodes (15): adminRoutes, authRoutes, TODO: Send reset email, progressRoutes, answerToQuality(), qualityToSM2(), sm2(), SM2State (+7 more)
 
 ### Community 7 - "types.ts"
-Cohesion: 0.16
-Nodes (11): n3Data, n4Data, n5Data, DeviceMode, GameState, KanjiEntry, Lang, LevelData (+3 more)
+Cohesion: 0.15
+Nodes (12): n3Data, n4Data, n5Data, DeviceMode, GameState, JLPTLevel, KanjiEntry, Lang (+4 more)
 
 ### Community 8 - "Icons.tsx"
 Cohesion: 0.24
@@ -106,7 +106,7 @@ Cohesion: 0.30
 Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
 ## Knowledge Gaps
-- **96 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+91 more)
+- **97 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+92 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -117,12 +117,12 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
-  _96 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _97 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06028368794326241 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06262626262626263 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._

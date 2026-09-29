@@ -2372,8 +2372,11 @@ export default function App() {
                   ) : isCloze ? (
                     <>
                       <p className="text-2xl text-gray-100 font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
-                      {card.frontMain && (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
-                        && <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?'}</p>}
+                      <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">
+                        {card.frontMain.includes('（）') || card.frontMain.includes('　　')
+                          ? (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
+                          : (lang === 'de' ? 'Welcher Satz bedeutet dasselbe?' : 'Which sentence means the same?')}
+                      </p>
                       <button onClick={e => { e.stopPropagation(); speakForCard(card, 'front'); }} className="mt-2 text-xl" title="🔊">🔊</button>
                     </>
                   ) : (

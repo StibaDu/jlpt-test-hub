@@ -27,6 +27,21 @@ export interface Flashcard {
 
 const FURIGANA_RE = /\[([^\]]+)\]\(([^\)]+)\)/g;
 
+// Standard readings for compound entries whose dictionary entries lack on/kun readings
+// (kana = the word's common furigana; used on kanji flashcards + TTS)
+const COMPOUND_READINGS: Record<string, string> = {
+  '適当': 'てきとう', '言葉': 'ことば', '前川': 'まえかわ', '一緒': 'いっしょ', '外国': 'がいこく',
+  '果物': 'くだもの', '西瓜': 'すいか', '教室': 'きょうしつ', '椅子': 'いす', '火曜日': 'かようび',
+  '生徒': 'せいと', '半分': 'はんぶん', '学校': 'がっこう', '結婚': 'けっこん', '建物': 'たてもの',
+  '刃物': 'はもの', '時計': 'とけい', '財布': 'さいふ', '便利': 'べんり', '質問': 'しつもん',
+  '部屋': 'へや', '漢字': 'かんじ', '砂糖': 'さとう', '兄弟': 'きょうだい', '姉妹': 'しまい',
+  '簡単': 'かんたん', '洗濯': 'せんたく', '子供': 'こども', '小説': 'しょうせつ', '尺寸': 'しゃくそん',
+  '大人': 'おとな', '活動': 'かつどう', 'うわさ': 'うわさ', '故郷': 'こきょう', '出張': 'しゅっちょう',
+  '課長': 'かちょう', '海外': 'かいがい', '希望': 'きぼう', '合格': 'ごうかく', '外食': 'がいしょく',
+  '祖母': 'そぼ', '優勝': 'ゆうしょう', '一生懸命': 'いっしょうけんめい', '選手': 'せんしゅ',
+  '輸入': 'ゆにゅう', 'ため': 'ため', 'タクシー': 'タクシー', 'ピアノ': 'ピアノ',
+};
+
 export function stripFurigana(text: string): string {
   return text.replace(/\\n/g, '\n').replace(FURIGANA_RE, '$1');
 }
@@ -107,19 +122,50 @@ export function allDecks(levelsData: Record<JLPTLevel, any>): DeckInfo[] {
 }
 
 // ---- Card builders ----
+// Compound→kana from every furigana tag across all levels' questions and options
+export function buildCompoundReadings(levelsData: Record<JLPTLevel, any>): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const lvl of ['N5', 'N4', 'N3'] as JLPTLevel[]) {
+    const d = levelsData[lvl];
+    if (!d?.questionBank) continue;
+    for (const q of d.questionBank) {
+      const sources = [q.text, ...(q.options || [])] as string[];
+      for (const src of sources) {
+        for (const m of src.matchAll(FURIGANA_RE)) {
+          const word = m[1].replace(FURIGANA_RE_FULL, ''), kana = m[2];
+          if (!map[word]) map[word] = kana;
+        }
+      }
+    }
+  }
+  return map;
+}
+
+const FURIGANA_RE_FULL = /\[([^\]]+)\]\(([^\)]+)\)/g;
+
 export function buildKanjiCards(levelsData: Record<JLPTLevel, any>, level: JLPTLevel): Flashcard[] {
-  return Object.entries(levelsData[level].kanjiDictionary).map(([kanji, entry]: any) => ({
-    cardId: `k-${level}-${kanji}`,
-    kind: 'kanji' as const,
-    level,
-    frontMain: kanji,
-    meaningEn: entry.meaning?.en,
-    meaningDe: entry.meaning?.de,
-    onyomi: entry.onyomi,
-    kunyomi: entry.kunyomi,
-    descEn: entry.desc?.en,
-    descDe: entry.desc?.de,
-  }));
+  const questionReadings = { ...buildCompoundReadings(levelsData), ...COMPOUND_READINGS };
+  return Object.entries(levelsData[level].kanjiDictionary).map(([kanji, entry]: any) => {
+    let onyomi = entry.onyomi;
+    let kunyomi = entry.kunyomi;
+    // Compound word without readings → use its word-level furigana (questions map or static map)
+    if (!onyomi && !kunyomi && kanji.length > 1) {
+      const compound = questionReadings[kanji];
+      if (compound) kunyomi = compound;
+    }
+    return {
+      cardId: `k-${level}-${kanji}`,
+      kind: 'kanji' as const,
+      level,
+      frontMain: kanji,
+      meaningEn: entry.meaning?.en,
+      meaningDe: entry.meaning?.de,
+      onyomi,
+      kunyomi,
+      descEn: entry.desc?.en,
+      descDe: entry.desc?.de,
+    };
+  });
 }
 
 export function buildVocabCards(levelsData: Record<JLPTLevel, any>, level: JLPTLevel): Flashcard[] {
