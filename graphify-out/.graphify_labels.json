@@ -4,13 +4,12 @@
   "2": "useAuth",
   "3": "App.tsx",
   "4": "devDependencies",
-  "5": "package.json",
+  "5": "flashcards.ts",
   "6": "worker/index.ts",
   "7": "types.ts",
   "8": "Icons.tsx",
   "9": "0001_initial_schema.sql",
   "10": "dependencies",
   "11": "Intro.tsx",
-  "12": "useAuth.ts",
-  "13": "routes.tsx"
+  "12": "useAuth.ts"
 }

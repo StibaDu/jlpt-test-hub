@@ -1839,6 +1839,7 @@ export default function App() {
   const [flashDone, setFlashDone] = useState<{ reviewed: number; known: number; xp: number } | null>(null);
   const [srsFlashDueCount, setSrsFlashDueCount] = useState(0);
   const [flashTab, setFlashTab] = useState<'JLPT' | string>(selectedLevel);
+  const [flashNoAnim, setFlashNoAnim] = useState(false);
   // Flashcard keyboard shortcuts (Space = flip, Esc = back to picker) — session only
   useEffect(() => {
     if (gameState !== 'flashcards' || !flashDeckId || flashDone) return;
@@ -2275,6 +2276,16 @@ export default function App() {
     }
   };
 
+  // Advance without revealing the next card's back: snap to front (transition off for one frame)
+  const advanceFlashCard = (nextIdx: number) => {
+    setFlashNoAnim(true);
+    setFlashFlipped(false);
+    setFlashIdx(nextIdx);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setFlashNoAnim(false));
+    });
+  };
+
   const rateFlashCard = async (quality: number) => {
     const card = flashCards[flashIdx];
     if (!card) return;
@@ -2283,8 +2294,7 @@ export default function App() {
     }
     setFlashCards(prev => prev.map((c, i) => (i === flashIdx ? { ...c, rated: quality } : c)));
     if (flashIdx < flashCards.length - 1) {
-      setFlashIdx(flashIdx + 1);
-      setFlashFlipped(false);
+      advanceFlashCard(flashIdx + 1);
     } else {
       const known = flashCards.filter((c, i) => (i === flashIdx ? quality >= 3 : (c as any).rated >= 3)).length;
       setFlashDone({ reviewed: flashCards.length, known, xp: flashCards.length * 5 });
@@ -2347,7 +2357,7 @@ export default function App() {
 
             {/* Flip card */}
             <div className={isMobile ? 'fc-scene' : 'fc-scene'} style={{ minHeight: isMobile ? 300 : 340 }} onClick={() => setFlashFlipped(f => !f)}>
-              <div className={`fc-card ${flashFlipped ? 'flipped' : ''}`} style={{ minHeight: isMobile ? 300 : 340 }}>
+              <div className={`fc-card ${flashFlipped ? 'flipped' : ''} ${flashNoAnim ? 'no-anim' : ''}`} style={{ minHeight: isMobile ? 300 : 340 }}>
                 {/* FRONT */}
                 <div className="fc-face fc-face-front">
                   {isKanji ? (

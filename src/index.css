@@ -81,6 +81,10 @@ ruby {
 .fc-card.flipped {
   transform: rotateY(180deg);
 }
+/* Instant reset when advancing to the next card — no mid-flip answer reveal */
+.fc-card.no-anim {
+  transition: none !important;
+}
 .fc-face {
   position: absolute;
   inset: 0;
