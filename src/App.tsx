@@ -384,7 +384,7 @@ const GoogleAdBanner = ({ slotId = "auto-ads-slot" }: { slotId?: string }) => {
         5. Add the AdSense script in index.html <head>
       */}
       <div className="flex flex-col items-center justify-center py-2 space-y-1">
-        <span className="font-bold tracking-widest uppercase text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded">Advertisement</span>
+        <span className="font-bold tracking-widest uppercase text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Advertisement</span>
         <div className="h-12 flex items-center justify-center text-gray-600 font-mono text-xs">
           Google AdSense Responsive Unit [{slotId}]
         </div>
@@ -425,7 +425,7 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
         </h2>
         <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
       </div>
-      <p className="text-gray-500 text-xs mb-4">{t.booksDesc}</p>
+      <p className="text-gray-600 text-xs mb-4">{t.booksDesc}</p>
       <div className="grid gap-3 md:grid-cols-3">
         {books.map((book, i) => (
           <a
@@ -436,9 +436,9 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
             className="block bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-emerald-300 transition-all group"
           >
             <div className="text-3xl mb-2">{book.img}</div>
-            <h3 className="font-bold text-gray-800 text-sm mb-1 group-hover:text-emerald-600 transition-colors">{book.title}</h3>
-            <p className="text-gray-500 text-xs mb-2 leading-relaxed">{book.desc}</p>
-            <span className="text-emerald-600 font-bold text-xs group-hover:underline">{t.buyOnAmazon}</span>
+            <h3 className="font-bold text-gray-800 text-sm mb-1 group-hover:text-emerald-800 transition-colors">{book.title}</h3>
+            <p className="text-gray-600 text-xs mb-2 leading-relaxed">{book.desc}</p>
+            <span className="text-emerald-800 font-bold text-xs group-hover:underline">{t.buyOnAmazon}</span>
           </a>
         ))}
       </div>
@@ -464,7 +464,7 @@ const AffiliateBanner = ({ t, lang }: { t: any; lang: string }) => {
             href="https://www.japanesepod101.com/member/go.php?r=YOUR_AFFILIATE_ID"
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
+            className="inline-block bg-blue-800 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
           >
             {t.tryJapanesePod}
           </a>
@@ -490,7 +490,7 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
             href="https://www.gogonihon.com/en/?ref=jlpttesthub"
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="inline-block bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
+            className="inline-block bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
           >
             {t.exploreSchools}
           </a>
@@ -552,12 +552,12 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
         <div className="flex justify-between items-start p-6 border-b border-gray-100">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-100 text-emerald-700 p-2 rounded-xl">
+            <div className="bg-emerald-100 text-emerald-800 p-2 rounded-xl">
               <IconBookOpen className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-gray-900">{t.proTitle}</h3>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors">
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors">
             <IconX className="w-5 h-5" />
           </button>
         </div>
@@ -567,12 +567,12 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
           <div className="space-y-4">
             {/* User info */}
             <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-3">
-              <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xl font-black shrink-0">
+              <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center text-xl font-black shrink-0">
                 {user.name?.charAt(0).toUpperCase() || '?'}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-bold text-gray-900 text-sm">{user.name}</p>
-                <p className="text-gray-500 text-xs truncate">{user.email}</p>
+                <p className="text-gray-600 text-xs truncate">{user.email}</p>
               </div>
               {isPro && (
                 <span className="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full shrink-0">⭐ PRO</span>
@@ -584,7 +584,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-gray-900 text-sm">{isPro ? t.profilePro : t.profileFree}</h4>
-                  <p className="text-gray-500 text-xs mt-0.5">
+                  <p className="text-gray-600 text-xs mt-0.5">
                     {isPro
                       ? `${t.profileRenews} ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'}`
                       : t.profileFreeDesc}
@@ -599,7 +599,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             {/* Progress Stats */}
             {progressLoading ? (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-500 text-xs">{t.profileLoading}</p>
+                <p className="text-gray-600 text-xs">{t.profileLoading}</p>
               </div>
             ) : progressData?.stats ? (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -638,12 +638,12 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                   </div>
                 )}
                 {progressData?.stats?.totalTestsTaken === 0 && (
-                  <p className="text-gray-500 text-xs text-center">{t.profileNoTests}</p>
+                  <p className="text-gray-600 text-xs text-center">{t.profileNoTests}</p>
                 )}
               </div>
             ) : (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-500 text-xs">{t.profileNotAvailable}</p>
+                <p className="text-gray-600 text-xs">{t.profileNotAvailable}</p>
               </div>
             )}
 
@@ -677,7 +677,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     </div>
                     <button
                       onClick={async () => { await onStartSrsReview(); }}
-                      className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                      className="bg-amber-500 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartDue.replace('{n}', String(srsDueCount))}
                     </button>
@@ -691,7 +691,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     </div>
                     <button
                       onClick={async () => { await onStartSrsPractice(); }}
-                      className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                      className="bg-amber-500 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartPractice.replace('{n}', String(Math.min(10, srsNewCount)))}
                     </button>
@@ -734,7 +734,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                           return (
                             <div key={`${wq.level}-${wq.question_id}`} className="bg-white rounded-xl p-3 border border-purple-100">
                               <div className="flex items-center justify-between mb-1.5">
-                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                                <span className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
                                   {wq.level} · {q.category} · {wq.times_wrong || wq.attempts}{t.profileWrongCount}
                                 </span>
                                 <button
@@ -829,7 +829,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     );
                     return (
                       <div className="mt-4 pt-3 border-t border-purple-100">
-                        <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">{t.insightTitle}</h5>
+                        <h5 className="text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-2">{t.insightTitle}</h5>
 
                         {focus.length > 0 && (
                           <div className="mb-2">
@@ -849,14 +849,14 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                         )}
                         {strong.length > 0 && (
                           <div className="mb-2">
-                            <p className="text-[10px] font-bold text-emerald-700 uppercase tracking-wide mb-1">{t.insightStrong}</p>
+                            <p className="text-[10px] font-bold text-emerald-800 uppercase tracking-wide mb-1">{t.insightStrong}</p>
                             <div className="space-y-1.5">
                               {strong.map((c: any) => <Row key={c.category} c={c} tone="emerald" />)}
                             </div>
                           </div>
                         )}
                         {lowData.length > 0 && (
-                          <p className="text-[10px] text-gray-500 mb-2">
+                          <p className="text-[10px] text-gray-600 mb-2">
                             {t.insightLowData}: {lowData.map((c: any) => shortName(c.category)).join(', ')}
                           </p>
                         )}
@@ -907,7 +907,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 {subscription?.cancelAtPeriodEnd && (
                   <button
                     onClick={() => onOpenResumeConfirm()}
-                    className="w-full flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold py-2.5 px-4 rounded-xl border border-emerald-200 transition-all active:scale-95 text-sm"
+                    className="w-full flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold py-2.5 px-4 rounded-xl border border-emerald-200 transition-all active:scale-95 text-sm"
                   >
                     {lang === 'de' ? '↩︎ Abonnement fortsetzen' : '↩︎ Resume subscription'}
                   </button>
@@ -916,26 +916,26 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 ) : (
                 <button
                   onClick={() => setView('upgrade')}
-                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                  className="w-full flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                 >
                   {t.profileUpgrade} {t.proCTA}
                 </button>
               )}
               <button
                 onClick={() => { onLogout(); onClose(); }}
-                className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {t.profileSignOut}
               </button>
             </div>
 
             {/* Account info */}
-            <div className="text-xs text-gray-500 space-y-1 pt-2 border-t border-gray-100">
+            <div className="text-xs text-gray-600 space-y-1 pt-2 border-t border-gray-100">
               <p><strong>E-Mail:</strong> {user.email}</p>
               <p><strong>{t.profileCreated}:</strong> {new Date(user.created_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</p>
             </div>
 
-            <button onClick={onClose} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+            <button onClick={onClose} className="w-full bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
               {t.proCancel}
             </button>
           </div>
@@ -945,7 +945,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             <p className="text-gray-600 text-sm mb-4">{lang === 'de' ? 'Melde dich an, um dein Profil, deinen Fortschritt und dein Fehlerheft zu sehen.' : 'Sign in to see your profile, progress, and mistake notebook.'}</p>
             <button
               onClick={() => { onClose(); onSignIn(); }}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+              className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
             >
               {t.navSignIn}
             </button>
@@ -957,7 +957,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
           <div className="p-6 md:p-8">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-lg font-bold text-gray-900">{t.proTitle}</h3>
-                <button onClick={() => setView('profile')} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors">
+                <button onClick={() => setView('profile')} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors">
                   <IconX className="w-5 h-5" />
                 </button>
               </div>
@@ -976,18 +976,18 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 >
                   <div className="text-xs text-gray-500">{t.profileYearly}</div>
                   <div className="text-xl font-black text-gray-900">$29.99</div>
-                  <div className="text-xs text-emerald-700 font-bold">{t.profileSave50}</div>
+                  <div className="text-xs text-emerald-800 font-bold">{t.profileSave50}</div>
                 </button>
               </div>
               <button
                 onClick={handleUpgrade}
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
               >
                 {loading ? t.profileRedirecting : t.proCTA}
               </button>
               <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
-              <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+              <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
                 {t.profileBackToProfile}
               </button>
           </div>
@@ -1046,7 +1046,7 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
             <div className="flex gap-2 shrink-0">
               <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Reject</button>
               <button onClick={() => setShowSettings(true)} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Settings</button>
-              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">Accept all</button>
+              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-emerald-800 hover:bg-emerald-900 rounded-lg transition-colors">Accept all</button>
             </div>
           </div>
         ) : (
@@ -1065,7 +1065,7 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
               <span className="text-gray-300">Affiliate tracking (Amazon, JapanesePod101, etc.)</span>
             </label>
             <div className="flex gap-2">
-              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">Save settings</button>
+              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-emerald-800 hover:bg-emerald-900 rounded-lg transition-colors">Save settings</button>
               <button onClick={() => setShowSettings(false)} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Back</button>
             </div>
           </div>
@@ -1083,7 +1083,7 @@ const LegalModal = ({ show, onClose, title, children }: { show: boolean; onClose
       <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 border border-gray-100" onClick={e => e.stopPropagation()}>
         <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-3 sticky top-0 bg-white">
           <h2 className="text-xl font-bold text-gray-900">{title}</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors shrink-0">
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors shrink-0">
             <IconX className="w-5 h-5" />
           </button>
         </div>
@@ -1122,7 +1122,7 @@ const ImpressumContent = () => (
       </div>
       <div>
         <p><strong>Streitschlichtung:</strong></p>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </div>
       <div>
         <p><strong>Haftung für Inhalte:</strong></p>
@@ -1413,7 +1413,7 @@ const AccessibilityContent = () => (
     <p>Sie können uns auf Barrieren auf dieser Website melden — per E-Mail oder über unser Kontaktformular:</p>
     <div className="mt-2 bg-gray-50 p-4 rounded-lg space-y-2">
       <p>
-        <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung auf jlpttesthub.com" className="text-emerald-700 underline font-bold hover:text-emerald-800">
+        <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung auf jlpttesthub.com" className="text-emerald-800 underline font-bold hover:text-emerald-800">
           createdby.jp@gmail.com
         </a>
         {' '}— Klicken Sie hier, um direkt eine E-Mail zu öffnen
@@ -1448,7 +1448,7 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <button onClick={onCookies} className={footerLink}>Cookie-Einstellungen</button>
         </div>
-        <p className="text-xs text-gray-500 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
+        <p className="text-xs text-gray-600 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
       </div>
     </footer>
   );
@@ -1480,7 +1480,7 @@ const renderFurigana = (text: string, onKanjiClick?: (kanji: string, furigana: s
         >
           <ruby>
             {kanji}
-            {showFurigana && <rt className="text-[0.6em] text-emerald-700 font-normal select-none leading-none">{furigana}</rt>}
+            {showFurigana && <rt className="text-[0.6em] text-emerald-800 font-normal select-none leading-none">{furigana}</rt>}
           </ruby>
         </span>
       );
@@ -1511,12 +1511,12 @@ export default function App() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-emerald-700 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <svg className="w-8 h-8 text-emerald-800 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
           <h1 className="text-2xl font-black text-gray-900 mb-3">Under Maintenance</h1>
-          <p className="text-gray-500 text-sm leading-relaxed mb-6">
+          <p className="text-gray-600 text-sm leading-relaxed mb-6">
             JLPT Test Hub is currently undergoing maintenance to bring you a better experience.
             We'll be back shortly!
           </p>
@@ -2023,7 +2023,7 @@ export default function App() {
       if (!reading) return null;
       return (
         <div className={`flex items-center gap-2 rounded-lg px-3 py-2 ${bg}`}>
-          <span className="text-xs font-bold text-gray-500 uppercase tracking-wider shrink-0 w-20">{label}</span>
+          <span className="text-xs font-bold text-gray-600 uppercase tracking-wider shrink-0 w-20">{label}</span>
           <span className="font-bold text-gray-800 text-sm flex-1">{reading}</span>
           {ttsSupported() && (
             <button
@@ -2052,11 +2052,11 @@ export default function App() {
           <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-emerald-700 font-bold tracking-widest text-sm">{selectedKanjiInfo.furigana}</span>
+                <span className="text-emerald-800 font-bold tracking-widest text-sm">{selectedKanjiInfo.furigana}</span>
                 {ttsSupported() && (
                   <button
                     onClick={() => speak(selectedKanjiInfo.furigana, ttsRate)}
-                    className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition-colors text-sm"
+                    className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors text-sm"
                     title={t.ttsPronounce}
                     aria-label={t.ttsPronounce}
                   >
@@ -2073,7 +2073,7 @@ export default function App() {
             </div>
             <button
               onClick={() => setSelectedKanjiInfo(null)}
-              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
+              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors"
             >
               <IconX className="w-5 h-5" />
             </button>
@@ -2143,7 +2143,7 @@ export default function App() {
             </div>
             <button
               onClick={() => setShowSupportModal(false)}
-              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
+              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors"
             >
               <IconX className="w-5 h-5" />
             </button>
@@ -2161,7 +2161,7 @@ export default function App() {
           </div>
           <button
             onClick={() => setShowSupportModal(false)}
-            className="w-full mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors"
+            className="w-full mt-4 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors"
           >
             {t.close}
           </button>
@@ -2185,8 +2185,8 @@ export default function App() {
             className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all active:scale-95 ${
               selectedLevel === lvl
                 ? variant === 'dark'
-                  ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'bg-emerald-600 text-white shadow-sm'
+                  ? 'bg-emerald-800 text-white shadow-sm'
+                  : 'bg-emerald-800 text-white shadow-sm'
                 : variant === 'dark'
                   ? 'bg-white/10 text-gray-300 hover:bg-white/20'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -2208,7 +2208,7 @@ export default function App() {
             onClick={goHome}
             title={t.home}
             aria-label={t.home}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-50 hover:text-emerald-700 text-gray-700 transition-colors shrink-0"
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -2221,7 +2221,7 @@ export default function App() {
             onClick={restartTest}
             title={t.restart}
             aria-label={t.restart}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-50 hover:text-emerald-700 text-gray-700 transition-colors shrink-0"
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -2252,7 +2252,7 @@ export default function App() {
         <button
           onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
           title={lang === 'en' ? 'Deutsch' : 'English'}
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors shrink-0 font-bold text-xs"
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-100 text-gray-700 transition-colors shrink-0 font-bold text-xs"
           aria-label="Language"
         >
           {lang === 'en' ? 'DE' : 'EN'}
@@ -2263,7 +2263,7 @@ export default function App() {
             onClick={() => setGameState('profile')}
             title={auth.user?.name || 'Profil'}
             aria-label={t.navOpenProfile}
-            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm transition-colors shrink-0"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-black text-sm transition-colors shrink-0"
           >
             {auth.user?.name?.charAt(0).toUpperCase() || '?'}
             {auth.isPro && (
@@ -2275,7 +2275,7 @@ export default function App() {
             onClick={() => setShowAuthModal(true)}
             title={t.navSignIn}
             aria-label={t.navSignIn}
-            className="flex items-center gap-1.5 h-9 px-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shrink-0"
+            className="flex items-center gap-1.5 h-9 px-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs transition-colors shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -2339,7 +2339,7 @@ export default function App() {
             <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
               <div className="text-6xl mb-4">🎉</div>
               <h1 className="text-3xl font-black text-gray-900 mb-2">{lang === 'de' ? 'Alles wiederholt!' : 'All caught up!'}</h1>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-gray-600 text-sm mb-6">
                 {flashDone.reviewed} {lang === 'de' ? 'Karten wiederholt' : 'cards reviewed'} · {flashDone.known}/{flashDone.reviewed} {lang === 'de' ? 'gewusst' : 'known'}
               </p>
               <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-5 py-2.5 rounded-full mb-8">
@@ -2349,7 +2349,7 @@ export default function App() {
                 <button onClick={() => { setFlashDone(null); setGameState('flashcards'); }} className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
                   {lang === 'de' ? 'Weitere Karten' : 'More cards'}
                 </button>
-                <button onClick={() => setGameState('intro')} className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
+                <button onClick={() => setGameState('intro')} className="bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
                   {lang === 'de' ? 'Startseite' : 'Home'}
                 </button>
               </div>
@@ -2393,7 +2393,7 @@ export default function App() {
                       <div className="flex gap-2 mb-3">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🈶 {card.level}</span>
                       </div>
-                      <p className="text-[10px] text-gray-500 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
+                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
                     </>
                   ) : isCloze ? (
                     <>
@@ -2410,7 +2410,7 @@ export default function App() {
                       {card.kind === 'grammar-pattern' && (
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
                       )}
-                      <p className="text-[10px] text-gray-500 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
+                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
                     </>
                   )}
                 </div>
@@ -2512,14 +2512,14 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => rateFlashCard(4)}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                  className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                 >
                   ✓ {lang === 'de' ? 'Gewusst' : 'Got it'}
                 </button>
               </div>
             )}
             {!flashFlipped && (
-              <p className="text-center text-gray-500 text-xs mt-6">
+              <p className="text-center text-gray-600 text-xs mt-6">
                 {isMobile ? (lang === 'de' ? 'Tippe die Karte zum Umdrehen' : 'Tap the card to flip') : (lang === 'de' ? 'Leertaste = Umdrehen · Klick = Umdrehen' : 'Space = flip · Click = flip')}
               </p>
             )}
@@ -2543,7 +2543,7 @@ export default function App() {
             <h1 className={`font-black text-gray-900 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
               🎴 {lang === 'de' ? 'Karteikarten' : 'Flashcards'}
             </h1>
-            <p className="text-gray-500 text-sm mt-1">
+            <p className="text-gray-600 text-sm mt-1">
               {lang === 'de' ? 'Karte umdrehen, gewusst oder nicht — Wiederholung plant sich selbst.' : 'Flip the card, knew it or not — repetition schedules itself.'}
             </p>
           </div>
@@ -2551,7 +2551,7 @@ export default function App() {
           {/* Level tabs */}
           <div className="flex gap-2 mb-6">
             {allLevels.map(lvl => (
-              <button key={lvl} onClick={() => setFlashTab(lvl)} className={`px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 ${flashTab === lvl ? 'bg-emerald-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+              <button key={lvl} onClick={() => setFlashTab(lvl)} className={`px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 ${flashTab === lvl ? 'bg-emerald-800 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                 {lvl}
               </button>
             ))}
@@ -2560,7 +2560,7 @@ export default function App() {
           {/* FOR YOU (Mode A) — Pro only */}
           {auth.isPro ? (
             <div className="mb-8">
-              <h2 className="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">{lang === 'de' ? 'Für dich — aus deinen Schwächen' : 'For You — built from your weaknesses'}</h2>
+              <h2 className="text-xs font-black text-gray-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Für dich — aus deinen Schwächen' : 'For You — built from your weaknesses'}</h2>
               <div className="grid gap-4 md:grid-cols-2">
                 {/* Due today */}
                 <button
@@ -2589,7 +2589,7 @@ export default function App() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">⏰</span>
-                    <span className={`text-xs font-black px-2 py-0.5 rounded-full ${flashDue > 0 ? 'bg-amber-200 text-amber-800' : 'bg-gray-200 text-gray-500'}`}>
+                    <span className={`text-xs font-black px-2 py-0.5 rounded-full ${flashDue > 0 ? 'bg-amber-200 text-amber-800' : 'bg-gray-100 text-gray-500'}`}>
                       {flashDue > 0 ? lang === 'de' ? `${flashDue} fällig` : `${flashDue} due` : lang === 'de' ? 'nichts fällig' : 'nothing due'}
                     </span>
                   </div>
@@ -2628,7 +2628,7 @@ export default function App() {
           )}
 
           {/* ALL DECKS (Mode B) */}
-          <h2 className="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
+          <h2 className="text-xs font-black text-gray-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {decks.map(deck => {
               const cards = deck.kind === 'kanji' ? buildKanjiCards(levelData, tabLevel)
@@ -2642,7 +2642,7 @@ export default function App() {
                     <span className="text-xs font-bold text-gray-400">{cards.length}</span>
                   </div>
                   <h3 className="font-black text-gray-900 mt-2">{lang === 'de' ? deck.titleDe : deck.titleEn}</h3>
-                  <p className="text-gray-500 text-xs">{lang === 'de' ? deck.descDe : deck.descEn}</p>
+                  <p className="text-gray-600 text-xs">{lang === 'de' ? deck.descDe : deck.descEn}</p>
                 </button>
               );
             })}
@@ -2663,9 +2663,9 @@ export default function App() {
             {renderNavControls({ compact: true })}
           </div>
           <div className={`w-full bg-white overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-gray-100'}`}>
-            <header className={`bg-emerald-600 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
+            <header className={`bg-emerald-800 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
               <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{currentData.uiStrings.title}</h1>
-              <p className={`text-emerald-50 opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
+              <p className={`text-emerald-100 opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
             </header>
             <section className={`flex-1 flex flex-col ${isMobile ? 'p-4 overflow-y-auto' : 'p-8'}`}>
               <AdBanner slotId="intro-top-banner" />
@@ -2682,17 +2682,17 @@ export default function App() {
               </p>
               <div className={`grid gap-4 flex-1 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 gap-6'}`}>
                 <div className={`border border-gray-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-white relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
-                  <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
+                  <div className="absolute top-0 right-0 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
                   {!auth.isPro && (
-                    <div className="absolute top-0 left-0 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
+                    <div className="absolute top-0 left-0 bg-amber-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
                       <span>⭐</span> {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true' ? 'PRO' : '1 FREE TRIAL'; } catch { return '1 FREE TRIAL'; } })()}
                     </div>
                   )}
-                  <div className="text-emerald-700 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                  <div className="text-emerald-800 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconClock className="w-5 h-5" />
                   </div>
                   <h2 className={`font-bold text-gray-800 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
-                  <p className={`text-gray-500 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                  <p className={`text-gray-600 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.realTestDesc(currentData.questionsPerTest, currentData.timeMinutes)}
                   </p>
                   {!auth.isPro && (
@@ -2705,7 +2705,7 @@ export default function App() {
                   )}
                   <button
                     onClick={() => startTest('real')}
-                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-600 hover:bg-amber-700 text-white'}`}
+                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-800 hover:bg-emerald-900 text-white' : 'bg-amber-800 hover:bg-amber-700 text-white'}`}
                   >
                     {auth.isPro
                       ? t.startReal
@@ -2716,7 +2716,7 @@ export default function App() {
                   </button>
                 </div>
                 <div className={`border border-blue-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-blue-50 relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
-                  <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.guided}</div>
+                  <div className="absolute top-0 right-0 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.guided}</div>
                   <div className="absolute top-0 left-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg">
                     FREE
                   </div>
@@ -2724,12 +2724,12 @@ export default function App() {
                     <IconBookOpen className="w-5 h-5" />
                   </div>
                   <h2 className={`font-bold text-blue-900 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.learningTitle}</h2>
-                  <p className={`text-blue-700/80 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                  <p className={`text-blue-900/80 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.learningDesc}
                   </p>
                   <button
                     onClick={() => startTest('learning')}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto"
+                    className="w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto"
                   >
                     {t.startLearning}
                   </button>
@@ -2904,7 +2904,7 @@ export default function App() {
               </div>
               <div className={`flex items-center shrink-0 ${isMobile ? 'gap-1' : 'gap-3'}`}>
                 {testMode === 'real' ? (
-                  <div className={`flex items-center gap-1.5 font-mono font-bold rounded-lg border ${isMobile ? 'text-sm px-2 py-1' : 'text-lg px-4 py-1.5'} ${timeRemaining < 300 ? 'bg-red-50 text-red-600 border-red-200' : 'bg-emerald-50 text-emerald-700 border-emerald-100'}`}>
+                  <div className={`flex items-center gap-1.5 font-mono font-bold rounded-lg border ${isMobile ? 'text-sm px-2 py-1' : 'text-lg px-4 py-1.5'} ${timeRemaining < 300 ? 'bg-red-50 text-red-600 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-100'}`}>
                     <IconClock className={isMobile ? "w-4 h-4" : "w-5 h-5"} />
                     {formatTime(timeRemaining)}
                   </div>
@@ -2926,7 +2926,7 @@ export default function App() {
 
           <main className={`flex-1 w-full mx-auto flex flex-col ${isMobile ? 'max-w-full px-3 py-4' : 'max-w-4xl px-4 py-8 md:py-12'}`}>
             <article className={`bg-white shadow-sm border border-gray-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
-              <div className={`text-gray-500 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
+              <div className={`text-gray-600 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
                 <span>{renderFurigana(currentData.instruction, handleKanjiClick, testMode === 'learning')}</span>
                 {testMode === 'learning' && (
                   <div className="flex items-center gap-2 shrink-0 ml-2">
@@ -3012,7 +3012,7 @@ export default function App() {
                         <span className={`font-medium leading-relaxed block break-words w-full ${isMobile ? 'text-lg' : 'text-xl'}`}>
                           {renderFurigana(option, handleKanjiClick, testMode === 'learning')}
                         </span>
-                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-700 ml-auto shrink-0`} />}
+                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-800 ml-auto shrink-0`} />}
                         {showFeedback && isSelected && !isCorrectOption && <IconX className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-red-600 ml-auto shrink-0`} />}
                       </div>
                     </button>
@@ -3026,12 +3026,12 @@ export default function App() {
                 {/* Banner */}
                 <div className={`flex items-center gap-2 mb-3 ${isMobile ? 'text-sm' : 'text-base'}`}>
                   {isAnswerCorrect ? (
-                    <span className="font-bold text-emerald-700 flex items-center gap-1"><IconCheck className="w-5 h-5" /> {t.correct}</span>
+                    <span className="font-bold text-emerald-800 flex items-center gap-1"><IconCheck className="w-5 h-5" /> {t.correct}</span>
                   ) : (
                     <span className="font-bold text-amber-700 flex items-center gap-1"><IconAlertCircle className="w-5 h-5" /> {t.incorrect}</span>
                   )}
                   {/* Category tag */}
-                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-white/70 px-2 py-0.5 rounded-full shrink-0">
+                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-gray-600 bg-white/70 px-2 py-0.5 rounded-full shrink-0">
                     {currentQuestion.category}
                   </span>
                 </div>
@@ -3044,8 +3044,8 @@ export default function App() {
                       <span className="text-red-700 line-through font-medium">{renderFurigana(currentQuestion.options[answers[currentQuestionIndex]], handleKanjiClick, testMode === 'learning')}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="shrink-0 text-emerald-700 font-bold text-xs uppercase tracking-wider">✓ {lang === 'de' ? 'Richtig' : 'Correct'}</span>
-                      <span className="text-emerald-700 font-bold">{renderFurigana(currentQuestion.options[currentQuestion.correctIndex], handleKanjiClick, testMode === 'learning')}</span>
+                      <span className="shrink-0 text-emerald-800 font-bold text-xs uppercase tracking-wider">✓ {lang === 'de' ? 'Richtig' : 'Correct'}</span>
+                      <span className="text-emerald-800 font-bold">{renderFurigana(currentQuestion.options[currentQuestion.correctIndex], handleKanjiClick, testMode === 'learning')}</span>
                     </div>
                   </div>
                 )}
@@ -3085,7 +3085,7 @@ export default function App() {
                 <button
                   onClick={submitTest}
                   disabled={testMode === 'learning' && !showFeedback}
-                  className={`rounded-lg font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-md transition-transform active:scale-95 disabled:opacity-50 ${isMobile ? 'px-5 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
+                  className={`rounded-lg font-bold bg-emerald-800 text-white hover:bg-emerald-900 shadow-md transition-transform active:scale-95 disabled:opacity-50 ${isMobile ? 'px-5 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
                 >
                   {t.finish}
                 </button>
@@ -3093,7 +3093,7 @@ export default function App() {
                 <button
                   onClick={nextQuestion}
                   disabled={testMode === 'real' ? !hasAnsweredCurrent : !showFeedback}
-                  className={`rounded-lg font-bold text-white shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${testMode === 'learning' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-emerald-600 hover:bg-emerald-700'} ${isMobile ? 'px-6 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
+                  className={`rounded-lg font-bold text-white shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${testMode === 'learning' ? 'bg-blue-800 hover:bg-blue-700' : 'bg-emerald-800 hover:bg-emerald-700'} ${isMobile ? 'px-6 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
                 >
                   {t.next}
                 </button>
@@ -3130,20 +3130,20 @@ export default function App() {
                 <h1 className={`font-black text-gray-900 uppercase tracking-tight ${isMobile ? 'text-2xl mt-2' : 'text-4xl'}`}>
                   {results.isPass ? t.testPassed : t.testFailed}
                 </h1>
-                <p className={`text-gray-500 mt-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                <p className={`text-gray-600 mt-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                   {t.level}: {selectedLevel} | {t.mode}: {testMode === 'learning' ? t.practice : t.real} | {t.requirement}: {currentData.passThreshold * 100}%
                 </p>
               </div>
               <div className={`flex flex-col justify-center items-center my-6 ${isMobile ? 'gap-4' : 'md:flex-row gap-8 md:gap-16 my-8'}`}>
                 <div className="text-center">
-                  <div className="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-xs">{t.yourScore}</div>
+                  <div className="text-gray-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.yourScore}</div>
                   <div className={`font-black text-gray-800 ${isMobile ? 'text-4xl' : 'text-5xl'}`}>
                     {results.score} <span className="text-xl text-gray-600">/ {testQuestions.length}</span>
                   </div>
                 </div>
-                <div className={`w-px h-16 bg-gray-200 hidden ${isMobile ? '' : 'md:block'}`}></div>
+                <div className={`w-px h-16 bg-gray-100 hidden ${isMobile ? '' : 'md:block'}`}></div>
                 <div className="text-center">
-                  <div className="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-xs">{t.percentage}</div>
+                  <div className="text-gray-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.percentage}</div>
                   <div className={`font-black ${isMobile ? 'text-4xl' : 'text-5xl'} ${results.isPass ? 'text-emerald-700' : 'text-red-700'}`}>
                     {results.percentage.toFixed(0)}%
                   </div>
@@ -3152,7 +3152,7 @@ export default function App() {
               <div className={`flex gap-3 justify-center ${isMobile ? 'flex-col' : 'flex-row'}`}>
                 <button
                   onClick={restartTest}
-                  className={`bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
+                  className={`bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
                 >
                   {t.restart}
                 </button>
@@ -3176,7 +3176,7 @@ export default function App() {
                   <div className="space-y-2.5 max-h-96 overflow-y-auto pr-1">
                     {results.wrongQuestions.map(({ q, picked }) => (
                       <div key={`${(q as any).level || selectedLevel}-${q.id}`} className="bg-white rounded-xl p-3 border border-red-100">
-                        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1">
+                        <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1">
                           {(q as any).level || selectedLevel} · {q.category}
                         </p>
                         <p className="text-sm text-gray-900 font-medium mb-2">{q.text}</p>
@@ -3216,11 +3216,11 @@ export default function App() {
 
               {!auth.isLoggedIn && (
                 <div className="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
-                  <p className="text-emerald-700 font-bold text-sm mb-2">Want to save your progress?</p>
-                  <p className="text-emerald-700 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
+                  <p className="text-emerald-800 font-bold text-sm mb-2">Want to save your progress?</p>
+                  <p className="text-emerald-800 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
                   <button
                     onClick={() => setShowAuthModal(true)}
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
+                    className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
                   >
                     Create free account →
                   </button>
@@ -3255,7 +3255,7 @@ export default function App() {
                   </div>
                   <button
                     onClick={() => setGameState('profile')}
-                    className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
+                    className="bg-amber-800 hover:bg-amber-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
                   >
                     {t.goPro}
                   </button>
@@ -3298,7 +3298,7 @@ export default function App() {
                           let icon: React.ReactNode = null;
                           if (optIdx === q.correctIndex) {
                             bgClass = "bg-emerald-100 border-emerald-400 text-emerald-900 font-semibold";
-                            icon = <IconCheck className="w-4 h-4 text-emerald-700 shrink-0" />;
+                            icon = <IconCheck className="w-4 h-4 text-emerald-800 shrink-0" />;
                           } else if (optIdx === userAnswer) {
                             bgClass = "bg-red-100 border-red-400 text-red-900";
                             icon = <IconX className="w-4 h-4 text-red-600 shrink-0" />;
@@ -3419,7 +3419,7 @@ export default function App() {
       {renderSupportModal()}
       {queuedFlushed > 0 && (
         <div
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[200] bg-emerald-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[200] bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg"
           role="status"
         >
           {lang === 'de'
@@ -3467,14 +3467,14 @@ export default function App() {
               </strong>
               {lang === 'de' ? ' ist jetzt aktiv.' : ' is now active.'}
             </p>
-            <p className="text-gray-500 text-xs mb-6">
+            <p className="text-gray-600 text-xs mb-6">
               {lang === 'de'
                 ? 'Unbegrenzte Real-Tests, alle 30 Fragen pro Test, Schwachstellen-Analyse, Wiederholungs-Queue und werbefreies Erlebnis sind freigeschaltet.'
                 : 'Unlimited Real Tests, all 30 questions per test, weakness analysis, the review queue and an ad-free experience are unlocked.'}
             </p>
             <button
               onClick={() => { setThankYouModal(null); setGameState('intro'); }}
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+              className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
             >
               {lang === 'de' ? 'Los geht\'s! →' : "Let's go! →"}
             </button>
@@ -3503,7 +3503,7 @@ export default function App() {
             <div className="flex gap-3">
               <button
                 onClick={() => setCancelConfirm(false)}
-                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Behalten ✓' : 'Keep it ✓'}
               </button>
@@ -3541,7 +3541,7 @@ export default function App() {
             <div className="flex gap-3">
               <button
                 onClick={() => setResumeConfirm(false)}
-                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Abbrechen' : 'Never mind'}
               </button>
@@ -3552,7 +3552,7 @@ export default function App() {
                   if (result.error) alert(result.error);
                   await auth.refreshProfile();
                 }}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Fortsetzen' : 'Resume'}
               </button>

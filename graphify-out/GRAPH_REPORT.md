@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 46 files · ~82,262 words
+- 46 files · ~82,411 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 278 nodes · 372 edges · 15 communities (14 shown, 1 thin omitted)
+- 282 nodes · 392 edges · 15 communities (14 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `10e3f93d`
+- Built from commit: `30b72e45`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +22,7 @@
 - devDependencies
 - flashcards.ts
 - worker/index.ts
-- types.ts
+- data/index.ts
 - Icons.tsx
 - 0001_initial_schema.sql
 - dependencies
@@ -37,14 +37,14 @@
 4. `buildGrammarCards()` - 6 edges
 5. `speak()` - 6 edges
 6. `users` - 6 edges
-7. `stripFurigana()` - 5 edges
-8. `buildVocabCards()` - 5 edges
-9. `buildDeck()` - 5 edges
-10. `App()` - 5 edges
+7. `App()` - 5 edges
+8. `hydrateLevelData()` - 5 edges
+9. `stripFurigana()` - 5 edges
+10. `buildVocabCards()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `toRomaji()`  [EXTRACTED]
-  src/App.tsx → src/romaji.ts
+- `App()` --calls--> `hydrateLevelData()`  [EXTRACTED]
+  src/App.tsx → src/data/index.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -87,9 +87,9 @@ Nodes (17): allDecks(), buildCompoundReadings(), buildDeck(), buildGrammarCards(
 Cohesion: 0.10
 Nodes (15): adminRoutes, authRoutes, TODO: Send reset email, progressRoutes, answerToQuality(), qualityToSM2(), sm2(), SM2State (+7 more)
 
-### Community 7 - "types.ts"
-Cohesion: 0.15
-Nodes (12): n3Data, n4Data, n5Data, DeviceMode, GameState, JLPTLevel, KanjiEntry, Lang (+4 more)
+### Community 7 - "data/index.ts"
+Cohesion: 0.18
+Nodes (15): allLevels, hydrateLevelData(), levelData, n3Data, n4Data, n5Data, DeviceMode, GameState (+7 more)
 
 ### Community 8 - "Icons.tsx"
 Cohesion: 0.24
@@ -112,7 +112,7 @@ Cohesion: 0.38
 Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(), youonHira
 
 ## Knowledge Gaps
-- **102 isolated node(s):** `preloadEntry`, `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo`, `DECK_SIZE_LIMIT` (+97 more)
+- **95 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+90 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -123,8 +123,8 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **What connects `preloadEntry`, `COMPOUND_READINGS`, `LEVEL_ORDER` to the rest of the system?**
-  _102 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+  _95 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**

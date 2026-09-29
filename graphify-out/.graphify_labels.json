@@ -6,7 +6,7 @@
   "4": "devDependencies",
   "5": "flashcards.ts",
   "6": "worker/index.ts",
-  "7": "types.ts",
+  "7": "data/index.ts",
   "8": "Icons.tsx",
   "9": "0001_initial_schema.sql",
   "10": "dependencies",
