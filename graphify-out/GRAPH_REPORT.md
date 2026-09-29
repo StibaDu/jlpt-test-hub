@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 282 nodes · 392 edges · 15 communities (14 shown, 1 thin omitted)
+- 282 nodes · 391 edges · 15 communities (14 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `30b72e45`
+- Built from commit: `1afbeafb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -37,14 +37,12 @@
 4. `buildGrammarCards()` - 6 edges
 5. `speak()` - 6 edges
 6. `users` - 6 edges
-7. `App()` - 5 edges
-8. `hydrateLevelData()` - 5 edges
-9. `stripFurigana()` - 5 edges
-10. `buildVocabCards()` - 5 edges
+7. `stripFurigana()` - 5 edges
+8. `buildVocabCards()` - 5 edges
+9. `buildDeck()` - 5 edges
+10. `LevelData` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `hydrateLevelData()`  [EXTRACTED]
-  src/App.tsx → src/data/index.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -53,6 +51,8 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
+- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.

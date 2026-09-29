@@ -339,10 +339,10 @@
       "source_file": "src/data/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_index",
       "community": 7,
       "community_name": "data/index.ts",
-      "norm_label": "data/index.ts"
+      "norm_label": "data/index.ts",
+      "id": "src_data_index"
     },
     {
       "label": "levelData",
@@ -350,10 +350,10 @@
       "source_file": "src/data/index.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_data_index_leveldata",
       "community": 7,
       "community_name": "data/index.ts",
-      "norm_label": "leveldata"
+      "norm_label": "leveldata",
+      "id": "src_data_index_leveldata"
     },
     {
       "label": "hydrateLevelData()",
@@ -361,10 +361,10 @@
       "source_file": "src/data/index.ts",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_data_index_hydrateleveldata",
       "community": 7,
       "community_name": "data/index.ts",
-      "norm_label": "hydrateleveldata()"
+      "norm_label": "hydrateleveldata()",
+      "id": "src_data_index_hydrateleveldata"
     },
     {
       "label": "allLevels",
@@ -372,10 +372,10 @@
       "source_file": "src/data/index.ts",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_data_index_alllevels",
       "community": 7,
       "community_name": "data/index.ts",
-      "norm_label": "alllevels"
+      "norm_label": "alllevels",
+      "id": "src_data_index_alllevels"
     },
     {
       "label": "vite.config.ts",
@@ -3823,27 +3823,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1577",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_data_index_hydrateleveldata"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/index.ts",
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_index_alllevels",
-      "confidence_score": 1.0
+      "target": "src_data_index_alllevels"
     },
     {
       "relation": "contains",
@@ -3852,9 +3840,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_index_hydrateleveldata",
-      "confidence_score": 1.0
+      "target": "src_data_index_hydrateleveldata"
     },
     {
       "relation": "contains",
@@ -3863,9 +3851,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_index_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_index_leveldata"
     },
     {
       "relation": "imports_from",
@@ -3875,9 +3863,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_n5",
-      "confidence_score": 1.0
+      "target": "src_data_n5"
     },
     {
       "relation": "imports",
@@ -3887,9 +3875,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_n5_n5data",
-      "confidence_score": 1.0
+      "target": "src_data_n5_n5data"
     },
     {
       "relation": "re_exports",
@@ -3899,9 +3887,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types",
-      "confidence_score": 1.0
+      "target": "src_data_types"
     },
     {
       "relation": "re_exports",
@@ -3911,9 +3899,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_devicemode",
-      "confidence_score": 1.0
+      "target": "src_data_types_devicemode"
     },
     {
       "relation": "re_exports",
@@ -3923,9 +3911,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_gamestate",
-      "confidence_score": 1.0
+      "target": "src_data_types_gamestate"
     },
     {
       "relation": "re_exports",
@@ -3935,9 +3923,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_jlptlevel",
-      "confidence_score": 1.0
+      "target": "src_data_types_jlptlevel"
     },
     {
       "relation": "re_exports",
@@ -3947,9 +3935,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_kanjientry",
-      "confidence_score": 1.0
+      "target": "src_data_types_kanjientry"
     },
     {
       "relation": "re_exports",
@@ -3959,9 +3947,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_lang",
-      "confidence_score": 1.0
+      "target": "src_data_types_lang"
     },
     {
       "relation": "re_exports",
@@ -3971,9 +3959,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_leveldata",
-      "confidence_score": 1.0
+      "target": "src_data_types_leveldata"
     },
     {
       "relation": "re_exports",
@@ -3983,9 +3971,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_question",
-      "confidence_score": 1.0
+      "target": "src_data_types_question"
     },
     {
       "relation": "re_exports",
@@ -3995,9 +3983,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index",
-      "target": "src_data_types_testmode",
-      "confidence_score": 1.0
+      "target": "src_data_types_testmode"
     },
     {
       "relation": "imports_from",
@@ -4008,9 +3996,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index_hydrateleveldata",
-      "target": "src_data_n3",
-      "confidence_score": 1.0
+      "target": "src_data_n3"
     },
     {
       "relation": "imports_from",
@@ -4021,9 +4009,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_data_index_hydrateleveldata",
-      "target": "src_data_n4",
-      "confidence_score": 1.0
+      "target": "src_data_n4"
     },
     {
       "relation": "contains",
@@ -7587,5 +7575,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "30b72e45f33b59751c750290ed6ee271419c7a5b"
+  "built_at_commit": "1afbeafb7b516b5f2bf79fa7610d7606be2de048"
 }

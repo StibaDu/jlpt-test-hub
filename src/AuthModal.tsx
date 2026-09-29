@@ -76,7 +76,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
+            className="text-gray-600 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -159,17 +159,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           </button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-gray-500 space-y-2">
+        <div className="mt-6 text-center text-sm text-gray-600 space-y-2">
           {mode === 'login' && (
             <>
               <p>
                 No account?{' '}
-                <button onClick={() => { setMode('signup'); setError(''); setSuccess(''); }} className="text-emerald-600 hover:underline font-medium">
+                <button onClick={() => { setMode('signup'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
                   Sign up
                 </button>
               </p>
               <p>
-                <button onClick={() => { setMode('forgot'); setError(''); setSuccess(''); }} className="text-gray-400 hover:text-gray-600">
+                <button onClick={() => { setMode('forgot'); setError(''); setSuccess(''); }} className="text-gray-600 hover:text-gray-600">
                   Forgot password?
                 </button>
               </p>
@@ -178,14 +178,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           {mode === 'signup' && (
             <p>
               Already have an account?{' '}
-              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-600 hover:underline font-medium">
+              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
                 Sign in
               </button>
             </p>
           )}
           {mode === 'forgot' && (
             <p>
-              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-600 hover:underline font-medium">
+              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
                 Back to sign in
               </button>
             </p>
