@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1790696254.2705097,
-    "ast_hash": "795bfa1ad8a5c23044f0ac3286a8a2ce",
+    "mtime": 1790697126.9288545,
+    "ast_hash": "752315d53543e7b40ed1183646610321",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1790695890.2977061,
-    "ast_hash": "d037482654cd201fe2a3b37fe4bff0ee",
+    "mtime": 1790697118.650564,
+    "ast_hash": "112257390abc025317f70b798185fe3f",
     "semantic_hash": ""
   },
   "public/robots.txt": {
@@ -262,6 +262,11 @@
   "src/romaji.ts": {
     "mtime": 1790680774.1399488,
     "ast_hash": "7cfea5ef149733d3cd7e4c5ffde1c807",
+    "semantic_hash": ""
+  },
+  "public/llms.txt": {
+    "mtime": 1790696525.9383464,
+    "ast_hash": "94e4f8fcbe41ac54316a967a44b277af",
     "semantic_hash": ""
   }
 }

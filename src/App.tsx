@@ -726,7 +726,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     <>
                       {/* Actual wrong questions with explanations */}
                       <div className="space-y-2.5 max-h-80 overflow-y-auto pr-1">
-                        {notebookData.questions.slice(0, showNotebook ? 20 : 4).map((wq: any) => {
+                        {notebookData.questions.slice(0, showNotebook ? notebookData.questions.length : 4).map((wq: any) => {
                           const q = findQuestion(wq.question_id, wq.level);
                           if (!q) return null;
                           const wrongOpt = wq.last_wrong_option !== null && wq.last_wrong_option !== undefined ? q.options[wq.last_wrong_option] : null;
