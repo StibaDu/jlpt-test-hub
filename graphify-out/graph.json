@@ -334,6 +334,28 @@
       "norm_label": "app()"
     },
     {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "vite_config",
+      "community": 14,
+      "community_name": "vite.config.ts",
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "preloadEntry",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "vite_config_preloadentry",
+      "community": 14,
+      "community_name": "vite.config.ts",
+      "norm_label": "preloadentry"
+    },
+    {
       "label": "data/index.ts",
       "file_type": "code",
       "source_file": "src/data/index.ts",
@@ -376,28 +398,6 @@
       "community_name": "data/index.ts",
       "norm_label": "alllevels",
       "id": "src_data_index_alllevels"
-    },
-    {
-      "label": "vite.config.ts",
-      "file_type": "code",
-      "source_file": "vite.config.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "vite.config.ts",
-      "norm_label": "vite.config.ts",
-      "id": "vite_config"
-    },
-    {
-      "label": "preloadEntry",
-      "file_type": "code",
-      "source_file": "vite.config.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "vite.config.ts",
-      "norm_label": "preloadentry",
-      "id": "vite_config_preloadentry"
     },
     {
       "label": "flashcards.ts",
@@ -3803,7 +3803,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L2930",
+      "source_location": "L2941",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3820,6 +3820,17 @@
       "_origin": "ast",
       "source": "src_app_app",
       "target": "src_app_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "vite_config",
+      "target": "vite_config_preloadentry",
       "confidence_score": 1.0
     },
     {
@@ -4012,17 +4023,6 @@
       "confidence_score": 1.0,
       "source": "src_data_index_hydrateleveldata",
       "target": "src_data_n4"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "vite.config.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "vite_config",
-      "target": "vite_config_preloadentry"
     },
     {
       "relation": "imports_from",
@@ -7575,5 +7575,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1afbeafb7b516b5f2bf79fa7610d7606be2de048"
+  "built_at_commit": "4d479eadeeff6cc178fd382b7e8a1fffc8015927"
 }

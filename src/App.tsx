@@ -1543,19 +1543,7 @@ export default function App() {
   const [showAccessibilityModal, setShowAccessibilityModal] = useState(false);
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
 
-  // AdSense loader: injected ONLY after advertising consent (TTDSG/GDPR) — 218KB off the critical path
-  useEffect(() => {
-    if (!cookieConsentGiven) return;
-    const consent = getConsent();
-    if (!consent?.advertising) return;
-    if (document.querySelector('script[data-adsense-loader]')) return;
-    const s = document.createElement('script');
-    s.async = true;
-    s.dataset.adsenseLoader = 'true';
-    s.crossOrigin = 'anonymous';
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082985236293156';
-    document.head.appendChild(s);
-  }, [cookieConsentGiven]);
+
   const [lang, setLang] = useState<Lang>('en');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [weaknessData, setWeaknessData] = useState<any>(null);

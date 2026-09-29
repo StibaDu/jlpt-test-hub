@@ -1,0 +1,29 @@
+# JLPT Test Hub — Free JLPT Practice Tests (N5, N4, N3)
+
+Free web app for practicing the Japanese Language Proficiency Test (JLPT) levels N5, N4 and N3. Official-format practice questions with an interactive furigana dictionary, instant explanations, timed real-test simulation, spaced repetition review, and multilingual interface (English / German).
+
+## App
+
+- [Start a practice test](https://www.jlpttesthub.com/#/n5): JLPT practice tests — choose N5, N4, or N3, Real Test (timed) or Learning Mode (instant feedback)
+- [Pro features & pricing](https://www.jlpttesthub.com/#/n5): Pro subscription with unlimited real tests, flashcards (kanji/vocabulary/grammar), weakness analysis and PDF export
+
+## Reference
+
+- [Frequently Asked Questions](https://www.jlpttesthub.com/#faq): answers about the free tier, Pro features and subscriptions
+- [Impressum (legal notice)](https://www.jlpttesthub.com/#impressum): provider identification (German DDG § 5)
+- [Privacy Policy (Datenschutz)](https://www.jlpttesthub.com/#datenschutz): GDPR data processing details
+- [Terms & Conditions (AGB)](https://www.jlpttesthub.com/#agb): conditions for use and subscriptions
+- [Accessibility statement (Barrierefreiheit)](https://www.jlpttesthub.com/#barrierefreiheit): WCAG compliance statement and feedback contact
+
+## Policies
+
+- Robots and crawl rules: [robots.txt](https://www.jlpttesthub.com/robots.txt) — full site open to crawlers, asset folders disallowed
+- Site index: [sitemap.xml](https://www.jlpttesthub.com/sitemap.xml)
+
+## Contact
+
+Provider: Sebastian Thomas, Maubacher Str. 17, 71522 Backnang, Germany · E-Mail: createdby.jp@gmail.com
+
+## AI usage
+
+AI agents may index and summarize the public practice content. Machine-readable catalog: [ai-catalog.json](https://www.jlpttesthub.com/.well-known/ai-catalog.json)
