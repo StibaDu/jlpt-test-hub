@@ -21,4 +21,7 @@ const preloadEntry: any = {
 
 export default defineConfig({
   plugins: [react(), preloadEntry],
+  build: {
+    sourcemap: true,
+  },
 })

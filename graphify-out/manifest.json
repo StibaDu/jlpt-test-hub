@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "src/AuthModal.tsx": {
-    "mtime": 1790445255.7609262,
-    "ast_hash": "2fcef0b0b898b86de6e926055e31204d",
+    "mtime": 1790695971.6031964,
+    "ast_hash": "11c380f5ce61f3df7f9d48420be0aa88",
     "semantic_hash": ""
   },
   "src/useAuth.ts": {

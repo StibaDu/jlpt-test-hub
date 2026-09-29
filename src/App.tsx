@@ -1572,16 +1572,16 @@ export default function App() {
 
   const auth = useAuth();
 
-  // Load N4/N3 question banks in an idle chunk (off the LCP critical path)
+  // Load N4/N3 question banks — async chunks, kicked off immediately at boot
+  // (separate chunks keep them off the LCP path; ready within ~1s)
   useEffect(() => {
-    const load = () => { hydrateLevelData().then(() => setDataReady(true)); };
-    const w = window as any;
-    if (w.requestIdleCallback) w.requestIdleCallback(load, { timeout: 3000 });
-    else setTimeout(load, 1200);
+    hydrateLevelData().then(() => setDataReady(true));
   }, []);
 
   // Track data readiness; N4/N3 screens re-render after
-  const [dataReady, setDataReady] = useState(false);
+  const [dataReady, setDataReady] = useState(() => {
+    try { return false; } catch { return false; }
+  });
 
   // Detect Stripe checkout return: #/welcome?session_id=cs_... → confirm + Thank-You modal
   useEffect(() => {
@@ -2653,6 +2653,17 @@ export default function App() {
   };
 
   const renderAppContent = () => {
+    // N4/N3 banks are lazy chunks — guard every screen from rendering them unloaded (white-screen crash)
+    if (!dataReady && selectedLevel !== 'N5' && (gameState === 'intro' || gameState === 'testing' || gameState === 'flashcards')) {
+      return (
+        <main className={`bg-gray-900 text-gray-100 flex items-center justify-center font-sans flex-1 ${isMobile ? 'min-h-full' : 'min-h-screen'}`}>
+          <div className="text-center">
+            <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent mb-4"></div>
+            <p className="text-gray-400 text-sm font-bold">{lang === 'de' ? 'Lade Fragen…' : 'Loading questions…'}</p>
+          </div>
+        </main>
+      );
+    }
     if (gameState === 'flashcards') {
       return renderFlashcards();
     }
