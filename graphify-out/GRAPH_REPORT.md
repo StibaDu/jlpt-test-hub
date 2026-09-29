@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 45 files · ~81,277 words
+- 45 files · ~81,555 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 267 nodes · 364 edges · 13 communities
+- 269 nodes · 367 edges · 13 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7c93130b`
+- Built from commit: `78240f62`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,7 +38,7 @@
 7. `speak()` - 6 edges
 8. `users` - 6 edges
 9. `stripFurigana()` - 5 edges
-10. `buildVocabCards()` - 5 edges
+10. `buildKanjiCards()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -78,8 +78,8 @@ Cohesion: 0.09
 Nodes (23): autoprefixer, oxlint, devDependencies, autoprefixer, oxlint, postcss, tailwindcss, @types/node (+15 more)
 
 ### Community 5 - "flashcards.ts"
-Cohesion: 0.19
-Nodes (18): App(), renderFurigana(), shuffleArray(), allDecks(), buildDeck(), buildGrammarCards(), buildKanjiCards(), buildVocabCards() (+10 more)
+Cohesion: 0.17
+Nodes (20): App(), renderFurigana(), shuffleArray(), allDecks(), buildCompoundReadings(), buildDeck(), buildGrammarCards(), buildKanjiCards() (+12 more)
 
 ### Community 6 - "worker/index.ts"
 Cohesion: 0.10
@@ -106,7 +106,7 @@ Cohesion: 0.30
 Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
 ## Knowledge Gaps
-- **97 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+92 more)
+- **98 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+93 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -115,9 +115,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `devDependencies` connect `devDependencies` to `dependencies`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
-  _97 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**

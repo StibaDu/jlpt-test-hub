@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels } from './data';
 import {
   buildKanjiCards, buildVocabCards, buildGrammarCards, buildDeck,
-  buildWeakGrammarDeck, allDecks, speakForCard, type Flashcard,
+  buildWeakGrammarDeck, allDecks, type Flashcard,
 } from './flashcards';
 import { lookupReadings } from './data/kanjiReadings';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
@@ -2366,7 +2366,6 @@ export default function App() {
                       <div className="flex gap-2 mb-3">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🈶 {card.level}</span>
                       </div>
-                      <button onClick={e => { e.stopPropagation(); speakForCard(card, 'front'); }} className="text-2xl" title={lang === 'de' ? 'Aussprache' : 'Pronunciation'}>🔊</button>
                       <p className="text-[10px] text-gray-500 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
                     </>
                   ) : isCloze ? (
@@ -2377,7 +2376,6 @@ export default function App() {
                           ? (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
                           : (lang === 'de' ? 'Welcher Satz bedeutet dasselbe?' : 'Which sentence means the same?')}
                       </p>
-                      <button onClick={e => { e.stopPropagation(); speakForCard(card, 'front'); }} className="mt-2 text-xl" title="🔊">🔊</button>
                     </>
                   ) : (
                     <>
@@ -2398,7 +2396,6 @@ export default function App() {
                         <div className="text-6xl font-black text-white">{card.frontMain}</div>
                         <div className="flex flex-col gap-1 items-end">
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level}</span>
-                          <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
@@ -2428,7 +2425,6 @@ export default function App() {
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
                         <div className="text-5xl font-black text-white">{card.frontMain}</div>
-                        <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
                       </div>
                       {card.kunyomi && (
                         <div className="bg-white/5 rounded-lg p-2 inline-block">
@@ -2452,7 +2448,6 @@ export default function App() {
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level} · {isCloze ? '✏️' : '🧩'}</span>
-                        <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
                       </div>
                       <div className="bg-white/10 rounded-lg p-2.5">
                         <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Lösung' : 'Answer'}</div>
