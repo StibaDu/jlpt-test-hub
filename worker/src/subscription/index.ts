@@ -86,7 +86,12 @@ export const subscriptionRoutes = new Hono()
     const user = c.get('user');
 
     const stripe = new Stripe(c.env.STRIPE_SECRET_KEY);
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    let session;
+    try {
+      session = await stripe.checkout.sessions.retrieve(sessionId);
+    } catch (err: any) {
+      return c.json({ error: 'Checkout session not found or expired' }, 404);
+    }
 
     if (session.payment_status !== 'paid' && session.mode === 'subscription') {
       // For subscriptions, check if subscription exists
@@ -100,9 +105,9 @@ export const subscriptionRoutes = new Hono()
     const subId = crypto.randomUUID();
 
     // Newer Stripe API: periods live on the subscription item
-    const subItem = subscription.items?.data?.[0] as any;
-    const periodStart = ((subscription as any).current_period_start ?? subItem?.current_period_start ?? Math.floor(Date.now() / 1000)) * 1000;
-    const periodEnd = ((subscription as any).current_period_end ?? subItem?.current_period_end ?? Math.floor(Date.now() / 1000) + 30 * 86400) * 1000;
+    const subItem = (subscription.items?.data?.[0] ?? {}) as any;
+    const periodStart = ((subscription as any).current_period_start ?? subItem.current_period_start ?? Math.floor(Date.now() / 1000)) * 1000;
+    const periodEnd = ((subscription as any).current_period_end ?? subItem.current_period_end ?? Math.floor(Date.now() / 1000) + 30 * 86400) * 1000;
 
     // Idempotent: one row per Stripe subscription
     await c.env.DB.prepare(
