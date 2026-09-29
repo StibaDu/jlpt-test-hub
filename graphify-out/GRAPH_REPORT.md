@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 46 files · ~82,148 words
+- 46 files · ~82,262 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 276 nodes · 371 edges · 14 communities
+- 278 nodes · 372 edges · 15 communities (14 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `39deb052`
+- Built from commit: `10e3f93d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,8 @@
 - 0001_initial_schema.sql
 - dependencies
 - useAuth.ts
-- tts.ts
+- romaji.ts
+- vite.config.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
@@ -42,6 +43,8 @@
 10. `App()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `App()` --calls--> `toRomaji()`  [EXTRACTED]
+  src/App.tsx → src/romaji.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -50,13 +53,11 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
-- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
-  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (14 total, 0 thin omitted)
+## Communities (15 total, 1 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -72,7 +73,7 @@ Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, A
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.06
-Nodes (22): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+14 more)
+Nodes (25): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+17 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.09
@@ -106,28 +107,29 @@ Nodes (26): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono
 Cohesion: 0.30
 Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
-### Community 13 - "tts.ts"
+### Community 13 - "romaji.ts"
 Cohesion: 0.38
-Nodes (9): getJapaneseVoice(), getSavedRate(), hasGoodJapaneseVoice(), listJapaneseVoices(), QUALITY_KEYWORDS, saveRate(), speak(), stopSpeaking() (+1 more)
+Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(), youonHira
 
 ## Knowledge Gaps
-- **101 isolated node(s):** `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo`, `DECK_SIZE_LIMIT`, `UiStrings` (+96 more)
+- **102 isolated node(s):** `preloadEntry`, `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo`, `DECK_SIZE_LIMIT` (+97 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `dependencies`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **What connects `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo` to the rest of the system?**
-  _101 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **What connects `preloadEntry`, `COMPOUND_READINGS`, `LEVEL_ORDER` to the rest of the system?**
+  _102 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06028368794326241 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._

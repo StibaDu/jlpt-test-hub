@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { levelData, allLevels } from './data';
+import { levelData, allLevels, hydrateLevelData } from './data';
 import {
   buildKanjiCards, buildVocabCards, buildGrammarCards, buildDeck,
   buildWeakGrammarDeck, allDecks, type Flashcard,
@@ -1542,6 +1542,20 @@ export default function App() {
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [showAccessibilityModal, setShowAccessibilityModal] = useState(false);
   const [cookieConsentGiven, setCookieConsentGiven] = useState(() => !!getConsent());
+
+  // AdSense loader: injected ONLY after advertising consent (TTDSG/GDPR) — 218KB off the critical path
+  useEffect(() => {
+    if (!cookieConsentGiven) return;
+    const consent = getConsent();
+    if (!consent?.advertising) return;
+    if (document.querySelector('script[data-adsense-loader]')) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.dataset.adsenseLoader = 'true';
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082985236293156';
+    document.head.appendChild(s);
+  }, [cookieConsentGiven]);
   const [lang, setLang] = useState<Lang>('en');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [weaknessData, setWeaknessData] = useState<any>(null);
@@ -1557,6 +1571,17 @@ export default function App() {
   const [resumeConfirm, setResumeConfirm] = useState(false);
 
   const auth = useAuth();
+
+  // Load N4/N3 question banks in an idle chunk (off the LCP critical path)
+  useEffect(() => {
+    const load = () => { hydrateLevelData().then(() => setDataReady(true)); };
+    const w = window as any;
+    if (w.requestIdleCallback) w.requestIdleCallback(load, { timeout: 3000 });
+    else setTimeout(load, 1200);
+  }, []);
+
+  // Track data readiness; N4/N3 screens re-render after
+  const [dataReady, setDataReady] = useState(false);
 
   // Detect Stripe checkout return: #/welcome?session_id=cs_... → confirm + Thank-You modal
   useEffect(() => {
@@ -2155,6 +2180,7 @@ export default function App() {
               setSelectedLevel(lvl);
               updateHash(lvl);
               if (gameState !== 'intro') goHome();
+              if (!dataReady) { setDataReady((r) => r); }
             }}
             className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all active:scale-95 ${
               selectedLevel === lvl

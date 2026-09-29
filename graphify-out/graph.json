@@ -4,15 +4,37 @@
   "graph": {},
   "nodes": [
     {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "vite_config",
+      "community": 14,
+      "community_name": "vite.config.ts",
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "preloadEntry",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "vite_config_preloadentry",
+      "community": 14,
+      "community_name": "vite.config.ts",
+      "norm_label": "preloadentry"
+    },
+    {
       "label": "flashcards.ts",
       "file_type": "code",
       "source_file": "src/flashcards.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_flashcards",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "flashcards.ts"
+      "norm_label": "flashcards.ts",
+      "id": "src_flashcards"
     },
     {
       "label": "Flashcard",
@@ -20,10 +42,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_flashcards_flashcard",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "flashcard"
+      "norm_label": "flashcard",
+      "id": "src_flashcards_flashcard"
     },
     {
       "label": "COMPOUND_READINGS",
@@ -31,10 +53,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "src_flashcards_compound_readings",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "compound_readings"
+      "norm_label": "compound_readings",
+      "id": "src_flashcards_compound_readings"
     },
     {
       "label": "stripFurigana()",
@@ -42,10 +64,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "src_flashcards_stripfurigana",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "stripfurigana()"
+      "norm_label": "stripfurigana()",
+      "id": "src_flashcards_stripfurigana"
     },
     {
       "label": "kanaOf()",
@@ -53,10 +75,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "src_flashcards_kanaof",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "kanaof()"
+      "norm_label": "kanaof()",
+      "id": "src_flashcards_kanaof"
     },
     {
       "label": "GRAMMAR_CATEGORIES",
@@ -64,10 +86,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L55",
       "_origin": "ast",
-      "id": "src_flashcards_grammar_categories",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "grammar_categories"
+      "norm_label": "grammar_categories",
+      "id": "src_flashcards_grammar_categories"
     },
     {
       "label": "extractPattern()",
@@ -75,10 +97,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "src_flashcards_extractpattern",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "extractpattern()"
+      "norm_label": "extractpattern()",
+      "id": "src_flashcards_extractpattern"
     },
     {
       "label": "LEVEL_ORDER",
@@ -86,10 +108,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "src_flashcards_level_order",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "level_order"
+      "norm_label": "level_order",
+      "id": "src_flashcards_level_order"
     },
     {
       "label": "DeckInfo",
@@ -97,10 +119,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "src_flashcards_deckinfo",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "deckinfo"
+      "norm_label": "deckinfo",
+      "id": "src_flashcards_deckinfo"
     },
     {
       "label": "allDecks()",
@@ -108,10 +130,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L76",
       "_origin": "ast",
-      "id": "src_flashcards_alldecks",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "alldecks()"
+      "norm_label": "alldecks()",
+      "id": "src_flashcards_alldecks"
     },
     {
       "label": "buildCompoundReadings()",
@@ -119,10 +141,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L126",
       "_origin": "ast",
-      "id": "src_flashcards_buildcompoundreadings",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "buildcompoundreadings()"
+      "norm_label": "buildcompoundreadings()",
+      "id": "src_flashcards_buildcompoundreadings"
     },
     {
       "label": "buildKanjiCards()",
@@ -130,10 +152,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L146",
       "_origin": "ast",
-      "id": "src_flashcards_buildkanjicards",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "buildkanjicards()"
+      "norm_label": "buildkanjicards()",
+      "id": "src_flashcards_buildkanjicards"
     },
     {
       "label": "buildVocabCards()",
@@ -141,10 +163,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "src_flashcards_buildvocabcards",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "buildvocabcards()"
+      "norm_label": "buildvocabcards()",
+      "id": "src_flashcards_buildvocabcards"
     },
     {
       "label": "buildGrammarCards()",
@@ -152,10 +174,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L214",
       "_origin": "ast",
-      "id": "src_flashcards_buildgrammarcards",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "buildgrammarcards()"
+      "norm_label": "buildgrammarcards()",
+      "id": "src_flashcards_buildgrammarcards"
     },
     {
       "label": "buildDeck()",
@@ -163,10 +185,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L250",
       "_origin": "ast",
-      "id": "src_flashcards_builddeck",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "builddeck()"
+      "norm_label": "builddeck()",
+      "id": "src_flashcards_builddeck"
     },
     {
       "label": "buildWeakGrammarDeck()",
@@ -174,10 +196,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L263",
       "_origin": "ast",
-      "id": "src_flashcards_buildweakgrammardeck",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "buildweakgrammardeck()"
+      "norm_label": "buildweakgrammardeck()",
+      "id": "src_flashcards_buildweakgrammardeck"
     },
     {
       "label": "DECK_SIZE_LIMIT",
@@ -185,10 +207,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L283",
       "_origin": "ast",
-      "id": "src_flashcards_deck_size_limit",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "deck_size_limit"
+      "norm_label": "deck_size_limit",
+      "id": "src_flashcards_deck_size_limit"
     },
     {
       "label": "firstKana()",
@@ -196,10 +218,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L288",
       "_origin": "ast",
-      "id": "src_flashcards_firstkana",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "firstkana()"
+      "norm_label": "firstkana()",
+      "id": "src_flashcards_firstkana"
     },
     {
       "label": "speakForCard()",
@@ -207,10 +229,10 @@
       "source_file": "src/flashcards.ts",
       "source_location": "L293",
       "_origin": "ast",
-      "id": "src_flashcards_speakforcard",
       "community": 5,
       "community_name": "flashcards.ts",
-      "norm_label": "speakforcard()"
+      "norm_label": "speakforcard()",
+      "id": "src_flashcards_speakforcard"
     },
     {
       "label": "App.tsx",
@@ -548,8 +570,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "romaji.ts",
       "id": "src_romaji"
     },
@@ -559,8 +581,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "hiragana",
       "id": "src_romaji_hiragana"
     },
@@ -570,8 +592,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L36",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "katakana_map",
       "id": "src_romaji_katakana_map"
     },
@@ -581,8 +603,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L71",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "youonhira",
       "id": "src_romaji_youonhira"
     },
@@ -592,8 +614,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L85",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "ch_next_romaji()",
       "id": "src_romaji_ch_next_romaji"
     },
@@ -603,8 +625,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L89",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "translitkana()",
       "id": "src_romaji_translitkana"
     },
@@ -614,8 +636,8 @@
       "source_file": "src/romaji.ts",
       "source_location": "L128",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 13,
+      "community_name": "romaji.ts",
       "norm_label": "toromaji()",
       "id": "src_romaji_toromaji"
     },
@@ -1263,8 +1285,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "tts.ts",
       "id": "src_tts"
     },
@@ -1274,8 +1296,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "quality_keywords",
       "id": "src_tts_quality_keywords"
     },
@@ -1285,8 +1307,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "ttssupported()",
       "id": "src_tts_ttssupported"
     },
@@ -1296,8 +1318,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "getjapanesevoice()",
       "id": "src_tts_getjapanesevoice"
     },
@@ -1307,8 +1329,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "hasgoodjapanesevoice()",
       "id": "src_tts_hasgoodjapanesevoice"
     },
@@ -1318,8 +1340,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "listjapanesevoices()",
       "id": "src_tts_listjapanesevoices"
     },
@@ -1329,8 +1351,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "speak()",
       "id": "src_tts_speak"
     },
@@ -1340,8 +1362,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "stopspeaking()",
       "id": "src_tts_stopspeaking"
     },
@@ -1351,8 +1373,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "getsavedrate()",
       "id": "src_tts_getsavedrate"
     },
@@ -1362,8 +1384,8 @@
       "source_file": "src/tts.ts",
       "source_location": "L79",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "tts.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "saverate()",
       "id": "src_tts_saverate"
     },
@@ -3042,6 +3064,17 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "vite_config",
+      "target": "vite_config_preloadentry",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3061,9 +3094,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_data_types",
-      "confidence_score": 1.0
+      "target": "src_data_types"
     },
     {
       "relation": "imports",
@@ -3073,9 +3106,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_data_types_jlptlevel",
-      "confidence_score": 1.0
+      "target": "src_data_types_jlptlevel"
     },
     {
       "relation": "contains",
@@ -3084,9 +3117,9 @@
       "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_alldecks",
-      "confidence_score": 1.0
+      "target": "src_flashcards_alldecks"
     },
     {
       "relation": "contains",
@@ -3095,9 +3128,9 @@
       "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_buildcompoundreadings",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildcompoundreadings"
     },
     {
       "relation": "contains",
@@ -3106,9 +3139,9 @@
       "source_location": "L250",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_builddeck",
-      "confidence_score": 1.0
+      "target": "src_flashcards_builddeck"
     },
     {
       "relation": "contains",
@@ -3117,9 +3150,9 @@
       "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_buildgrammarcards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildgrammarcards"
     },
     {
       "relation": "contains",
@@ -3128,9 +3161,9 @@
       "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_buildkanjicards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildkanjicards"
     },
     {
       "relation": "contains",
@@ -3139,9 +3172,9 @@
       "source_location": "L171",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_buildvocabcards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildvocabcards"
     },
     {
       "relation": "contains",
@@ -3150,9 +3183,9 @@
       "source_location": "L263",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_buildweakgrammardeck",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildweakgrammardeck"
     },
     {
       "relation": "contains",
@@ -3161,9 +3194,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_compound_readings",
-      "confidence_score": 1.0
+      "target": "src_flashcards_compound_readings"
     },
     {
       "relation": "contains",
@@ -3172,9 +3205,9 @@
       "source_location": "L283",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_deck_size_limit",
-      "confidence_score": 1.0
+      "target": "src_flashcards_deck_size_limit"
     },
     {
       "relation": "contains",
@@ -3183,9 +3216,9 @@
       "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_deckinfo",
-      "confidence_score": 1.0
+      "target": "src_flashcards_deckinfo"
     },
     {
       "relation": "contains",
@@ -3194,9 +3227,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_extractpattern",
-      "confidence_score": 1.0
+      "target": "src_flashcards_extractpattern"
     },
     {
       "relation": "contains",
@@ -3205,9 +3238,9 @@
       "source_location": "L288",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_firstkana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_firstkana"
     },
     {
       "relation": "contains",
@@ -3216,9 +3249,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_flashcard",
-      "confidence_score": 1.0
+      "target": "src_flashcards_flashcard"
     },
     {
       "relation": "contains",
@@ -3227,9 +3260,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_grammar_categories",
-      "confidence_score": 1.0
+      "target": "src_flashcards_grammar_categories"
     },
     {
       "relation": "contains",
@@ -3238,9 +3271,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_kanaof",
-      "confidence_score": 1.0
+      "target": "src_flashcards_kanaof"
     },
     {
       "relation": "contains",
@@ -3249,9 +3282,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_level_order",
-      "confidence_score": 1.0
+      "target": "src_flashcards_level_order"
     },
     {
       "relation": "contains",
@@ -3260,9 +3293,9 @@
       "source_location": "L293",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_speakforcard",
-      "confidence_score": 1.0
+      "target": "src_flashcards_speakforcard"
     },
     {
       "relation": "contains",
@@ -3271,9 +3304,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_flashcards_stripfurigana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_stripfurigana"
     },
     {
       "relation": "imports_from",
@@ -3283,9 +3316,9 @@
       "source_location": "L286",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_tts",
-      "confidence_score": 1.0
+      "target": "src_tts"
     },
     {
       "relation": "imports",
@@ -3295,9 +3328,9 @@
       "source_location": "L286",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards",
-      "target": "src_tts_speak",
-      "confidence_score": 1.0
+      "target": "src_tts_speak"
     },
     {
       "relation": "imports",
@@ -3319,9 +3352,9 @@
       "source_location": "L220",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildgrammarcards",
-      "target": "src_flashcards_stripfurigana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_stripfurigana"
     },
     {
       "relation": "calls",
@@ -3331,9 +3364,9 @@
       "source_location": "L200",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildvocabcards",
-      "target": "src_flashcards_stripfurigana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_stripfurigana"
     },
     {
       "relation": "calls",
@@ -3343,9 +3376,9 @@
       "source_location": "L268",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildweakgrammardeck",
-      "target": "src_flashcards_stripfurigana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_stripfurigana"
     },
     {
       "relation": "calls",
@@ -3355,9 +3388,9 @@
       "source_location": "L296",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_speakforcard",
-      "target": "src_flashcards_stripfurigana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_stripfurigana"
     },
     {
       "relation": "references",
@@ -3391,9 +3424,9 @@
       "source_location": "L222",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildgrammarcards",
-      "target": "src_flashcards_extractpattern",
-      "confidence_score": 1.0
+      "target": "src_flashcards_extractpattern"
     },
     {
       "relation": "imports",
@@ -3415,9 +3448,9 @@
       "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildkanjicards",
-      "target": "src_flashcards_buildcompoundreadings",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildcompoundreadings"
     },
     {
       "relation": "calls",
@@ -3427,9 +3460,9 @@
       "source_location": "L179",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_buildvocabcards",
-      "target": "src_flashcards_buildcompoundreadings",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildcompoundreadings"
     },
     {
       "relation": "imports",
@@ -3451,9 +3484,9 @@
       "source_location": "L254",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_builddeck",
-      "target": "src_flashcards_buildkanjicards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildkanjicards"
     },
     {
       "relation": "imports",
@@ -3475,9 +3508,9 @@
       "source_location": "L255",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_builddeck",
-      "target": "src_flashcards_buildvocabcards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildvocabcards"
     },
     {
       "relation": "imports",
@@ -3499,9 +3532,9 @@
       "source_location": "L256",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_builddeck",
-      "target": "src_flashcards_buildgrammarcards",
-      "confidence_score": 1.0
+      "target": "src_flashcards_buildgrammarcards"
     },
     {
       "relation": "imports",
@@ -3535,9 +3568,9 @@
       "source_location": "L295",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_flashcards_speakforcard",
-      "target": "src_flashcards_firstkana",
-      "confidence_score": 1.0
+      "target": "src_flashcards_firstkana"
     },
     {
       "relation": "contains",
@@ -7271,5 +7304,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "39deb052a26d0a6d2d0c155ea07d223d8cfd6a7b"
+  "built_at_commit": "10e3f93d85803701851c22697bb352a23b66dea4"
 }

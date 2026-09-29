@@ -12,5 +12,6 @@
   "10": "dependencies",
   "11": "Intro.tsx",
   "12": "useAuth.ts",
-  "13": "tts.ts"
+  "13": "romaji.ts",
+  "14": "vite.config.ts"
 }
