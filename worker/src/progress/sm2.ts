@@ -50,3 +50,15 @@ export function answerToQuality(isCorrect: boolean, isMasteredClick = false): nu
   if (isMasteredClick) return 5;
   return isCorrect ? 5 : 1;
 }
+
+// Anki-style rating → SM-2 quality mapping (simple mode: boolean correct/wrong)
+export function qualityToSM2(quality: 1 | 2 | 3 | 4 | number): number {
+  // 1=Again (blackout) → 1, 2=Hard → 3, 3=Good → 4, 4=Easy → 5
+  switch (quality) {
+    case 1: return 1;
+    case 2: return 3;
+    case 3: return 4;
+    case 4: return 5;
+    default: return 3;
+  }
+}

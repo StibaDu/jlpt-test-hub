@@ -1,5 +1,14 @@
 import { Hono } from 'hono';
-import { sm2, answerToQuality } from './sm2';
+import { sm2, answerToQuality, qualityToSM2 } from './sm2';
+
+// Stable signed 32-bit hash for flashcard question_id (keeps UNIQUE(user_id, question_id, level) happy)
+function cardIdHash(cardKey: string): number {
+  let h = 5381;
+  for (let i = 0; i < cardKey.length; i++) {
+    h = ((h * 33) ^ cardKey.charCodeAt(i)) | 0;
+  }
+  return h === 0 ? -1 : h; // avoid 0 (reserved for question rows)
+}
 
 export const progressRoutes = new Hono()
   .get('/stats', async (c) => {
@@ -103,65 +112,130 @@ export const progressRoutes = new Hono()
     const user = c.get('user');
     const now = Date.now();
     const rows = await c.env.DB.prepare(
-      `SELECT question_id, level, interval_days, repetitions, next_review_at
+      `SELECT question_id, level, card_key, interval_days, repetitions, next_review_at
        FROM weak_questions
        WHERE user_id = ? AND mastered = FALSE AND next_review_at IS NOT NULL AND next_review_at <= ?
        ORDER BY next_review_at ASC LIMIT 50`
     ).bind(user.sub, now).all();
 
     const newCards = await c.env.DB.prepare(
-      `SELECT question_id, level FROM weak_questions
-       WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0 AND next_review_at IS NULL
+      `SELECT question_id, level, card_key FROM weak_questions
+       WHERE user_id = ? AND mastered = FALSE AND times_wrong > 0 AND next_review_at IS NULL AND card_key IS NULL
        ORDER BY last_wrong_at ASC LIMIT 10`
     ).bind(user.sub).all();
+
+    const flashDue = await c.env.DB.prepare(
+      `SELECT card_key, level FROM weak_questions
+       WHERE user_id = ? AND mastered = FALSE AND next_review_at IS NOT NULL AND next_review_at <= ? AND card_key IS NOT NULL
+       ORDER BY next_review_at ASC LIMIT 50`
+    ).bind(user.sub, now).all();
 
     return c.json({
       due: rows.results,
       newCards: newCards.results,
+      flashDue: flashDue.results,
       dueCount: rows.results.length + newCards.results.length,
+      flashDueCount: flashDue.results.length,
     });
   })
 
   // === PRO: SRS — record a review answer (single question) ===
+  // === PRO: SRS — record a review answer (single question or flashcard) ===
+  // Supports:
+  //  - question cards: { questionId: number, level, correct } (legacy) or { quality: 1-4 }
+  //  - flashcards:     { cardId: 'k-N5-文' | 'v-N4-怪我' | 'g-N5-q13', quality }
+  // Composite cards self-register on first review (upsert).
   .post('/srs/answer', async (c) => {
     const user = c.get('user');
     const body = await c.req.json().catch(() => null);
-    if (!body || typeof body.questionId !== 'number' || !body.level) {
-      return c.json({ error: 'questionId (number) and level required' }, 400);
-    }
-    const isCorrect = !!body.correct;
-    const quality = answerToQuality(isCorrect);
-
-    const existing = await c.env.DB.prepare(
-      'SELECT repetitions, ease_factor, interval_days FROM weak_questions WHERE user_id = ? AND question_id = ? AND level = ?'
-    ).bind(user.sub, body.questionId, body.level).first<any>();
-
-    if (!existing) {
-      return c.json({ error: 'Question not in notebook' }, 404);
+    const hasQuestionId = body && typeof body.questionId === 'number';
+    const hasCardId = body && typeof body.cardId === 'string' && body.cardId.length <= 40;
+    if (!body || (!hasQuestionId && !hasCardId) || !body.level) {
+      return c.json({ error: 'questionId or cardId, plus level, required' }, 400);
     }
 
-    const next = sm2(quality, {
-      repetitions: existing.repetitions ?? 0,
-      easeFactor: existing.ease_factor ?? 2.5,
-      intervalDays: existing.interval_days ?? 0,
-    });
+    // Quality: explicit 1-4 rating (flashcards) or boolean legacy
+    let quality: number;
+    if (typeof body.quality === 'number') {
+      quality = qualityToSM2(body.quality);
+    } else {
+      quality = answerToQuality(!!body.correct);
+    }
+    const prev0 = { repetitions: 0, easeFactor: 2.5, intervalDays: 0 };
+
+    // Resolve previous SRS state:
+    //  - flashcards keyed by card_key (question_id = 0)
+    //  - question cards keyed by (question_id, level)
+    const isFlashcard = hasCardId;
+    const cardKey: string = isFlashcard ? body.cardId : '';
+    const qid: number = isFlashcard ? cardIdHash(cardKey) : body.questionId;
+
+    let existing: any = null;
+    if (isFlashcard) {
+      existing = await c.env.DB.prepare(
+        'SELECT repetitions, ease_factor, interval_days, mastered FROM weak_questions WHERE user_id = ? AND card_key = ?'
+      ).bind(user.sub, cardKey).first<any>();
+    } else {
+      existing = await c.env.DB.prepare(
+        'SELECT repetitions, ease_factor, interval_days, mastered FROM weak_questions WHERE user_id = ? AND question_id = ? AND level = ?'
+      ).bind(user.sub, qid, body.level).first<any>();
+      if (!existing) {
+        return c.json({ error: 'Question not in notebook' }, 404);
+      }
+    }
+
+    const prev = existing
+      ? { repetitions: existing.repetitions ?? 0, easeFactor: existing.ease_factor ?? 2.5, intervalDays: existing.interval_days ?? 0 }
+      : prev0;
+
+    const next = sm2(quality, prev);
 
     // 5+ successful reps → consider mastered (graduated)
+    const isCorrect = quality >= 3;
     const graduated = isCorrect && (next.repetitions >= 5);
 
-    await c.env.DB.prepare(
-      `UPDATE weak_questions SET
-         repetitions = ?, ease_factor = ?, interval_days = ?, next_review_at = ?,
-         mastered = ?, total_attempts = COALESCE(total_attempts, 0) + 1,
-         last_answer = ?, last_wrong_at = CASE WHEN ? THEN ? ELSE last_wrong_at END
-       WHERE user_id = ? AND question_id = ? AND level = ?`
-    ).bind(
-      next.repetitions, next.easeFactor, next.intervalDays, next.nextReviewAt,
-      graduated ? 1 : 0,
-      isCorrect ? 'correct' : 'wrong',
-      !isCorrect, !isCorrect ? Date.now() : null,
-      user.sub, body.questionId, body.level
-    ).run();
+    if (isFlashcard) {
+      // Flashcard: self-register (upsert on card_key), then apply schedule
+      const parsedCard = /-(N[345])-/.exec(cardKey);
+      await c.env.DB.prepare(
+        `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, times_wrong, total_attempts, mastered, repetitions, ease_factor, interval_days, next_review_at, last_answer, card_key)
+         VALUES (?, ?, ?, ?, 0, ?, 1, ?, ?, ?, ?, ?, ?, ?)
+         ON CONFLICT(user_id, card_key) DO UPDATE SET
+           times_wrong = CASE WHEN ? THEN times_wrong ELSE COALESCE(times_wrong, 0) + 1 END,
+           total_attempts = COALESCE(total_attempts, 0) + 1`
+      ).bind(
+        crypto.randomUUID(), user.sub, qid, (parsedCard ? parsedCard[1] : body.level),
+        isCorrect ? 0 : 1,
+        graduated ? 1 : 0,
+        next.repetitions, next.easeFactor, next.intervalDays, next.nextReviewAt,
+        isCorrect ? 'correct' : 'wrong',
+        cardKey,
+        isCorrect
+      ).run();
+      // Apply SM-2 schedule
+      await c.env.DB.prepare(
+        `UPDATE weak_questions SET repetitions = ?, ease_factor = ?, interval_days = ?, next_review_at = ?, mastered = ?, last_answer = ?
+         WHERE user_id = ? AND card_key = ?`
+      ).bind(
+        next.repetitions, next.easeFactor, next.intervalDays, next.nextReviewAt,
+        graduated ? 1 : 0, isCorrect ? 'correct' : 'wrong',
+        user.sub, cardKey
+      ).run();
+    } else {
+      await c.env.DB.prepare(
+        `UPDATE weak_questions SET
+           repetitions = ?, ease_factor = ?, interval_days = ?, next_review_at = ?,
+           mastered = ?, total_attempts = COALESCE(total_attempts, 0) + 1,
+           last_answer = ?, last_wrong_at = CASE WHEN ? THEN ? ELSE last_wrong_at END
+         WHERE user_id = ? AND question_id = ? AND level = ?`
+      ).bind(
+        next.repetitions, next.easeFactor, next.intervalDays, next.nextReviewAt,
+        graduated ? 1 : 0,
+        isCorrect ? 'correct' : 'wrong',
+        !isCorrect, !isCorrect ? Date.now() : null,
+        user.sub, qid, body.level
+      ).run();
+    }
 
     return c.json({
       success: true,
@@ -169,6 +243,28 @@ export const progressRoutes = new Hono()
       nextReviewAt: next.nextReviewAt,
       graduated,
     });
+  })
+
+  // === PRO: Flashcards — batch-register cards from a browsed deck (Mode B) ===
+  .post('/flashcards/register', async (c) => {
+    const user = c.get('user');
+    const body = await c.req.json().catch(() => null);
+    const cards = body?.cards;
+    if (!Array.isArray(cards) || cards.length === 0 || cards.length > 100) {
+      return c.json({ error: 'cards array (1-100) required' }, 400);
+    }
+    let registered = 0;
+    for (const card of cards) {
+      if (!card?.cardId || !card?.level) continue;
+      const lvl = /-(N[345])-/.exec(card.cardId)?.[1] || card.level;
+      await c.env.DB.prepare(
+        `INSERT INTO weak_questions (id, user_id, question_id, level, attempts, times_wrong, total_attempts, mastered, repetitions, ease_factor, interval_days, card_key)
+         VALUES (?, ?, ?, ?, 0, 0, 0, 0, 0, 2.5, 0, ?)
+         ON CONFLICT(user_id, card_key) DO NOTHING`
+      ).bind(crypto.randomUUID(), user.sub, cardIdHash(card.cardId), lvl, card.cardId).run();
+      registered++;
+    }
+    return c.json({ success: true, registered });
   })
 
   // === PRO: Category drill — return question IDs for a category+level ===
