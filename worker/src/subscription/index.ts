@@ -99,19 +99,30 @@ export const subscriptionRoutes = new Hono()
     const subscription = session.subscription as Stripe.Subscription;
     const subId = crypto.randomUUID();
 
+    // Newer Stripe API: periods live on the subscription item
+    const subItem = subscription.items?.data?.[0] as any;
+    const periodStart = ((subscription as any).current_period_start ?? subItem?.current_period_start ?? Math.floor(Date.now() / 1000)) * 1000;
+    const periodEnd = ((subscription as any).current_period_end ?? subItem?.current_period_end ?? Math.floor(Date.now() / 1000) + 30 * 86400) * 1000;
+
+    // Idempotent: one row per Stripe subscription
     await c.env.DB.prepare(
-      'INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+      `INSERT INTO subscriptions (id, user_id, status, plan, stripe_subscription_id, stripe_customer_id, current_period_start, current_period_end, cancel_at_period_end, created_at, updated_at)
+       VALUES (?, ?, 'active', ?, ?, ?, ?, ?, 0, ?, ?)
+       ON CONFLICT(stripe_subscription_id) DO UPDATE SET
+         status = 'active',
+         current_period_start = excluded.current_period_start,
+         current_period_end = excluded.current_period_end,
+         updated_at = excluded.updated_at`
     ).bind(
-      subId, user.sub, 'active',
+      subId, user.sub,
       session.metadata?.plan || 'monthly',
       subscription.id,
       session.customer as string,
-      subscription.current_period_start,
-      subscription.current_period_end,
+      periodStart, periodEnd,
       Date.now(), Date.now()
     ).run();
 
-    return c.json({ success: true, subscriptionId: subId });
+    return c.json({ success: true, plan: session.metadata?.plan || 'monthly', periodEnd });
   })
   .post('/cancel', async (c) => {
     const user = c.get('user');
