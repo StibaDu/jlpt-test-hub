@@ -2421,6 +2421,30 @@ export default function App() {
                         <p className="text-xs text-gray-300 leading-relaxed">{emphasize === 'de' ? card.descDe : card.descEn}</p>
                       )}
                     </div>
+                  ) : card.kind === 'vocab' ? (
+                    <div className="w-full space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="text-5xl font-black text-white">{card.frontMain}</div>
+                        <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
+                      </div>
+                      {card.kunyomi && (
+                        <div className="bg-white/5 rounded-lg p-2 inline-block">
+                          <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mr-1">{lang === 'de' ? 'Lesung' : 'Reading'}</span>
+                          <span className="text-sm text-gray-100 font-bold">{card.kunyomi}</span>
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-lg text-white font-bold">{emphasize === 'de' ? card.meaningDe : card.meaningEn}</div>
+                        <div className="text-xs text-gray-300">{emphasize === 'de' ? card.meaningEn : card.meaningDe}</div>
+                      </div>
+                      {card.exampleSentence && (
+                        <div className="bg-white/5 rounded-lg p-2.5">
+                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Beispielsatz' : 'Example'}</div>
+                          <p className="text-sm text-gray-100 leading-relaxed">{card.exampleSentence}</p>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">

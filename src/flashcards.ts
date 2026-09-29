@@ -125,11 +125,24 @@ export function buildKanjiCards(levelsData: Record<JLPTLevel, any>, level: JLPTL
 export function buildVocabCards(levelsData: Record<JLPTLevel, any>, level: JLPTLevel): Flashcard[] {
   const cards: Flashcard[] = [];
   const seen = new Set<string>();
+  // Merged dictionary across all levels — word meanings live here as compound entries
+  const merged: Record<string, any> = {};
+  for (const lvl of ['N5', 'N4', 'N3'] as JLPTLevel[]) {
+    Object.assign(merged, levelsData[lvl]?.kanjiDictionary || {});
+  }
   for (const q of levelsData[level].questionBank) {
     for (const match of (q.text.matchAll(FURIGANA_RE) || []) as any[]) {
       const [, word] = match;
       if (word.length < 2 || seen.has(word)) continue;
       seen.add(word);
+      const entry = merged[word];
+      // Fallback: compose from single kanji meanings
+      const fallbackEn = !entry && [...word].every(k => merged[k])
+        ? [...word].map(k => merged[k].meaning?.en).join(' + ')
+        : undefined;
+      const fallbackDe = !entry && [...word].every(k => merged[k])
+        ? [...word].map(k => merged[k].meaning?.de).join(' + ')
+        : undefined;
       cards.push({
         cardId: `v-${level}-${word}`,
         kind: 'vocab',
@@ -137,6 +150,12 @@ export function buildVocabCards(levelsData: Record<JLPTLevel, any>, level: JLPTL
         frontMain: word,
         frontSub: stripFurigana(q.text).slice(0, 60),
         exampleSentence: stripFurigana(q.text),
+        meaningEn: entry?.meaning?.en || fallbackEn,
+        meaningDe: entry?.meaning?.de || fallbackDe,
+        onyomi: entry?.onyomi,
+        kunyomi: entry?.kunyomi,
+        descEn: entry?.desc?.en,
+        descDe: entry?.desc?.de,
       });
     }
   }

@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 45 files · ~81,024 words
+- 45 files · ~81,067 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 267 nodes · 368 edges · 13 communities
+- 267 nodes · 359 edges · 13 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1126b318`
+- Built from commit: `6d27f68d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,19 +30,17 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
-2. `App()` - 13 edges
-3. `Launch Checklist — JLPT Test Hub` - 12 edges
-4. `JLPT Test Hub` - 10 edges
-5. `buildGrammarCards()` - 7 edges
-6. `buildDeck()` - 6 edges
-7. `speak()` - 6 edges
-8. `users` - 6 edges
-9. `JLPTLevel` - 5 edges
-10. `stripFurigana()` - 5 edges
+2. `Launch Checklist — JLPT Test Hub` - 12 edges
+3. `JLPT Test Hub` - 10 edges
+4. `buildGrammarCards()` - 6 edges
+5. `speak()` - 6 edges
+6. `users` - 6 edges
+7. `stripFurigana()` - 5 edges
+8. `buildDeck()` - 5 edges
+9. `ttsSupported()` - 5 edges
+10. `scripts` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `DeckInfo` --references--> `JLPTLevel`  [EXTRACTED]
-  src/flashcards.ts → src/data/types.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
 - `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
@@ -51,6 +49,8 @@
   src/pages/Login.tsx → src/context/AuthContext.tsx
 - `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
+- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
@@ -71,15 +71,15 @@ Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, A
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.06
-Nodes (22): ADSENSE_CONFIG, CookieBanner(), getConsent(), SelectedKanji, setConsent(), SvgProps, UiStrings, uiTranslations (+14 more)
+Nodes (25): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+17 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.09
 Nodes (23): autoprefixer, oxlint, devDependencies, autoprefixer, oxlint, postcss, tailwindcss, @types/node (+15 more)
 
 ### Community 5 - "flashcards.ts"
-Cohesion: 0.18
-Nodes (20): App(), renderFurigana(), shuffleArray(), JLPTLevel, allDecks(), buildDeck(), buildGrammarCards(), buildKanjiCards() (+12 more)
+Cohesion: 0.20
+Nodes (16): JLPTLevel, allDecks(), buildDeck(), buildGrammarCards(), buildKanjiCards(), buildVocabCards(), buildWeakGrammarDeck(), DECK_SIZE_LIMIT (+8 more)
 
 ### Community 6 - "worker/index.ts"
 Cohesion: 0.10
@@ -102,8 +102,8 @@ Cohesion: 0.07
 Nodes (26): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+18 more)
 
 ### Community 12 - "useAuth.ts"
-Cohesion: 0.35
-Nodes (9): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+1 more)
+Cohesion: 0.30
+Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
 
 ## Knowledge Gaps
 - **96 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+91 more)
@@ -123,6 +123,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06262626262626263 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06028368794326241 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
