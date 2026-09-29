@@ -219,6 +219,27 @@ export function useAuth() {
 
   const saveTestResultRef = useRef<(r: any) => Promise<{ saved: boolean; queued: boolean; clientTestId: string }>>(async () => ({ saved: false, queued: true, clientTestId: '' }));
 
+  const confirmSubscription = async (sessionId: string): Promise<{ success: boolean; plan?: string; error?: string }> => {
+    if (!getAccessToken()) return { success: false, error: 'Not logged in' };
+    try {
+      const res = await apiFetch('/subscription/confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        await fetchProfile();
+        return { success: true, plan: data.plan };
+      }
+      let msg = 'Checkout could not be confirmed';
+      try { msg = (await res.json()).error || msg; } catch {}
+      return { success: false, error: msg };
+    } catch {
+      return { success: false, error: 'Network error' };
+    }
+  };
+
   const saveTestResult = async (result: {
     level: string;
     mode: string;
@@ -387,6 +408,7 @@ export function useAuth() {
     logout,
     forgotPassword,
     upgrade,
+    confirmSubscription,
     saveTestResult,
     flushQueuedResults,
     queuedCount: queueSize,

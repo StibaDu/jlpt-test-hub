@@ -496,13 +496,12 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onCancelSub, onResumeSub, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onCancelSub: () => Promise<string | undefined>; onResumeSub: () => Promise<string | undefined>; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
-  const [subActionMsg, setSubActionMsg] = useState<string | null>(null);
   const [showNotebook, setShowNotebook] = useState(false);
 
   const findQuestion = (qid: number, level: string) => {
@@ -866,20 +865,15 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
               </div>
             )}
 
-            {subActionMsg && (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-center" role="status">
-                <p className="text-emerald-800 text-xs font-bold">{subActionMsg}</p>
-              </div>
-            )}
 
             {/* Actions */}
             <div className="space-y-2">
               {isPro ? (
                 <>
                   <button
-                  onClick={async () => {
-                    const msg = await onCancelSub();
-                    setSubActionMsg(msg || null);
+                  onClick={() => {
+                    if (subscription?.cancelAtPeriodEnd) return;
+                    onOpenCancelConfirm();
                   }}
                   disabled={subscription?.cancelAtPeriodEnd}
                   className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 disabled:opacity-40 text-red-600 font-bold py-2.5 px-4 rounded-xl border border-red-200 transition-all active:scale-95 text-sm"
@@ -888,10 +882,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 </button>
                 {subscription?.cancelAtPeriodEnd && (
                   <button
-                    onClick={async () => {
-                      const msg = await onResumeSub();
-                      setSubActionMsg(msg || null);
-                    }}
+                    onClick={() => onOpenResumeConfirm()}
                     className="w-full flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold py-2.5 px-4 rounded-xl border border-emerald-200 transition-all active:scale-95 text-sm"
                   >
                     {lang === 'de' ? '↩︎ Abonnement fortsetzen' : '↩︎ Resume subscription'}
@@ -1537,8 +1528,32 @@ export default function App() {
   const [showVoiceHint, setShowVoiceHint] = useState(() => {
     try { return localStorage.getItem('jlpt-voice-hint-dismissed') !== 'true'; } catch { return true; }
   });
+  const [thankYouModal, setThankYouModal] = useState<{ plan: string; periodEnd: number | null } | null>(null);
+  const [cancelConfirm, setCancelConfirm] = useState(false);
+  const [resumeConfirm, setResumeConfirm] = useState(false);
 
   const auth = useAuth();
+
+  // Detect Stripe checkout return: #/welcome?session_id=cs_... → confirm + Thank-You modal
+  useEffect(() => {
+    if (auth.loading) return;
+    try {
+      const h = window.location.hash;
+      if (!h.includes('#/welcome')) return;
+      const q = new URLSearchParams(h.split('?')[1] || '');
+      const sessionId = q.get('session_id');
+      // clean the URL immediately (avoids re-confirm on refresh)
+      history.replaceState(null, '', window.location.pathname);
+      if (sessionId && auth.isLoggedIn) {
+        auth.confirmSubscription(sessionId).then(r => {
+          if (r.success) {
+            setThankYouModal({ plan: r.plan || 'monthly', periodEnd: null });
+          }
+        });
+      }
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth.loading, auth.isLoggedIn]);
 
   // Ad banner that hides for Pro users
   const AdBanner = ({ slotId }: { slotId: string }) => {
@@ -2905,22 +2920,8 @@ export default function App() {
           }
         }}
         onSignIn={() => setShowAuthModal(true)}
-        onCancelSub={async () => {
-          const result = await auth.cancelSubscription();
-          if (result.error) return result.error;
-          await auth.refreshProfile();
-          return lang === 'de'
-            ? '✓ Kündigung zum Periodenende vorgemerkt'
-            : '✓ Your subscription will end at the period end';
-        }}
-        onResumeSub={async () => {
-          const result = await auth.resumeSubscription();
-          if (result.error) return result.error;
-          await auth.refreshProfile();
-          return lang === 'de'
-            ? '✓ Abonnement fortgesetzt'
-            : '✓ Subscription resumed';
-        }}
+        onOpenCancelConfirm={() => setCancelConfirm(true)}
+        onOpenResumeConfirm={() => setResumeConfirm(true)}
         onLogout={auth.logout}
         onFetchProgress={auth.fetchProgress}
         onFetchWeakness={() => auth.fetchWeaknessSummary().then(d => { if (d) setWeaknessData(d); })}
@@ -2991,6 +2992,117 @@ export default function App() {
             );
           })}
           <p className="print-meta" style={{marginTop: '16pt'}}>Erstellt mit JLPT Test Hub — jlpttesthub.com</p>
+        </div>
+      )}
+
+      {/* === Subscription Thank-You modal === */}
+      {thankYouModal && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
+            <div className="w-20 h-20 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+              <span className="text-4xl">🎉</span>
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-2">
+              {lang === 'de' ? 'Vielen Dank!' : 'Thank You!'}
+            </h3>
+            <p className="text-gray-600 text-sm mb-1">
+              {lang === 'de' ? 'Dein' : 'Your'}
+              <strong className="text-gray-900">
+                {' '}Pro {thankYouModal.plan === 'yearly' ? (lang === 'de' ? 'Jahresabonnement' : 'Yearly Subscription') : (lang === 'de' ? 'Monatsabonnement' : 'Monthly Subscription')}
+              </strong>
+              {lang === 'de' ? ' ist jetzt aktiv.' : ' is now active.'}
+            </p>
+            <p className="text-gray-500 text-xs mb-6">
+              {lang === 'de'
+                ? 'Unbegrenzte Real-Tests, alle 30 Fragen pro Test, Schwachstellen-Analyse, Wiederholungs-Queue und werbefreies Erlebnis sind freigeschaltet.'
+                : 'Unlimited Real Tests, all 30 questions per test, weakness analysis, the review queue and an ad-free experience are unlocked.'}
+            </p>
+            <button
+              onClick={() => { setThankYouModal(null); setGameState('intro'); }}
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+            >
+              {lang === 'de' ? 'Los geht\'s! →' : "Let's go! →"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* === Cancel confirmation modal === */}
+      {cancelConfirm && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setCancelConfirm(false)}>
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
+            <div className="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-4">
+              <span className="text-3xl">🤔</span>
+            </div>
+            <h3 className="text-xl font-black text-gray-900 mb-2">
+              {lang === 'de' ? 'Abonnement kündigen?' : 'Cancel subscription?'}
+            </h3>
+            <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+              {(() => {
+                const dateStr = auth.subscription?.currentPeriodEnd ? new Date(auth.subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : (lang === 'de' ? 'Periodenende' : 'the end of the period');
+                return lang === 'de'
+                  ? `Du behältst alle Pro-Funktionen bis zum ${dateStr}. Danach zurück zur kostenlosen Version. Du kannst die Kündigung jederzeit zurücknehmen.`
+                  : `You keep all Pro features until ${dateStr}. After that you return to the free version. You can undo this anytime.`;
+              })()}
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setCancelConfirm(false)}
+                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+              >
+                {lang === 'de' ? 'Behalten ✓' : 'Keep it ✓'}
+              </button>
+              <button
+                onClick={async () => {
+                  setCancelConfirm(false);
+                  const result = await auth.cancelSubscription();
+                  if (result.error) alert(result.error);
+                  await auth.refreshProfile();
+                }}
+                className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+              >
+                {lang === 'de' ? 'Kündigen' : 'Cancel'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* === Resume confirmation modal === */}
+      {resumeConfirm && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setResumeConfirm(false)}>
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
+            <div className="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+              <span className="text-3xl">↩︎</span>
+            </div>
+            <h3 className="text-xl font-black text-gray-900 mb-2">
+              {lang === 'de' ? 'Abonnement fortsetzen?' : 'Resume subscription?'}
+            </h3>
+            <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+              {lang === 'de'
+                ? 'Die Kündigung wird zurückgenommen. Dein Abonnement läuft ganz normal weiter und verlängert sich zum Periodenende automatisch.'
+                : 'The cancellation will be withdrawn. Your subscription continues normally and renews automatically at the period end.'}
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setResumeConfirm(false)}
+                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+              >
+                {lang === 'de' ? 'Abbrechen' : 'Never mind'}
+              </button>
+              <button
+                onClick={async () => {
+                  setResumeConfirm(false);
+                  const result = await auth.resumeSubscription();
+                  if (result.error) alert(result.error);
+                  await auth.refreshProfile();
+                }}
+                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+              >
+                {lang === 'de' ? 'Fortsetzen' : 'Resume'}
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

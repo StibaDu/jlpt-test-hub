@@ -56,7 +56,7 @@ export const subscriptionRoutes = new Hono()
         customer_email: userRow.email,
         line_items: [{ price: priceId, quantity: 1 }],
         mode: 'subscription',
-        success_url: `${c.env.APP_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${c.env.APP_URL}/#/welcome?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${c.env.APP_URL}/upgrade`,
         metadata: { user_id: user.sub, plan },
       });
