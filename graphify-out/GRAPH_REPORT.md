@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-09-29)
 
 ## Corpus Check
-- 46 files · ~82,112 words
+- 46 files · ~82,148 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 276 nodes · 370 edges · 14 communities
+- 276 nodes · 371 edges · 14 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a02aa51f`
+- Built from commit: `39deb052`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,10 +36,10 @@
 4. `buildGrammarCards()` - 6 edges
 5. `speak()` - 6 edges
 6. `users` - 6 edges
-7. `App()` - 5 edges
-8. `stripFurigana()` - 5 edges
+7. `stripFurigana()` - 5 edges
+8. `buildVocabCards()` - 5 edges
 9. `buildDeck()` - 5 edges
-10. `ttsSupported()` - 5 edges
+10. `App()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -111,7 +111,7 @@ Cohesion: 0.38
 Nodes (9): getJapaneseVoice(), getSavedRate(), hasGoodJapaneseVoice(), listJapaneseVoices(), QUALITY_KEYWORDS, saveRate(), speak(), stopSpeaking() (+1 more)
 
 ## Knowledge Gaps
-- **101 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+96 more)
+- **101 isolated node(s):** `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo`, `DECK_SIZE_LIMIT`, `UiStrings` (+96 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
@@ -121,7 +121,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+- **What connects `COMPOUND_READINGS`, `LEVEL_ORDER`, `DeckInfo` to the rest of the system?**
   _101 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
