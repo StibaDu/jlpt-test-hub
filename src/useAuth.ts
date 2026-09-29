@@ -219,6 +219,20 @@ export function useAuth() {
 
   const saveTestResultRef = useRef<(r: any) => Promise<{ saved: boolean; queued: boolean; clientTestId: string }>>(async () => ({ saved: false, queued: true, clientTestId: '' }));
 
+  const registerFlashcards = useCallback(async (cards: Array<{ cardId: string; level: string }>): Promise<boolean> => {
+    const token = getAccessToken();
+    if (!token) return false;
+    try {
+      const res = await fetch(`${API_BASE}/progress/flashcards/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        credentials: 'include',
+        body: JSON.stringify({ cards: cards.slice(0, 100) }),
+      });
+      return res.ok;
+    } catch { return false; }
+  }, []);
+
   const confirmSubscription = async (sessionId: string): Promise<{ success: boolean; plan?: string; error?: string }> => {
     if (!getAccessToken()) return { success: false, error: 'Not logged in' };
     try {
@@ -354,13 +368,13 @@ export function useAuth() {
     }
   }, []);
 
-  const submitSrsAnswer = useCallback(async (questionId: number, level: string, correct: boolean): Promise<void> => {
+  const submitSrsAnswer = useCallback(async (questionId: number, level: string, correct: boolean, cardId?: string, quality?: number): Promise<void> => {
     if (!getAccessToken()) return;
     try {
       await apiFetch('/progress/srs/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ questionId, level, correct }),
+        body: JSON.stringify(cardId ? { cardId, level, quality } : { questionId, level, correct }),
       });
     } catch {}
   }, []);
@@ -409,6 +423,7 @@ export function useAuth() {
     forgotPassword,
     upgrade,
     confirmSubscription,
+    registerFlashcards,
     saveTestResult,
     flushQueuedResults,
     queuedCount: queueSize,

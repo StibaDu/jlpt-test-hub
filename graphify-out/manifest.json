@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "worker/src/progress/index.ts": {
-    "mtime": 1790534242.5957928,
-    "ast_hash": "1f0d81f1f754431608ea8cdf83a0d60f",
+    "mtime": 1790678857.4097552,
+    "ast_hash": "8b7c18b27eacc614889056e08c3874d5",
     "semantic_hash": ""
   },
   "worker/src/subscription/index.ts": {
@@ -245,8 +245,8 @@
     "semantic_hash": ""
   },
   "worker/src/progress/sm2.ts": {
-    "mtime": 1790529919.3273013,
-    "ast_hash": "e13a32fd8e2535e7f3c3754637fe1f3b",
+    "mtime": 1790678485.7096488,
+    "ast_hash": "b9ed7c8e81f2352c78c2bf8f88e3ec90",
     "semantic_hash": ""
   },
   "src/resultQueue.ts": {

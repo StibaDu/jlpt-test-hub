@@ -1,5 +1,5 @@
 export type Lang = 'en' | 'de';
-export type GameState = 'intro' | 'testing' | 'results' | 'profile';
+export type GameState = 'intro' | 'testing' | 'results' | 'profile' | 'flashcards';
 export type TestMode = 'real' | 'learning';
 export type DeviceMode = 'desktop' | 'mobile' | null;
 export type JLPTLevel = 'N5' | 'N4' | 'N3';

@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels } from './data';
+import {
+  buildKanjiCards, buildVocabCards, buildGrammarCards, buildDeck,
+  buildWeakGrammarDeck, allDecks, speakForCard, type Flashcard,
+} from './flashcards';
 import { lookupReadings } from './data/kanjiReadings';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
 import { useAuth } from './useAuth';
@@ -496,7 +500,7 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onOpenFlashcards, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onOpenFlashcards: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
@@ -639,6 +643,25 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             ) : (
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
                 <p className="text-gray-500 text-xs">{t.profileNotAvailable}</p>
+              </div>
+            )}
+
+            {/* === PRO: Flashcards entry === */}
+            {isPro ? (
+              <button
+                onClick={onOpenFlashcards}
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm flex items-center justify-between"
+              >
+                <span>🎴 {lang === 'de' ? 'Karteikarten — Kanji, Vokabeln & Grammatik' : 'Flashcards — kanji, vocab & grammar'}</span>
+                <span>→</span>
+              </button>
+            ) : (
+              <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200 relative overflow-hidden text-center">
+                <p className="text-indigo-900 font-bold text-sm">🔒 {lang === 'de' ? 'Karteikarten — Pro' : 'Flashcards — Pro'}</p>
+                <p className="text-indigo-600 text-xs mt-1">{lang === 'de' ? 'Kanji, Vokabeln, Grammatik — mit Wiederholungsplan' : 'Kanji, vocab & grammar — with SRS scheduling'}</p>
+                <button onClick={() => setView('upgrade')} className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2 rounded-xl">
+                  ⭐ {t.proCTA}
+                </button>
               </div>
             )}
 
@@ -1596,6 +1619,7 @@ export default function App() {
       auth.fetchSrsDue().then(d => {
         setSrsDueCount(d?.due?.length || 0);
         setSrsNewCount(d?.newCards?.length || 0);
+        setSrsFlashDueCount(d?.flashDueCount || 0);
       });
     } else if (!auth.isLoggedIn) {
       setWeaknessData(null);
@@ -1808,6 +1832,32 @@ export default function App() {
 
   const [srsReviewActive, setSrsReviewActive] = useState(false);
   const [queuedFlushed, setQueuedFlushed] = useState(0);
+  const [flashDeckId, setFlashDeckId] = useState<string | null>(null);
+  const [flashCards, setFlashCards] = useState<any[]>([]);
+  const [flashIdx, setFlashIdx] = useState(0);
+  const [flashFlipped, setFlashFlipped] = useState(false);
+  const [flashDone, setFlashDone] = useState<{ reviewed: number; known: number; xp: number } | null>(null);
+  const [srsFlashDueCount, setSrsFlashDueCount] = useState(0);
+  const [flashTab, setFlashTab] = useState<'JLPT' | string>(selectedLevel);
+  // Flashcard keyboard shortcuts (Space = flip, Esc = back to picker) — session only
+  useEffect(() => {
+    if (gameState !== 'flashcards' || !flashDeckId || flashDone) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        setFlashFlipped(f => !f);
+      } else if (e.key === 'Escape') {
+        setFlashDeckId(null);
+        setFlashFlipped(false);
+      } else if (flashFlipped && (e.key === '1' || e.key === '2')) {
+        e.preventDefault();
+        rateFlashCard(e.key === '1' ? 1 : 4);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [gameState, flashDeckId, flashDone, flashFlipped, flashIdx]);
+
 
   const goHome = () => {
     setGameState('intro');
@@ -2209,7 +2259,340 @@ export default function App() {
     );
   };
 
+  // ===== FLASHCARDS =====
+  const startFlashDeck = async (deckId: string, cards: Flashcard[]) => {
+    if (!cards.length) return;
+    setFlashDeckId(deckId);
+    const limited = cards.slice(0, 30);
+    setFlashCards(limited);
+    setFlashIdx(0);
+    setFlashFlipped(false);
+    setFlashDone(null);
+    setGameState('flashcards');
+    // register in scheduler (Mode B decks enter SRS on first rating)
+    if (auth.isPro) {
+      auth.registerFlashcards(limited.map(c => ({ cardId: c.cardId, level: c.level })));
+    }
+  };
+
+  const rateFlashCard = async (quality: number) => {
+    const card = flashCards[flashIdx];
+    if (!card) return;
+    if (auth.isPro && auth.isLoggedIn) {
+      await auth.submitSrsAnswer(0, card.level, quality >= 3, card.cardId, quality);
+    }
+    setFlashCards(prev => prev.map((c, i) => (i === flashIdx ? { ...c, rated: quality } : c)));
+    if (flashIdx < flashCards.length - 1) {
+      setFlashIdx(flashIdx + 1);
+      setFlashFlipped(false);
+    } else {
+      const known = flashCards.filter((c, i) => (i === flashIdx ? quality >= 3 : (c as any).rated >= 3)).length;
+      setFlashDone({ reviewed: flashCards.length, known, xp: flashCards.length * 5 });
+      setFlashFlipped(false);
+    }
+  };
+
+  const renderFlashcards = () => {
+    // Session complete
+    if (flashDone) {
+      return (
+        <main className={`bg-gray-50 text-gray-800 flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+          <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
+          <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-xl'}`}>
+            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
+              <div className="text-6xl mb-4">🎉</div>
+              <h1 className="text-3xl font-black text-gray-900 mb-2">{lang === 'de' ? 'Alles wiederholt!' : 'All caught up!'}</h1>
+              <p className="text-gray-500 text-sm mb-6">
+                {flashDone.reviewed} {lang === 'de' ? 'Karten wiederholt' : 'cards reviewed'} · {flashDone.known}/{flashDone.reviewed} {lang === 'de' ? 'gewusst' : 'known'}
+              </p>
+              <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-5 py-2.5 rounded-full mb-8">
+                <span className="font-black text-emerald-700">+{flashDone.xp} XP ⭐</span>
+              </div>
+              <div className="flex gap-3 justify-center">
+                <button onClick={() => { setFlashDone(null); setGameState('flashcards'); }} className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
+                  {lang === 'de' ? 'Weitere Karten' : 'More cards'}
+                </button>
+                <button onClick={() => setGameState('intro')} className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
+                  {lang === 'de' ? 'Startseite' : 'Home'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      );
+    }
+
+    // Session view
+    if (flashDeckId && flashCards.length > 0) {
+      const card = flashCards[flashIdx];
+      const isKanji = card.kind === 'kanji';
+      const isCloze = card.kind === 'grammar-cloze';
+      const emphasize = lang === 'de' ? 'de' : 'en';
+      return (
+        <main className={`bg-gray-900 text-gray-100 flex-1 relative ${isMobile ? 'min-h-full py-4 px-3 pt-14' : 'min-h-screen py-10 px-4'}`}>
+          <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
+          <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
+            {/* Session header */}
+            <div className="flex items-center justify-between mb-4">
+              <button onClick={() => { setFlashDeckId(null); setGameState('flashcards'); }} className="text-gray-400 hover:text-white text-sm font-bold">
+                ← {lang === 'de' ? 'Karten' : 'Decks'}
+              </button>
+              <div className="text-gray-400 font-bold text-sm">
+                {flashIdx + 1} / {flashCards.length}
+              </div>
+            </div>
+            <div className="h-1.5 bg-gray-800 rounded-full w-full mb-8 overflow-hidden">
+              <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${((flashIdx + (flashFlipped ? 0.5 : 0)) / flashCards.length) * 100}%` }}></div>
+            </div>
+
+            {/* Flip card */}
+            <div className={isMobile ? 'fc-scene' : 'fc-scene'} style={{ minHeight: isMobile ? 300 : 340 }} onClick={() => setFlashFlipped(f => !f)}>
+              <div className={`fc-card ${flashFlipped ? 'flipped' : ''}`} style={{ minHeight: isMobile ? 300 : 340 }}>
+                {/* FRONT */}
+                <div className="fc-face fc-face-front">
+                  {isKanji ? (
+                    <>
+                      <div className="text-[110px] font-black leading-none text-gray-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="flex gap-2 mb-3">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🈶 {card.level}</span>
+                      </div>
+                      <button onClick={e => { e.stopPropagation(); speakForCard(card, 'front'); }} className="text-2xl" title={lang === 'de' ? 'Aussprache' : 'Pronunciation'}>🔊</button>
+                      <p className="text-[10px] text-gray-500 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
+                    </>
+                  ) : isCloze ? (
+                    <>
+                      <p className="text-2xl text-gray-100 font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
+                      {card.frontMain && (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
+                        && <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?'}</p>}
+                      <button onClick={e => { e.stopPropagation(); speakForCard(card, 'front'); }} className="mt-2 text-xl" title="🔊">🔊</button>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-4xl font-black text-gray-100 text-center mb-2">{card.frontMain}</p>
+                      {card.kind === 'grammar-pattern' && (
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
+                      )}
+                      <p className="text-[10px] text-gray-500 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
+                    </>
+                  )}
+                </div>
+
+                {/* BACK */}
+                <div className="fc-face fc-face-back">
+                  {isKanji ? (
+                    <div className="w-full space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="text-6xl font-black text-white">{card.frontMain}</div>
+                        <div className="flex flex-col gap-1 items-end">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level}</span>
+                          <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        {card.onyomi && (
+                          <div className="bg-white/5 rounded-lg p-2" title="音 On'yomi">
+                            <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
+                            <div className="text-sm text-gray-100 font-bold">{card.onyomi}</div>
+                          </div>
+                        )}
+                        {card.kunyomi && (
+                          <div className="bg-white/5 rounded-lg p-2">
+                            <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
+                            <div className="text-sm text-gray-100 font-bold">{card.kunyomi}</div>
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-lg text-white font-bold">{card[emphasize === 'de' ? 'meaningDe' : 'meaningEn']}</div>
+                        <div className="text-xs text-gray-300">{card[emphasize === 'de' ? 'meaningEn' : 'meaningDe']}</div>
+                      </div>
+                      {(card.descEn || card.descDe) && (
+                        <p className="text-xs text-gray-300 leading-relaxed">{emphasize === 'de' ? card.descDe : card.descEn}</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="w-full space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level} · {isCloze ? '✏️' : '🧩'}</span>
+                        <button onClick={e => { e.stopPropagation(); speakForCard(card, 'back'); }} className="text-xl">🔊</button>
+                      </div>
+                      <div className="bg-white/10 rounded-lg p-2.5">
+                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Lösung' : 'Answer'}</div>
+                        <div className="text-xl text-white font-black">{card.correctAnswer}</div>
+                      </div>
+                      {card.wrongOptions && card.wrongOptions.length > 0 && (
+                        <div>
+                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-1">{lang === 'de' ? 'Nicht richtig sind' : 'Wrong options'}</div>
+                          <div className="flex flex-wrap gap-1.5">
+                            {card.wrongOptions.map((w: any, i: number) => (
+                              <span key={i} className="text-xs bg-white/5 text-gray-300 rounded px-1.5 py-0.5">{w}</span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      <p className="text-xs text-gray-200 leading-relaxed">{emphasize === 'de' ? card.explanationDe : card.explanationEn}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Rating buttons — visible AFTER flip */}
+            {flashFlipped && (
+              <div className={`grid grid-cols-2 gap-2 mt-6 ${isMobile ? '' : 'max-w-md mx-auto'}`}>
+                <button
+                  onClick={() => rateFlashCard(1)}
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                >
+                  ✗ {lang === 'de' ? 'Nicht gewusst' : "Didn't know"}
+                </button>
+                <button
+                  onClick={() => rateFlashCard(4)}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                >
+                  ✓ {lang === 'de' ? 'Gewusst' : 'Got it'}
+                </button>
+              </div>
+            )}
+            {!flashFlipped && (
+              <p className="text-center text-gray-500 text-xs mt-6">
+                {isMobile ? (lang === 'de' ? 'Tippe die Karte zum Umdrehen' : 'Tap the card to flip') : (lang === 'de' ? 'Leertaste = Umdrehen · Klick = Umdrehen' : 'Space = flip · Click = flip')}
+              </p>
+            )}
+          </div>
+        </main>
+      );
+    }
+
+    // Deck picker
+    const tabLevel = flashTab as 'N5' | 'N4' | 'N3';
+    const decks = allDecks(levelData).filter(d => d.level === tabLevel);
+    // Mode A: For You (needs weaknesses)
+    const weakIds = (weaknessData?.weakQuestions || []).map((wq: any) => wq.question_id).filter((id: number) => levelData[tabLevel].questionBank.some((q: any) => q.id === id));
+    const weakGrammarCards = auth.isPro ? buildWeakGrammarDeck(levelData, weakIds, tabLevel) : [];
+    const flashDue = srsFlashDueCount || 0;
+    return (
+      <main className={`bg-gray-50 text-gray-800 flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+        <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
+        <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-3xl'}`}>
+          <div className="mb-6">
+            <h1 className={`font-black text-gray-900 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
+              🎴 {lang === 'de' ? 'Karteikarten' : 'Flashcards'}
+            </h1>
+            <p className="text-gray-500 text-sm mt-1">
+              {lang === 'de' ? 'Karte umdrehen, gewusst oder nicht — Wiederholung plant sich selbst.' : 'Flip the card, knew it or not — repetition schedules itself.'}
+            </p>
+          </div>
+
+          {/* Level tabs */}
+          <div className="flex gap-2 mb-6">
+            {allLevels.map(lvl => (
+              <button key={lvl} onClick={() => setFlashTab(lvl)} className={`px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 ${flashTab === lvl ? 'bg-emerald-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                {lvl}
+              </button>
+            ))}
+          </div>
+
+          {/* FOR YOU (Mode A) — Pro only */}
+          {auth.isPro ? (
+            <div className="mb-8">
+              <h2 className="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">{lang === 'de' ? 'Für dich — aus deinen Schwächen' : 'For You — built from your weaknesses'}</h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                {/* Due today */}
+                <button
+                  onClick={async () => {
+                    const data = await auth.fetchSrsDue();
+                    const dueCards = (data?.flashDue || []).map((f: any) => f.card_key);
+                    // build cards by kind from card keys
+                    const cards: Flashcard[] = [];
+                    for (const key of dueCards) {
+                      const [kind, lvl, ...rest] = key.split('-');
+                      const item = rest.join('-');
+                      if (kind === 'k') {
+                        const entry = levelData[lvl as 'N5' | 'N4' | 'N3']?.kanjiDictionary[item];
+                        if (entry) cards.push(...buildKanjiCards(levelData, lvl as 'N5' | 'N4' | 'N3').filter(c => c.cardId === key));
+                      } else if (kind === 'gp') {
+                        cards.push(...buildDeck(`grammar-pattern-${lvl}`, levelData).filter(c => c.cardId === key));
+                      } else if (kind === 'gc') {
+                        cards.push(...buildDeck(`grammar-cloze-${lvl}`, levelData).filter(c => c.cardId === key));
+                      } else if (kind === 'v') {
+                        cards.push(...buildDeck(`vocab-${lvl}`, levelData).filter(c => c.cardId === key));
+                      }
+                    }
+                    if (cards.length) startFlashDeck('due-today', cards);
+                  }}
+                  className={`text-left bg-amber-50 hover:bg-amber-100 border border-amber-300 rounded-2xl p-5 transition-all active:scale-[0.99] ${flashDue === 0 ? 'opacity-50' : ''}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl">⏰</span>
+                    <span className={`text-xs font-black px-2 py-0.5 rounded-full ${flashDue > 0 ? 'bg-amber-200 text-amber-800' : 'bg-gray-200 text-gray-500'}`}>
+                      {flashDue > 0 ? lang === 'de' ? `${flashDue} fällig` : `${flashDue} due` : lang === 'de' ? 'nichts fällig' : 'nothing due'}
+                    </span>
+                  </div>
+                  <h3 className="font-black text-amber-900 mt-2">{lang === 'de' ? 'Heute fällig' : 'Due Today'}</h3>
+                  <p className="text-amber-700 text-xs">{lang === 'de' ? 'Deine Wiederholungs-Queue' : 'Your review queue'}</p>
+                </button>
+
+                {/* Weak grammar */}
+                <button
+                  onClick={() => weakGrammarCards.length && startFlashDeck(`weak-grammar-${tabLevel}`, weakGrammarCards)}
+                  className={`text-left bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-2xl p-5 transition-all active:scale-[0.99] ${!weakGrammarCards.length ? 'opacity-50' : ''}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl">🎯</span>
+                    <span className="text-xs font-black px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">{weakGrammarCards.length}</span>
+                  </div>
+                  <h3 className="font-black text-purple-900 mt-2">{lang === 'de' ? 'Schwache Grammatik' : 'Weak Grammar'}</h3>
+                  <p className="text-purple-700 text-xs">{lang === 'de' ? 'Aus deinen Fehlern in Testfragen' : 'From your test-question mistakes'}</p>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="mb-8 bg-purple-50 rounded-2xl p-5 border border-purple-200 relative overflow-hidden">
+              <div className="filter blur-[3px] select-none pointer-events-none space-y-2" aria-hidden="true">
+                <div className="h-4 bg-purple-200 rounded w-2/3"></div>
+                <div className="h-3 bg-purple-100 rounded w-full"></div>
+              </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <p className="text-purple-900 font-black text-sm">🔒 {lang === 'de' ? 'Pro-Feature' : 'Pro feature'}</p>
+                <p className="text-purple-700 text-xs mt-0.5">{lang === 'de' ? 'Karteikarten für Kanji, Vokabeln & Grammatik' : 'Flashcards for kanji, vocab & grammar'}</p>
+                <button onClick={() => setGameState('profile')} className="mt-2 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl">
+                  ⭐ {t.proCTA}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ALL DECKS (Mode B) */}
+          <h2 className="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {decks.map(deck => {
+              const cards = deck.kind === 'kanji' ? buildKanjiCards(levelData, tabLevel)
+                : deck.kind === 'vocab' ? buildVocabCards(levelData, tabLevel)
+                : deck.kind === 'grammar-pattern' ? buildGrammarCards(levelData, tabLevel).pattern
+                : buildGrammarCards(levelData, tabLevel).cloze;
+              return (
+                <button key={deck.deckId} onClick={() => startFlashDeck(deck.deckId, cards)} className="text-left bg-white hover:bg-gray-50 border border-gray-200 rounded-2xl p-5 transition-all active:scale-[0.99] shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl">{deck.icon}</span>
+                    <span className="text-xs font-bold text-gray-400">{cards.length}</span>
+                  </div>
+                  <h3 className="font-black text-gray-900 mt-2">{lang === 'de' ? deck.titleDe : deck.titleEn}</h3>
+                  <p className="text-gray-500 text-xs">{lang === 'de' ? deck.descDe : deck.descEn}</p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+    );
+  };
+
   const renderAppContent = () => {
+    if (gameState === 'flashcards') {
+      return renderFlashcards();
+    }
     if (gameState === 'intro') {
       return (
         <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-0' : 'min-h-screen p-4'}`}>
@@ -2293,6 +2676,14 @@ export default function App() {
 
               {/* Affiliate: Recommended JLPT Books */}
               <BookRecommendations t={t} lang={lang} />
+
+              {/* Flashcards entry */}
+              <button
+                onClick={() => setGameState('flashcards')}
+                className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
+              >
+                🎴 {lang === 'de' ? 'Karteikarten öffnen' : 'Open Flashcards'} →
+              </button>
 
               {/* Affiliate: JapanesePod101 */}
               <AffiliateBanner t={t} lang={lang} />
@@ -2920,6 +3311,7 @@ export default function App() {
           }
         }}
         onSignIn={() => setShowAuthModal(true)}
+        onOpenFlashcards={() => setGameState('flashcards')}
         onOpenCancelConfirm={() => setCancelConfirm(true)}
         onOpenResumeConfirm={() => setResumeConfirm(true)}
         onLogout={auth.logout}

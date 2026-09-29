@@ -4,15 +4,103 @@
   "graph": {},
   "nodes": [
     {
+      "label": "progress/index.ts",
+      "file_type": "code",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "worker_src_progress_index",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "progress/index.ts"
+    },
+    {
+      "label": "cardIdHash()",
+      "file_type": "code",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "worker_src_progress_index_cardidhash",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "cardidhash()"
+    },
+    {
+      "label": "progressRoutes",
+      "file_type": "code",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "worker_src_progress_index_progressroutes",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "progressroutes"
+    },
+    {
+      "label": "sm2.ts",
+      "file_type": "code",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "worker_src_progress_sm2",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "sm2.ts"
+    },
+    {
+      "label": "SM2State",
+      "file_type": "code",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "worker_src_progress_sm2_sm2state",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "sm2state"
+    },
+    {
+      "label": "sm2()",
+      "file_type": "code",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "worker_src_progress_sm2_sm2",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "sm2()"
+    },
+    {
+      "label": "answerToQuality()",
+      "file_type": "code",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "worker_src_progress_sm2_answertoquality",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "answertoquality()"
+    },
+    {
+      "label": "qualityToSM2()",
+      "file_type": "code",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "worker_src_progress_sm2_qualitytosm2",
+      "community": 6,
+      "community_name": "worker/index.ts",
+      "norm_label": "qualitytosm2()"
+    },
+    {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_app",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "app.tsx"
+      "norm_label": "app.tsx",
+      "id": "src_app"
     },
     {
       "label": "UiStrings",
@@ -20,10 +108,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_app_uistrings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "uistrings"
+      "norm_label": "uistrings",
+      "id": "src_app_uistrings"
     },
     {
       "label": "uiTranslations",
@@ -31,10 +119,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_app_uitranslations",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "uitranslations"
+      "norm_label": "uitranslations",
+      "id": "src_app_uitranslations"
     },
     {
       "label": "SvgProps",
@@ -42,10 +130,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L311",
       "_origin": "ast",
-      "id": "src_app_svgprops",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "svgprops"
+      "norm_label": "svgprops",
+      "id": "src_app_svgprops"
     },
     {
       "label": "IconClock()",
@@ -53,10 +141,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L315",
       "_origin": "ast",
-      "id": "src_app_iconclock",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconclock()"
+      "norm_label": "iconclock()",
+      "id": "src_app_iconclock"
     },
     {
       "label": "IconCheck()",
@@ -64,10 +152,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L321",
       "_origin": "ast",
-      "id": "src_app_iconcheck",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconcheck()"
+      "norm_label": "iconcheck()",
+      "id": "src_app_iconcheck"
     },
     {
       "label": "IconX()",
@@ -75,10 +163,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L327",
       "_origin": "ast",
-      "id": "src_app_iconx",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconx()"
+      "norm_label": "iconx()",
+      "id": "src_app_iconx"
     },
     {
       "label": "IconAlertCircle()",
@@ -86,10 +174,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L333",
       "_origin": "ast",
-      "id": "src_app_iconalertcircle",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconalertcircle()"
+      "norm_label": "iconalertcircle()",
+      "id": "src_app_iconalertcircle"
     },
     {
       "label": "IconBookOpen()",
@@ -97,10 +185,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L339",
       "_origin": "ast",
-      "id": "src_app_iconbookopen",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconbookopen()"
+      "norm_label": "iconbookopen()",
+      "id": "src_app_iconbookopen"
     },
     {
       "label": "IconHeart()",
@@ -108,10 +196,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L345",
       "_origin": "ast",
-      "id": "src_app_iconheart",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconheart()"
+      "norm_label": "iconheart()",
+      "id": "src_app_iconheart"
     },
     {
       "label": "ADSENSE_CONFIG",
@@ -119,10 +207,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L355",
       "_origin": "ast",
-      "id": "src_app_adsense_config",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "adsense_config"
+      "norm_label": "adsense_config",
+      "id": "src_app_adsense_config"
     },
     {
       "label": "GoogleAdBanner()",
@@ -130,10 +218,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L366",
       "_origin": "ast",
-      "id": "src_app_googleadbanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "googleadbanner()"
+      "norm_label": "googleadbanner()",
+      "id": "src_app_googleadbanner"
     },
     {
       "label": "BookRecommendations()",
@@ -141,10 +229,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L392",
       "_origin": "ast",
-      "id": "src_app_bookrecommendations",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "bookrecommendations()"
+      "norm_label": "bookrecommendations()",
+      "id": "src_app_bookrecommendations"
     },
     {
       "label": "AffiliateBanner()",
@@ -152,10 +240,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L447",
       "_origin": "ast",
-      "id": "src_app_affiliatebanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "affiliatebanner()"
+      "norm_label": "affiliatebanner()",
+      "id": "src_app_affiliatebanner"
     },
     {
       "label": "StudyInJapanBanner()",
@@ -163,10 +251,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L473",
       "_origin": "ast",
-      "id": "src_app_studyinjapanbanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "studyinjapanbanner()"
+      "norm_label": "studyinjapanbanner()",
+      "id": "src_app_studyinjapanbanner"
     },
     {
       "label": "ProfilePage()",
@@ -174,10 +262,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L499",
       "_origin": "ast",
-      "id": "src_app_profilepage",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "profilepage()"
+      "norm_label": "profilepage()",
+      "id": "src_app_profilepage"
     },
     {
       "label": "getConsent()",
@@ -185,10 +273,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L982",
       "_origin": "ast",
-      "id": "src_app_getconsent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "getconsent()"
+      "norm_label": "getconsent()",
+      "id": "src_app_getconsent"
     },
     {
       "label": "setConsent()",
@@ -196,10 +284,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L988",
       "_origin": "ast",
-      "id": "src_app_setconsent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "setconsent()"
+      "norm_label": "setconsent()",
+      "id": "src_app_setconsent"
     },
     {
       "label": "CookieBanner()",
@@ -207,10 +295,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L993",
       "_origin": "ast",
-      "id": "src_app_cookiebanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "cookiebanner()"
+      "norm_label": "cookiebanner()",
+      "id": "src_app_cookiebanner"
     },
     {
       "label": "LegalModal()",
@@ -218,10 +306,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1055",
       "_origin": "ast",
-      "id": "src_app_legalmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "legalmodal()"
+      "norm_label": "legalmodal()",
+      "id": "src_app_legalmodal"
     },
     {
       "label": "ImpressumContent()",
@@ -229,10 +317,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1075",
       "_origin": "ast",
-      "id": "src_app_impressumcontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "impressumcontent()"
+      "norm_label": "impressumcontent()",
+      "id": "src_app_impressumcontent"
     },
     {
       "label": "PrivacyPolicyContent()",
@@ -240,10 +328,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1121",
       "_origin": "ast",
-      "id": "src_app_privacypolicycontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "privacypolicycontent()"
+      "norm_label": "privacypolicycontent()",
+      "id": "src_app_privacypolicycontent"
     },
     {
       "label": "TermsContent()",
@@ -251,10 +339,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1306",
       "_origin": "ast",
-      "id": "src_app_termscontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "termscontent()"
+      "norm_label": "termscontent()",
+      "id": "src_app_termscontent"
     },
     {
       "label": "SellerDisclosureContent()",
@@ -262,10 +350,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1339",
       "_origin": "ast",
-      "id": "src_app_sellerdisclosurecontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "sellerdisclosurecontent()"
+      "norm_label": "sellerdisclosurecontent()",
+      "id": "src_app_sellerdisclosurecontent"
     },
     {
       "label": "AccessibilityContent()",
@@ -273,10 +361,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1358",
       "_origin": "ast",
-      "id": "src_app_accessibilitycontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "accessibilitycontent()"
+      "norm_label": "accessibilitycontent()",
+      "id": "src_app_accessibilitycontent"
     },
     {
       "label": "Footer()",
@@ -284,10 +372,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1407",
       "_origin": "ast",
-      "id": "src_app_footer",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "footer()"
+      "norm_label": "footer()",
+      "id": "src_app_footer"
     },
     {
       "label": "renderFurigana()",
@@ -295,10 +383,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1433",
       "_origin": "ast",
-      "id": "src_app_renderfurigana",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "renderfurigana()"
+      "norm_label": "renderfurigana()",
+      "id": "src_app_renderfurigana"
     },
     {
       "label": "shuffleArray()",
@@ -306,10 +394,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1468",
       "_origin": "ast",
-      "id": "src_app_shufflearray",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "shufflearray()"
+      "norm_label": "shufflearray()",
+      "id": "src_app_shufflearray"
     },
     {
       "label": "SelectedKanji",
@@ -317,10 +405,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1477",
       "_origin": "ast",
-      "id": "src_app_selectedkanji",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "selectedkanji"
+      "norm_label": "selectedkanji",
+      "id": "src_app_selectedkanji"
     },
     {
       "label": "App()",
@@ -328,10 +416,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1484",
       "_origin": "ast",
-      "id": "src_app_app",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "app()"
+      "norm_label": "app()",
+      "id": "src_app_app"
     },
     {
       "label": "useAuth.ts",
@@ -339,10 +427,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_useauth",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "useauth.ts"
+      "norm_label": "useauth.ts",
+      "id": "src_useauth"
     },
     {
       "label": "User",
@@ -350,10 +438,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_useauth_user",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "user"
+      "norm_label": "user",
+      "id": "src_useauth_user"
     },
     {
       "label": "Subscription",
@@ -361,10 +449,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "src_useauth_subscription",
       "community": 12,
       "community_name": "useAuth.ts",
-      "norm_label": "subscription"
+      "norm_label": "subscription",
+      "id": "src_useauth_subscription"
     },
     {
       "label": "useAuth()",
@@ -372,10 +460,10 @@
       "source_file": "src/useAuth.ts",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_useauth_useauth",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "useauth()"
+      "norm_label": "useauth()",
+      "id": "src_useauth_useauth"
     },
     {
       "label": "subscription/index.ts",
@@ -383,10 +471,10 @@
       "source_file": "worker/src/subscription/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "worker_src_subscription_index",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "subscription/index.ts"
+      "norm_label": "subscription/index.ts",
+      "id": "worker_src_subscription_index"
     },
     {
       "label": "subscriptionRoutes",
@@ -394,10 +482,10 @@
       "source_file": "worker/src/subscription/index.ts",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "worker_src_subscription_index_subscriptionroutes",
       "community": 6,
       "community_name": "worker/index.ts",
-      "norm_label": "subscriptionroutes"
+      "norm_label": "subscriptionroutes",
+      "id": "worker_src_subscription_index_subscriptionroutes"
     },
     {
       "label": "worker/index.ts",
@@ -884,72 +972,6 @@
       "id": "src_data_types_leveldata"
     },
     {
-      "label": "progress/index.ts",
-      "file_type": "code",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "progress/index.ts",
-      "id": "worker_src_progress_index"
-    },
-    {
-      "label": "progressRoutes",
-      "file_type": "code",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L4",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "progressroutes",
-      "id": "worker_src_progress_index_progressroutes"
-    },
-    {
-      "label": "sm2.ts",
-      "file_type": "code",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "sm2.ts",
-      "id": "worker_src_progress_sm2"
-    },
-    {
-      "label": "SM2State",
-      "file_type": "code",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L4",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "sm2state",
-      "id": "worker_src_progress_sm2_sm2state"
-    },
-    {
-      "label": "sm2()",
-      "file_type": "code",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "sm2()",
-      "id": "worker_src_progress_sm2_sm2"
-    },
-    {
-      "label": "answerToQuality()",
-      "file_type": "code",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "worker/index.ts",
-      "norm_label": "answertoquality()",
-      "id": "worker_src_progress_sm2_answertoquality"
-    },
-    {
       "label": "tts.ts",
       "file_type": "code",
       "source_file": "src/tts.ts",
@@ -1208,8 +1230,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "routes.tsx",
       "id": "src_routes"
     },
@@ -1219,8 +1241,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "login",
       "id": "src_routes_login"
     },
@@ -1230,8 +1252,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "signup",
       "id": "src_routes_signup"
     },
@@ -1241,8 +1263,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "forgotpassword",
       "id": "src_routes_forgotpassword"
     },
@@ -1252,8 +1274,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "resetpassword",
       "id": "src_routes_resetpassword"
     },
@@ -1263,8 +1285,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "verifyemail",
       "id": "src_routes_verifyemail"
     },
@@ -1274,8 +1296,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "dashboard",
       "id": "src_routes_dashboard"
     },
@@ -1285,8 +1307,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "upgrade",
       "id": "src_routes_upgrade"
     },
@@ -1296,8 +1318,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "testpage",
       "id": "src_routes_testpage"
     },
@@ -1307,8 +1329,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "intro",
       "id": "src_routes_intro"
     },
@@ -1318,8 +1340,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "approutes()",
       "id": "src_routes_approutes"
     },
@@ -1329,8 +1351,8 @@
       "source_file": "src/routes.tsx",
       "source_location": "L54",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "useAuth",
+      "community": 13,
+      "community_name": "routes.tsx",
       "norm_label": "app()",
       "id": "src_routes_app"
     },
@@ -2736,13 +2758,187 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_index_cardidhash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_index_progressroutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_sm2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_sm2_answertoquality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_sm2_qualitytosm2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_index",
+      "target": "worker_src_progress_sm2_sm2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/worker/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "worker_src_worker_index",
+      "target": "worker_src_progress_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/worker/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "worker_src_worker_index",
+      "target": "worker_src_progress_index_progressroutes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_sm2",
+      "target": "worker_src_progress_sm2_answertoquality",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_sm2",
+      "target": "worker_src_progress_sm2_qualitytosm2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_sm2",
+      "target": "worker_src_progress_sm2_sm2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/progress/sm2.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "worker_src_progress_sm2",
+      "target": "worker_src_progress_sm2_sm2state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/tests/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "worker_src_tests_index",
+      "target": "worker_src_progress_sm2"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/tests/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "worker_src_tests_index",
+      "target": "worker_src_progress_sm2_sm2"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "worker/src/tests/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "worker_src_tests_index",
+      "target": "worker_src_progress_sm2_answertoquality"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
       "source_location": "L1358",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_accessibilitycontent",
-      "confidence_score": 1.0
+      "target": "src_app_accessibilitycontent"
     },
     {
       "relation": "contains",
@@ -2751,9 +2947,9 @@
       "source_location": "L355",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_adsense_config",
-      "confidence_score": 1.0
+      "target": "src_app_adsense_config"
     },
     {
       "relation": "contains",
@@ -2762,9 +2958,9 @@
       "source_location": "L447",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_affiliatebanner",
-      "confidence_score": 1.0
+      "target": "src_app_affiliatebanner"
     },
     {
       "relation": "contains",
@@ -2773,9 +2969,9 @@
       "source_location": "L1484",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_app",
-      "confidence_score": 1.0
+      "target": "src_app_app"
     },
     {
       "relation": "contains",
@@ -2784,9 +2980,9 @@
       "source_location": "L392",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_bookrecommendations",
-      "confidence_score": 1.0
+      "target": "src_app_bookrecommendations"
     },
     {
       "relation": "contains",
@@ -2795,9 +2991,9 @@
       "source_location": "L993",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_cookiebanner",
-      "confidence_score": 1.0
+      "target": "src_app_cookiebanner"
     },
     {
       "relation": "contains",
@@ -2806,9 +3002,9 @@
       "source_location": "L1407",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_footer",
-      "confidence_score": 1.0
+      "target": "src_app_footer"
     },
     {
       "relation": "contains",
@@ -2817,9 +3013,9 @@
       "source_location": "L982",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_getconsent",
-      "confidence_score": 1.0
+      "target": "src_app_getconsent"
     },
     {
       "relation": "contains",
@@ -2828,9 +3024,9 @@
       "source_location": "L366",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_googleadbanner",
-      "confidence_score": 1.0
+      "target": "src_app_googleadbanner"
     },
     {
       "relation": "contains",
@@ -2839,9 +3035,9 @@
       "source_location": "L333",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconalertcircle",
-      "confidence_score": 1.0
+      "target": "src_app_iconalertcircle"
     },
     {
       "relation": "contains",
@@ -2850,9 +3046,9 @@
       "source_location": "L339",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconbookopen",
-      "confidence_score": 1.0
+      "target": "src_app_iconbookopen"
     },
     {
       "relation": "contains",
@@ -2861,9 +3057,9 @@
       "source_location": "L321",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconcheck",
-      "confidence_score": 1.0
+      "target": "src_app_iconcheck"
     },
     {
       "relation": "contains",
@@ -2872,9 +3068,9 @@
       "source_location": "L315",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconclock",
-      "confidence_score": 1.0
+      "target": "src_app_iconclock"
     },
     {
       "relation": "contains",
@@ -2883,9 +3079,9 @@
       "source_location": "L345",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconheart",
-      "confidence_score": 1.0
+      "target": "src_app_iconheart"
     },
     {
       "relation": "contains",
@@ -2894,9 +3090,9 @@
       "source_location": "L327",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconx",
-      "confidence_score": 1.0
+      "target": "src_app_iconx"
     },
     {
       "relation": "contains",
@@ -2905,9 +3101,9 @@
       "source_location": "L1075",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_impressumcontent",
-      "confidence_score": 1.0
+      "target": "src_app_impressumcontent"
     },
     {
       "relation": "contains",
@@ -2916,9 +3112,9 @@
       "source_location": "L1055",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_legalmodal",
-      "confidence_score": 1.0
+      "target": "src_app_legalmodal"
     },
     {
       "relation": "contains",
@@ -2927,9 +3123,9 @@
       "source_location": "L1121",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_privacypolicycontent",
-      "confidence_score": 1.0
+      "target": "src_app_privacypolicycontent"
     },
     {
       "relation": "contains",
@@ -2938,9 +3134,9 @@
       "source_location": "L499",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_profilepage",
-      "confidence_score": 1.0
+      "target": "src_app_profilepage"
     },
     {
       "relation": "contains",
@@ -2949,9 +3145,9 @@
       "source_location": "L1433",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_renderfurigana",
-      "confidence_score": 1.0
+      "target": "src_app_renderfurigana"
     },
     {
       "relation": "contains",
@@ -2960,9 +3156,9 @@
       "source_location": "L1477",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_selectedkanji",
-      "confidence_score": 1.0
+      "target": "src_app_selectedkanji"
     },
     {
       "relation": "contains",
@@ -2971,9 +3167,9 @@
       "source_location": "L1339",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_sellerdisclosurecontent",
-      "confidence_score": 1.0
+      "target": "src_app_sellerdisclosurecontent"
     },
     {
       "relation": "contains",
@@ -2982,9 +3178,9 @@
       "source_location": "L988",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_setconsent",
-      "confidence_score": 1.0
+      "target": "src_app_setconsent"
     },
     {
       "relation": "contains",
@@ -2993,9 +3189,9 @@
       "source_location": "L1468",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_shufflearray",
-      "confidence_score": 1.0
+      "target": "src_app_shufflearray"
     },
     {
       "relation": "contains",
@@ -3004,9 +3200,9 @@
       "source_location": "L473",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_studyinjapanbanner",
-      "confidence_score": 1.0
+      "target": "src_app_studyinjapanbanner"
     },
     {
       "relation": "contains",
@@ -3015,9 +3211,9 @@
       "source_location": "L311",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_svgprops",
-      "confidence_score": 1.0
+      "target": "src_app_svgprops"
     },
     {
       "relation": "contains",
@@ -3026,9 +3222,9 @@
       "source_location": "L1306",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_termscontent",
-      "confidence_score": 1.0
+      "target": "src_app_termscontent"
     },
     {
       "relation": "contains",
@@ -3037,9 +3233,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_uistrings",
-      "confidence_score": 1.0
+      "target": "src_app_uistrings"
     },
     {
       "relation": "contains",
@@ -3048,9 +3244,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_uitranslations",
-      "confidence_score": 1.0
+      "target": "src_app_uitranslations"
     },
     {
       "relation": "imports_from",
@@ -3060,9 +3256,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_authmodal",
-      "confidence_score": 1.0
+      "target": "src_authmodal"
     },
     {
       "relation": "imports",
@@ -3072,9 +3268,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_authmodal_authmodal",
-      "confidence_score": 1.0
+      "target": "src_authmodal_authmodal"
     },
     {
       "relation": "imports_from",
@@ -3084,9 +3280,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_kanjireadings",
-      "confidence_score": 1.0
+      "target": "src_data_kanjireadings"
     },
     {
       "relation": "imports",
@@ -3096,9 +3292,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_kanjireadings_lookupreadings",
-      "confidence_score": 1.0
+      "target": "src_data_kanjireadings_lookupreadings"
     },
     {
       "relation": "imports_from",
@@ -3108,9 +3304,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts",
-      "confidence_score": 1.0
+      "target": "src_tts"
     },
     {
       "relation": "imports",
@@ -3120,9 +3316,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_getsavedrate",
-      "confidence_score": 1.0
+      "target": "src_tts_getsavedrate"
     },
     {
       "relation": "imports",
@@ -3132,9 +3328,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_hasgoodjapanesevoice",
-      "confidence_score": 1.0
+      "target": "src_tts_hasgoodjapanesevoice"
     },
     {
       "relation": "imports",
@@ -3144,9 +3340,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_saverate",
-      "confidence_score": 1.0
+      "target": "src_tts_saverate"
     },
     {
       "relation": "imports",
@@ -3156,9 +3352,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_speak",
-      "confidence_score": 1.0
+      "target": "src_tts_speak"
     },
     {
       "relation": "imports",
@@ -3168,9 +3364,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_stopspeaking",
-      "confidence_score": 1.0
+      "target": "src_tts_stopspeaking"
     },
     {
       "relation": "imports",
@@ -3180,9 +3376,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_ttssupported",
-      "confidence_score": 1.0
+      "target": "src_tts_ttssupported"
     },
     {
       "relation": "imports_from",
@@ -3192,9 +3388,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_useauth",
-      "confidence_score": 1.0
+      "target": "src_useauth"
     },
     {
       "relation": "imports",
@@ -3204,9 +3400,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_useauth_useauth",
-      "confidence_score": 1.0
+      "target": "src_useauth_useauth"
     },
     {
       "relation": "imports_from",
@@ -3228,9 +3424,9 @@
       "source_location": "L1520",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "src_app_getconsent",
-      "confidence_score": 1.0
+      "target": "src_app_getconsent"
     },
     {
       "relation": "calls",
@@ -3240,9 +3436,9 @@
       "source_location": "L1011",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_cookiebanner",
-      "target": "src_app_getconsent",
-      "confidence_score": 1.0
+      "target": "src_app_getconsent"
     },
     {
       "relation": "calls",
@@ -3252,9 +3448,9 @@
       "source_location": "L999",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_cookiebanner",
-      "target": "src_app_setconsent",
-      "confidence_score": 1.0
+      "target": "src_app_setconsent"
     },
     {
       "relation": "calls",
@@ -3264,9 +3460,9 @@
       "source_location": "L2476",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "src_app_renderfurigana",
-      "confidence_score": 1.0
+      "target": "src_app_renderfurigana"
     },
     {
       "relation": "calls",
@@ -3276,9 +3472,9 @@
       "source_location": "L1710",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "src_app_shufflearray",
-      "confidence_score": 1.0
+      "target": "src_app_shufflearray"
     },
     {
       "relation": "calls",
@@ -3300,9 +3496,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue",
-      "confidence_score": 1.0
+      "target": "src_resultqueue"
     },
     {
       "relation": "imports",
@@ -3312,9 +3508,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_enqueueresult",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_enqueueresult"
     },
     {
       "relation": "imports",
@@ -3324,9 +3520,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_flushqueue",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_flushqueue"
     },
     {
       "relation": "imports",
@@ -3336,9 +3532,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_newclienttestid",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_newclienttestid"
     },
     {
       "relation": "imports",
@@ -3348,9 +3544,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_resultqueue_queuesize",
-      "confidence_score": 1.0
+      "target": "src_resultqueue_queuesize"
     },
     {
       "relation": "contains",
@@ -3359,9 +3555,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_subscription",
-      "confidence_score": 1.0
+      "target": "src_useauth_subscription"
     },
     {
       "relation": "contains",
@@ -3370,9 +3566,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_useauth",
-      "confidence_score": 1.0
+      "target": "src_useauth_useauth"
     },
     {
       "relation": "contains",
@@ -3381,9 +3577,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_useauth",
-      "target": "src_useauth_user",
-      "confidence_score": 1.0
+      "target": "src_useauth_user"
     },
     {
       "relation": "contains",
@@ -3392,9 +3588,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "worker_src_subscription_index",
-      "target": "worker_src_subscription_index_subscriptionroutes",
-      "confidence_score": 1.0
+      "target": "worker_src_subscription_index_subscriptionroutes"
     },
     {
       "relation": "imports_from",
@@ -3467,30 +3663,6 @@
       "confidence_score": 1.0,
       "source": "worker_src_worker_index",
       "target": "worker_src_auth_index_authroutes"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/worker/index.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_worker_index",
-      "target": "worker_src_progress_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/worker/index.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_worker_index",
-      "target": "worker_src_progress_index_progressroutes"
     },
     {
       "relation": "imports_from",
@@ -3860,42 +4032,6 @@
       "target": "src_resultqueue_write"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/tests/index.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/tests/index.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2_answertoquality"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/tests/index.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_tests_index",
-      "target": "worker_src_progress_sm2_sm2"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "worker/src/tests/index.ts",
@@ -4081,86 +4217,6 @@
       "confidence_score": 1.0,
       "source": "src_data_types",
       "target": "src_data_types_testmode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_index",
-      "target": "worker_src_progress_index_progressroutes"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_index",
-      "target": "worker_src_progress_sm2"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_index",
-      "target": "worker_src_progress_sm2_answertoquality"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/index.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_index",
-      "target": "worker_src_progress_sm2_sm2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_sm2",
-      "target": "worker_src_progress_sm2_answertoquality"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_sm2",
-      "target": "worker_src_progress_sm2_sm2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "worker/src/progress/sm2.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "worker_src_progress_sm2",
-      "target": "worker_src_progress_sm2_sm2state"
     },
     {
       "relation": "contains",
@@ -6317,5 +6373,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c764c7e4a07d7908e6cc5bef28e4a9b64c49234f"
+  "built_at_commit": "851f457ee14b37be6faf842d82530c6940162f8c"
 }

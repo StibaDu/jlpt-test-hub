@@ -61,6 +61,54 @@ ruby {
 /* Hide scrollbars in mobile frame */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ==== 3D Flip Cards (Flashcards) ==== */
+.fc-scene {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 420px;
+  min-height: 280px;
+  margin: 0 auto;
+}
+.fc-card {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.fc-card.flipped {
+  transform: rotateY(180deg);
+}
+.fc-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+.fc-face-front {
+  background: linear-gradient(160deg, #1e1e3f 0%, #191936 100%);
+  border: 1px solid #34346a;
+}
+.fc-face-back {
+  background: linear-gradient(160deg, #123d33 0%, #0e2f28 100%);
+  border: 1px solid #10b981;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  justify-content: flex-start;
+  text-align: left;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-card { transition: none; }
+}
 /* Print/PDF export styles */
 @media print {
   body * {
