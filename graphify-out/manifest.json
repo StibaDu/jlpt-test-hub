@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1790680294.9942656,
-    "ast_hash": "f882632cfbccf8cecabf9b295917d46f",
+    "mtime": 1790680825.0749044,
+    "ast_hash": "cc55afa309edf3fed42a44b8f11565bb",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -257,6 +257,11 @@
   "src/flashcards.ts": {
     "mtime": 1790679982.69595,
     "ast_hash": "76ca7aea0c4c8641e1b486e24f713fb4",
+    "semantic_hash": ""
+  },
+  "src/romaji.ts": {
+    "mtime": 1790680774.1399488,
+    "ast_hash": "7cfea5ef149733d3cd7e4c5ffde1c807",
     "semantic_hash": ""
   }
 }

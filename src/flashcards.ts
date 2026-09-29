@@ -176,12 +176,15 @@ export function buildVocabCards(levelsData: Record<JLPTLevel, any>, level: JLPTL
   for (const lvl of ['N5', 'N4', 'N3'] as JLPTLevel[]) {
     Object.assign(merged, levelsData[lvl]?.kanjiDictionary || {});
   }
+  const questionReadings: Record<string, string> = { ...buildCompoundReadings(levelsData), ...COMPOUND_READINGS };
   for (const q of levelsData[level].questionBank) {
     for (const match of (q.text.matchAll(FURIGANA_RE) || []) as any[]) {
       const [, word] = match;
       if (word.length < 2 || seen.has(word)) continue;
       seen.add(word);
       const entry = merged[word];
+      // Word reading: dictionary kunyomi → else the word's own furigana from questions → else static map
+      const wordReading = entry?.kunyomi || questionReadings[word] || COMPOUND_READINGS[word];
       // Fallback: compose from single kanji meanings
       const fallbackEn = !entry && [...word].every(k => merged[k])
         ? [...word].map(k => merged[k].meaning?.en).join(' + ')
@@ -199,7 +202,7 @@ export function buildVocabCards(levelsData: Record<JLPTLevel, any>, level: JLPTL
         meaningEn: entry?.meaning?.en || fallbackEn,
         meaningDe: entry?.meaning?.de || fallbackDe,
         onyomi: entry?.onyomi,
-        kunyomi: entry?.kunyomi,
+        kunyomi: wordReading || entry?.kunyomi,
         descEn: entry?.desc?.en,
         descDe: entry?.desc?.de,
       });
