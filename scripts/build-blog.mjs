@@ -12,6 +12,18 @@ mkdirSync(OUT, { recursive: true });
 
 const canonical = 'https://www.jlpttesthub.com';
 
+// Legal sections extracted from the main page's server-rendered HTML (single source of truth)
+function extractLegalSections() {
+  const indexHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
+  const ids = ['datenschutz', 'impressum', 'agb', 'anbieterkennzeichnung', 'barrierefreiheit'];
+  const sections = {};
+  for (const id of ids) {
+    const m = new RegExp(`<section id="${id}"[^>]*>([\\s\\S]*?)</section>`).exec(indexHtml);
+    if (m) sections[id] = m[1].trim();
+  }
+  return sections;
+}
+
 // ---- Frontmatter parser (key: value lines between --- ---) ----
 function parseFrontmatter(md) {
   const m = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(md);
@@ -25,7 +37,7 @@ function parseFrontmatter(md) {
 }
 
 // ---- Shared shell ----
-function page({ lang, title, description, tags = [], date, body, isIndex = false, jsonLdType = 'BlogPosting', slug = '' }) {
+function page({ lang, title, description, tags = [], date, body, isIndex = false, jsonLdType = 'BlogPosting', slug = '', legalSections = {} }) {
   const jsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': jsonLdType,
@@ -69,18 +81,27 @@ function page({ lang, title, description, tags = [], date, body, isIndex = false
 <main class="blog-content">
 ${body}
 </main>
+<details class="legal-accordion">
+<summary>${lang === 'de' ? 'Rechtliches (Impressum · Datenschutz · AGB · Barrierefreiheit)' : 'Legal (Impressum · Privacy · Terms · Accessibility)'}</summary>
+<div class="legal-content">
+${legalSections.impressum ? `<section>${legalSections.impressum}</section>` : ''}
+${legalSections.datenschutz ? `<section>${legalSections.datenschutz}</section>` : ''}
+${legalSections.agb ? `<section>${legalSections.agb}</section>` : ''}
+${legalSections.anbieterkennzeichnung ? `<section>${legalSections.anbieterkennzeichnung}</section>` : ''}
+${legalSections.barrierefreiheit ? `<section>${legalSections.barrierefreiheit}</section>` : ''}
+</div>
+</details>
 <footer class="blog-footer">
 © 2026 JLPT Test Hub · <a href="/#/">${lang === 'de' ? 'Übungstests' : 'Practice tests'}</a> ·
-<a href="/blog/">${lang === 'de' ? 'Blog' : 'Blog'}</a> ·
-<a href="/#/${lang === 'de' ? 'de-law-datenschutz' : 'law-privacy'}">${lang === 'de' ? 'Datenschutz' : 'Privacy'}</a> ·
-<a href="/#/${lang === 'de' ? 'de-law-impressum' : 'law-impressum'}">${lang === 'de' ? 'Impressum' : 'Legal'}</a>
+<a href="/blog/">${lang === 'de' ? 'Blog' : 'Blog'}</a>
 </footer>
 ${isIndex ? '' : ''}
 </body>
 </html>`;
 }
 
-// ---- Post pages ----
+// ---- Legal + post pages ----
+const legalSections = extractLegalSections();
 const files = readdirSync(SRC).filter(f => f.endsWith('.md') && !f.startsWith('_'));
 const posts = [];
 for (const file of files) {
@@ -101,6 +122,7 @@ for (const file of files) {
     date: meta.date,
     body: html,
     slug: meta.slug,
+    legalSections,
   });
   const outDir = meta.lang === 'de' ? join(OUT, 'de') : OUT;
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
@@ -132,7 +154,7 @@ for (const lang of ['en', 'de']) {
 
   const title = lang === 'de' ? 'JLPT Test Hub Blog — Japan-Tipps & JLPT-Lernmaterial' : 'JLPT Test Hub Blog — Japan Guides & JLPT Study Tips';
   const desc = lang === 'de' ? 'Lebe günstig in Japan und besteh den JLPT: Essen, Wohnen, Transport, Jobs, Versicherung und Lernpläne — verfasst von jemandem, der dort lebt.' : 'Live cheap in Japan and pass the JLPT: food, housing, transport, jobs, insurance and study plans — written by someone who lives there.';
-  const out = page({ lang, title, description: desc, tags: [], date: '2026-10-02', body: list, isIndex: true, jsonLdType: 'Blog' });
+  const out = page({ lang, title, description: desc, tags: [], date: '2026-10-02', body: list, isIndex: true, jsonLdType: 'Blog', legalSections });
   const dir = lang === 'de' ? join(OUT, 'de') : OUT;
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'index.html'), out);

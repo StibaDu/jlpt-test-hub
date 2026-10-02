@@ -41,3 +41,9 @@ a:hover { text-decoration: underline; }
 .post-card h2 { border: none; margin-bottom: 0.5rem; }
 .post-card h2 a { color: #111827; }
 .post-card .excerpt { color: var(--gray); font-size: 0.9rem; margin: 0.5rem 0; }
+.legal-accordion { max-width: 720px; margin: 2rem auto 0; padding: 0 1.5rem; }
+.legal-accordion summary { cursor: pointer; font-weight: 700; color: var(--emerald); padding: 0.75rem 0; }
+.legal-accordion .legal-content { border-top: 1px solid var(--border); }
+.legal-accordion .legal-content section { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.legal-accordion .legal-content h2 { font-size: 1.1rem; margin: 0.5rem 0; }
+.legal-accordion .legal-content p { font-size: 0.875rem; color: var(--gray); }
