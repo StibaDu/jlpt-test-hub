@@ -2277,6 +2277,7 @@ export default function App() {
 
   // ===== FLASHCARDS =====
   const startFlashDeck = async (deckId: string, cards: Flashcard[]) => {
+    if (!auth.isPro) return;
     if (!cards.length) return;
     setFlashDeckId(deckId);
     const limited = cards.slice(0, 30);
@@ -2653,6 +2654,36 @@ export default function App() {
       );
     }
     if (gameState === 'flashcards') {
+      if (!auth.isPro) {
+        return (
+          <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-4 pt-16' : 'min-h-screen p-4'}`}>
+            <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
+            <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
+              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
+                <div className="text-6xl mb-4">🎴</div>
+                <h1 className="text-2xl font-black text-gray-900 mb-2">{lang === 'de' ? 'Karteikarten' : 'Flashcards'}</h1>
+                <p className="text-gray-500 text-sm mb-6">
+                  {lang === 'de'
+                    ? 'Karteikarten für Kanji, Vokabeln & Grammatik — mit Wiederholungsplan (SRS). Pro-Funktion.'
+                    : 'Flashcards for kanji, vocabulary & grammar — with spaced repetition scheduling. A Pro feature.'}
+                </p>
+                <div className="space-y-3 mb-6 text-left max-w-sm mx-auto">
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🈶</span> {lang === 'de' ? '656 Kanji-Karten (N5–N3)' : '656 kanji cards (N5–N3)'}</div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>💬</span> {lang === 'de' ? '196 Vokabel-Karten' : '196 vocabulary cards'}</div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🧩</span> {lang === 'de' ? '54 Grammatik-Muster + 54 Lückentexte' : '54 grammar patterns + 54 cloze cards'}</div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🔁</span> {lang === 'de' ? 'Automatische Wiederholungs-Planung' : 'Automatic review scheduling'}</div>
+                </div>
+                <button onClick={() => setGameState('profile')} className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm">
+                  ⭐ {lang === 'de' ? 'Pro freischalten' : 'Unlock Pro'} →
+                </button>
+                <button onClick={() => setGameState('intro')} className="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                  {lang === 'de' ? 'Zurück' : 'Back'}
+                </button>
+              </div>
+            </div>
+          </main>
+        );
+      }
       return renderFlashcards();
     }
     if (gameState === 'intro') {
@@ -2739,13 +2770,22 @@ export default function App() {
               {/* Affiliate: Recommended JLPT Books */}
               <BookRecommendations t={t} lang={lang} />
 
-              {/* Flashcards entry */}
-              <button
-                onClick={() => setGameState('flashcards')}
-                className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
-              >
-                🎴 {lang === 'de' ? 'Karteikarten öffnen' : 'Open Flashcards'} →
-              </button>
+              {/* Flashcards entry — Pro only */}
+              {auth.isPro ? (
+                <button
+                  onClick={() => setGameState('flashcards')}
+                  className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
+                >
+                  🎴 {lang === 'de' ? 'Karteikarten öffnen' : 'Open Flashcards'} →
+                </button>
+              ) : (
+                <button
+                  onClick={() => setGameState('profile')}
+                  className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
+                >
+                  🎴 {lang === 'de' ? 'Karteikarten — Pro freischalten' : 'Flashcards — Unlock with Pro'} →
+                </button>
+              )}
 
               {/* Affiliate: JapanesePod101 */}
               <AffiliateBanner t={t} lang={lang} />
