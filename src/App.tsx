@@ -177,6 +177,12 @@ const uiTranslations: UiStrings = {
     ttsReadQuestion: "Read question aloud",
     ttsVoiceImprove: "Improve voice?",
     navSignIn: "Sign In",
+    navBlog: "Blog",
+    blogTitle: "JLPT Test Hub Blog",
+    blogSubtitle: "Japan guides & JLPT study tips — from someone who lives in Japan",
+    blogReadMore: "Read more",
+    blogBackToApp: "Back to the app",
+    blogEmpty: "No posts yet — check back soon!",
     navOpenProfile: "Open Profile",
     kanjiMastered: "Mark as mastered",
     kanjiNotInDict: "Not in dictionary — readings shown as reference",
@@ -279,6 +285,12 @@ const uiTranslations: UiStrings = {
     proFeature5: "✓ PDF-Ergebnisse herunterladbar",
     proFeature6: "✓ Werbungsfrei",
     foundHelpful: "Nützlich gefunden?",
+    navBlog: "Blog",
+    blogTitle: "JLPT Test Hub Blog",
+    blogSubtitle: "Japan-Guides & JLPT-Lern-Tipps — von jemandem, der in Japan lebt",
+    blogReadMore: "Weiterlesen",
+    blogBackToApp: "Zurück zur App",
+    blogEmpty: "Noch keine Posts — schau bald wieder vorbei!",
     // Pro-Features
     srsTitle: "🔁 Wiederholungs-Queue",
     srsDueDesc: "{n} Fragen sind heute zur Wiederholung fällig — jetzt wiederholen sichert sie ins Langzeitgedächtnis",
@@ -1428,7 +1440,7 @@ const AccessibilityContent = () => (
 );
 
 // Footer with legal links — WCAG 2.5.8 target size: min 24×24px hit area
-const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccessibility }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; onImpressum: () => void; onAccessibility: () => void; lang: string }) => {
+const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccessibility, lang }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; onImpressum: () => void; onAccessibility: () => void; lang: string }) => {
   const footerLink = "inline-flex items-center min-h-[24px] px-1 hover:text-emerald-400 transition-colors";
   return (
     <footer className="bg-gray-900 text-gray-400 py-6 px-4 mt-8 shrink-0">
@@ -1443,6 +1455,8 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
           <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className={footerLink}>Anbieterkennzeichnung</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className={footerLink}>Barrierefreiheit</a>
+          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <a href={lang === 'de' ? '/de/blog/' : '/blog/'} className={footerLink}>Blog</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung" className={footerLink + " text-emerald-400"}>Barrierefreiheit melden</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
@@ -2216,6 +2230,17 @@ export default function App() {
             </svg>
           </button>
         )}
+        {/* Blog */}
+        <button
+          onClick={() => { window.location.href = lang === 'de' ? '/de/blog/' : '/blog/'; }}
+          title={t.navBlog}
+          aria-label={t.navBlog}
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4 0a2 2 0 00-2 2v10a2 2 0 01-2 2m4 0V9a2 2 0 00-2-2m0 0V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2" />
+          </svg>
+        </button>
         {/* Support — compact icon */}
         <button
           onClick={() => setShowSupportModal(true)}

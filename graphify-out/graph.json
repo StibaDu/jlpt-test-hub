@@ -3803,7 +3803,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L2929",
+      "source_location": "L2969",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -7575,5 +7575,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a6f19050ff91303eb796d3d2b046482152f8efd3"
+  "built_at_commit": "4a62df3a2d39c5fa5e87d9e0cee7221ad74cbd64"
 }
