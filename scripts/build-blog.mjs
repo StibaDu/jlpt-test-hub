@@ -65,16 +65,20 @@ function page({ lang, title, description, tags = [], date, body, isIndex = false
 <meta property="og:title" content="${title}" />
 <meta property="og:description" content="${description}" />
 <meta property="og:url" content="${canonical}${appPath}" />
+<meta property="og:image" content="${canonical}/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary" />
 <link rel="canonical" href="${canonical}${appPath}" />
 <link rel="alternate" hreflang="${lang}" href="${canonical}${appPath}" />
 <link rel="alternate" hreflang="${lang === 'en' ? 'de' : 'en'}" href="${canonical}${lang === 'en' ? '/blog/de/' : '/blog/'}" />
 <link rel="stylesheet" href="/blog/blog.css" />
+<link rel="icon" href="/favicon.svg" />
 <script type="application/ld+json">${jsonLd}</script>
 </head>
 <body>
 <header class="blog-header">
-<h1>JLPT Test Hub</h1>
+<h${isIndex ? '1' : '2'}${isIndex ? '' : ' class="brand-h2"'}>JLPT Test Hub</h${isIndex ? '1' : '2'}>
 <div class="subtitle">${lang === 'de' ? 'Kostenlose JLPT-Übungstests · N5 · N4 · N3' : 'Free JLPT practice tests · N5 · N4 · N3'}</div>
 <a class="blog-back" href="/#/${lang === 'de' ? 'de' : 'n5'}">← ${lang === 'de' ? 'Zurück zur App' : 'Back to the app'}</a>
 </header>

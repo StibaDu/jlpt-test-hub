@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-02)
 
 ## Corpus Check
-- 70 files · ~109,766 words
+- 70 files · ~127,471 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 516 nodes · 601 edges · 38 communities (37 shown, 1 thin omitted)
+- 518 nodes · 603 edges · 42 communities (40 shown, 2 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `88b111d4`
+- Built from commit: `c9cb0667`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -52,6 +52,10 @@
 - Japanese Language Schools in Tokyo: How to Pick an Affordable One
 - Karteikarten für JLPT-Kanji (N5–N3) — die Spaced-Repetition-Methode
 - How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way
+- tts.ts
+- romaji.ts
+- kanjiReadings.ts
+- AuthModal.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
@@ -80,7 +84,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (38 total, 1 thin omitted)
+## Communities (42 total, 2 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -95,8 +99,8 @@ Cohesion: 0.07
 Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+19 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.05
-Nodes (31): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+23 more)
+Cohesion: 0.08
+Nodes (11): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+3 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.08
@@ -183,8 +187,8 @@ Cohesion: 0.22
 Nodes (8): Ask in person: WEGO and clothing shops, [LanCul (ランカル英会話)](https://lancul.com/recruit_en), The Japanese you'll need on the job, Uber Eats (Tokyo), What jobs can you do?, Where job seekers actually find work, Working Holiday Jobs in Japan: Types, Wages & Where to Find Them, [World Unite!](https://www.world-unite.de/en/working-holiday/japan/ryokan-jobs-traditional-restaurant-hotel.html)
 
 ### Community 27 - "build-blog.mjs"
-Cohesion: 0.22
-Nodes (6): files, OUT, posts, ROOT, sitemapEntries, SRC
+Cohesion: 0.18
+Nodes (7): files, legalSections, OUT, posts, ROOT, sitemapEntries, SRC
 
 ### Community 28 - "Tokyo günstig unterwegs: Metro-Pässe, Rabatt-Tickets & IC Cards"
 Cohesion: 0.25
@@ -226,10 +230,22 @@ Nodes (6): Die Gewohnheits-Schleife, die überlebt, Die Kanji-Zahlen, damit dich
 Cohesion: 0.29
 Nodes (6): How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way, The habit loop that survives, The kanji counts, so nothing surprises you, The two failure modes to avoid, Use your actual mistakes as cards, Why spacing works (the science in one paragraph)
 
+### Community 38 - "tts.ts"
+Cohesion: 0.38
+Nodes (9): getJapaneseVoice(), getSavedRate(), hasGoodJapaneseVoice(), listJapaneseVoices(), QUALITY_KEYWORDS, saveRate(), speak(), stopSpeaking() (+1 more)
+
+### Community 39 - "romaji.ts"
+Cohesion: 0.38
+Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(), youonHira
+
+### Community 40 - "kanjiReadings.ts"
+Cohesion: 0.50
+Nodes (3): KanjiReading, kanjiReadings, lookupReadings()
+
 ## Knowledge Gaps
-- **264 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+259 more)
+- **265 isolated node(s):** `ROOT`, `SRC`, `OUT`, `legalSections`, `files` (+260 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -238,13 +254,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
-  _264 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `ROOT`, `SRC`, `OUT` to the rest of the system?**
+  _265 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.052525252525252523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07526881720430108 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._

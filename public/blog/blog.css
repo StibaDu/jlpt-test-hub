@@ -47,3 +47,4 @@ a:hover { text-decoration: underline; }
 .legal-accordion .legal-content section { padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .legal-accordion .legal-content h2 { font-size: 1.1rem; margin: 0.5rem 0; }
 .legal-accordion .legal-content p { font-size: 0.875rem; color: var(--gray); }
+.brand-h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-Sitemap: https://jlpttesthub.com/sitemap.xml
+Sitemap: https://www.jlpttesthub.com/sitemap.xml
