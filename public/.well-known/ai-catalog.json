@@ -1,0 +1,103 @@
+{
+  "$schema": "https://agentregistry.dev/schemas/ai-catalog/v1.json",
+  "name": "JLPT Test Hub",
+  "description": "Free JLPT practice tests for levels N5, N4 and N3 — official-format questions, interactive furigana dictionary, instant explanations, timed real-test simulation, spaced repetition review, flashcards and bilingual interface (English / German).",
+  "website": "https://www.jlpttesthub.com",
+  "version": "1.0.0",
+  "updated": "2026-10-02",
+  "owner": {
+    "name": "Sebastian Thomas",
+    "email": "createdby.jp@gmail.com",
+    "address": "Maubacher Str. 17, 71522 Backnang, Germany"
+  },
+  "resources": [
+    {
+      "type": "app",
+      "name": "JLPT Practice Tests",
+      "url": "https://www.jlpttesthub.com/#/n5",
+      "description": "Start a free practice test — N5, N4 or N3, Real Test (timed, official conditions) or Learning Mode (instant explanations, dictionary allowed). 155 official-format questions."
+    },
+    {
+      "type": "blog",
+      "name": "JLPT Test Hub Blog",
+      "url": "https://www.jlpttesthub.com/blog/",
+      "description": "Living-cheap-in-Japan guides and JLPT study tips — food, housing, transport, jobs, insurance, language schools. Bilingual (EN/DE).",
+      "language": ["en", "de"]
+    },
+    {
+      "type": "blog",
+      "name": "Blog (German)",
+      "url": "https://www.jlpttesthub.com/blog/de/",
+      "description": "Die gleiche Blog-Serie zweisprachig auf Deutsch.",
+      "language": ["de"]
+    },
+    {
+      "type": "faq",
+      "name": "Frequently Asked Questions",
+      "url": "https://www.jlpttesthub.com/#/n5",
+      "description": "Free tier scope, Pro features, subscriptions, test format."
+    },
+    {
+      "type": "legal",
+      "name": "Impressum (legal notice, DDG § 5)",
+      "url": "https://www.jlpttesthub.com/#impressum"
+    },
+    {
+      "type": "legal",
+      "name": "Privacy Policy (GDPR)",
+      "url": "https://www.jlpttesthub.com/#datenschutz"
+    },
+    {
+      "type": "legal",
+      "name": "Terms & Conditions (AGB)",
+      "url": "https://www.jlpttesthub.com/#agb"
+    },
+    {
+      "type": "legal",
+      "name": "Accessibility statement (WCAG)",
+      "url": "https://www.jlpttesthub.com/#barrierefreiheit"
+    },
+    {
+      "type": "sitemap",
+      "name": "Sitemap",
+      "url": "https://www.jlpttesthub.com/sitemap.xml"
+    },
+    {
+      "type": "dataset",
+      "name": "Tokyo restaurants under ¥1,000 (CSV)",
+      "url": "https://www.jlpttesthub.com/blog/restaurants-tokyo-under1000.csv",
+      "description": "Researched list of 1,000+ Tokyo restaurants with lunch menus under ¥1,000 — includes address, hours, payment methods, budget category.",
+      "format": "text/csv"
+    },
+    {
+      "type": "dataset",
+      "name": "Metro pass leaflet 2024 (PDF)",
+      "url": "https://www.jlpttesthub.com/blog/metro-pass-leaflet-2024.pdf",
+      "description": "Tokyo Metro's Metro & Gurutto Pass — unlimited rides pricing and coverage (Japanese/English).",
+      "format": "application/pdf"
+    }
+  ],
+  "content_policy": {
+    "crawling": "allowed",
+    "training": "allowed",
+    "attribution": {
+      "required": true,
+      "format": "Name 'JLPT Test Hub' + link to https://www.jlpttesthub.com"
+    },
+    "notes": "Public practice questions may be quoted up to 100 characters with attribution and a link. Full question text, answer keys and explanations are part of the paid Pro offering — do not reproduce them in full."
+  },
+  "verification": {
+    "methods": [
+      {
+        "type": "dns",
+        "instructions": "Resolve TXT record _jlpttesthub.com for a generated verification token (issued on registry signup)."
+      },
+      {
+        "type": "dns",
+        "host": "www.jlpttesthub.com",
+        "check_url": "https://www.jlpttesthub.com/.well-known/ai-catalog.json",
+        "notes": "This manifest lists only resources served from the same origin that hosts it."
+      }
+    ]
+  }
+}
