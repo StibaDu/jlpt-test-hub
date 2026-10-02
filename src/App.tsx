@@ -513,9 +513,10 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onOpenFlashcards, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onSignIn: () => void; onOpenFlashcards: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onStartTrial, onOpenFlashcards, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onStartTrial: () => Promise<{ success: boolean; error?: string }>; onSignIn: () => void; onOpenFlashcards: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
+  const [trialLoading, setTrialLoading] = useState(false);
   const [view, setView] = useState<'profile' | 'upgrade'>('profile');
   const [progressData, setProgressData] = useState<{ stats: any; history: any[] } | null>(null);
   const [progressLoading, setProgressLoading] = useState(false);
@@ -595,11 +596,19 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             <div className={`rounded-xl p-4 border ${isPro ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">{isPro ? t.profilePro : t.profileFree}</h4>
+                  <h4 className="font-bold text-gray-900 text-sm">
+                    {subscription?.isTrial
+                      ? (lang === 'de' ? '🎁 Pro-Testphase' : '🎁 Pro Trial')
+                      : isPro ? t.profilePro : t.profileFree}
+                  </h4>
                   <p className="text-gray-600 text-xs mt-0.5">
-                    {isPro
-                      ? `${t.profileRenews} ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'}`
-                      : t.profileFreeDesc}
+                    {subscription?.isTrial
+                      ? (lang === 'de'
+                          ? `Testphase endet am ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'} — danach Karteikarten & Pro weg (kündigt sich automatisch)`
+                          : `Trial ends ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'} — then flashcards & Pro stop (automatic)`)
+                      : isPro
+                        ? `${t.profileRenews} ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'}`
+                        : t.profileFreeDesc}
                   </p>
                 </div>
                 {subscription?.cancelAtPeriodEnd && (
@@ -997,6 +1006,25 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 className="w-full flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
               >
                 {loading ? t.profileRedirecting : t.proCTA}
+              </button>
+              {/* 3-day free trial — no card required */}
+              <div className="my-3 flex items-center gap-2 text-gray-400 text-xs">
+                <div className="flex-1 h-px bg-gray-200"></div>
+                {lang === 'de' ? 'oder' : 'or'}
+                <div className="flex-1 h-px bg-gray-200"></div>
+              </div>
+              <button
+                onClick={async () => {
+                  setTrialLoading(true);
+                  const r = await onStartTrial();
+                  setTrialLoading(false);
+                  if (r.success) setView('profile');
+                  else alert(r.error);
+                }}
+                disabled={trialLoading}
+                className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+              >
+                {trialLoading ? '…' : (lang === 'de' ? '🎁 3 Tage Pro kostenlos testen — keine Karte' : '🎁 Try Pro free for 3 days — no card')}
               </button>
               <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
               <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
@@ -3439,6 +3467,7 @@ export default function App() {
         }}
         onSignIn={() => setShowAuthModal(true)}
         onOpenFlashcards={() => setGameState('flashcards')}
+        onStartTrial={auth.startTrial}
         onOpenCancelConfirm={() => setCancelConfirm(true)}
         onOpenResumeConfirm={() => setResumeConfirm(true)}
         onLogout={auth.logout}

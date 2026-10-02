@@ -6,18 +6,29 @@ import Stripe from 'stripe';
 export const subscriptionRoutes = new Hono()
   .get('/status', async (c) => {
     const user = c.get('user');
-    const sub = await c.env.DB.prepare(
-      "SELECT * FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing', 'past_due') ORDER BY created_at DESC LIMIT 1"
+    const sub: any = await c.env.DB.prepare(
+      "SELECT * FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing', 'past_due', 'trial') ORDER BY created_at DESC LIMIT 1"
     ).bind(user.sub).first();
 
     if (!sub) return c.json({ subscribed: false, plan: null, status: null });
 
+    // Expired trial auto-reverts to free
+    if (sub.status === 'trial' && sub.current_period_end && sub.current_period_end < Date.now()) {
+      await c.env.DB.prepare(
+        "UPDATE subscriptions SET status = 'expired', updated_at = ? WHERE id = ?"
+      ).bind(Date.now(), sub.id).run();
+      return c.json({ subscribed: false, plan: null, status: 'expired', trialUsed: true });
+    }
+
+    const isActive = sub.status === 'active' || sub.status === 'trialing' || (sub.status === 'trial' && sub.current_period_end > Date.now());
+
     return c.json({
-      subscribed: sub.status === 'active',
+      subscribed: isActive,
       plan: sub.plan,
       status: sub.status,
       currentPeriodEnd: sub.current_period_end,
       cancelAtPeriodEnd: sub.cancel_at_period_end,
+      isTrial: sub.status === 'trial',
     });
   })
   .post('/create-checkout', zValidator('json', z.object({
@@ -128,6 +139,42 @@ export const subscriptionRoutes = new Hono()
     ).run();
 
     return c.json({ success: true, plan: session.metadata?.plan || 'monthly', periodEnd });
+  })
+  // 3-day Pro trial — DB-only, no card, auto-expires
+  .post('/start-trial', async (c) => {
+    const user = c.get('user');
+
+    // Any active/trialing/trial already? deny
+    const existing = await c.env.DB.prepare(
+      "SELECT id, status, current_period_end FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing', 'trial')"
+    ).bind(user.sub).first<any>();
+
+    if (existing) {
+      // Existing trial not expired? reject duplicate
+      if (existing.status === 'trial' && existing.current_period_end > Date.now()) {
+        return c.json({ error: 'Trial already in use' }, 400);
+      }
+      if (existing.status === 'active' || existing.status === 'trialing') {
+        return c.json({ error: 'Already have an active subscription' }, 400);
+      }
+    }
+
+    // Ever used a trial before? (one per user, lifetime)
+    const pastTrial = await c.env.DB.prepare(
+      "SELECT id FROM subscriptions WHERE user_id = ? AND plan = 'trial'"
+    ).bind(user.sub).first();
+    if (pastTrial) {
+      return c.json({ error: 'Trial already used — upgrade to continue' }, 400);
+    }
+
+    const periodEnd = Date.now() + 3 * 24 * 60 * 60 * 1000;
+    const trialId = crypto.randomUUID();
+    await c.env.DB.prepare(
+      `INSERT INTO subscriptions (id, user_id, status, plan, current_period_start, current_period_end, cancel_at_period_end, created_at, updated_at)
+       VALUES (?, ?, 'trial', 'trial', ?, ?, 1, ?, ?)`
+    ).bind(trialId, user.sub, Date.now(), periodEnd, Date.now(), Date.now()).run();
+
+    return c.json({ success: true, trialEnd: periodEnd });
   })
   .post('/cancel', async (c) => {
     const user = c.get('user');

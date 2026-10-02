@@ -11,11 +11,20 @@ export const userRoutes = new Hono()
 
     if (!profile) return c.json({ error: 'User not found' }, 404);
 
-    const sub = await c.env.DB.prepare(
-      "SELECT status, plan, current_period_end, cancel_at_period_end FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing')"
+    const sub: any = await c.env.DB.prepare(
+      "SELECT id, status, plan, current_period_end, cancel_at_period_end FROM subscriptions WHERE user_id = ? AND status IN ('active', 'trialing', 'trial') ORDER BY created_at DESC LIMIT 1"
     ).bind(profile.id).first();
 
-    return c.json({ user: profile, subscription: sub || null });
+    // Expired trial → free (auto-revert) + expose trial flag for UI countdown
+    if (sub && sub.status === 'trial' && sub.current_period_end && sub.current_period_end < Date.now()) {
+      await c.env.DB.prepare("UPDATE subscriptions SET status = 'expired', updated_at = ? WHERE id = ?").bind(Date.now(), sub.id).run();
+      return c.json({ user: profile, subscription: null, trialUsed: true });
+    }
+
+    return c.json({
+      user: profile,
+      subscription: sub ? { ...sub, isTrial: sub.status === 'trial' } : null,
+    });
   })
   .put('/profile', zValidator('json', z.object({
     name: z.string().min(2).max(100).optional(),

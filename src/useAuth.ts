@@ -18,6 +18,7 @@ interface Subscription {
   status: string | null;
   currentPeriodEnd: number | null;
   cancelAtPeriodEnd: boolean;
+  isTrial?: boolean;
 }
 
 export function useAuth() {
@@ -53,11 +54,12 @@ export function useAuth() {
         // Normalize to include 'subscribed' flag
         const sub = data.subscription;
         setSubscription(sub ? {
-          subscribed: sub.status === 'active',
+          subscribed: sub.status === 'active' || sub.status === 'trialing' || (sub.status === 'trial' && (sub.current_period_end ?? 0) > Date.now()),
           plan: sub.plan || null,
           status: sub.status || null,
           currentPeriodEnd: sub.current_period_end ?? null,
           cancelAtPeriodEnd: sub.cancel_at_period_end === true || sub.cancel_at_period_end === 1,
+          isTrial: sub.isTrial === true || sub.status === 'trial',
         } : null);
       } else if (res.status === 401) {
         // Try refresh
@@ -232,6 +234,21 @@ export function useAuth() {
       return res.ok;
     } catch { return false; }
   }, []);
+
+  const startTrial = async (): Promise<{ success: boolean; error?: string; trialEnd?: number }> => {
+    if (!getAccessToken()) return { success: false, error: 'Please sign in first' };
+    try {
+      const res = await apiFetch('/subscription/start-trial', { method: 'POST' });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        await fetchProfile();
+        return { success: true, trialEnd: data.trialEnd };
+      }
+      return { success: false, error: data.error || 'Trial unavailable' };
+    } catch {
+      return { success: false, error: 'Network error' };
+    }
+  };
 
   const confirmSubscription = async (sessionId: string): Promise<{ success: boolean; plan?: string; error?: string }> => {
     if (!getAccessToken()) return { success: false, error: 'Not logged in' };
@@ -423,6 +440,7 @@ export function useAuth() {
     forgotPassword,
     upgrade,
     confirmSubscription,
+    startTrial,
     registerFlashcards,
     saveTestResult,
     flushQueuedResults,
