@@ -1484,7 +1484,7 @@ const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccess
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className={footerLink}>Barrierefreiheit</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
-          <a href={lang === 'de' ? '/de/blog/' : '/blog/'} className={footerLink}>Blog</a>
+          <a href={lang === 'de' ? '/blog/de/' : '/blog/'} className={footerLink}>Blog</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
           <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung" className={footerLink + " text-emerald-400"}>Barrierefreiheit melden</a>
           <span className="text-gray-600 px-0.5 self-center">·</span>
@@ -2261,7 +2261,7 @@ export default function App() {
         )}
         {/* Blog — prominent labeled pill (main part of the page) */}
         <button
-          onClick={() => { window.location.href = lang === 'de' ? '/de/blog/' : '/blog/'; }}
+          onClick={() => { window.location.href = lang === 'de' ? '/blog/de/' : '/blog/'; }}
           title={t.navBlog}
           aria-label={t.navBlog}
           className={`flex items-center gap-1.5 h-10 px-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition-colors shrink-0 shadow-sm`}
@@ -2845,7 +2845,7 @@ export default function App() {
 
               {/* Blog teaser — Blog as a main part of the page */}
               <button
-                onClick={() => { window.location.href = lang === 'de' ? '/de/blog/' : '/blog/'; }}
+                onClick={() => { window.location.href = lang === 'de' ? '/blog/de/' : '/blog/'; }}
                 className={`w-full text-left bg-white border-2 border-indigo-200 hover:border-indigo-400 rounded-xl shadow-sm transition-all active:scale-[0.99] group ${isMobile ? 'p-4 mb-4' : 'p-5 mb-6'}`}
               >
                 <div className="flex items-center justify-between gap-3">

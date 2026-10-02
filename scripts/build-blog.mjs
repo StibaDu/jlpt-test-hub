@@ -39,7 +39,7 @@ function page({ lang, title, description, tags = [], date, body, isIndex = false
     mainEntityOfPage: canonical + '/blog/',
   }).replace(/</g, '\\u003c');
 
-  const appPath = (lang === 'de' ? '/de/blog/' : '/blog/') + (slug ? slug + '/' : '');
+  const appPath = (lang === 'de' ? '/blog/de/' : '/blog/') + (slug ? slug + '/' : '');
   const langToggleHref = lang === 'en' ? '/' : '/en/';
 
   return `<!doctype html>
@@ -56,7 +56,7 @@ function page({ lang, title, description, tags = [], date, body, isIndex = false
 <meta name="twitter:card" content="summary" />
 <link rel="canonical" href="${canonical}${appPath}" />
 <link rel="alternate" hreflang="${lang}" href="${canonical}${appPath}" />
-<link rel="alternate" hreflang="${lang === 'en' ? 'de' : 'en'}" href="${canonical}${lang === 'en' ? '/de/blog/' : '/blog/'}" />
+<link rel="alternate" hreflang="${lang === 'en' ? 'de' : 'en'}" href="${canonical}${lang === 'en' ? '/blog/de/' : '/blog/'}" />
 <link rel="stylesheet" href="/blog/blog.css" />
 <script type="application/ld+json">${jsonLd}</script>
 </head>
@@ -89,7 +89,7 @@ for (const file of files) {
   let html = await marked.parse(body);
 
   // Language toggle block at the top of each post
-  const toggle = `<div class="lang-toggle"><a href="${canonical}/blog/${meta.slug}/" style="${meta.lang === 'en' ? 'font-weight:700' : ''}">EN</a> | <a href="${canonical}/de/blog/${meta.slug}/" style="${meta.lang === 'de' ? 'font-weight:700' : ''}">DE</a></div>`;
+  const toggle = `<div class="lang-toggle"><a href="${canonical}/blog/${meta.slug}/" style="${meta.lang === 'en' ? 'font-weight:700' : ''}">EN</a> | <a href="${canonical}/blog/de/${meta.slug}/" style="${meta.lang === 'de' ? 'font-weight:700' : ''}">DE</a></div>`;
   html = toggle + html;
 
   // Language class wrappers: if content contains de-only paragraphs we mark with ::: de — skip; both langs are in separate files
@@ -112,7 +112,7 @@ for (const file of files) {
     slug: meta.slug, lang: meta.lang || 'en', title: meta.title,
     description: meta.description, date: meta.date,
     tags: (meta.tags || '').split(/,\s*/).filter(Boolean),
-    url: (meta.lang === 'de' ? '/de/blog/' : '/blog/') + meta.slug + '/',
+    url: (meta.lang === 'de' ? '/blog/de/' : '/blog/') + meta.slug + '/',
   });
 }
 
