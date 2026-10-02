@@ -2231,16 +2231,18 @@ export default function App() {
 
   const renderNavControls = (opts?: { compact?: boolean }) => {
     const compact = opts?.compact && isMobile;
+    const iconBtn = "flex items-center justify-center rounded-full transition-colors shrink-0 w-10 h-10";
+    const iconBtnColor = "bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700";
     return (
-      <nav aria-label="Quick Actions" className={`flex items-center ml-auto ${compact ? 'gap-1' : 'gap-2'}`}>
+      <nav aria-label="Quick Actions" className={`flex items-center ml-auto ${compact ? 'gap-1.5' : 'gap-2'}`}>
         {gameState !== 'intro' && (
           <button
             onClick={goHome}
             title={t.home}
             aria-label={t.home}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
+            className={`${iconBtn} ${iconBtnColor}`}
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
           </button>
@@ -2250,39 +2252,41 @@ export default function App() {
             onClick={restartTest}
             title={t.restart}
             aria-label={t.restart}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
+            className={`${iconBtn} ${iconBtnColor}`}
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </button>
         )}
-        {/* Blog */}
+        {/* Blog — prominent labeled pill (main part of the page) */}
         <button
           onClick={() => { window.location.href = lang === 'de' ? '/de/blog/' : '/blog/'; }}
           title={t.navBlog}
           aria-label={t.navBlog}
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700 transition-colors shrink-0"
+          className={`flex items-center gap-1.5 h-10 px-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition-colors shrink-0 shadow-sm`}
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4 0a2 2 0 00-2 2v10a2 2 0 01-2 2m4 0V9a2 2 0 00-2-2m0 0V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2" />
           </svg>
+          <span className={compact ? 'hidden' : ''}>Blog</span>
+          {compact && <span className="sr-only">{t.navBlog}</span>}
         </button>
         {/* Support — compact icon */}
         <button
           onClick={() => setShowSupportModal(true)}
           title={t.supportUs}
           aria-label={t.supportUs}
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-pink-50 hover:bg-pink-100 text-pink-700 transition-colors shrink-0"
+          className={`${iconBtn} bg-pink-50 hover:bg-pink-100 text-pink-700`}
         >
-          <IconHeart className="w-4 h-4" />
+          <IconHeart className="w-5 h-5" />
         </button>
         {/* Pro — only for logged-out or free users */}
         {!auth.isPro && !compact && (
           <button
             onClick={() => setGameState('profile')}
             title={t.goPro}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-amber-100 hover:bg-amber-200 text-amber-700 transition-colors shrink-0 font-bold text-sm"
+            className={`${iconBtn} bg-amber-100 hover:bg-amber-200 text-amber-700 font-bold text-base`}
             aria-label={t.goPro}
           >
             ⭐
@@ -2292,22 +2296,22 @@ export default function App() {
         <button
           onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
           title={lang === 'en' ? 'Deutsch' : 'English'}
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-100 text-gray-700 transition-colors shrink-0 font-bold text-xs"
+          className={`${iconBtn} bg-gray-100 hover:bg-gray-200 text-gray-700 font-black text-sm`}
           aria-label="Language"
         >
           {lang === 'en' ? 'DE' : 'EN'}
         </button>
-        {/* Account: avatar opens profile modal / sign-in button */}
+        {/* Account: avatar opens profile page / sign-in button */}
         {auth.isLoggedIn ? (
           <button
             onClick={() => setGameState('profile')}
             title={auth.user?.name || 'Profil'}
             aria-label={t.navOpenProfile}
-            className="relative w-9 h-9 flex items-center justify-center rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-black text-sm transition-colors shrink-0"
+            className="relative w-10 h-10 flex items-center justify-center rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-black text-base transition-colors shrink-0"
           >
             {auth.user?.name?.charAt(0).toUpperCase() || '?'}
             {auth.isPro && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-amber-400 rounded-full flex items-center justify-center text-[8px] shadow-sm border border-white">⭐</span>
+              <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center text-[9px] shadow-sm border-2 border-white">⭐</span>
             )}
           </button>
         ) : (
@@ -2315,9 +2319,9 @@ export default function App() {
             onClick={() => setShowAuthModal(true)}
             title={t.navSignIn}
             aria-label={t.navSignIn}
-            className="flex items-center gap-1.5 h-9 px-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs transition-colors shrink-0"
+            className="flex items-center gap-1.5 h-10 px-4 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm transition-colors shrink-0"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} aria-hidden="true">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
             <span className="hidden sm:inline">Sign In</span>
@@ -2838,6 +2842,29 @@ export default function App() {
                   🎴 {lang === 'de' ? 'Karteikarten — Pro freischalten' : 'Flashcards — Unlock with Pro'} →
                 </button>
               )}
+
+              {/* Blog teaser — Blog as a main part of the page */}
+              <button
+                onClick={() => { window.location.href = lang === 'de' ? '/de/blog/' : '/blog/'; }}
+                className={`w-full text-left bg-white border-2 border-indigo-200 hover:border-indigo-400 rounded-xl shadow-sm transition-all active:scale-[0.99] group ${isMobile ? 'p-4 mb-4' : 'p-5 mb-6'}`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl font-black shrink-0">📝</div>
+                    <div className="min-w-0">
+                      <h3 className={`font-black text-gray-900 ${isMobile ? 'text-sm' : 'text-base'}`}>
+                        {lang === 'de' ? 'Leben in Japan — der Blog' : 'Living in Japan — the Blog'}
+                      </h3>
+                      <p className={`text-gray-500 truncate ${isMobile ? 'text-[11px]' : 'text-xs'}`}>
+                        {lang === 'de'
+                          ? 'Günstig essen, wohnen pendeln & JLPT-Lernpläne — 11 Guides, zweisprachig'
+                          : 'Cheap eats, housing, transport & JLPT study plans — 11 guides, bilingual'}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-indigo-600 group-hover:translate-x-0.5 transition-transform font-black shrink-0">→</span>
+                </div>
+              </button>
 
               {/* Affiliate: JapanesePod101 */}
               <AffiliateBanner t={t} lang={lang} />
