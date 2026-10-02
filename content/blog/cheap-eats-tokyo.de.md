@@ -23,7 +23,7 @@ Wir haben eine recherchierte Liste mit **über 1.000 Tokyo-Restaurants**, deren 
 
 Diese Karte ist eine besondere Ausnahme: Statt der günstigsten Optionen zeigt sie **regionale japanische Spezialitäten aus ganz Japan** — Gerichte, die man mindestens einmal probiert haben sollte.
 
-<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE" loading="lazy" title="Karte: Regionale japanische Spezialitäten"></iframe>
+<iframe src="https://www.google.com/maps/d/embed?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE" loading="lazy" title="Karte: Regionale japanische Spezialitäten"></iframe>
 
 [Ganze Karte in Google Maps öffnen →](https://www.google.com/maps/d/viewer?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE)
 

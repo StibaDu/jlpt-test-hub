@@ -23,7 +23,7 @@ We compiled a researched list of **1,000+ Tokyo restaurants with lunch menus und
 
 The following map is a special exception: instead of the cheapest options, it showcases **local Japanese foods from across the country** — regional specialties you should try at least once.
 
-<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE" loading="lazy" title="Local Japanese food map"></iframe>
+<iframe src="https://www.google.com/maps/d/embed?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE" loading="lazy" title="Local Japanese food map"></iframe>
 
 [Open the full map in Google Maps →](https://www.google.com/maps/d/viewer?mid=1Zt9eXGvXzXtXaMdxKT_ifXBX_9ZxWoE)
 
