@@ -93,6 +93,9 @@ const uiTranslations: UiStrings = {
     studyInJapan: "Study Japanese in Japan",
     studyInJapanDesc: "Find language schools, apply for student visas, and immerse yourself in Japan.",
     exploreSchools: "Explore Schools →",
+    genkiTitle: "Travel Health Insurance for Japan",
+    genkiDesc: "Genki covers digital nomads, students and working-holiday travelers in Japan — monthly subscription, cancel anytime, signup fully in English.",
+    genkiCta: "Get covered →",
     // Premium strings
     goPro: "Go Pro",
     proTitle: "Upgrade to JLPT Test Hub Pro",
@@ -505,6 +508,32 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
             className="inline-block bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
           >
             {t.exploreSchools}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Genki Insurance — travel health insurance affiliate
+const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
+  return (
+    <div className="mt-4 bg-gradient-to-r from-sky-50 to-cyan-50 border border-sky-200 rounded-xl p-5">
+      <div className="flex items-start gap-4">
+        <div className="text-3xl shrink-0">🩺</div>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <h3 className="font-bold text-gray-800 text-sm">{t.genkiTitle}</h3>
+            <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
+          </div>
+          <p className="text-gray-600 text-xs mb-3 leading-relaxed">{t.genkiDesc}</p>
+          <a
+            href="https://genki.world/?ref=jlpttesthub"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+            className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
+          >
+            {t.genkiCta}
           </a>
         </div>
       </div>
@@ -2871,6 +2900,9 @@ export default function App() {
 
               {/* Affiliate: Study in Japan */}
               <StudyInJapanBanner t={t} lang={lang} />
+
+              {/* Affiliate: Genki Insurance */}
+              <GenkiBanner t={t} lang={lang} />
 
               <div className={`text-center text-gray-600 shrink-0 ${isMobile ? 'mt-4 text-xs' : 'mt-8 text-sm'}`}>
                 {t.passReq}

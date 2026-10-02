@@ -265,7 +265,7 @@
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1790696525.9383464,
+    "mtime": 1790957851.208803,
     "ast_hash": "94e4f8fcbe41ac54316a967a44b277af",
     "semantic_hash": ""
   },
@@ -527,6 +527,11 @@
   "public/og-image.png": {
     "mtime": 1790957605.8614278,
     "ast_hash": "e5ddc84525d2b2952e3ab3ef7d959c78",
+    "semantic_hash": ""
+  },
+  "public/.well-known/ai-catalog.json": {
+    "mtime": 1790957845.3930259,
+    "ast_hash": "1ec9bb03995ef3c033ad55064fe945c6",
     "semantic_hash": ""
   }
 }

@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-02)
 
 ## Corpus Check
-- 70 files · ~140,420 words
+- 71 files · ~140,806 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 518 nodes · 603 edges · 42 communities (40 shown, 2 thin omitted)
+- 539 nodes · 623 edges · 43 communities (41 shown, 2 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d00648f2`
+- Built from commit: `3d9a9877`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,6 +56,7 @@
 - romaji.ts
 - kanjiReadings.ts
 - AuthModal.tsx
+- ai-catalog.json
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
@@ -84,7 +85,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (42 total, 2 thin omitted)
+## Communities (43 total, 2 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -242,8 +243,12 @@ Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(),
 Cohesion: 0.50
 Nodes (3): KanjiReading, kanjiReadings, lookupReadings()
 
+### Community 42 - "ai-catalog.json"
+Cohesion: 0.10
+Nodes (20): format, required, content_policy, attribution, crawling, notes, training, description (+12 more)
+
 ## Knowledge Gaps
-- **265 isolated node(s):** `ROOT`, `SRC`, `OUT`, `legalSections`, `files` (+260 more)
+- **281 isolated node(s):** `$schema`, `name`, `description`, `website`, `version` (+276 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -251,11 +256,11 @@ Nodes (3): KanjiReading, kanjiReadings, lookupReadings()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `dependencies`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `ROOT`, `SRC`, `OUT` to the rest of the system?**
-  _265 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `$schema`, `name`, `description` to the rest of the system?**
+  _281 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**

@@ -40,5 +40,6 @@
   "38": "tts.ts",
   "39": "romaji.ts",
   "40": "kanjiReadings.ts",
-  "41": "AuthModal.tsx"
+  "41": "AuthModal.tsx",
+  "42": "ai-catalog.json"
 }

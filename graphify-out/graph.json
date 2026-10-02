@@ -4,15 +4,246 @@
   "graph": {},
   "nodes": [
     {
+      "label": "ai-catalog.json",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "ai-catalog.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_schema",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "$schema"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_name",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "name"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_description",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "description"
+    },
+    {
+      "label": "website",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_website",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "website"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_version",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "version"
+    },
+    {
+      "label": "updated",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_updated",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "updated"
+    },
+    {
+      "label": "owner",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_owner",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "owner"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_owner_name",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "name"
+    },
+    {
+      "label": "email",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_owner_email",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "email"
+    },
+    {
+      "label": "address",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_owner_address",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "address"
+    },
+    {
+      "label": "resources",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_resources",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "resources"
+    },
+    {
+      "label": "content_policy",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_content_policy",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "content_policy"
+    },
+    {
+      "label": "crawling",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_content_policy_crawling",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "crawling"
+    },
+    {
+      "label": "training",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_content_policy_training",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "training"
+    },
+    {
+      "label": "attribution",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L83",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_content_policy_attribution",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "attribution"
+    },
+    {
+      "label": "required",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_attribution_required",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "required"
+    },
+    {
+      "label": "format",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_attribution_format",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "format"
+    },
+    {
+      "label": "notes",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_content_policy_notes",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "notes"
+    },
+    {
+      "label": "verification",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_verification",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "verification"
+    },
+    {
+      "label": "methods",
+      "file_type": "code",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "public_well_known_ai_catalog_verification_methods",
+      "community": 42,
+      "community_name": "ai-catalog.json",
+      "norm_label": "methods"
+    },
+    {
       "label": "build-blog.mjs",
       "file_type": "code",
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_build_blog",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "build-blog.mjs"
+      "norm_label": "build-blog.mjs",
+      "id": "scripts_build_blog"
     },
     {
       "label": "ROOT",
@@ -20,10 +251,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "scripts_build_blog_root",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "root"
+      "norm_label": "root",
+      "id": "scripts_build_blog_root"
     },
     {
       "label": "SRC",
@@ -31,10 +262,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "scripts_build_blog_src",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "src"
+      "norm_label": "src",
+      "id": "scripts_build_blog_src"
     },
     {
       "label": "OUT",
@@ -42,10 +273,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "scripts_build_blog_out",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "out"
+      "norm_label": "out",
+      "id": "scripts_build_blog_out"
     },
     {
       "label": "extractLegalSections()",
@@ -53,10 +284,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "scripts_build_blog_extractlegalsections",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "extractlegalsections()"
+      "norm_label": "extractlegalsections()",
+      "id": "scripts_build_blog_extractlegalsections"
     },
     {
       "label": "parseFrontmatter()",
@@ -64,10 +295,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "scripts_build_blog_parsefrontmatter",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "parsefrontmatter()"
+      "norm_label": "parsefrontmatter()",
+      "id": "scripts_build_blog_parsefrontmatter"
     },
     {
       "label": "page()",
@@ -75,10 +306,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "scripts_build_blog_page",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "page()"
+      "norm_label": "page()",
+      "id": "scripts_build_blog_page"
     },
     {
       "label": "legalSections",
@@ -86,10 +317,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L108",
       "_origin": "ast",
-      "id": "scripts_build_blog_legalsections",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "legalsections"
+      "norm_label": "legalsections",
+      "id": "scripts_build_blog_legalsections"
     },
     {
       "label": "files",
@@ -97,10 +328,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L109",
       "_origin": "ast",
-      "id": "scripts_build_blog_files",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "files"
+      "norm_label": "files",
+      "id": "scripts_build_blog_files"
     },
     {
       "label": "posts",
@@ -108,10 +339,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L110",
       "_origin": "ast",
-      "id": "scripts_build_blog_posts",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "posts"
+      "norm_label": "posts",
+      "id": "scripts_build_blog_posts"
     },
     {
       "label": "sitemapEntries",
@@ -119,10 +350,10 @@
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L168",
       "_origin": "ast",
-      "id": "scripts_build_blog_sitemapentries",
       "community": 27,
       "community_name": "build-blog.mjs",
-      "norm_label": "sitemapentries"
+      "norm_label": "sitemapentries",
+      "id": "scripts_build_blog_sitemapentries"
     },
     {
       "label": "App.tsx",
@@ -5706,13 +5937,233 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_content_policy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_owner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_resources",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_updated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_verification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog",
+      "target": "public_well_known_ai_catalog_website",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_owner",
+      "target": "public_well_known_ai_catalog_owner_address",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_owner",
+      "target": "public_well_known_ai_catalog_owner_email",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_owner",
+      "target": "public_well_known_ai_catalog_owner_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy",
+      "target": "public_well_known_ai_catalog_content_policy_attribution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy",
+      "target": "public_well_known_ai_catalog_content_policy_crawling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy",
+      "target": "public_well_known_ai_catalog_content_policy_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy",
+      "target": "public_well_known_ai_catalog_content_policy_training",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy_attribution",
+      "target": "public_well_known_ai_catalog_attribution_format",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_content_policy_attribution",
+      "target": "public_well_known_ai_catalog_attribution_required",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/.well-known/ai-catalog.json",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "public_well_known_ai_catalog_verification",
+      "target": "public_well_known_ai_catalog_verification_methods",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/build-blog.mjs",
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_extractlegalsections",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_extractlegalsections"
     },
     {
       "relation": "contains",
@@ -5721,9 +6172,9 @@
       "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_files",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_files"
     },
     {
       "relation": "contains",
@@ -5732,9 +6183,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_legalsections",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_legalsections"
     },
     {
       "relation": "contains",
@@ -5743,9 +6194,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_out",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_out"
     },
     {
       "relation": "contains",
@@ -5754,9 +6205,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_page",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_page"
     },
     {
       "relation": "contains",
@@ -5765,9 +6216,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_parsefrontmatter",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_parsefrontmatter"
     },
     {
       "relation": "contains",
@@ -5776,9 +6227,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_posts",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_posts"
     },
     {
       "relation": "contains",
@@ -5787,9 +6238,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_root",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_root"
     },
     {
       "relation": "contains",
@@ -5798,9 +6249,9 @@
       "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_sitemapentries",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_sitemapentries"
     },
     {
       "relation": "contains",
@@ -5809,9 +6260,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "scripts_build_blog",
-      "target": "scripts_build_blog_src",
-      "confidence_score": 1.0
+      "target": "scripts_build_blog_src"
     },
     {
       "relation": "contains",
@@ -12504,5 +12955,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d00648f2536623663c97468b0e245623f34dffc7"
+  "built_at_commit": "3d9a98775e93cbca3ebc30c7869f1e908e60356b"
 }
