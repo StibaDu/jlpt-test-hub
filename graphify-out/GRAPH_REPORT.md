@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-02)
 
 ## Corpus Check
-- 70 files · ~109,014 words
+- 70 files · ~109,633 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 516 nodes · 601 edges · 38 communities (37 shown, 1 thin omitted)
+- 516 nodes · 602 edges · 38 communities (37 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `15e99de1`
+- Built from commit: `7ad45aa7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -96,7 +96,7 @@ Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, A
 
 ### Community 3 - "App.tsx"
 Cohesion: 0.05
-Nodes (31): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+23 more)
+Nodes (32): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+24 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.08
@@ -127,8 +127,8 @@ Cohesion: 0.07
 Nodes (26): argon2, hono, @hono/zod-validator, dependencies, argon2, hono, @hono/zod-validator, react (+18 more)
 
 ### Community 12 - "useAuth.ts"
-Cohesion: 0.30
-Nodes (10): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+2 more)
+Cohesion: 0.35
+Nodes (9): enqueueResult(), flushQueue(), newClientTestId(), QueuedTestResult, queueSize(), read(), write(), Subscription (+1 more)
 
 ### Community 13 - "JLPT N4 Grammatik: Die 15 wichtigsten Muster"
 Cohesion: 0.11
@@ -227,7 +227,7 @@ Cohesion: 0.29
 Nodes (6): How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way, The habit loop that survives, The kanji counts, so nothing surprises you, The two failure modes to avoid, Use your actual mistakes as cards, Why spacing works (the science in one paragraph)
 
 ## Knowledge Gaps
-- **264 isolated node(s):** `**Every Restaurant in Tokyo with a under ￥1000 Lunch Menu**`, `🏠 AFFORDABLE ACCOMMODATION`, `🚃 TRANSPORTATION`, `🏥 HEALTH INSURANCE`, `📚EDUCATION AND LANGUAGE` (+259 more)
+- **264 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+259 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -238,13 +238,13 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `**Every Restaurant in Tokyo with a under ￥1000 Lunch Menu**`, `🏠 AFFORDABLE ACCOMMODATION`, `🚃 TRANSPORTATION` to the rest of the system?**
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
   _264 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.052525252525252523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05194805194805195 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._

@@ -2245,7 +2245,6 @@ export default function App() {
             </svg>
           </button>
         )}
-        {!(compact && gameState === 'testing') && renderLevelSwitcher()}
         {gameState === 'testing' && !compact && (
           <button
             onClick={restartTest}
