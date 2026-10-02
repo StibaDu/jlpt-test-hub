@@ -93,8 +93,8 @@ const uiTranslations: UiStrings = {
     studyInJapan: "Study Japanese in Japan",
     studyInJapanDesc: "Find language schools, apply for student visas, and immerse yourself in Japan.",
     exploreSchools: "Explore Schools →",
-    genkiTitle: "Travel Health Insurance for Japan",
-    genkiDesc: "Genki covers digital nomads, students and working-holiday travelers in Japan — monthly subscription, cancel anytime, signup fully in English.",
+    genkiTitle: "Genki — Travel Health Insurance for Japan",
+    genkiDesc: "Genki insures digital nomads, students and working-holiday travelers in Japan — monthly subscription, cancel anytime, signup fully in English.",
     genkiCta: "Get covered →",
     // Premium strings
     goPro: "Go Pro",
