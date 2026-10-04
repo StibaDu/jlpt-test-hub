@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-04)
 
 ## Corpus Check
-- 72 files · ~148,401 words
+- 72 files · ~149,298 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e9cb3d4`
+- Built from commit: `37456fe8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -237,7 +237,7 @@ Cohesion: 0.10
 Nodes (20): format, required, content_policy, attribution, crawling, notes, training, description (+12 more)
 
 ## Knowledge Gaps
-- **299 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+294 more)
+- **299 isolated node(s):** `ROOT`, `SRC`, `OUT`, `legalSections`, `files` (+294 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -248,7 +248,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+- **What connects `ROOT`, `SRC`, `OUT` to the rest of the system?**
   _299 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

@@ -98,11 +98,6 @@ ${legalSections.barrierefreiheit ? `<section>${legalSections.barrierefreiheit}</
 <footer class="blog-footer">
 © 2026 JLPT Test Hub · <a href="/#/">${lang === 'de' ? 'Übungstests' : 'Practice tests'}</a> ·
 <a href="/blog/">${lang === 'de' ? 'Blog' : 'Blog'}</a>
-<div class="affiliate">
-<h3>🩺 ${lang === 'de' ? 'Reise-Krankenversicherung für Japan' : 'Travel Health Insurance for Japan'}</h3>
-<p>${lang === 'de' ? '<strong>Genki</strong> versichert Digital Nomads, Studenten und Working-Holiday-Reisende — monatlich kündbar, komplett auf Englisch.' : "<strong>Genki</strong> covers digital nomads, students and working-holiday travelers in Japan — monthly, cancel anytime, fully in English."}</p>
-<p><a href="https://genki.world/?ref=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">${lang === 'de' ? '→ Bei Genki absichern' : '→ Get covered with Genki'}</a></p>
-</div>
 </footer>
 </body>
 </html>`;
