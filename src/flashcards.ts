@@ -302,3 +302,107 @@ export function speakForCard(card: Flashcard, face: 'front' | 'back' = 'front'):
   }
   if (card.exampleSentence) speak(card.exampleSentence);
 }
+
+// ===== Kanji Focus Training =====
+// Extracts every kanji from actual test questions, ranks by frequency, and builds
+// flashcard decks that map study time to test performance.
+
+import { lookupReadings } from './data/kanjiReadings';
+
+export interface KanjiFocusCard {
+  cardId: string;           // 'kf-N5-日'
+  kind: 'kanji-focus';
+  level: JLPTLevel;
+  frontMain: string;        // the kanji character
+  meaningEn?: string;
+  meaningDe?: string;
+  onyomi?: string;
+  kunyomi?: string;
+  testFrequency: number;    // how many times it appears in test questions
+  appearsIn: number[];      // question IDs it appears in
+}
+
+const KANJI_RE = /[\u4e00-\u9fff々]/g;
+
+export function buildKanjiFocusDeck(levelsData: Record<JLPTLevel, any>, level: JLPTLevel): KanjiFocusCard[] {
+  const bank = levelsData[level]?.questionBank || [];
+  const merged: Record<string, any> = {};
+  for (const lvl of ['N5', 'N4', 'N3'] as JLPTLevel[]) {
+    Object.assign(merged, levelsData[lvl]?.kanjiDictionary || {});
+  }
+
+  // Step 1: scan every question text + options for kanji, count frequency + track question IDs
+  const freq: Record<string, number> = {};
+  const appearsIn: Record<string, Set<number>> = {};
+  
+  for (const q of bank) {
+    const sources = [q.text, ...(q.options || [])] as string[];
+    for (const src of sources) {
+      // Extract from furigana tags
+      for (const m of src.matchAll(FURIGANA_RE)) {
+        const word = m[1];
+        for (const ch of word) {
+          if (KANJI_RE.test(ch)) {
+            freq[ch] = (freq[ch] || 0) + 1;
+            if (!appearsIn[ch]) appearsIn[ch] = new Set();
+            appearsIn[ch].add(q.id);
+          }
+        }
+      }
+      // Also bare kanji in kana-only questions (no furigana)
+      for (const ch of src) {
+        if (KANJI_RE.test(ch)) {
+          freq[ch] = (freq[ch] || 0) + 1;
+          if (!appearsIn[ch]) appearsIn[ch] = new Set();
+          appearsIn[ch].add(q.id);
+        }
+      }
+    }
+  }
+
+  // Step 2: build cards sorted by frequency (most-used first)
+  const cards: KanjiFocusCard[] = Object.entries(freq)
+    .sort((a, b) => b[1] - a[1])
+    .map(([ch, count]) => {
+      const entry = merged[ch];
+      const fallback = !entry ? lookupReadings(ch) : null;
+      return {
+        cardId: `kf-${level}-${ch}`,
+        kind: 'kanji-focus' as const,
+        level,
+        frontMain: ch,
+        meaningEn: entry?.meaning?.en,
+        meaningDe: entry?.meaning?.de,
+        onyomi: entry?.onyomi || fallback?.onyomi || '',
+        kunyomi: entry?.kunyomi || fallback?.kunyomi || '',
+        testFrequency: count,
+        appearsIn: Array.from(appearsIn[ch] || []).sort((a, b) => a - b),
+      };
+    });
+
+  return cards;
+}
+
+// Coverage calculator: how many of the test kanji has the user mastered?
+export function getKanjiCoverage(_level: JLPTLevel, totalTestKanji: number, masteredCount: number): {
+  known: number;
+  total: number;
+  percent: number;
+  remaining: number;
+} {
+  return {
+    known: masteredCount,
+    total: totalTestKanji,
+    percent: Math.round((masteredCount / totalTestKanji) * 100),
+    remaining: totalTestKanji - masteredCount,
+  };
+}
+
+// Three sub-decks for the UI
+export function kanjiFocusSubDecks(cards: KanjiFocusCard[]) {
+  return {
+    frequent: cards.slice(0, 50),        // top 50 most-used
+    full: cards,                          // all test kanji
+    gap: cards,                           // filtered by SRS mastery status in the UI
+  };
+}

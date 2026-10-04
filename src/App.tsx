@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels, hydrateLevelData } from './data';
 import {
   buildKanjiCards, buildVocabCards, buildGrammarCards, buildDeck,
-  buildWeakGrammarDeck, allDecks, type Flashcard,
+  buildWeakGrammarDeck, allDecks, buildKanjiFocusDeck, type Flashcard,
 } from './flashcards';
 import { lookupReadings } from './data/kanjiReadings';
 import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Question } from './data';
@@ -2437,6 +2437,7 @@ export default function App() {
     if (flashDeckId && flashCards.length > 0) {
       const card = flashCards[flashIdx];
       const isKanji = card.kind === 'kanji';
+      const isKanjiFocus = card.kind === 'kanji-focus';
       const isCloze = card.kind === 'grammar-cloze';
       const emphasize = lang === 'de' ? 'de' : 'en';
       return (
@@ -2461,7 +2462,16 @@ export default function App() {
               <div className={`fc-card ${flashFlipped ? 'flipped' : ''} ${flashNoAnim ? 'no-anim' : ''}`} style={{ minHeight: isMobile ? 300 : 340 }}>
                 {/* FRONT */}
                 <div className="fc-face fc-face-front">
-                  {isKanji ? (
+                  {isKanjiFocus ? (
+                    <>
+                      <div className="text-[110px] font-black leading-none text-gray-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="flex gap-2 mb-3">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🎯 {card.level}</span>
+                        {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-900 text-amber-300">🔥 {card.testFrequency}×</span>}
+                      </div>
+                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
+                    </>
+                  ) : isKanji ? (
                     <>
                       <div className="text-[110px] font-black leading-none text-gray-100 mb-3 select-none">{card.frontMain}</div>
                       <div className="flex gap-2 mb-3">
@@ -2491,7 +2501,50 @@ export default function App() {
 
                 {/* BACK */}
                 <div className="fc-face fc-face-back">
-                  {isKanji ? (
+                  {isKanjiFocus ? (
+                    <div className="w-full space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="text-6xl font-black text-white">{card.frontMain}</div>
+                        <div className="flex flex-col gap-1 items-end">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">🎯 {card.level}</span>
+                          {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">🔥 {card.testFrequency}× {lang === 'de' ? 'im Test' : 'in tests'}</span>}
+                        </div>
+                      </div>
+                      {(card.onyomi || card.kunyomi) && (
+                        <div className="grid grid-cols-2 gap-2">
+                          {card.onyomi && (
+                            <div className="bg-white/5 rounded-lg p-2">
+                              <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
+                              <div className="text-sm text-gray-100 font-bold">{card.onyomi}</div>
+                              {card.onyomi && <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.onyomi)}</div>}
+                            </div>
+                          )}
+                          {card.kunyomi && (
+                            <div className="bg-white/5 rounded-lg p-2">
+                              <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
+                              <div className="text-sm text-gray-100 font-bold">{card.kunyomi}</div>
+                              {card.kunyomi && <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.kunyomi)}</div>}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-lg text-white font-bold">{emphasize === 'de' ? card.meaningDe : card.meaningEn}</div>
+                      </div>
+                      {card.appearsIn && card.appearsIn.length > 0 && (
+                        <div className="bg-white/5 rounded-lg p-2">
+                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Erscheint in Testfragen' : 'Appears in test questions'}</div>
+                          <div className="flex flex-wrap gap-1">
+                            {card.appearsIn.slice(0, 8).map((qid: number) => (
+                              <span key={qid} className="text-[10px] bg-emerald-500/10 text-emerald-300 rounded px-1.5 py-0.5">#{qid}</span>
+                            ))}
+                            {card.appearsIn.length > 8 && <span className="text-[10px] text-gray-400">+{card.appearsIn.length - 8}</span>}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : isKanji ? (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
                         <div className="text-6xl font-black text-white">{card.frontMain}</div>
@@ -2703,6 +2756,80 @@ export default function App() {
 
           {/* ALL DECKS (Mode B) */}
           <h2 className="text-xs font-black text-gray-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
+
+          {/* KANJI FOCUS TRAINING — test-reality decks */}
+          {(() => {
+            const kfCards = buildKanjiFocusDeck(levelData, tabLevel);
+            const total = kfCards.length;
+            const top50 = kfCards.slice(0, 50);
+            return (
+              <div className="mb-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 border-2 border-emerald-300">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-2xl">🎯</span>
+                  <h3 className="font-black text-emerald-900 text-sm">{lang === 'de' ? 'Kanji Fokus-Training' : 'Kanji Focus Training'}</h3>
+                </div>
+                <p className="text-emerald-700 text-xs mb-3">
+                  {lang === 'de'
+                    ? `${total} Kanji, die in echten ${tabLevel}-Testfragen vorkommen — nach Häufigkeit sortiert.`
+                    : `${total} kanji that appear in real ${tabLevel} test questions — sorted by frequency.`}
+                </p>
+                {/* Coverage bar */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+                      {lang === 'de' ? 'Test-Abdeckung' : 'Test Coverage'}
+                    </span>
+                    <span className="text-xs font-black text-emerald-800">
+                      {srsFlashDueCount > 0 ? `${total - srsFlashDueCount}/${total}` : `0/${total}`}
+                    </span>
+                  </div>
+                  <div className="h-3 bg-white rounded-full overflow-hidden border border-emerald-200">
+                    <div
+                      className="h-full bg-emerald-600 transition-all duration-500"
+                      style={{ width: `${srsFlashDueCount > 0 ? Math.round(((total - srsFlashDueCount) / total) * 100) : 0}%` }}
+                    ></div>
+                  </div>
+                </div>
+                {/* Three sub-decks */}
+                <div className="grid gap-2 md:grid-cols-3">
+                  <button
+                    onClick={() => startFlashDeck(`kf-frequent-${tabLevel}`, top50.map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
+                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg">🔥</span>
+                      <span className="text-[10px] font-bold text-gray-400">50</span>
+                    </div>
+                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Top 50 Häufigste' : 'Top 50 Frequent'}</h4>
+                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Maximale ROI' : 'Maximum ROI'}</p>
+                  </button>
+                  <button
+                    onClick={() => startFlashDeck(`kf-full-${tabLevel}`, kfCards.map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
+                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg">📊</span>
+                      <span className="text-[10px] font-bold text-gray-400">{total}</span>
+                    </div>
+                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Vollständige Abdeckung' : 'Full Coverage'}</h4>
+                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Alle Test-Kanji' : 'All test kanji'}</p>
+                  </button>
+                  <button
+                    onClick={() => startFlashDeck(`kf-gap-${tabLevel}`, kfCards.slice(0, 30).map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
+                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg">🚨</span>
+                      <span className="text-[10px] font-bold text-gray-400">30</span>
+                    </div>
+                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Deine Lücke' : 'Your Gap'}</h4>
+                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Fehlende Kanji lernen' : 'Learn missing kanji'}</p>
+                  </button>
+                </div>
+              </div>
+            );
+          })()}
+
           <div className="grid gap-4 md:grid-cols-2">
             {decks.map(deck => {
               const cards = deck.kind === 'kanji' ? buildKanjiCards(levelData, tabLevel)

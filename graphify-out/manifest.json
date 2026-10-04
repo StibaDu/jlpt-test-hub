@@ -300,13 +300,13 @@
     "semantic_hash": ""
   },
   "content/blog/health-insurance-japan-students.de.md": {
-    "mtime": 1790953741.1954384,
-    "ast_hash": "f8d76e209fd1ded836d5909443d4b139",
+    "mtime": 1791021150.9552007,
+    "ast_hash": "cc8ce82e4f9813e521520249078b53f9",
     "semantic_hash": ""
   },
   "content/blog/health-insurance-japan-students.en.md": {
-    "mtime": 1790953731.3640196,
-    "ast_hash": "991573e18e3d323365415c4171d0d3da",
+    "mtime": 1791021109.4909897,
+    "ast_hash": "8ccf4556cea0301fb490e4262e29641f",
     "semantic_hash": ""
   },
   "content/blog/japanese-language-schools-tokyo.de.md": {
@@ -390,122 +390,122 @@
     "semantic_hash": ""
   },
   "public/blog/budget-housing-tokyo/index.html": {
-    "mtime": 1790957636.5163732,
+    "mtime": 1791021168.0599158,
     "ast_hash": "484a9bd510ea3c1102fc870fba0699cc",
     "semantic_hash": ""
   },
   "public/blog/cheap-eats-tokyo/index.html": {
-    "mtime": 1790957636.524603,
+    "mtime": 1791021168.069294,
     "ast_hash": "5e1f5a4599c3be8ce92ba6ba6a65d641",
     "semantic_hash": ""
   },
   "public/blog/de/budget-housing-tokyo/index.html": {
-    "mtime": 1790957636.5148282,
+    "mtime": 1791021168.0574946,
     "ast_hash": "9df1eb6a531f96a411c792b679e3e5df",
     "semantic_hash": ""
   },
   "public/blog/de/cheap-eats-tokyo/index.html": {
-    "mtime": 1790957636.5174596,
+    "mtime": 1791021168.0616748,
     "ast_hash": "2e01a6631f9c5ea009ed23013f182ed1",
     "semantic_hash": ""
   },
   "public/blog/de/health-insurance-japan-students/index.html": {
-    "mtime": 1790957636.5255647,
-    "ast_hash": "82bcd507d8925b9cdd3271cd58974026",
+    "mtime": 1791021168.0737333,
+    "ast_hash": "88eef5fdd2cf689ec3291a8b44b9ef4f",
     "semantic_hash": ""
   },
   "public/blog/de/index.html": {
-    "mtime": 1790957636.5544057,
-    "ast_hash": "b6153b893116d2fa7cec815d8e3ea428",
+    "mtime": 1791021168.1218655,
+    "ast_hash": "7873462a106b7332e13aee16fdd38bac",
     "semantic_hash": ""
   },
   "public/blog/de/japanese-language-schools-tokyo/index.html": {
-    "mtime": 1790957636.529305,
+    "mtime": 1791021168.0762982,
     "ast_hash": "cafa3c68d87c00893f701d3e69a2f497",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-kanji-flashcards-guide/index.html": {
-    "mtime": 1790957636.5320363,
+    "mtime": 1791021168.080569,
     "ast_hash": "de368f4a53ee973eb92e404af89624bd",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-n4-grammar-essentials/index.html": {
-    "mtime": 1790957636.533211,
+    "mtime": 1791021168.0825262,
     "ast_hash": "aca7218a3f550e36e40bc9de0bd7cb39",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-n5-study-plan/index.html": {
-    "mtime": 1790957636.534405,
+    "mtime": 1791021168.0856934,
     "ast_hash": "dbadaf1c35538acce1f85a820a1430ac",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-test-day-guide/index.html": {
-    "mtime": 1790957636.5358586,
+    "mtime": 1791021168.0881228,
     "ast_hash": "ccca492a9acdbfec98ca1179746965ab",
     "semantic_hash": ""
   },
   "public/blog/de/tokyo-budget-tips/index.html": {
-    "mtime": 1790957636.5372856,
+    "mtime": 1791021168.089896,
     "ast_hash": "dc0cfe555f0a2ee2cf7f2780c6bc5fb7",
     "semantic_hash": ""
   },
   "public/blog/de/tokyo-transport-discounts/index.html": {
-    "mtime": 1790957636.538412,
+    "mtime": 1791021168.0918467,
     "ast_hash": "5cfb7e2f6c9cdf26164db65184c2d21b",
     "semantic_hash": ""
   },
   "public/blog/de/working-holiday-jobs-japan/index.html": {
-    "mtime": 1790957636.539351,
+    "mtime": 1791021168.0937152,
     "ast_hash": "484d42ac231c8cdde743defe27ee139f",
     "semantic_hash": ""
   },
   "public/blog/health-insurance-japan-students/index.html": {
-    "mtime": 1790957636.5261598,
-    "ast_hash": "523c1ead5dd30d88395f27b3ae609c1d",
+    "mtime": 1791021168.0753694,
+    "ast_hash": "5606329e0c36b2af5e963b3b08599e08",
     "semantic_hash": ""
   },
   "public/blog/index.html": {
-    "mtime": 1790957636.5541768,
-    "ast_hash": "6c98546abe23d6e2831b36669905aecd",
+    "mtime": 1791021168.1212533,
+    "ast_hash": "8951e0195dce6fb014800e7c2a2eb695",
     "semantic_hash": ""
   },
   "public/blog/japanese-language-schools-tokyo/index.html": {
-    "mtime": 1790957636.529959,
+    "mtime": 1791021168.0774877,
     "ast_hash": "67f98e774db3c7018fda85d5c50307c6",
     "semantic_hash": ""
   },
   "public/blog/jlpt-kanji-flashcards-guide/index.html": {
-    "mtime": 1790957636.5326438,
+    "mtime": 1791021168.0817246,
     "ast_hash": "9f244d9d376e94e380ec209a9904132a",
     "semantic_hash": ""
   },
   "public/blog/jlpt-n4-grammar-essentials/index.html": {
-    "mtime": 1790957636.5337114,
+    "mtime": 1791021168.0838826,
     "ast_hash": "2bfa0608ab279e77e2d07fe8e9737684",
     "semantic_hash": ""
   },
   "public/blog/jlpt-n5-study-plan/index.html": {
-    "mtime": 1790957636.5351155,
+    "mtime": 1791021168.0867312,
     "ast_hash": "8328bcea3cb66a4b682441c3371427d2",
     "semantic_hash": ""
   },
   "public/blog/jlpt-test-day-guide/index.html": {
-    "mtime": 1790957636.536507,
+    "mtime": 1791021168.089079,
     "ast_hash": "8940307324cba8a318fb703402174b11",
     "semantic_hash": ""
   },
   "public/blog/tokyo-budget-tips/index.html": {
-    "mtime": 1790957636.5378919,
+    "mtime": 1791021168.0909243,
     "ast_hash": "ef2841594335332f8134937236a53029",
     "semantic_hash": ""
   },
   "public/blog/tokyo-transport-discounts/index.html": {
-    "mtime": 1790957636.5388432,
+    "mtime": 1791021168.0925486,
     "ast_hash": "8c1aec0f376b60ea6914997301c4fc30",
     "semantic_hash": ""
   },
   "public/blog/working-holiday-jobs-japan/index.html": {
-    "mtime": 1790957636.5398467,
+    "mtime": 1791021168.0955408,
     "ast_hash": "2c747bd0c7cf38f2a366c71e2bb2bf61",
     "semantic_hash": ""
   },
@@ -515,7 +515,7 @@
     "semantic_hash": ""
   },
   "public/blog/metro-pass-leaflet-2024.pdf": {
-    "mtime": 1790957636.5419412,
+    "mtime": 1791021168.106605,
     "ast_hash": "c34ddfd457e9192cb5c6503b08a6a2bc",
     "semantic_hash": ""
   },
