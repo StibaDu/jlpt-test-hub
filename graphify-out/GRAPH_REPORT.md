@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-04)
 
 ## Corpus Check
-- 72 files · ~148,397 words
+- 72 files · ~148,401 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 571 nodes · 672 edges · 40 communities (39 shown, 1 thin omitted)
+- 571 nodes · 668 edges · 40 communities (39 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8221b288`
+- Built from commit: `8e9cb3d4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -62,10 +62,10 @@
 4. `Launch Checklist — JLPT Test Hub` - 12 edges
 5. `JLPT Test Hub` - 10 edges
 6. `The Only Guide you need, to live Cheap in Tokyo!` - 9 edges
-7. `App()` - 8 edges
-8. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
-9. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
-10. `Genki im Check: Die beste Krankenversicherung für Japan` - 7 edges
+7. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
+8. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
+9. `Genki im Check: Die beste Krankenversicherung für Japan` - 7 edges
+10. `Warum Genki der schlauste erste Schritt in Japan ist` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -255,6 +255,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.0544464609800363 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05202661826981246 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._

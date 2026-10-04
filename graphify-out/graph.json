@@ -350,10 +350,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_tutorialmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "tutorialmodal.tsx"
+      "norm_label": "tutorialmodal.tsx",
+      "id": "src_tutorialmodal"
     },
     {
       "label": "TUTORIAL_KEY",
@@ -361,10 +361,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "src_tutorialmodal_tutorial_key",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "tutorial_key"
+      "norm_label": "tutorial_key",
+      "id": "src_tutorialmodal_tutorial_key"
     },
     {
       "label": "HINTS_ENABLED_KEY",
@@ -372,10 +372,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hints_enabled_key",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hints_enabled_key"
+      "norm_label": "hints_enabled_key",
+      "id": "src_tutorialmodal_hints_enabled_key"
     },
     {
       "label": "HINT_REALTEST_KEY",
@@ -383,10 +383,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hint_realtest_key",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hint_realtest_key"
+      "norm_label": "hint_realtest_key",
+      "id": "src_tutorialmodal_hint_realtest_key"
     },
     {
       "label": "HINT_FLASH_KEY",
@@ -394,10 +394,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hint_flash_key",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hint_flash_key"
+      "norm_label": "hint_flash_key",
+      "id": "src_tutorialmodal_hint_flash_key"
     },
     {
       "label": "HINT_WRONG_KEY",
@@ -405,10 +405,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hint_wrong_key",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hint_wrong_key"
+      "norm_label": "hint_wrong_key",
+      "id": "src_tutorialmodal_hint_wrong_key"
     },
     {
       "label": "tutorialSeen()",
@@ -416,10 +416,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "src_tutorialmodal_tutorialseen",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "tutorialseen()"
+      "norm_label": "tutorialseen()",
+      "id": "src_tutorialmodal_tutorialseen"
     },
     {
       "label": "hintsEnabled()",
@@ -427,10 +427,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hintsenabled",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hintsenabled()"
+      "norm_label": "hintsenabled()",
+      "id": "src_tutorialmodal_hintsenabled"
     },
     {
       "label": "markHint()",
@@ -438,10 +438,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_tutorialmodal_markhint",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "markhint()"
+      "norm_label": "markhint()",
+      "id": "src_tutorialmodal_markhint"
     },
     {
       "label": "hintShown()",
@@ -449,10 +449,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_tutorialmodal_hintshown",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "hintshown()"
+      "norm_label": "hintshown()",
+      "id": "src_tutorialmodal_hintshown"
     },
     {
       "label": "SlideArt",
@@ -460,10 +460,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "src_tutorialmodal_slideart",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "slideart"
+      "norm_label": "slideart",
+      "id": "src_tutorialmodal_slideart"
     },
     {
       "label": "TutorialStrings",
@@ -471,10 +471,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L74",
       "_origin": "ast",
-      "id": "src_tutorialmodal_tutorialstrings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "tutorialstrings"
+      "norm_label": "tutorialstrings",
+      "id": "src_tutorialmodal_tutorialstrings"
     },
     {
       "label": "TutorialModal()",
@@ -482,10 +482,10 @@
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L111",
       "_origin": "ast",
-      "id": "src_tutorialmodal_tutorialmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "tutorialmodal()"
+      "norm_label": "tutorialmodal()",
+      "id": "src_tutorialmodal_tutorialmodal"
     },
     {
       "label": "kanjiReadings.ts",
@@ -7145,63 +7145,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1651",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_tutorialmodal_hintsenabled"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1837",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_tutorialmodal_hintshown"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1838",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_tutorialmodal_markhint"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.tsx",
-      "source_location": "L1661",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_app",
-      "target": "src_tutorialmodal_tutorialseen"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/TutorialModal.tsx",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hint_flash_key",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hint_flash_key"
     },
     {
       "relation": "contains",
@@ -7210,9 +7162,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hint_realtest_key",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hint_realtest_key"
     },
     {
       "relation": "contains",
@@ -7221,9 +7173,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hint_wrong_key",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hint_wrong_key"
     },
     {
       "relation": "contains",
@@ -7232,9 +7184,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hints_enabled_key",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hints_enabled_key"
     },
     {
       "relation": "contains",
@@ -7243,9 +7195,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hintsenabled",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hintsenabled"
     },
     {
       "relation": "contains",
@@ -7254,9 +7206,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_hintshown",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_hintshown"
     },
     {
       "relation": "contains",
@@ -7265,9 +7217,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_markhint",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_markhint"
     },
     {
       "relation": "contains",
@@ -7276,9 +7228,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_slideart",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_slideart"
     },
     {
       "relation": "contains",
@@ -7287,9 +7239,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_tutorial_key",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_tutorial_key"
     },
     {
       "relation": "contains",
@@ -7298,9 +7250,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_tutorialmodal",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_tutorialmodal"
     },
     {
       "relation": "contains",
@@ -7309,9 +7261,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_tutorialseen",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_tutorialseen"
     },
     {
       "relation": "contains",
@@ -7320,9 +7272,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_tutorialmodal",
-      "target": "src_tutorialmodal_tutorialstrings",
-      "confidence_score": 1.0
+      "target": "src_tutorialmodal_tutorialstrings"
     },
     {
       "relation": "contains",
@@ -13864,5 +13816,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8221b288f8418d4a692b7bc3275ec9c15e6f2c13"
+  "built_at_commit": "8e9cb3d41b5921f1a7c3be4cf98be3aa908ce0b5"
 }
