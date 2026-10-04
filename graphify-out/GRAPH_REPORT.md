@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-04)
 
 ## Corpus Check
-- 71 files · ~146,940 words
+- 72 files · ~148,397 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 558 nodes · 654 edges · 44 communities (42 shown, 2 thin omitted)
+- 571 nodes · 672 edges · 40 communities (39 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7b7ca7eb`
+- Built from commit: `8221b288`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -52,41 +52,37 @@
 - Japanese Language Schools in Tokyo: How to Pick an Affordable One
 - Karteikarten für JLPT-Kanji (N5–N3) — die Spaced-Repetition-Methode
 - How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way
-- tts.ts
 - romaji.ts
-- kanjiReadings.ts
-- AuthModal.tsx
 - ai-catalog.json
-- App
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
 2. `JLPT N4 Grammatik: Die 15 wichtigsten Muster` - 17 edges
 3. `JLPT N4 Grammar: The 15 Most Important Patterns` - 17 edges
-4. `App()` - 12 edges
-5. `Launch Checklist — JLPT Test Hub` - 12 edges
-6. `JLPT Test Hub` - 10 edges
-7. `The Only Guide you need, to live Cheap in Tokyo!` - 9 edges
+4. `Launch Checklist — JLPT Test Hub` - 12 edges
+5. `JLPT Test Hub` - 10 edges
+6. `The Only Guide you need, to live Cheap in Tokyo!` - 9 edges
+7. `App()` - 8 edges
 8. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
 9. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
-10. `buildGrammarCards()` - 7 edges
+10. `Genki im Check: Die beste Krankenversicherung für Japan` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `lookupReadings()`  [EXTRACTED]
-  src/App.tsx → src/data/kanjiReadings.ts
-- `App()` --calls--> `buildGrammarCards()`  [EXTRACTED]
-  src/App.tsx → src/flashcards.ts
-- `App()` --calls--> `buildKanjiFocusDeck()`  [EXTRACTED]
-  src/App.tsx → src/flashcards.ts
-- `App()` --calls--> `buildWeakGrammarDeck()`  [EXTRACTED]
-  src/App.tsx → src/flashcards.ts
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
   src/pages/Dashboard.tsx → src/context/AuthContext.tsx
+- `ForgotPassword()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/ForgotPassword.tsx → src/context/AuthContext.tsx
+- `Login()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Login.tsx → src/context/AuthContext.tsx
+- `ResetPassword()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/ResetPassword.tsx → src/context/AuthContext.tsx
+- `Signup()` --calls--> `useAuth()`  [EXTRACTED]
+  src/pages/Signup.tsx → src/context/AuthContext.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (44 total, 2 thin omitted)
+## Communities (40 total, 1 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -101,16 +97,16 @@ Cohesion: 0.07
 Nodes (27): ProtectedRoute(), ProtectedRouteProps, PublicRoute(), AuthContext, AuthContextType, AuthProvider(), fetchWithAuth(), refreshAccessToken() (+19 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.07
-Nodes (8): ADSENSE_CONFIG, CookieBanner(), getConsent(), SelectedKanji, setConsent(), SvgProps, UiStrings, uiTranslations
+Cohesion: 0.05
+Nodes (34): ADSENSE_CONFIG, App(), CookieBanner(), getConsent(), renderFurigana(), SelectedKanji, setConsent(), shuffleArray() (+26 more)
 
 ### Community 4 - "devDependencies"
 Cohesion: 0.08
 Nodes (25): autoprefixer, marked, oxlint, devDependencies, autoprefixer, marked, oxlint, postcss (+17 more)
 
 ### Community 5 - "flashcards.ts"
-Cohesion: 0.17
-Nodes (13): buildGrammarCards(), buildWeakGrammarDeck(), COMPOUND_READINGS, DECK_SIZE_LIMIT, DeckInfo, extractPattern(), firstKana(), Flashcard (+5 more)
+Cohesion: 0.12
+Nodes (22): KanjiReading, kanjiReadings, lookupReadings(), allDecks(), buildCompoundReadings(), buildDeck(), buildGrammarCards(), buildKanjiCards() (+14 more)
 
 ### Community 6 - "worker/index.ts"
 Cohesion: 0.10
@@ -232,30 +228,18 @@ Nodes (6): Die Gewohnheits-Schleife, die überlebt, Die Kanji-Zahlen, damit dich
 Cohesion: 0.29
 Nodes (6): How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way, The habit loop that survives, The kanji counts, so nothing surprises you, The two failure modes to avoid, Use your actual mistakes as cards, Why spacing works (the science in one paragraph)
 
-### Community 38 - "tts.ts"
-Cohesion: 0.38
-Nodes (9): getJapaneseVoice(), getSavedRate(), hasGoodJapaneseVoice(), listJapaneseVoices(), QUALITY_KEYWORDS, saveRate(), speak(), stopSpeaking() (+1 more)
-
 ### Community 39 - "romaji.ts"
 Cohesion: 0.38
 Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(), youonHira
-
-### Community 40 - "kanjiReadings.ts"
-Cohesion: 0.40
-Nodes (4): KanjiReading, kanjiReadings, lookupReadings(), buildKanjiFocusDeck()
 
 ### Community 42 - "ai-catalog.json"
 Cohesion: 0.10
 Nodes (20): format, required, content_policy, attribution, crawling, notes, training, description (+12 more)
 
-### Community 43 - "App"
-Cohesion: 0.36
-Nodes (8): App(), renderFurigana(), shuffleArray(), allDecks(), buildCompoundReadings(), buildDeck(), buildKanjiCards(), buildVocabCards()
-
 ## Knowledge Gaps
-- **296 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+291 more)
+- **299 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+294 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -265,12 +249,12 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
-  _296 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _299 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07389162561576355 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0544464609800363 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._

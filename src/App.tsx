@@ -776,7 +776,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                   ) : (
                     <>
                       {/* Actual wrong questions with explanations */}
-                      <div className="space-y-2.5 max-h-80 overflow-y-auto pr-1">
+                      <div className={`space-y-2.5 overflow-y-auto pr-1 ${showNotebook ? 'max-h-[560px]' : 'max-h-80'}`}>
                         {notebookData.questions.slice(0, showNotebook ? notebookData.questions.length : 4).map((wq: any) => {
                           const q = findQuestion(wq.question_id, wq.level);
                           if (!q) return null;

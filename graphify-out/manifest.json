@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1791114484.6616752,
-    "ast_hash": "8914d1041eec78f7d43f9f2e4d44eb1b",
+    "mtime": 1791115328.8538249,
+    "ast_hash": "25c291bfaa91ff3a23c29073b5f7b204",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -532,6 +532,11 @@
   "public/.well-known/ai-catalog.json": {
     "mtime": 1790957845.3930259,
     "ast_hash": "1ec9bb03995ef3c033ad55064fe945c6",
+    "semantic_hash": ""
+  },
+  "src/TutorialModal.tsx": {
+    "mtime": 1791115209.9700851,
+    "ast_hash": "f2a078b6b811b522756ea187b0a48312",
     "semantic_hash": ""
   }
 }
