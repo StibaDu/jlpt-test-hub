@@ -9,6 +9,7 @@ import type { JLPTLevel, LevelData, Lang, GameState, TestMode, KanjiEntry, Quest
 import { useAuth } from './useAuth';
 import { toRomaji } from './romaji';
 import { AuthModal } from './AuthModal';
+import { TutorialModal, HINTS_ENABLED_KEY, HINT_REALTEST_KEY, HINT_FLASH_KEY, HINT_WRONG_KEY, tutorialSeen, hintsEnabled, markHint, hintShown } from './TutorialModal';
 import { speak, stopSpeaking, getSavedRate, saveRate, ttsSupported, hasGoodJapaneseVoice } from './tts';
 
 interface UiStrings {
@@ -542,7 +543,7 @@ const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
 };
 
 // Premium upgrade + profile modal
-const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onStartTrial, onOpenFlashcards, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onStartTrial: () => Promise<{ success: boolean; error?: string }>; onSignIn: () => void; onOpenFlashcards: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
+const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, onStartTrial, onOpenFlashcards, onReplayTutorial, hintsOn, onToggleHints, srsNewCount, onStartSrsPractice, onSignIn, onOpenCancelConfirm, onOpenResumeConfirm, user, subscription, onLogout, onFetchProgress, onFetchWeakness, onMasterQuestion, lang, weaknessData, srsDueCount, notebookData, onStartSrsReview, onStartNotebookTraining, onRefreshNotebook, onExportNotebookPdf, onStartCategoryDrill, selectedLevelForDrill, onSetNotebookData }: { onClose: () => void; t: any; isLoggedIn: boolean; isPro: boolean; onUpgrade: (plan: 'monthly' | 'yearly') => Promise<void>; onStartTrial: () => Promise<{ success: boolean; error?: string }>; onReplayTutorial: () => void; hintsOn: boolean; onToggleHints: () => void; onSignIn: () => void; onOpenFlashcards: () => void; onOpenCancelConfirm: () => void; onOpenResumeConfirm: () => void; user: any; subscription: any; onLogout: () => void; onFetchProgress: () => Promise<{ stats: any; history: any[] } | null>; onFetchWeakness: () => Promise<any>; onMasterQuestion: (questionId: number, level: string) => Promise<void>; lang: string; weaknessData: any; srsDueCount: number; srsNewCount: number; onStartSrsPractice: () => Promise<void>; notebookData: any; onStartSrsReview: () => Promise<void>; onStartNotebookTraining: (pairs: Array<{ id: number; level: string }>) => void; onRefreshNotebook: () => Promise<any>; onExportNotebookPdf: () => void; onStartCategoryDrill: (level: string, category: string) => Promise<void>; selectedLevelForDrill: string; onSetNotebookData: (d: any) => void; nav: React.ReactNode; isMobile: boolean }) => {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [trialLoading, setTrialLoading] = useState(false);
@@ -976,6 +977,25 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {t.profileSignOut}
+              </button>
+            </div>
+
+            {/* Onboarding & hints */}
+            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200 text-xs text-gray-700 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold">{lang === 'de' ? 'Tutorial-Hinweise' : 'Onboarding hints'}</span>
+                <button
+                  onClick={onToggleHints}
+                  className={`px-2 py-0.5 rounded-full font-black text-[10px] ${hintsOn ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-200 text-gray-500'}`}
+                >
+                  {hintsOn ? (lang === 'de' ? 'AN' : 'ON') : (lang === 'de' ? 'AUS' : 'OFF')}
+                </button>
+              </div>
+              <button
+                onClick={onReplayTutorial}
+                className="w-full py-1.5 text-[11px] font-bold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-100"
+              >
+                🎬 {lang === 'de' ? 'Tutorial erneut ansehen' : 'Replay tutorial'}
               </button>
             </div>
 
@@ -1627,9 +1647,21 @@ export default function App() {
   });
   const [thankYouModal, setThankYouModal] = useState<{ plan: string; periodEnd: number | null } | null>(null);
   const [cancelConfirm, setCancelConfirm] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
+  const [hintsOn, setHintsOn] = useState(() => hintsEnabled());
+  const [showRealTestHint, setShowRealTestHint] = useState(false);
+  const [showNotebookHint, setShowNotebookHint] = useState(false);
   const [resumeConfirm, setResumeConfirm] = useState(false);
 
   const auth = useAuth();
+
+  // Show tutorial on first visit (600ms delay to anchor to the real page)
+  useEffect(() => {
+    if (auth.loading) return;
+    if (tutorialSeen()) return;
+    const t = setTimeout(() => setShowTutorial(true), 600);
+    return () => clearTimeout(t);
+  }, [auth.loading]);
 
   // Load N4/N3 question banks — async chunks, kicked off immediately at boot
   // (separate chunks keep them off the LCP path; ready within ~1s)
@@ -1801,6 +1833,12 @@ export default function App() {
   };
 
   const startTest = (mode: TestMode) => {
+    // Hint (1st real-test): explain strict mode before entering
+    if (mode === 'real' && hintsOn && !hintShown(HINT_REALTEST_KEY)) {
+      markHint(HINT_REALTEST_KEY);
+      setShowRealTestHint(true);
+      return;
+    }
     // Real Test mode: 1 free trial, then requires Pro
     if (mode === 'real' && !auth.isPro) {
       let trialUsed = false;
@@ -2018,9 +2056,15 @@ export default function App() {
 
   const handleSelectOption = (optionIndex: number) => {
     if (testMode === 'learning' && learningAnswerRevealed) return;
+    const q = testQuestions[currentQuestionIndex];
     setAnswers(prev => ({ ...prev, [currentQuestionIndex]: optionIndex }));
     if (testMode === 'learning') {
       setLearningAnswerRevealed(true);
+      // Hint: first wrong answer → point at the Mistake Notebook
+      if (hintsOn && !hintShown(HINT_WRONG_KEY) && optionIndex !== q.correctIndex) {
+        markHint(HINT_WRONG_KEY);
+        setTimeout(() => setShowNotebookHint(true), 2200);
+      }
     }
   };
 
@@ -2458,7 +2502,10 @@ export default function App() {
             </div>
 
             {/* Flip card */}
-            <div className={isMobile ? 'fc-scene' : 'fc-scene'} style={{ minHeight: isMobile ? 300 : 340 }} onClick={() => setFlashFlipped(f => !f)}>
+            <div className={isMobile ? 'fc-scene' : 'fc-scene'} style={{ minHeight: isMobile ? 300 : 340 }} onClick={() => {
+                if (hintsOn && !hintShown(HINT_FLASH_KEY)) { markHint(HINT_FLASH_KEY); }
+                setFlashFlipped(f => !f);
+              }}>
               <div className={`fc-card ${flashFlipped ? 'flipped' : ''} ${flashNoAnim ? 'no-anim' : ''}`} style={{ minHeight: isMobile ? 300 : 340 }}>
                 {/* FRONT */}
                 <div className="fc-face fc-face-front">
@@ -2944,6 +2991,19 @@ export default function App() {
                         : <>🎁 Try it once free — no account needed</>
                       }
                     </p>
+                  )}
+                  {showRealTestHint && (
+                    <div className="bg-amber-50 border border-amber-300 rounded-xl p-3 mb-2 text-left">
+                      <p className="text-amber-900 text-xs font-bold mb-1">⏱ {lang === 'de' ? 'So funktioniert der Real-Test:' : 'How the Real Test works:'}</p>
+                      <p className="text-amber-700 text-[11px] leading-relaxed">
+                        {lang === 'de'
+                          ? 'Zeit läuft ab dem Start, kein Wörterbuch, keine Feedback bis zum Ende — genau wie in der echten Prüfung. Klicke erneut auf Start, wenn du bereit bist.'
+                          : "Timer runs from the start, no dictionary, no feedback until the end — just like the real exam. Click Start again when you're ready."}
+                      </p>
+                      <button onClick={() => { setShowRealTestHint(false); startTest('real'); }} className="mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg">
+                        {lang === 'de' ? 'Verstanden — Start' : 'Got it — Start'}
+                      </button>
+                    </div>
                   )}
                   <button
                     onClick={() => startTest('real')}
@@ -3507,6 +3567,19 @@ export default function App() {
 
             <AdBanner slotId="results-banner" />
 
+            {showNotebookHint && (
+              <div className="bg-purple-50 border border-purple-300 rounded-xl p-4 mb-6 text-center">
+                <p className="text-purple-900 text-sm font-black mb-1">📚 {lang === 'de' ? 'Deine Fehler sind gespeichert!' : 'Your mistakes are saved!'}</p>
+                <p className="text-purple-700 text-xs mb-2">
+                  {lang === 'de'
+                    ? 'Jede falsche Frage landet im Fehlerheft — mit Erklärung. Öffne dein Profil, um sie zu wiederholen.'
+                    : 'Every wrong question lands in your Mistake Notebook — with explanations. Open your profile to review them.'}
+                </p>
+                <button onClick={() => setShowNotebookHint(false)} className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg">
+                  {lang === 'de' ? 'Verstanden' : 'Got it'}
+                </button>
+              </div>
+            )}
             {/* Softer donation ask on results */}
             <div className="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 text-center">
               <p className="text-pink-700 font-bold text-sm mb-2">{t.foundHelpful}</p>
@@ -3652,6 +3725,13 @@ export default function App() {
         }}
         onSignIn={() => setShowAuthModal(true)}
         onOpenFlashcards={() => setGameState('flashcards')}
+        onReplayTutorial={() => setShowTutorial(true)}
+        hintsOn={hintsOn}
+        onToggleHints={() => {
+          const next = !hintsOn;
+          setHintsOn(next);
+          try { localStorage.setItem(HINTS_ENABLED_KEY, next ? 'true' : 'false'); } catch {}
+        }}
         onStartTrial={auth.startTrial}
         onOpenCancelConfirm={() => setCancelConfirm(true)}
         onOpenResumeConfirm={() => setResumeConfirm(true)}
@@ -3837,6 +3917,14 @@ export default function App() {
             </div>
           </div>
         </div>
+      )}
+
+      {showTutorial && (
+        <TutorialModal
+          show={showTutorial}
+          onClose={() => setShowTutorial(false)}
+          lang={lang}
+        />
       )}
 
       <AuthModal
