@@ -300,13 +300,13 @@
     "semantic_hash": ""
   },
   "content/blog/health-insurance-japan-students.de.md": {
-    "mtime": 1791407060.4998848,
-    "ast_hash": "455ebc5ab459ffb2f6d12a34ad0d0943",
+    "mtime": 1791407653.2080789,
+    "ast_hash": "f8852fdbab65f79aadef150d98e400ac",
     "semantic_hash": ""
   },
   "content/blog/health-insurance-japan-students.en.md": {
-    "mtime": 1791407055.5846438,
-    "ast_hash": "3e0f14582d32152b5bf456b58f5b1d38",
+    "mtime": 1791407539.01943,
+    "ast_hash": "36b9086094306a699bebedd1ccf5bb8d",
     "semantic_hash": ""
   },
   "content/blog/japanese-language-schools-tokyo.de.md": {
@@ -390,122 +390,122 @@
     "semantic_hash": ""
   },
   "public/blog/budget-housing-tokyo/index.html": {
-    "mtime": 1791407069.9575844,
+    "mtime": 1791407657.7815735,
     "ast_hash": "9af772e156061b41efbbd128437387eb",
     "semantic_hash": ""
   },
   "public/blog/cheap-eats-tokyo/index.html": {
-    "mtime": 1791407069.9633377,
+    "mtime": 1791407657.7866542,
     "ast_hash": "4f6a32d738fd516254a5e134585ff7cb",
     "semantic_hash": ""
   },
   "public/blog/de/budget-housing-tokyo/index.html": {
-    "mtime": 1791407069.9562562,
+    "mtime": 1791407657.780476,
     "ast_hash": "65addd9284b8a17ebc58eb3cf0d4e928",
     "semantic_hash": ""
   },
   "public/blog/de/cheap-eats-tokyo/index.html": {
-    "mtime": 1791407069.9586654,
+    "mtime": 1791407657.782389,
     "ast_hash": "0ceaa859282a2acda3f0e6b5bae090ab",
     "semantic_hash": ""
   },
   "public/blog/de/health-insurance-japan-students/index.html": {
-    "mtime": 1791407069.965742,
-    "ast_hash": "5e2ac8de0c57413260fdb164cc2f1969",
+    "mtime": 1791407657.792084,
+    "ast_hash": "e80495260df17b3ee48d106cd428ec7c",
     "semantic_hash": ""
   },
   "public/blog/de/index.html": {
-    "mtime": 1791407070.0004675,
-    "ast_hash": "e1c851599412f163b78f428b6a186806",
+    "mtime": 1791407657.8192055,
+    "ast_hash": "2382c2489daa552f084d53d6f6fc3775",
     "semantic_hash": ""
   },
   "public/blog/de/japanese-language-schools-tokyo/index.html": {
-    "mtime": 1791407069.967068,
+    "mtime": 1791407657.7931507,
     "ast_hash": "455241c785003a4e78e5630a2517fc87",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-kanji-flashcards-guide/index.html": {
-    "mtime": 1791407069.9692702,
+    "mtime": 1791407657.7948096,
     "ast_hash": "c859916a12d8c1a33cb016bbf3a1d830",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-n4-grammar-essentials/index.html": {
-    "mtime": 1791407069.970519,
+    "mtime": 1791407657.795492,
     "ast_hash": "d5517c06e9e8bfe580f952d75dbf40f9",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-n5-study-plan/index.html": {
-    "mtime": 1791407069.9720552,
+    "mtime": 1791407657.7962446,
     "ast_hash": "50c9255db9af7b05ea0a116dcc03db45",
     "semantic_hash": ""
   },
   "public/blog/de/jlpt-test-day-guide/index.html": {
-    "mtime": 1791407069.9737332,
+    "mtime": 1791407657.7971709,
     "ast_hash": "e98d0d7ee2a1537bd3c2d49601c8c893",
     "semantic_hash": ""
   },
   "public/blog/de/tokyo-budget-tips/index.html": {
-    "mtime": 1791407069.9749515,
+    "mtime": 1791407657.798079,
     "ast_hash": "f927177bc707ddfb26ef97ac864eb8f1",
     "semantic_hash": ""
   },
   "public/blog/de/tokyo-transport-discounts/index.html": {
-    "mtime": 1791407069.9760802,
+    "mtime": 1791407657.798831,
     "ast_hash": "5aa0507780f434a7d4268a92d8d51dee",
     "semantic_hash": ""
   },
   "public/blog/de/working-holiday-jobs-japan/index.html": {
-    "mtime": 1791407069.9772117,
+    "mtime": 1791407657.799845,
     "ast_hash": "2702bd016c29a49df118746a7baefc8f",
     "semantic_hash": ""
   },
   "public/blog/health-insurance-japan-students/index.html": {
-    "mtime": 1791407069.9664803,
-    "ast_hash": "b461c380dd637958e484abec82985828",
+    "mtime": 1791407657.7928264,
+    "ast_hash": "a94a917dd02700dd06674a0f9f3f02f6",
     "semantic_hash": ""
   },
   "public/blog/index.html": {
-    "mtime": 1791407070.0003128,
-    "ast_hash": "75ef6323c86af5630e1a15bc7951e36d",
+    "mtime": 1791407657.8190694,
+    "ast_hash": "7eae41d53546e24b376f934004a9614d",
     "semantic_hash": ""
   },
   "public/blog/japanese-language-schools-tokyo/index.html": {
-    "mtime": 1791407069.9677708,
+    "mtime": 1791407657.7936463,
     "ast_hash": "e3bda2d7e5df28add667459a27dba2b5",
     "semantic_hash": ""
   },
   "public/blog/jlpt-kanji-flashcards-guide/index.html": {
-    "mtime": 1791407069.9698794,
+    "mtime": 1791407657.7951818,
     "ast_hash": "daeab4d4890099a93e3cb74b5b4b20b5",
     "semantic_hash": ""
   },
   "public/blog/jlpt-n4-grammar-essentials/index.html": {
-    "mtime": 1791407069.9710832,
+    "mtime": 1791407657.795809,
     "ast_hash": "5ed394747cc45e987256efba152c9e62",
     "semantic_hash": ""
   },
   "public/blog/jlpt-n5-study-plan/index.html": {
-    "mtime": 1791407069.9728408,
+    "mtime": 1791407657.7966735,
     "ast_hash": "e6b2266b30c4e2c52c657e51c688f5f7",
     "semantic_hash": ""
   },
   "public/blog/jlpt-test-day-guide/index.html": {
-    "mtime": 1791407069.974392,
+    "mtime": 1791407657.7976382,
     "ast_hash": "e7329de4d4c5bcb560ca16877bd48267",
     "semantic_hash": ""
   },
   "public/blog/tokyo-budget-tips/index.html": {
-    "mtime": 1791407069.9755094,
+    "mtime": 1791407657.7984812,
     "ast_hash": "31fbae6660b4270a1b5a25a6da38c72c",
     "semantic_hash": ""
   },
   "public/blog/tokyo-transport-discounts/index.html": {
-    "mtime": 1791407069.9764452,
+    "mtime": 1791407657.7993963,
     "ast_hash": "a8dadcedefda63b236da30002c06bb76",
     "semantic_hash": ""
   },
   "public/blog/working-holiday-jobs-japan/index.html": {
-    "mtime": 1791407069.979179,
+    "mtime": 1791407657.8002362,
     "ast_hash": "d4bd2790f9b97deb2ee3d514f14e3576",
     "semantic_hash": ""
   },
@@ -515,7 +515,7 @@
     "semantic_hash": ""
   },
   "public/blog/metro-pass-leaflet-2024.pdf": {
-    "mtime": 1791407069.9922893,
+    "mtime": 1791407657.811564,
     "ast_hash": "c34ddfd457e9192cb5c6503b08a6a2bc",
     "semantic_hash": ""
   },
@@ -547,6 +547,46 @@
   "public/genki-banner.png": {
     "mtime": 1791406685.0123978,
     "ast_hash": "cb0ee45020236188f6b032ed257de5b5",
+    "semantic_hash": ""
+  },
+  "content/blog/genki-native-review.de.md": {
+    "mtime": 1791407649.816324,
+    "ast_hash": "ec9f089854ddd76a5fb85325407e420d",
+    "semantic_hash": ""
+  },
+  "content/blog/genki-native-review.en.md": {
+    "mtime": 1791407518.7421021,
+    "ast_hash": "46b0715e74e285336140db636a1b61cf",
+    "semantic_hash": ""
+  },
+  "content/blog/genki-traveler-review.de.md": {
+    "mtime": 1791407560.5798085,
+    "ast_hash": "d29a60608fc170c6199e414738904a19",
+    "semantic_hash": ""
+  },
+  "content/blog/genki-traveler-review.en.md": {
+    "mtime": 1791407498.31556,
+    "ast_hash": "cd2ab3ece95be220a198e440d6d32dc1",
+    "semantic_hash": ""
+  },
+  "public/blog/de/genki-native-review/index.html": {
+    "mtime": 1791407657.7875502,
+    "ast_hash": "3ac7f074210886ea8a3b16fc1d7ab212",
+    "semantic_hash": ""
+  },
+  "public/blog/de/genki-traveler-review/index.html": {
+    "mtime": 1791407657.7906015,
+    "ast_hash": "80062879ca2f2fc4df04c38dce5aac39",
+    "semantic_hash": ""
+  },
+  "public/blog/genki-native-review/index.html": {
+    "mtime": 1791407657.7882037,
+    "ast_hash": "022073e5701bf0b6ed5d3cf75cb0ea2e",
+    "semantic_hash": ""
+  },
+  "public/blog/genki-traveler-review/index.html": {
+    "mtime": 1791407657.7913635,
+    "ast_hash": "1f799417272893c8f83c1132092304c8",
     "semantic_hash": ""
   }
 }

@@ -1,1 +1,6 @@
 /ads.txt  /ads.txt  200
+# removed Genki split posts -> merged single comprehensive post
+/blog/genki-traveler-review/   /blog/health-insurance-japan-students/   301
+/blog/genki-native-review/     /blog/health-insurance-japan-students/   301
+/blog/de/genki-traveler-review/ /blog/de/health-insurance-japan-students/   301
+/blog/de/genki-native-review/   /blog/de/health-insurance-japan-students/   301
