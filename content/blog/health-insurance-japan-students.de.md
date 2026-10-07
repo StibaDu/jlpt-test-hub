@@ -9,6 +9,8 @@ date: 2026-10-02
 
 # Genki im Check: Die beste Krankenversicherung für Japan
 
+<img class="genki-toplogo" src="/genki-logo.png" alt="Genki" />
+
 Du bist gerade in Japan gelandet. Ab dem Moment, in dem du durch die Passkontrolle gehst, bist du **unversichert** — bis das Ward Office deine NHI-Registrierung bearbeitet, was **Tage bis Wochen** dauern kann. Ein Rollerunfall in Shibuya, ein schlechtes Stück Sushi, eine Blinddarmentzündung um 2 Uhr morgens — und du zahlst **über 100.000 ¥ aus eigener Tasche**.
 
 **Genki schließt diese Lücke in 5 Minuten — vom Handy aus, auf Englisch.** Kein Ward Office. Keine japanischen Formulare. Kein Warten.

@@ -9,6 +9,8 @@ date: 2026-10-02
 
 # Genki Review: The Smartest Health Insurance for Japan
 
+<img class="genki-toplogo" src="/genki-logo.png" alt="Genki" />
+
 You just landed in Japan. You're uninsured from the moment you clear customs until your ward office processes your NHI registration — which can take **days or even weeks**. One scooter accident in Shibuya, one bad piece of sashimi, one 2 AM appendicitis — and you're paying **¥100,000+ out of pocket**.
 
 **Genki closes that gap in 5 minutes, from your phone, in English.** No ward office. No Japanese forms. No waiting.

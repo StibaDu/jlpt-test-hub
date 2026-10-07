@@ -1,16 +1,16 @@
-# Graph Report - jlpt-n5-simulator  (2026-10-04)
+# Graph Report - jlpt-n5-simulator  (2026-10-07)
 
 ## Corpus Check
-- 72 files · ~149,298 words
+- 72 files · ~150,142 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 571 nodes · 668 edges · 40 communities (39 shown, 1 thin omitted)
+- 573 nodes · 669 edges · 40 communities (39 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `37456fe8`
+- Built from commit: `f0f7cbeb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -62,10 +62,10 @@
 4. `Launch Checklist — JLPT Test Hub` - 12 edges
 5. `JLPT Test Hub` - 10 edges
 6. `The Only Guide you need, to live Cheap in Tokyo!` - 9 edges
-7. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
-8. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
-9. `Genki im Check: Die beste Krankenversicherung für Japan` - 7 edges
-10. `Warum Genki der schlauste erste Schritt in Japan ist` - 7 edges
+7. `Genki im Check: Die beste Krankenversicherung für Japan` - 8 edges
+8. `Genki Review: The Smartest Health Insurance for Japan` - 8 edges
+9. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
+10. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -105,7 +105,7 @@ Cohesion: 0.08
 Nodes (25): autoprefixer, marked, oxlint, devDependencies, autoprefixer, marked, oxlint, postcss (+17 more)
 
 ### Community 5 - "flashcards.ts"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (22): KanjiReading, kanjiReadings, lookupReadings(), allDecks(), buildCompoundReadings(), buildDeck(), buildGrammarCards(), buildKanjiCards() (+14 more)
 
 ### Community 6 - "worker/index.ts"
@@ -205,12 +205,12 @@ Cohesion: 0.29
 Nodes (6): Avoid these budget traps, Cheap Eats in Tokyo: 1000+ Restaurants Under ¥1,000, Highlights from the ¥1,000 list, Ready to order in Japanese?, The ¥1,000 Lunch Rule, The Local Food Map
 
 ### Community 32 - "Genki im Check: Die beste Krankenversicherung für Japan"
-Cohesion: 0.14
-Nodes (13): 1. Ab Minute eins aktiv, 2. Kein Japanisch nötig, 3. Jederzeit kündbar, keine Bindung, 4. Begleitet dich über Grenzen hinweg, 5. Von Nomads für Nomads gebaut, 6. Schließt die NHI-Lücke, Der Vergleich, den sonst niemand gibt, Die NHI-Wahrheit (Pflicht, aber fehlerhaft) (+5 more)
+Cohesion: 0.13
+Nodes (14): 1. Ab Minute eins aktiv, 2. Kein Japanisch nötig, 3. Jederzeit kündbar, keine Bindung, 4. Begleitet dich über Grenzen hinweg, 5. Von Nomads für Nomads gebaut, 6. Schließt die NHI-Lücke, Der Vergleich, den sonst niemand gibt, Die NHI-Wahrheit (Pflicht, aber fehlerhaft) (+6 more)
 
 ### Community 33 - "Genki Review: The Smartest Health Insurance for Japan"
-Cohesion: 0.14
-Nodes (13): 1. Active from minute one, 2. No Japanese required, 3. Cancel anytime, no lock-in, 4. Follows you across borders, 5. Built by nomads, for nomads, 6. Covers the NHI gap, Genki Review: The Smartest Health Insurance for Japan, How to get Genki (it takes 5 minutes) (+5 more)
+Cohesion: 0.13
+Nodes (14): 1. Active from minute one, 2. No Japanese required, 3. Cancel anytime, no lock-in, 4. Follows you across borders, 5. Built by nomads, for nomads, 6. Covers the NHI gap, Genki Review: The Smartest Health Insurance for Japan, How to get Genki (it takes 5 minutes) (+6 more)
 
 ### Community 34 - "Japanisch-Schulen in Tokyo: So findest du die günstige"
 Cohesion: 0.29
@@ -237,7 +237,7 @@ Cohesion: 0.10
 Nodes (20): format, required, content_policy, attribution, crawling, notes, training, description (+12 more)
 
 ## Knowledge Gaps
-- **299 isolated node(s):** `ROOT`, `SRC`, `OUT`, `legalSections`, `files` (+294 more)
+- **301 isolated node(s):** `1. Ab Minute eins aktiv`, `2. Kein Japanisch nötig`, `3. Jederzeit kündbar, keine Bindung`, `4. Begleitet dich über Grenzen hinweg`, `5. Von Nomads für Nomads gebaut` (+296 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -248,8 +248,8 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `ROOT`, `SRC`, `OUT` to the rest of the system?**
-  _299 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `1. Ab Minute eins aktiv`, `2. Kein Japanisch nötig`, `3. Jederzeit kündbar, keine Bindung` to the rest of the system?**
+  _301 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**
