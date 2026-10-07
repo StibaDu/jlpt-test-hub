@@ -19,7 +19,7 @@ Eine Marke deckt sowohl diese Lücke als auch die Jahre danach ab — mit zwei s
 <p>Kurzfristig? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Traveler →</a> · Dauerhaft? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native →</a></p>
 </div>
 
-## A — Warum eine unversicherte Woche in Japan teuer wird
+## Warum eine unversicherte Woche in Japan teuer wird
 
 - **Ein Arztbesuch ohne Versicherung** beginnt bei etwa 5.000–15.000 ¥ — das ist noch der harmlose Fall.
 - **Eine Nacht im Krankenhaus** mit gebrochenem Bein kann über **200.000 ¥** liegen. Operation plus eine Woche Pflege knackt locker **1.000.000 ¥**.
@@ -28,7 +28,7 @@ Eine Marke deckt sowohl diese Lücke als auch die Jahre danach ab — mit zwei s
 
 Die echte Falle ist nicht der Unfall, sondern die **Verwaltungslücke**: Die National Health Insurance (NHI) ist nach 3 Monaten Pflicht, aber das Bezirksamt braucht Tage bis Wochen — und NHI **berechnet rückwirkend** die Monate, in denen du „hätte versichert sein sollen". Du bist freiwillig ungeschützt *und* zahlst nachträglich.
 
-## I — Was Genki anbietet (und für wen)
+## Was Genki anbietet (und für wen)
 
 Genki hat zwei Produkte — und das sind **zwei Kategorien**, keine Preisstufen:
 
@@ -73,7 +73,7 @@ Die andere Kategorie: echter Langzeitschutz für Menschen, die *im* Ausland lebe
 
 **Native passt für:** Studentenvisa über mehrere Jahre, angestellte Expats, Familien, alle, die Zahn/Therapie/Vorsorge brauchen. → [Genki Native ansehen](https://genki.world/products/native?with=jlpttesthub)
 
-## D — Die Entscheidung in drei Zeilen
+## Die Entscheidung in drei Zeilen
 
 | Deine Situation | Nimm |
 |---|---|
@@ -83,7 +83,7 @@ Die andere Kategorie: echter Langzeitschutz für Menschen, die *im* Ausland lebe
 
 **Immer mit NHI kombinieren**, sobald du über 3 Monate in Japan bist: NHI erfüllt die Pflicht und zahlt 70 % der lokalen Routine; Genki ist die Ebene, die Englisch spricht, weltweit schützt und Kliniken direkt zahlt. Unbezahlte NHI-Beiträge können die Visumsverlängerung blockieren — also NHI anmelden und Genki für alles andere nutzen.
 
-## A — Was Nichtstun kostet
+## Was Nichtstun kostet
 
 Genki Traveler liegt unter dem Preis der meisten einzelnen Nächte in einem japanischen Privatzimmer; Natives 189 € pro Monat kaufen dauerhaften Schutz statt alle paar Jahre neu versichern. Beide Anmeldungen dauern Minuten, auf Englisch, ohne Gesundheitsprüfung — und beide sind nach Monat 1 kündbar.
 

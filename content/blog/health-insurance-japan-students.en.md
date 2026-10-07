@@ -19,7 +19,7 @@ One insurance brand handles both the gap and the years after it — but with two
 <p>Short stay? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Traveler →</a> · Settling in? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native →</a></p>
 </div>
 
-## A — Why being uninsured in Japan for even a week is expensive
+## Why being uninsured in Japan for even a week is expensive
 
 - **A clinic visit without insurance starts around ¥5,000–15,000** — but that's the harmless case.
 - **One night in a hospital** with a broken leg can exceed **¥200,000**. Surgery plus a week of care easily passes **¥1,000,000**.
@@ -28,7 +28,7 @@ One insurance brand handles both the gap and the years after it — but with two
 
 The real trap isn't the accident. It's the **administrative gap**: National Health Insurance (NHI) is mandatory after 3 months, but your ward office needs days to weeks to process you — and NHI **retroactively bills** you for the months you "should have" been enrolled. You're exposed *and* you'll owe money.
 
-## I — What Genki actually offers (and for whom)
+## What Genki actually offers (and for whom)
 
 Genki has two products, and they are **different categories**, not price tiers:
 
@@ -73,7 +73,7 @@ The other category: proper long-term cover for people who *live* outside their h
 
 **Native fits:** student visas of several years, working expats, families, anyone who needs dental/therapy/check-ups. → [See Genki Native](https://genki.world/products/native?with=jlpttesthub)
 
-## D — The decision, in three lines
+## The decision, in three lines
 
 | Your situation | Take |
 |---|---|
@@ -83,7 +83,7 @@ The other category: proper long-term cover for people who *live* outside their h
 
 **Either way, pair it with NHI** once you're in Japan over 3 months: NHI covers the legal requirement and local routine care at 70%; Genki is the layer that speaks English, covers you worldwide and pays hospitals directly. Unpaid NHI premiums can block visa renewal — so enrol, and use Genki for everything NHI isn't.
 
-## A — What it costs you to do nothing
+## What it costs you to do nothing
 
 Genki Traveler is priced lower than most single nights in a Japanese private hospital; Native's €189/month buys a lifetime of continuous cover instead of rebuilding insurance at every visa change. Both sign-ups take minutes, in English, with no medical exam — and both can be cancelled right after month one.
 
