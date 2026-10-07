@@ -33,6 +33,10 @@ This isn't a 200-year-old insurance company trying to look modern. Genki was des
 ### 6. Covers the NHI gap
 Even after you register for NHI (which is mandatory for 3+ month stays — see below), **you still pay 30% out of pocket** for every visit. Genki can cover that remaining 30% as a supplement, meaning a ¥10,000 hospital visit costs you ¥0 instead of ¥3,000.
 
+## Staying longer? Meet Genki Native
+
+For anyone who treats Japan as more than a stopover, **[Genki Native](https://genki.world/products/native?with=jlpttesthub)** works like a proper international health insurance rather than travel cover: routine check-ups, specialists and chronic conditions are included, and the policy simply renews year after year while you keep living and working in Japan — or crossing borders whenever you like. It's the natural next step once you know you'll stay beyond a classic working-holiday year.
+
 ## Two Genki plans — which one fits you?
 
 | | **Genki Explorer** | **Genki World / Native** |
@@ -81,9 +85,10 @@ Here's what nobody tells you about NHI:
 No medical exam. No agent meeting. No paperwork in Japanese. No 12-month lock-in.
 
 <div class="affiliate">
+<img class="genki-logo" src="/genki-logo.png" alt="Genki" loading="lazy" />
 <h3>🩺 Get covered before you land</h3>
-<p><strong>Genki</strong> — travel health insurance for Japan. Monthly, cancel anytime, fully in English. From ~¥4,500/mo.</p>
-<p><a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Get Genki now</a></p>
+<p><strong>Genki</strong> — health insurance for Japan. Monthly, cancel anytime, fully in English. From ~¥4,500/mo.</p>
+<p>Short stay or working holiday? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Explorer</a>. Settling in Japan for good? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native</a>.</p>
 </div>
 
 ---

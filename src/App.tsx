@@ -524,7 +524,7 @@ const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
   return (
     <div className="mt-4 bg-gradient-to-r from-sky-50 to-cyan-50 border border-sky-200 rounded-xl p-5">
       <div className="flex items-start gap-4">
-        <div className="text-3xl shrink-0">🩺</div>
+        <img src="/genki-logo.png" alt="Genki" className="w-[120px] h-auto shrink-0 self-start mt-0.5" />
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
             <h3 className="font-bold text-gray-800 text-sm">{t.genkiTitle}</h3>

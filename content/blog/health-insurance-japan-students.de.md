@@ -33,6 +33,10 @@ Das ist keine 200 Jahre alte Versicherung, die modern wirken will. Genki wurde v
 ### 6. Schließt die NHI-Lücke
 Selbst nach der NHI-Registrierung (die bei 3+ Monaten Aufenthalt Pflicht ist — siehe unten) **zahlst du 30 % selbst** bei jedem Arztbesuch. Genki kann diese restlichen 30 % als Ergänzung abdecken — ein 10.000-¥-Krankenhausbesuch kostet dich dann 0 ¥ statt 3.000 ¥.
 
+## Länger geplant? Das ist Genki Native
+
+Wer Japan als mehr als eine Zwischenstation sieht, braucht keine Reiseversicherung mehr: **[Genki Native](https://genki.world/products/native?with=jlpttesthub)** funktioniert wie eine richtige internationale Krankenversicherung. Routinuntersuchungen, Fachärzte und chronische Erkrankungen sind abgedeckt, und die Police läuft einfach Jahr für Jahr weiter — ob du weiter in Japan lebst oder zwischendurch über Grenzen reist. Der natürliche nächste Schritt, sobald du weißt, dass du länger als ein Working-Holiday-Jahr bleibst.
+
 ## Zwei Genki-Tarife — welcher passt zu dir?
 
 | | **Genki Explorer** | **Genki World / Native** |
@@ -81,9 +85,10 @@ Was dir niemand über die NHI erzählt:
 Keine Gesundheitsprüfung. Kein Agenturtermin. Keine Papiere auf Japanisch. Keine 12-Monats-Bindung.
 
 <div class="affiliate">
+<img class="genki-logo" src="/genki-logo.png" alt="Genki" loading="lazy" />
 <h3>🩺 Versichere dich, bevor du landest</h3>
-<p><strong>Genki</strong> — Reise-Krankenversicherung für Japan. Monatlich, jederzeit kündbar, komplett auf Englisch. Ab ~4.500 ¥/Monat.</p>
-<p><a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Jetzt Genki abschließen</a></p>
+<p><strong>Genki</strong> — Krankenversicherung für Japan. Monatlich, jederzeit kündbar, komplett auf Englisch. Ab ~4.500 ¥/Monat.</p>
+<p>Kurzaufenthalt oder Working Holiday? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Explorer</a>. Dauerhaft in Japan? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native</a>.</p>
 </div>
 
 ---
