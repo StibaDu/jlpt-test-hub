@@ -1154,7 +1154,7 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
             </label>
             <label className="flex items-center gap-3 text-sm">
               <input type="checkbox" checked={affiliate} onChange={e => setAffiliate(e.target.checked)} className="accent-emerald-500" />
-              <span className="text-gray-300">Affiliate tracking (Amazon, JapanesePod101, etc.)</span>
+              <span className="text-gray-300">Affiliate tracking (Amazon, JapanesePod101, Genki, etc.)</span>
             </label>
             <div className="flex gap-2">
               <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-emerald-800 hover:bg-emerald-900 rounded-lg transition-colors">Save settings</button>
@@ -1228,6 +1228,11 @@ const ImpressumContent = () => (
         <p><strong>Urheberrecht:</strong></p>
         <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES.</p>
       </div>
+      <div>
+        <p><strong>Werbung &amp; Affiliate-Links:</strong></p>
+        <p>Diese Website enthält werbliche Affiliate-Links. Über diese Links kann der Betreiber eine Provision erhalten — für die Nutzer entstehen keine Mehrkosten. Partner: Genki UG (haftungsbeschränkt), Siegburger Str. 231, 50679 Köln (Versicherungsvermittlung — Genki Traveler / Genki Native, genki.world); Amazon Associates (DE/USA); Innovative Language Learning (JPod101). Die Links sind als Werbung gekennzeichnet (rel="sponsored").</p>
+        <p className="text-xs text-gray-600">(EN) Advertising &amp; affiliate links: This website contains affiliate links. The operator may earn a commission on bookings made via these links — at no extra cost to the user. Partners: Genki UG (haftungsbeschränkt), Siegburger Str. 231, 50679 Cologne, Germany (insurance brokerage — Genki Traveler / Genki Native, genki.world); Amazon Associates (DE/USA); Innovative Language Learning (JPod101). Links are marked as advertising (rel="sponsored").</p>
+      </div>
     </div>
   </>
 );
@@ -1237,7 +1242,7 @@ const ImpressumContent = () => (
 const PrivacyPolicyContent = () => (
   <>
     <h3 className="font-bold text-gray-800 text-base">Datenschutzerklärung</h3>
-    <p className="text-xs text-gray-600">Zuletzt aktualisiert: 27. September 2026</p>
+    <p className="text-xs text-gray-600">Zuletzt aktualisiert: 7. Oktober 2026</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">1. Verantwortlicher</h3>
     <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Datenverarbeitung auf dieser Website:</p>
@@ -1290,7 +1295,7 @@ const PrivacyPolicyContent = () => (
             <td className="px-3 py-2">Affiliate-Tracking</td>
             <td className="px-3 py-2">Affiliate-Cookie, Click-ID</td>
             <td className="px-3 py-2">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</td>
-            <td className="px-3 py-2">Amazon: 24 Monate, JPod101: variabel</td>
+            <td className="px-3 py-2">Amazon: 24 Monate, Genki: 30 Tage (Referral-Cookie), JPod101: variabel</td>
           </tr>
           <tr>
             <td className="px-3 py-2">E-Mail-Versand (Kontobestätigung, Passwort-Reset)</td>
@@ -1345,6 +1350,13 @@ const PrivacyPolicyContent = () => (
             <td className="px-3 py-2">Provisions-Tracking (mit Einwilligung)</td>
             <td className="px-3 py-2">Affiliate-Cookie, Click-ID</td>
             <td className="px-3 py-2">Amazon EU S.à r.l. (Luxemburg), SCC</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2"><strong>Genki UG (haftungsbeschränkt)</strong> (Deutschland, Köln)</td>
+            <td className="px-3 py-2">Affiliate-Marketing (Versicherungsvermittlung)</td>
+            <td className="px-3 py-2">Provisions-Tracking (mit Einwilligung)</td>
+            <td className="px-3 py-2">Affiliate-Cookie, Click-ID</td>
+            <td className="px-3 py-2">Server in der EU</td>
           </tr>
           <tr>
             <td className="px-3 py-2"><strong>Stripe Payments Europe Ltd.</strong> (Irland)</td>
@@ -1474,7 +1486,7 @@ const SellerDisclosureContent = () => (
 const AccessibilityContent = () => (
   <>
     <h3 className="font-bold text-gray-800 text-base">Barrierefreiheitserklärung</h3>
-    <p className="text-xs text-gray-600">Stand: 27. September 2026</p>
+    <p className="text-xs text-gray-600">Stand: 7. Oktober 2026</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">1. Einleitung</h3>
     <p>JLPT Test Hub ist bestrebt, seine Website gemäß der Richtlinie (EU) 2016/2102 und den Behindertengleichstellungsgesetzen (BGG) barrierefrei zu gestalten. Diese Erklärung gilt für jlpttesthub.com.</p>
@@ -1515,7 +1527,7 @@ const AccessibilityContent = () => (
     <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von Sebastian Thomas bearbeitet.</p>
 
     <h3 className="font-bold text-gray-800 text-base mt-4">6. Erstellt am / Überprüft am</h3>
-    <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 27. September 2026 überprüft.</p>
+    <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 7. Oktober 2026 überprüft.</p>
   </>
 );
 
