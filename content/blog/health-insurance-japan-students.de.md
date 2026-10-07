@@ -1,100 +1,95 @@
 ---
 slug: health-insurance-japan-students
 lang: de
-title: "Genki im Check: Die beste Krankenversicherung für Japan (Studenten, Nomaden & Working Holiday)"
-description: "Warum Genki das Erste ist, was du vor dem Japan-Flug kaufen solltest — sofortiger Schutz, komplett auf Englisch, monatlich kündbar. Plus die NHI-Lücke, über die niemand spricht."
+title: "Genki für Japan: Traveler vs Native — Welche Versicherung passt zu deinem Aufenthalt?"
+description: "Reiseversicherung oder internationale Krankenversicherung für Japan? Wo Genki Traveler endet (12 Monate, kein Zahn), beginnt Genki Native — plus der Pflicht-NHI-Stack."
 tags: [japan, versicherung, genki, studenten, nomaden]
-date: 2026-10-02
+date: 2026-10-07
 ---
 
-# Genki im Check: Die beste Krankenversicherung für Japan
+# Genki für Japan: Traveler vs Native — Welche Versicherung passt zu deinem Aufenthalt?
 
+Du bist gerade in Japan gelandet. Ab der Passkontrolle bist du unversichert — bis das Bezirksamt deine NHI-Registrierung bearbeitet, was **Tage bis Wochen** dauern kann. Ein Rollerunfall, ein schlechtes Stück Sushi, eine Blinddarmentzündung um 2 Uhr nachts — und du zahlst **über 100.000 ¥ aus eigener Tasche**.
 
-Du bist gerade in Japan gelandet. Ab dem Moment, in dem du durch die Passkontrolle gehst, bist du **unversichert** — bis das Ward Office deine NHI-Registrierung bearbeitet, was **Tage bis Wochen** dauern kann. Ein Rollerunfall in Shibuya, ein schlechtes Stück Sushi, eine Blinddarmentzündung um 2 Uhr morgens — und du zahlst **über 100.000 ¥ aus eigener Tasche**.
-
-**Genki schließt diese Lücke in 5 Minuten — vom Handy aus, auf Englisch.** Kein Ward Office. Keine japanischen Formulare. Kein Warten.
-
-## Warum Genki der schlauste erste Schritt in Japan ist
-
-### 1. Ab Minute eins aktiv
-Kauf es auf dem Flughafen-WLAN, bevor du überhaupt dein Hotel erreichst. Dein Versicherungsschutz beginnt sofort — nicht nach einer 2-stündigen Schlange im 区役所 (Bezirksamt).
-
-### 2. Kein Japanisch nötig
-Anmeldung, Versicherungspolice, Schadensmeldungen — **alles auf Englisch**. NHI-Formulare gibt es nur auf Japanisch, und die Mitarbeiter im Bezirksamt sprechen selten Englisch. Genki nimmt dir diese Hürde komplett.
-
-### 3. Jederzeit kündbar, keine Bindung
-Monatliches Abo. In Japan ankommen, Genki an Tag 1 abschließen, kündigen, wenn du gehst (oder wenn deine NHI greift). Kein 12-Monats-Vertrag, keine Kündigungsgebühren, kein bürokratischer Austrittsprozess. Die NHI hingegen **berechnet dir rückwirkend** Beiträge für Monate, in denen du angeblich hätte versichert sein sollen — auch wenn du von der Pflicht nichts wusstest.
-
-### 4. Begleitet dich über Grenzen hinweg
-Die NHI fällt weg, sobald du Japan verlässt. Genki deckt deinen Visa-Run nach Seoul, dein Wochenende in Taiwan, deine Heimreise zu Weihnachten — alles unter einer Police. Ein Abo, weltweiter Schutz.
-
-### 5. Von Nomads für Nomads gebaut
-Das ist keine 200 Jahre alte Versicherung, die modern wirken will. Genki wurde von Anfang an mobil-first entwickelt: Police in der App verwalten, Schadensfälle mit einem Foto einreichen, Support auf Englisch chaten. Das ganze Erlebnis fühlt sich an wie ein Fintech-Produkt, nicht wie eine Bürokratie.
-
-### 6. Schließt die NHI-Lücke
-Selbst nach der NHI-Registrierung (die bei 3+ Monaten Aufenthalt Pflicht ist — siehe unten) **zahlst du 30 % selbst** bei jedem Arztbesuch. Genki kann diese restlichen 30 % als Ergänzung abdecken — ein 10.000-¥-Krankenhausbesuch kostet dich dann 0 ¥ statt 3.000 ¥.
-
-## Länger geplant? Das ist Genki Native
-
-Wer Japan als mehr als eine Zwischenstation sieht, braucht keine Reiseversicherung mehr: **[Genki Native](https://genki.world/products/native?with=jlpttesthub)** funktioniert wie eine richtige internationale Krankenversicherung. Routinuntersuchungen, Fachärzte und chronische Erkrankungen sind abgedeckt, und die Police läuft einfach Jahr für Jahr weiter — ob du weiter in Japan lebst oder zwischendurch über Grenzen reist. Der natürliche nächste Schritt, sobald du weißt, dass du länger als ein Working-Holiday-Jahr bleibst.
-
-## Zwei Genki-Tarife — welcher passt zu dir?
-
-| | **Genki Explorer** | **Genki World / Native** |
-|---|---|---|
-| **Gut für** | Kurzaufenthalt, Working Holiday, Digital Nomads | Langfristige Expats, die in Japan leben |
-| **Dauer** | Bis zu 1 Jahr (verlängerbar) | Laufend, Jahr für Jahr |
-| **Deckt** | Notfallmedizin, Unfälle, Evakuierung | Vollkrankenversicherung: Routineuntersuchungen, Spezialisten, chronische Erkrankungen |
-| **Abrechnung** | Monatlich, jederzeit kündbar | Monatlich oder jährlich |
-| **Preis** | Ab ~4.500 ¥/Monat (variiert nach Alter — [aktuelle Preise auf genki.world](https://genki.world/with/jlpttesthub)) | Höher, spiegelt umfassende Deckung wider |
-| **Passend wenn** | „Ich bin 3–12 Monate in Japan" | „Japan ist jetzt mein Zuhause" |
-
-**Die meisten Leser wollen Genki Explorer.** Das ist der Tarif, der die NHI-Lücke schließt, grenzüberschreitend funktioniert und weniger kostet als ein monatliches Fitnessstudio.
-
-## Die NHI-Wahrheit (Pflicht, aber fehlerhaft)
-
-Wer länger als **3 Monate** in Japan bleibt (egal mit welchem Visum), muss sich gesetzlich bei der **National Health Insurance (国民健康保険 / NHI)** im Bezirksamt anmelden. Du kannst dich nicht davon befreien lassen — auch nicht, wenn du Genki oder eine andere Reiseversicherung hast.
-
-Was dir niemand über die NHI erzählt:
-
-- **Die Lücke:** Du bist unversichert zwischen Ankunft und NHI-Registrierung. Diese Lücke kann Tage (volles Bezirksamt) oder Wochen (fehlende Dokumente) dauern. Genki deckt diesen Zeitraum.
-- **Jahr-2-Beitragsschock:** Im ersten Jahr sind die Beiträge niedrig (~1.500–2.500 ¥/Monat für Studenten ohne Einkommen). Aber im 2. Jahr wird die NHI **rückwirkend nach deinem Vorjahreseinkommen in Japan neu berechnet**. Ein Working-Holiday-Verdiener mit 120.000 ¥/Monat könnte plötzlich 8.000–15.000 ¥/Monat zahlen — rückwirkend.
-- **Schadensmeldungen nur auf Japanisch:** NHI-Rückerstattungsformulare sind japanisch. Wenn du zu viel zahlst oder eine Rückerstattung brauchst, navigierst du allein durch die japanische Bürokratie.
-- **Keine Deckung außerhalb Japans:** Auf einem Visa-Run oder einer Heimreise? Die NHI folgt dir nicht. Genki schon.
-- **Visum-Risiko:** Unbezahlte NHI-Beiträge können deine Visumverlängerung bei der Einwanderungsbehörde blockieren. Genkis monatliches Abo bringt dich nie in Rückstände.
-
-**Die schlauste Kombination:** Genki ab Tag 1 (sofortiger Schutz, keine Lücke) + NHI sobald das Bezirksamt die Papiere bearbeitet hat (für die gesetzliche Pflicht). Genki als Sicherheitsnetz, NHI als gesetzliche Basis.
-
-## Der Vergleich, den sonst niemand gibt
-
-| Deine Situation | Beste Wahl | Warum |
-|---|---|---|
-| **Gerade angekommen (Tag 1)** | **Genki** ✅ | Sofort aktiv; NHI braucht Tage/Wochen |
-| **Tourist / Kurzaufenthalt <90 Tage** | **Genki** ✅ | NHI greift nicht; Genki deckt alles |
-| **Working Holiday, 12 Monate** | **Genki + NHI** | Genki für die Lücke + Reisen; NHI für die gesetzliche Pflicht |
-| **Studentenvisum, 6+ Monate** | **Genki + NHI** | NHI ist Pflicht; Genki deckt die 30%-Lücke + englische Schadensmeldungen |
-| **Digital Nomad, Länderwechsel** | **Nur Genki** ✅ | NHI folgt dir nicht über Grenzen; Genki schon |
-
-## So bekommst du Genki (5 Minuten)
-
-1. Gehe auf [genki.world](https://genki.world/with/jlpttesthub)
-2. Wähle deinen Tarif (Explorer für kurzfristig, World für langfristig)
-3. Gib deine Daten ein — alles auf Englisch, auf dem Handy
-4. Zahle den ersten Monat
-5. Du bist versichert. Fertig.
-
-Keine Gesundheitsprüfung. Kein Agenturtermin. Keine Papiere auf Japanisch. Keine 12-Monats-Bindung.
+Genki hat dafür genau zwei Produkte — und sie lösen **unterschiedliche Probleme**. Welche richtig ist, hängt an einer Frage: **Wie lange bleibst du?**
 
 <div class="affiliate">
 <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer"><img class="genki-banner" src="/genki-banner.png" alt="Genki — Krankenversicherung, die mitreist" loading="lazy" /></a>
-<h3>🩺 Versichere dich, bevor du landest</h3>
-<p><strong>Genki</strong> — Krankenversicherung für Japan. Monatlich, jederzeit kündbar, komplett auf Englisch. Ab ~4.500 ¥/Monat.</p>
-<p>Kurzaufenthalt oder Working Holiday? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Explorer</a>. Dauerhaft in Japan? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native</a>.</p>
+<p><strong>Genki</strong> — Reise- und internationale Krankenversicherung für Japan. Monatlich, jederzeit kündbar, komplett auf Englisch.</p>
+<p>Kurzfristig? <a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Traveler →</a> · Dauerhaft? <a href="https://genki.world/products/native?with=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">Genki Native →</a></p>
 </div>
 
----
+## Der Unterschied in einem Satz
 
-## Während du dich versicherst — lerne die medizinische Vokabel
+- **Genki Traveler** ist **Reiseversicherung**: Sie zahlt für *unerwartete* Dinge auf Reisen — Unfälle, Notfälle, plötzliche Krankheit. Maximal **12 Monate**.
+- **Genki Native** ist **internationale Krankenversicherung**: langfristiger Schutz für Menschen, die im Ausland *leben* — mit Zahn, Mental Health, Schwangerschaft und Vorsorge. Läuft unbefristet.
+
+Reiseversicherung ist für die Reise. Internationale Krankenversicherung ist fürs Leben. Wer regelmäßig Behandlung braucht — Vorsorge, Therapie, Zahnarzt — fährt mit Reiseversicherung falsch, egal welcher Marke.
+
+## Direkt im Vergleich
+
+| | **Genki Traveler** | **Genki Native** |
+|---|---|---|
+| **Kategorie** | Reise-Krankenversicherung | Internationale Krankenversicherung |
+| **Gebaut für** | Reisen, Working Holiday, erste Wochen vor NHI | Nomads, Expats, Familien im Ausland |
+| **Laufzeit** | Bis 12 Monate, endet automatisch | Kein Maximum — läuft unbefristet (Eintritt bis 55) |
+| **Deckungssumme** | 1.000.000 € | 1.000.000 € (Basic) / 3.500.000 € (Premium) |
+| **Sport** | Fast alle inklusive (Roller auch) | Alle inklusive (nur Profisport ausgeschlossen) |
+| **Selbstbeteiligung** | 50 € pro Fall | 0 €, 500 € oder 1.000 € (wählbar) |
+| **Zahn, Therapie, Schwangerschaft, Vorsorge** | ❌ Nicht gedeckt | ✅ In Premium gedeckt |
+| **Klinikrechnungen** | Direktabrechnung, bezahlt für dich | Direktabrechnung, bezahlt für dich |
+| **Erstattungstempo** | 80 % in 2 Werktagen | Rund 2 Werktage |
+| **Außerhalb Japans** | Weltweit | Weltweit — inkl. Heimatland (182 Tage oder ganzjährig) |
+| **Eintrittsalter** | Bis 69 | Bis 55 |
+
+## Was Traveler besser macht
+
+Es ist **deutlich günstiger** und unkompliziert: In Minuten abgeschlossen (auch schon unterwegs), monatlich bezahlt, nach Monat 1 kündbar — ungenutzte Tage werden erstattet. Es deckt exakt das Risikobild eines kurzen Aufenthalts: Unfälle, Notfälle, plötzliche Krankheit, Sportverletzungen, Rücktransport.
+
+Seine ehrlichen Grenzen, direkt aus Genkis „Good to know": 50 € Selbstbeteiligung pro Fall, 14 Tage nur Notfälle bei Anmeldung unter Reisen, Vorerkrankungen ausgeschlossen, und kein Zahn-, Mental-Health-, Schwangerschafts- oder Vorsorgeschutz. Für kurze Aufenthalte passt das. Für echtes Leben in Japan nicht.
+
+→ Details im [Genki-Traveler-Test](/blog/de/genki-traveler-review/).
+
+## Was Native besser macht
+
+Es ist echte Versicherung für einen dauerhaften Umzug: **keine Laufzeitbegrenzung**, kein Alterslimit nach Eintritt, freie Arztwahl weltweit, chronische Erkrankungen gedeckt und (in Premium) Zahn, Sehen, Psychotherapie, Schwangerschaft und ein 500-€-Jahresbudget für Vorsorge. Preisbeispiel von Genki: **189 €/Monat für 20–24-Jährige auf Basic mit 0 € Selbstbeteiligung**, justierbar über Alter, Tarif und Selbstbeteiligung.
+
+Seine ehrlichen Grenzen: Eintritt nur bis 55, Vorerkrankungen im Einzelfall geprüft, und es ersetzt keine gesetzliche Pflichtversicherung, die dein Visumsstatus verlangt.
+
+→ Details im [Genki-Native-Test](/blog/de/genki-native-review/).
+
+## Die NHI-Ebene (du brauchst beide, egal welches Genki)
+
+Wer sich in Japan **länger als 3 Monate** aufhält (egal mit welchem Visum), muss sich gesetzlich bei der **National Health Insurance (国民健康保険 / NHI)** im Bezirksamt anmelden. Kein Genki-Produkt befreit davon — der Trick ist zu wissen, welche Ebene was macht.
+
+**Was dir niemand über die NHI erzählt:**
+
+- **Die Lücke:** Du bist unversichert, bis das Bezirksamt die Registrierung abgeschlossen hat — Tage bis Wochen. Genau dieses Fenster deckt Genki.
+- **Jahr-2-Beitragsschock:** Im ersten Jahr ist NHI günstig (~1.500–2.500 ¥/Monat ohne Einkommen). Ab Jahr 2 wird nach japanischem Einkommen neu berechnet — bei 120.000 ¥/Monat Verdienst schnell 8.000–15.000 ¥/Monat, rückwirkend.
+- **Schadensmeldungen nur auf Japanisch:** NHI-Erstattungspapiere sind japanisch.
+- **Keine Deckung im Ausland:** NHI folgt dir nicht auf einen Visa-Run nach Seoul oder die Heimreise. Genki schon.
+- **Visum-Risiko:** Unbezahlte NHI-Beiträge können die Visumsverlängerung blockieren. Ein monatliches Genki-Abo allein bringt dich nie in Rückstände.
+
+**Das Setup, das funktioniert:**
+
+| Dein Aufenthalt | Setup |
+|---|---|
+| Unter 90 Tagen | **Nur Genki Traveler** |
+| Working Holiday / bis 12 Monate | **Genki Traveler + NHI** (NHI für die Pflicht, Traveler für Lücke und Reisen) |
+| Studentenvisum, mehrere Jahre | **Genki Native + NHI** |
+| Expat mit Familie | **Genki Native (+ NHI)** |
+
+NHI ist die gesetzliche Basis; Genki ist die Ebene, die Englisch spricht, weltweit schützt und Kliniken direkt bezahlt.
+
+## Schnell-Entscheidung
+
+1. **Unter 12 Monaten?** → [Genki Traveler](/blog/de/genki-traveler-review/)
+2. **Jahre in Japan, oder schon geplant?** → [Genki Native](/blog/de/genki-native-review/)
+3. **Zahn, Therapie, Vorsorge oder Schwangerschaft?** → Native Premium
+4. **Nur die Lücke bis NHI überbrücken?** → Traveler, ab Tag 1
+5. **Beliebiges Visum über 3 Monate?** → Unabhängig davon NHI anmelden
+
+## Während du das organisierst — lerne die medizinische Vokabel
 
 Japanische Kliniken sind einfach zu navigieren, wenn du みてくれますか („kannst du mich untersuchen?") und die Körperteil-Wörter kennst. Genau diese Alltagsvokabeln prüft der JLPT — und genau die brauchst du an Tag 1.
 
