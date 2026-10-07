@@ -532,7 +532,7 @@ const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
           </div>
           <p className="text-gray-600 text-xs mb-3 leading-relaxed">{t.genkiDesc}</p>
           <a
-            href="https://genki.world/?ref=jlpttesthub"
+            href="https://genki.world/with/jlpttesthub"
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
             className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"

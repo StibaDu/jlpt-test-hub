@@ -41,7 +41,7 @@ Even after you register for NHI (which is mandatory for 3+ month stays — see b
 | **Duration** | Up to 1 year (renewable) | Ongoing, year after year |
 | **Covers** | Emergency medical, accidents, evacuation | Full health insurance: routine check-ups, specialists, chronic conditions |
 | **Billing** | Monthly, cancel anytime | Monthly or yearly |
-| **Price** | From ~¥4,500/mo (varies by age — [check genki.world](https://genki.world/?ref=jlpttesthub) for current pricing) | Higher, reflects comprehensive coverage |
+| **Price** | From ~¥4,500/mo (varies by age — [check genki.world](https://genki.world/with/jlpttesthub) for current pricing) | Higher, reflects comprehensive coverage |
 | **Vibe** | "I'm in Japan for 3–12 months" | "Japan is home now" |
 
 **Most readers want Genki Explorer.** It's the one that covers the NHI gap, works across borders, and costs less than a monthly gym membership.
@@ -72,7 +72,7 @@ Here's what nobody tells you about NHI:
 
 ## How to get Genki (it takes 5 minutes)
 
-1. Go to [genki.world](https://genki.world/?ref=jlpttesthub)
+1. Go to [genki.world](https://genki.world/with/jlpttesthub)
 2. Pick your plan (Explorer for short-term, World for long-term)
 3. Fill in your details — all in English, on your phone
 4. Pay your first month
@@ -83,7 +83,7 @@ No medical exam. No agent meeting. No paperwork in Japanese. No 12-month lock-in
 <div class="affiliate">
 <h3>🩺 Get covered before you land</h3>
 <p><strong>Genki</strong> — travel health insurance for Japan. Monthly, cancel anytime, fully in English. From ~¥4,500/mo.</p>
-<p><a href="https://genki.world/?ref=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Get Genki now</a></p>
+<p><a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Get Genki now</a></p>
 </div>
 
 ---

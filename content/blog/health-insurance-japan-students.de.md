@@ -41,7 +41,7 @@ Selbst nach der NHI-Registrierung (die bei 3+ Monaten Aufenthalt Pflicht ist —
 | **Dauer** | Bis zu 1 Jahr (verlängerbar) | Laufend, Jahr für Jahr |
 | **Deckt** | Notfallmedizin, Unfälle, Evakuierung | Vollkrankenversicherung: Routineuntersuchungen, Spezialisten, chronische Erkrankungen |
 | **Abrechnung** | Monatlich, jederzeit kündbar | Monatlich oder jährlich |
-| **Preis** | Ab ~4.500 ¥/Monat (variiert nach Alter — [aktuelle Preise auf genki.world](https://genki.world/?ref=jlpttesthub)) | Höher, spiegelt umfassende Deckung wider |
+| **Preis** | Ab ~4.500 ¥/Monat (variiert nach Alter — [aktuelle Preise auf genki.world](https://genki.world/with/jlpttesthub)) | Höher, spiegelt umfassende Deckung wider |
 | **Passend wenn** | „Ich bin 3–12 Monate in Japan" | „Japan ist jetzt mein Zuhause" |
 
 **Die meisten Leser wollen Genki Explorer.** Das ist der Tarif, der die NHI-Lücke schließt, grenzüberschreitend funktioniert und weniger kostet als ein monatliches Fitnessstudio.
@@ -72,7 +72,7 @@ Was dir niemand über die NHI erzählt:
 
 ## So bekommst du Genki (5 Minuten)
 
-1. Gehe auf [genki.world](https://genki.world/?ref=jlpttesthub)
+1. Gehe auf [genki.world](https://genki.world/with/jlpttesthub)
 2. Wähle deinen Tarif (Explorer für kurzfristig, World für langfristig)
 3. Gib deine Daten ein — alles auf Englisch, auf dem Handy
 4. Zahle den ersten Monat
@@ -83,7 +83,7 @@ Keine Gesundheitsprüfung. Kein Agenturtermin. Keine Papiere auf Japanisch. Kein
 <div class="affiliate">
 <h3>🩺 Versichere dich, bevor du landest</h3>
 <p><strong>Genki</strong> — Reise-Krankenversicherung für Japan. Monatlich, jederzeit kündbar, komplett auf Englisch. Ab ~4.500 ¥/Monat.</p>
-<p><a href="https://genki.world/?ref=jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Jetzt Genki abschließen</a></p>
+<p><a href="https://genki.world/with/jlpttesthub" target="_blank" rel="nofollow sponsored noopener noreferrer">→ Jetzt Genki abschließen</a></p>
 </div>
 
 ---

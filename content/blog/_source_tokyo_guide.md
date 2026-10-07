@@ -65,7 +65,7 @@
 
 - Genki Insurance
     
-    [Genki • Health Insurance for Digital Nomads](https://genki.world)
+    [Genki • Health Insurance for Digital Nomads](https://genki.world/with/jlpttesthub)
     
 
 ---
