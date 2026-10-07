@@ -25,7 +25,6 @@ a:hover { text-decoration: underline; }
 .blog-content .affiliate { background: var(--emerald-light); border: 1px solid var(--emerald); border-radius: 0.75rem; padding: 1rem; margin: 1.5rem 0; }
 .blog-content .affiliate a { font-weight: 700; }
 .blog-content .affiliate .genki-banner { width: 100%; max-width: 320px; height: auto; display: block; border-radius: 0.5rem; margin-bottom: 0.75rem; }
-.blog-content .genki-toplogo { width: 72px; height: auto; display: block; margin: 0.15rem 0 0.75rem; }
 .blog-content .affiliate .genki-links { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
 .blog-content .affiliate .genki-links a { font-size: 0.9rem; }
 .blog-content .lang-toggle { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 0; margin-bottom: 1rem; z-index: 10; }
