@@ -48,6 +48,36 @@ Delivery auf eigener Zeiteinteilung — [Direkt-Start](https://www.uber.com/jp/e
 
 Selbst Izakaya-Jobs beginnen mit Keigo (Höflichkeitsform) und Standard-Kundensätzen — genau das, was der JLPT N5–N4 prüft.
 
+## Aus deutschsprachiger Sicht: Visum, Steuern, Krankenversicherung
+
+Mit dem Working-Holiday-Visum (DE/AT/CH) bewirbst du dich kostenlos über die Botschaft — aber drei Punkte sind Deutschland-spezifisch wichtig:
+
+**1. Working Holiday Visum (Deutschland → Japan)**
+
+- Du brauchst **bis 30 Jahre**, mindestens **2.700 € nachweisbar** auf dem Konto, ein gültiger Reisepass und ein Hin-/Rückflugticket (kaufen oder nachweisen)
+- Antrag kostenlos an der **Japanischen Botschaft Berlin** (oder Konsulat in Frankfurt/München/Hamburg) — Bearbeitung ca. 1–3 Wochen
+- Nach Ankunft: **Residence Card** innerhalb 14 Tage beim Gemeindeamt (Bezirksamt) besorgen, dann Steuer-ID (my number) und ggf. Konto
+- **Arbeitserlaubnis** (shikagai katsudō kyoka) beantragst du an der Einwanderungsbehörde in Japan — oder besser am Flughafen bei Einreise (sofortige Ausstellung)
+
+**2. Steuerpflicht und Anmeldungen in Japan (das, was dich wirklich nervt)**
+
+| Thema | Was zu tun |
+|---|---|
+| **Residenz-Karte** | Innerhalb 14 Tage am Wohnsitz-Bezirksamt |
+| **„My Number"** | Wird automatisch nach Residenz-Anmeldung verschickt — für Steuern und Krankenversicherung |
+| **Krankenversicherung (NHI)** | Gesetzlich Pflicht ab 3 Monate Aufenthalt — im Bezirksamt anmelden |
+| **Steuern** | Bei niedrigem Einkommen unter ~1 Mio. ¥/Jahr bist du in der Regel unter der Steuerpflicht |
+| **Steuerrückzahlung** | Am Jahresende wird der Steueranteil im nächsten Jahr berechnet — spart nicht |
+
+**3. Krankenversicherung konkret (wichtiger als in Deutschland)**
+
+Die gesetzliche Krankenversicherung **National Health Insurance (国民健康保険 / NHI)** deckt nicht alles — sie zahlt 70 % bei regulären Behandlungen, aber:
+- nicht außerhalb Japans (Visa-Run nach Korea, Heimreise)
+- nicht in der Zeit vor deiner NHI-Anmeldung am Bezirksamt (Tage bis Wochen)
+- nur auf Japanisch, mit Formularen auf Japanisch
+
+Deshalb kombinieren fast alle: **NHI (Pflicht, lokal) + Reise- oder Auslandsversicherung (weltweit, englisch)** — siehe unseren [Genki-Versicherungs-Test](/blog/de/health-insurance-japan-students/), der beide Varianten (Traveler für kurze Aufenthalte und Native für Langfristige) vergleicht.
+
 <div class="cta">
 <h3>Besteh das Vorstellungsgespräch — besteh den JLPT</h3>
 <p>Unsere kostenlosen Übungstests decken Grammatik und Vokabular ab, die Nebenjobs tatsächlich benutzen.</p>

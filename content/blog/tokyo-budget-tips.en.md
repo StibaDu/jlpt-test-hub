@@ -54,6 +54,37 @@ Instead of a contract (credit checks, 2-year lock-ins), buy **prepaid data SIMs 
 
 Works in your phone day one, no contract, no Japanese needed at checkout.
 
+## Your monthly budget in Tokyo, concretely
+
+Numbers that actually hold up for a single person in a share house (2026):
+
+| Category | Frugal | Comfortable | Notes |
+|---|---|---|---|
+| **Rent (share house)** | ¥50,000 | ¥90,000 | Dorms cheaper / private rooms more |
+| **Food (cooking + lunch sets)** | ¥40,000 | ¥60,000 | Konbini + teishoku strategy |
+| **Transport** | ¥5,000 | ¥12,000 | IC card rides / commuter pass |
+| **Phone (prepaid SIM)** | ¥2,000 | ¥4,500 | Amazon prepaid trick |
+| **Insurance** | ¥4,500 | ¥6,500 | Travel insurance (Genki Traveler) |
+| **Fun / going out** | ¥10,000 | ¥25,000 | Izakaya vs. free view spots |
+| **Total** | **~¥112,000** | **~¥198,000** | Before any job income |
+
+For context: Tokyo's minimum wage (¥1,163/hour as of Oct 2024, higher in 2025) makes **8–10 hours of part-time work per week** cover the frugal plan entirely. That's the honest version of "Japan is expensive" — it's expensive only when every purchase goes through tourist channels.
+
+## The 60-second free-entertainment list
+
+Tokyo's free stuff is not a consolation prize — some of it is the best in the city:
+
+- **Tokyo Metropolitan Government Building** observation deck (202 m, free, café, open to 22:00+)
+- **Sumida River walk** between Asakusa and Tokyo Skytree — full river views, no ticket
+- **Team Lab Borderless area** (Toyosu) exterior light installations — free, most hours
+- **Meiji Jingu forest path** — a genuine forest inside the city, 10 min from Harajuku
+- **Yoyogi Park on a Sunday** — free entertainment, buskers, dancing groups
+- **Shibuya Sky's alternative: Shibuya Hikarie Sky Lobby** (free, floors 1–11 windows)
+- **Free museum days** — many Tokyo museums have one free or discounted day per month (check each)
+- **Neighborhood shrines at dusk** — the quietest and most beautiful Tokyo experience is free
+
+If a "must-do Tokyo experience" can't exist without a ¥3,000 ticket, most of the time there's a free equivalent within a train stop or two.
+
 ---
 
 ## And the biggest money-saver of all

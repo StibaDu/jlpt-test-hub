@@ -1,16 +1,16 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-07)
 
 ## Corpus Check
-- 76 files · ~164,728 words
+- 72 files · ~153,993 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 597 nodes · 689 edges · 44 communities (43 shown, 1 thin omitted)
+- 561 nodes · 657 edges · 40 communities (39 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d6c29c4c`
+- Built from commit: `cf7a20e0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -46,18 +46,14 @@
 - Tokyo Transport on a Budget: Metro Passes, Discount Tickets & IC Cards
 - Günstig essen in Tokyo: Über 1.000 Restaurants unter 1.000 ¥
 - Cheap Eats in Tokyo: 1000+ Restaurants Under ¥1,000
-- Genki für Japan: Traveler vs Native — Welche Versicherung passt zu deinem Aufenthalt?
-- Genki for Japan: Traveler vs Native — Which Insurance Fits Your Stay?
+- Genki Versicherung für Japan: Traveler vs Native (ehrlicher Test 2026)
+- Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)
 - Japanisch-Schulen in Tokyo: So findest du die günstige
 - Japanese Language Schools in Tokyo: How to Pick an Affordable One
 - Karteikarten für JLPT-Kanji (N5–N3) — die Spaced-Repetition-Methode
 - How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way
-- Genki Native im Test: Internationale Krankenversicherung für dein Leben in Japan
 - romaji.ts
-- Genki Native Review: International Health Insurance for Life in Japan
-- Genki Traveler im Test: Reise-Krankenversicherung für Japan
 - ai-catalog.json
-- Genki Traveler Review: Travel Health Insurance for Japan
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 18 edges
@@ -66,10 +62,10 @@
 4. `Launch Checklist — JLPT Test Hub` - 12 edges
 5. `JLPT Test Hub` - 10 edges
 6. `The Only Guide you need, to live Cheap in Tokyo!` - 9 edges
-7. `Genki Native im Test: Internationale Krankenversicherung für dein Leben in Japan` - 8 edges
-8. `Genki Native Review: International Health Insurance for Life in Japan` - 8 edges
-9. `Genki Traveler im Test: Reise-Krankenversicherung für Japan` - 8 edges
-10. `Genki Traveler Review: Travel Health Insurance for Japan` - 8 edges
+7. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 8 edges
+8. `JLPT Test Day: What to Expect & Last-Minute Tips` - 8 edges
+9. `Genki Versicherung für Japan: Traveler vs Native (ehrlicher Test 2026)` - 6 edges
+10. `Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dashboard()` --calls--> `useAuth()`  [EXTRACTED]
@@ -86,7 +82,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (44 total, 1 thin omitted)
+## Communities (40 total, 1 thin omitted)
 
 ### Community 0 - "Launch Checklist — JLPT Test Hub"
 Cohesion: 0.15
@@ -208,13 +204,13 @@ Nodes (6): Bereit, japanisch zu bestellen?, Budget-Fallen vermeiden, Die 1.000-�
 Cohesion: 0.29
 Nodes (6): Avoid these budget traps, Cheap Eats in Tokyo: 1000+ Restaurants Under ¥1,000, Highlights from the ¥1,000 list, Ready to order in Japanese?, The ¥1,000 Lunch Rule, The Local Food Map
 
-### Community 32 - "Genki für Japan: Traveler vs Native — Welche Versicherung passt zu deinem Aufenthalt?"
+### Community 32 - "Genki Versicherung für Japan: Traveler vs Native (ehrlicher Test 2026)"
 Cohesion: 0.22
-Nodes (8): Der Unterschied in einem Satz, Die NHI-Ebene (du brauchst beide, egal welches Genki), Direkt im Vergleich, Genki für Japan: Traveler vs Native — Welche Versicherung passt zu deinem Aufenthalt?, Schnell-Entscheidung, Was Native besser macht, Was Traveler besser macht, Während du das organisierst — lerne die medizinische Vokabel
+Nodes (8): Die Entscheidung in drei Zeilen, Genki Native — internationale Krankenversicherung, fürs Leben im Ausland, Genki Traveler — Reiseversicherung, bis 12 Monate, Genki Versicherung für Japan: Traveler vs Native (ehrlicher Test 2026), Warum eine unversicherte Woche in Japan teuer wird, Was Genki anbietet (und für wen), Was Nichtstun kostet, Während du dich versicherst — lerne die medizinische Vokabel
 
-### Community 33 - "Genki for Japan: Traveler vs Native — Which Insurance Fits Your Stay?"
+### Community 33 - "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)"
 Cohesion: 0.22
-Nodes (8): Genki for Japan: Traveler vs Native — Which Insurance Fits Your Stay?, Quick decision list, Side by side, The NHI layer (you need both, whatever Genki you pick), The one-sentence difference, What Native does better, What Traveler does better, While you're getting insured — learn the medical vocabulary
+Nodes (8): Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review), Genki Native — international health insurance, for life abroad, Genki Traveler — travel insurance, up to 12 months, The decision, in three lines, What Genki actually offers (and for whom), What it costs you to do nothing, While you're getting insured — learn the medical vocabulary, Why being uninsured in Japan for even a week is expensive
 
 ### Community 34 - "Japanisch-Schulen in Tokyo: So findest du die günstige"
 Cohesion: 0.29
@@ -232,32 +228,16 @@ Nodes (6): Die Gewohnheits-Schleife, die überlebt, Die Kanji-Zahlen, damit dich
 Cohesion: 0.29
 Nodes (6): How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way, The habit loop that survives, The kanji counts, so nothing surprises you, The two failure modes to avoid, Use your actual mistakes as cards, Why spacing works (the science in one paragraph)
 
-### Community 38 - "Genki Native im Test: Internationale Krankenversicherung für dein Leben in Japan"
-Cohesion: 0.22
-Nodes (8): Basic vs Premium — was wirklich drin ist, Das ehrliche Kleingedruckte, Für wen Genki Native ist, Genki Native im Test: Internationale Krankenversicherung für dein Leben in Japan, Japan-Realität: Native + NHI zusammen, Was es kostet, Was Genki Native ist, Während du dich einrichtest — lerne die medizinische Vokabel
-
 ### Community 39 - "romaji.ts"
 Cohesion: 0.38
 Nodes (6): ch_next_romaji(), HIRAGANA, KATAKANA_MAP, toRomaji(), translitKana(), youonHira
-
-### Community 40 - "Genki Native Review: International Health Insurance for Life in Japan"
-Cohesion: 0.22
-Nodes (8): Basic vs Premium — what's actually covered, Genki Native Review: International Health Insurance for Life in Japan, Japan reality check: Native + NHI together, The honest fine print, What Genki Native is, What it costs, While you're settling in — learn the medical vocabulary, Who Genki Native is for
-
-### Community 41 - "Genki Traveler im Test: Reise-Krankenversicherung für Japan"
-Cohesion: 0.22
-Nodes (8): Die Haken, die du kennen solltest, Für wen Genki Traveler passt, Genki Traveler im Test: Reise-Krankenversicherung für Japan, So läuft die Anmeldung, Traveler vs Native — die 10-Sekunden-Version, Was abgedeckt ist, Was Genki Traveler ist (in einem Satz), Während du das organisierst — lerne die medizinische Vokabel
 
 ### Community 42 - "ai-catalog.json"
 Cohesion: 0.10
 Nodes (20): format, required, content_policy, attribution, crawling, notes, training, description (+12 more)
 
-### Community 43 - "Genki Traveler Review: Travel Health Insurance for Japan"
-Cohesion: 0.22
-Nodes (8): Genki Traveler Review: Travel Health Insurance for Japan, How signing up works, The catches you should know before you buy, Traveler vs Native — the 10-second version, What Genki Traveler is (in one sentence), What's covered, While you sort insurance — learn the medical vocabulary, Who Genki Traveler fits
-
 ## Knowledge Gaps
-- **319 isolated node(s):** `Was Genki Native ist`, `Basic vs Premium — was wirklich drin ist`, `Was es kostet`, `Das ehrliche Kleingedruckte`, `Japan-Realität: Native + NHI zusammen` (+314 more)
+- **289 isolated node(s):** `UiStrings`, `uiTranslations`, `SvgProps`, `ADSENSE_CONFIG`, `SelectedKanji` (+284 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -265,11 +245,11 @@ Nodes (8): Genki Traveler Review: Travel Health Insurance for Japan, How signing
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `dependencies`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **What connects `Was Genki Native ist`, `Basic vs Premium — was wirklich drin ist`, `Was es kostet` to the rest of the system?**
-  _319 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **What connects `UiStrings`, `uiTranslations`, `SvgProps` to the rest of the system?**
+  _289 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `useAuth` be split into smaller, more focused modules?**

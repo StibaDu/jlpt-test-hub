@@ -41,6 +41,27 @@ Gedächtnis ist kein Eimer — es ist eine Kurve. Jedes Mal, wenn du dich *genau
 
 Die wertvollsten Karteikarten sind keine generischen Decks — sondern **Karten aus deinen eigenen Falschantworten**. Ein Kanji, bei dem du in einem echten Übungstest danebengegriffen hast, trägt Kontext (welcher Satz dich reingelegt, welcher Distraktor dich angelockt) — ein Zufalls-Deck kann das nicht liefern.
 
+## Radikale: der Cheat-Code, den dir niemand gesagt hat
+
+Die meisten lernen Kanji als unzerlegbare Symbole: 水, 川, 流. Danach lernen sie, dass Kanji in **Komponenten (Radikale)** zerfallen — und plötzlich sind ~650 Zeichen Kombinationen von ~50 Formen statt 650 einzelne Erinnerungen.
+
+| Kanji | Komponenten | Warum das hilft |
+|---|---|---|
+| 流 | wasser-Wurzel 氵 + 流 | "fließen" — Wasser + Bewegung, gleichzeitig Lesungshinweis |
+| 飲 | 食 (essen) + 欠 | die "essen"-Wurzel → fast jedes Konsum-Wort (食事, 食べる) |
+| 買 | 貝 (Muschel = altes Geld) + 网 | mit alter Währung kaufen — merkwürdig, nicht willkürlich |
+| 休 | Person 亻 + Baum 木 | Person lehnt am Baum = Pause |
+| 明 | Sonne 日 + Mond 月 | beide zusammen = "hell" |
+
+Praktisch: Bei jedem Kanji **die radikale Familie mitlernen**. Kanji mit 貝 (Muschel) handeln von Wert; mit 氵 (Wasser) von Flüssigkeit; mit 言 (Sprechen) von Sprache. Das halbiert deine eigentliche Neue-Lernen-Menge.
+
+## Lesen vs. Schreiben — deine Priorität
+
+Der JLPT prüft **keine Handschrift**. Er prüft Wiedererkennen: wenn du 貸して siehst, weißt du die Bedeutung und Lesung?
+
+- **Lesen zuerst lernen** — Form, Lesung, Wort. Das zahlt sich am Prüfungstag aus.
+- **Schreibübung optional** — verdreifacht die Lernzeit für eine Fähigkeit, die der Test nicht misst.
+
 <div class="cta">
 <h3>Karteikarten aus deinen echten Fehlern</h3>
 <p>Unsere Pro-Karteikarten übernehmen jede falsche Frage, machen daraus eine Spaced-Card und planen sie an die Vergessenskante. Dazu der komplette Kanji-/Vokabel-/Grammatik-Katalog N5–N3.</p>

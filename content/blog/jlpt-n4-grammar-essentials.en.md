@@ -71,9 +71,64 @@ Logical expectation: 彼はもう着いているはずだ (He should have arrive
 
 Two uses — reason (雨のために試合が中止になった — the match was called off because of rain) and purpose (合格するために勉強する — study in order to pass). Listen to whether the clause before is a noun or a verb — that decides which meaning.
 
+## The N4 grammar test — how these 15 show up
+
+N4 gives you one question type per family here: **fill-in-the-blank** (the most common — four options, one grammatical slot), plus **sentence assembly** where you order four fragments and identify which goes in the marked slot. Distribution you can count on:
+
+| Pattern family | Frequency in a 30-item section |
+|---|---|
+| Particles (は・が・を・に・で・と・から・まで・のため) | 5–8 items |
+| Causative/passive/causative-passive | 3–5 items |
+| 〜ように / 〜ために / 〜ことに | 2–4 items |
+| Honorifics (お〜になる / お〜する) | 2–3 items |
+| Sentence assembly (order 4 fragments) | 4–6 items |
+
+The practical consequence: **about half of N4 grammar is particles and causative/passive**. If your score is stuck, drill those two before anything else.
+
+## The five particles that split N4 scores
+
+These five separate candidates who pass from those who don't:
+
+| Particle pair | Rule that disambiguates |
+|---|---|
+| **に vs. で** | に = destination/point of attachment (大学に入る); で = location of *action* (大学で勉強する) |
+| **は vs. が** | は = known topic being talked about; が = new information/doer (with 心配させました etc.) |
+| **を vs. の** | を = object being acted on; の = possessive/linking — N4 puns these in reading passages |
+| **と vs. も** | と = and/with (countable pair); も = also/as much as (八つも食べました) |
+| **ように vs. ために** | ように = so that (potential/absence verbs: 忘れないように); ために = in order to (deliberate goals: 先生になるために) |
+
+## The sentence-assembly tactic (問題 style)
+
+N4's hardest section isn't grammar knowledge — it's **order-of-fragments**. The sentence shows a marked slot and four fragments; you choose which fragment lands in that marked position. Tactic that works:
+
+1. Translate the fragment list first — 4 fragments, 2 seconds each
+2. Identify the sentence **head** (topic phrase) and **tail** (predicate) — those are fixed by the visible text
+3. The marked slot fragment is usually the one that **can't** sit at the head or tail
+4. Verify by reassembling the full sentence once in your head — Japanese word order will confirm or reject it
+
+Candidates lose more time here than anywhere else: the fragments are all individually grammatical, so elimination alone doesn't work — only the assembled sentence does.
+
+## The keigo pair that N4 sneaks in
+
+Passive and honorific forms use the same shapes — which is exactly why N4 tests them together:
+
+| Form | Sentence shape | Example |
+|---|---|---|
+| **Passive (られる)** | someone else acted *on* the subject | ドアが開けられた |
+| **Honorific (お〜になる)** | the *respected person* did it | 先生がおっしゃった |
+| **Humble (お〜する)** | *I* humbly did it (to them) | お返事いたしました |
+
+When the test shows 何とかられた forms in a dialogue, the question is almost always: *who is doing what to whom* — politeness tells you the social relation in the sentence, not just the grammar.
+
 ## Practice pattern recognition, not memorization
 
 Knowing 〜ことになっている from a list is one thing — recognizing it inside a fast reading passage is another. That's why practice tests exist.
+
+<div class="cta">
+<h3>Drill these patterns in real sentences</h3>
+<p>Free N4 practice tests — 30 questions, every wrong answer explained (EN/DE).</p>
+<a href="/#/n4">Start a free N4 test →</a>
+</div>
 
 <div class="cta">
 <h3>Drill these patterns in real sentences</h3>

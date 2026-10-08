@@ -56,6 +56,34 @@ Funktioniert ab Tag eins im Handy, ohne Vertrag, ohne Japanisch an der Kasse.
 
 ---
 
+## Deine Monatsbudgets in Tokyo — konkret
+
+Zahlen, die für eine Einzelperson in einem Share House realistisch halten (2026):
+
+| Kategorie | Sparsam | Komfortabel | Anmerkung |
+|---|---|---|---|
+| **Miete (Share House)** | 50.000 ¥ | 90.000 ¥ | Dorms günstiger / Privatzimmer teurer |
+| **Essen (kochen + Lunch-Sets)** | 40.000 ¥ | 60.000 ¥ | Konbini + Teishoku-Strategie |
+| **Transport** | 5.000 ¥ | 12.000 ¥ | IC-Karten-Fahrten / Pauschal Ticket |
+| **Telefon (Prepaid-SIM)** | 2.000 ¥ | 4.500 ¥ | Amazon-Prepaid-Tipp |
+| **Versicherung** | 4.500 ¥ | 6.500 ¥ | Reiseversicherung (Genki Traveler) |
+| **Ausgehen / Spass** | 10.000 ¥ | 25.000 ¥ | Izakaya vs. gratis View-Spots |
+| **Gesamt** | **~112.000 ¥** | **~198.000 ¥** | Vor Job-Einkommen |
+
+Zur Einordnung: Tokyos Mindestlohn (1.163 ¥/Stunde ab Okt. 2024, 2025 höher) macht **8–10 Stunden Nebenjob pro Woche**, die das sparsame Budget decken. Das ist die ehrliche Übersetzung von „Japan ist teuer" — teuer nur, wenn alles über Touristenkanäle läuft.
+
+## Die 60-Sekunden-Liste gratis Unterhaltung
+
+Tokyos Gratis-Angebot ist kein Trostpreis — einiges davon gehört zum Besten der Stadt:
+
+- **Tokyo Metropolitan Government Building** Aussichtsplattform (202 m, gratis, Café, bis 22:00+)
+- **Sumida-Fluss-Uferweg** von Asakusa bis Skytree — Flussblick, kein Ticket
+- **Meiji-Jingu-Waldweg** — echter Wald in der Stadt, 10 Min von Harajuku
+- **Yoyogi-Park am Sonntag** — Busker, Tanzgruppen, gratis Entertainment
+- **Shibuya Hikarie Sky Lobby** (gratis, Fensteretage 1–11)
+- **Gratis-Museums-Tage** — viele Tokyoter Museen haben ein Gratis-/Rabatt-Tag pro Monat
+- **Tempel bei Sonnenuntergang** — still, schön, kostenlos
+
 ## Und der größte Geldsparer überhaupt
 
 Japanisch lernen ist nicht nur für die Prüfung — es IST die Budget-Fähigkeit. Günstigere Läden, günstigere Viertel, bessere Jobs, keine Touristenpreise.

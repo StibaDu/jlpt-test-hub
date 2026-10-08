@@ -44,6 +44,24 @@ Diese Karte ist eine besondere Ausnahme: Statt der günstigsten Optionen zeigt s
 
 Für Aussicht: Das **Tokyo Skytree** kostet über 3.000 ¥ und hat Schlangen — die Aussichtsplattform des **Tokyo Metropolitan Government Building** ist **kostenlos**, öffnet früh und spät, und die Schlange bewegt sich schnell.
 
+## Aus deutscher Sicht — was dich beim Essen in Japan überraschen wird
+
+Deutsche Mahlzeiten-Favoriten haben japanische Entsprechungen — oft günstiger oder besser, manchmal gar nicht:
+
+| Gewohnt (DE) | Japan-Ersatz | Preis-Vergleich |
+|---|---|---|
+| Brot im Laden (Bäckerei) | **Toast / Anpan im Konbini** | 100–300 ¥, günstiger — aber süßer und weicher |
+| Wurst & Käse | **Karaage, Tamago, Katsu** | Ähnliche Preislage |
+| Kartoffeln als Beilage | **Reis** — immer, in jeder Mahlzeit | Günstiger |
+| Frühstück mittags | **Teishoku / Set-Mahlzeiten** | 1.000 ¥ — reichhaltiger als deutsches Frühstück |
+| Kaffee in Betrieben | **Kaffee im Konbini / Vending-Machine** | 100–150 ¥, deutlich billiger |
+| Bier im Restaurant | **Happoshu / Bier-im-Ab-Haus** | 100–200 ¥ — deutlich billiger als deutsches Restaurant |
+| Gemüse im Laden | **Japanisches Gemüse** (Nasu, Daikon, Kabocha) | Ähnlich, oft frischer |
+
+Der wichtigste Unterschied praktisch: **Es gibt kein „zu Mittag" wie in Deutschland** — die Portionen sind kleiner und das Konzept „warmes Mittagessen mit Vorspeise, Hauptgericht, Nachtisch" ist in Japan ein Luxus-Fall. Stattdessen: Nahrung ist eher **konkret** — Reis, Suppe, Hauptgericht, Beilage — alles auf einem Tablett (Teishoku).
+
+Und das wichtigste: **Guten Appetit wird nicht gesagt wie in Deutschland** („Mahzeit"). Die Standardformel „いただきます" (itadakimasu) heißt "ich nehme dankend an" — ein Dank an die Person, die es gemacht hat. Wer das weiß, wirkt sofort souverän.
+
 ## Bereit, japanisch zu bestellen?
 
 Eine japanische Speisekarte ist leichter zu lesen, als du denkst — und der JLPT N5 deckt genau die 100 Kanji und 800 Wörter ab, die auf praktisch jeder Speisekarte stehen.

@@ -4,609 +4,15 @@
   "graph": {},
   "nodes": [
     {
-      "label": "genki-native-review.de.md",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "genki-native-review.de.md"
-    },
-    {
-      "label": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "genki native im test: internationale krankenversicherung fur dein leben in japan"
-    },
-    {
-      "label": "Was Genki Native ist",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_was_genki_native_ist",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "was genki native ist"
-    },
-    {
-      "label": "Basic vs Premium \u2014 was wirklich drin ist",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_basic_vs_premium_was_wirklich_drin_ist",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "basic vs premium \u2014 was wirklich drin ist"
-    },
-    {
-      "label": "Was es kostet",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_was_es_kostet",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "was es kostet"
-    },
-    {
-      "label": "Das ehrliche Kleingedruckte",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_das_ehrliche_kleingedruckte",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "das ehrliche kleingedruckte"
-    },
-    {
-      "label": "Japan-Realit\u00e4t: Native + NHI zusammen",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_japan_realit\u00e4t_native_nhi_zusammen",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "japan-realitat: native + nhi zusammen"
-    },
-    {
-      "label": "F\u00fcr wen Genki Native ist",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_f\u00fcr_wen_genki_native_ist",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "fur wen genki native ist"
-    },
-    {
-      "label": "W\u00e4hrend du dich einrichtest \u2014 lerne die medizinische Vokabel",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_de_w\u00e4hrend_du_dich_einrichtest_lerne_die_medizinische_vokabel",
-      "community": 38,
-      "community_name": "Genki Native im Test: Internationale Krankenversicherung f\u00fcr dein Leben in Japan",
-      "norm_label": "wahrend du dich einrichtest \u2014 lerne die medizinische vokabel"
-    },
-    {
-      "label": "genki-native-review.en.md",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "genki-native-review.en.md"
-    },
-    {
-      "label": "Genki Native Review: International Health Insurance for Life in Japan",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "genki native review: international health insurance for life in japan"
-    },
-    {
-      "label": "What Genki Native is",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_what_genki_native_is",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "what genki native is"
-    },
-    {
-      "label": "Basic vs Premium \u2014 what's actually covered",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_basic_vs_premium_what_s_actually_covered",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "basic vs premium \u2014 what's actually covered"
-    },
-    {
-      "label": "What it costs",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_what_it_costs",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "what it costs"
-    },
-    {
-      "label": "The honest fine print",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_the_honest_fine_print",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "the honest fine print"
-    },
-    {
-      "label": "Japan reality check: Native + NHI together",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_japan_reality_check_native_nhi_together",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "japan reality check: native + nhi together"
-    },
-    {
-      "label": "Who Genki Native is for",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_who_genki_native_is_for",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "who genki native is for"
-    },
-    {
-      "label": "While you're settling in \u2014 learn the medical vocabulary",
-      "file_type": "document",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "content_blog_genki_native_review_en_while_you_re_settling_in_learn_the_medical_vocabulary",
-      "community": 40,
-      "community_name": "Genki Native Review: International Health Insurance for Life in Japan",
-      "norm_label": "while you're settling in \u2014 learn the medical vocabulary"
-    },
-    {
-      "label": "genki-traveler-review.de.md",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "genki-traveler-review.de.md"
-    },
-    {
-      "label": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "genki traveler im test: reise-krankenversicherung fur japan"
-    },
-    {
-      "label": "Was Genki Traveler ist (in einem Satz)",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_was_genki_traveler_ist_in_einem_satz",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "was genki traveler ist (in einem satz)"
-    },
-    {
-      "label": "Was abgedeckt ist",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_was_abgedeckt_ist",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "was abgedeckt ist"
-    },
-    {
-      "label": "Die Haken, die du kennen solltest",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_die_haken_die_du_kennen_solltest",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "die haken, die du kennen solltest"
-    },
-    {
-      "label": "F\u00fcr wen Genki Traveler passt",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_f\u00fcr_wen_genki_traveler_passt",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "fur wen genki traveler passt"
-    },
-    {
-      "label": "So l\u00e4uft die Anmeldung",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_so_l\u00e4uft_die_anmeldung",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "so lauft die anmeldung"
-    },
-    {
-      "label": "Traveler vs Native \u2014 die 10-Sekunden-Version",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L76",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_traveler_vs_native_die_10_sekunden_version",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "traveler vs native \u2014 die 10-sekunden-version"
-    },
-    {
-      "label": "W\u00e4hrend du das organisierst \u2014 lerne die medizinische Vokabel",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_de_w\u00e4hrend_du_das_organisierst_lerne_die_medizinische_vokabel",
-      "community": 41,
-      "community_name": "Genki Traveler im Test: Reise-Krankenversicherung f\u00fcr Japan",
-      "norm_label": "wahrend du das organisierst \u2014 lerne die medizinische vokabel"
-    },
-    {
-      "label": "genki-traveler-review.en.md",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "genki-traveler-review.en.md"
-    },
-    {
-      "label": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "genki traveler review: travel health insurance for japan"
-    },
-    {
-      "label": "What Genki Traveler is (in one sentence)",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_what_genki_traveler_is_in_one_sentence",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "what genki traveler is (in one sentence)"
-    },
-    {
-      "label": "What's covered",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_what_s_covered",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "what's covered"
-    },
-    {
-      "label": "The catches you should know before you buy",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_the_catches_you_should_know_before_you_buy",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "the catches you should know before you buy"
-    },
-    {
-      "label": "Who Genki Traveler fits",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_who_genki_traveler_fits",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "who genki traveler fits"
-    },
-    {
-      "label": "How signing up works",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_how_signing_up_works",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "how signing up works"
-    },
-    {
-      "label": "Traveler vs Native \u2014 the 10-second version",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L76",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_traveler_vs_native_the_10_second_version",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "traveler vs native \u2014 the 10-second version"
-    },
-    {
-      "label": "While you sort insurance \u2014 learn the medical vocabulary",
-      "file_type": "document",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "content_blog_genki_traveler_review_en_while_you_sort_insurance_learn_the_medical_vocabulary",
-      "community": 43,
-      "community_name": "Genki Traveler Review: Travel Health Insurance for Japan",
-      "norm_label": "while you sort insurance \u2014 learn the medical vocabulary"
-    },
-    {
-      "label": "health-insurance-japan-students.de.md",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "health-insurance-japan-students.de.md"
-    },
-    {
-      "label": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "genki fur japan: traveler vs native \u2014 welche versicherung passt zu deinem aufenthalt?"
-    },
-    {
-      "label": "Der Unterschied in einem Satz",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_der_unterschied_in_einem_satz",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "der unterschied in einem satz"
-    },
-    {
-      "label": "Direkt im Vergleich",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_direkt_im_vergleich",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "direkt im vergleich"
-    },
-    {
-      "label": "Was Traveler besser macht",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_was_traveler_besser_macht",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "was traveler besser macht"
-    },
-    {
-      "label": "Was Native besser macht",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_was_native_besser_macht",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "was native besser macht"
-    },
-    {
-      "label": "Die NHI-Ebene (du brauchst beide, egal welches Genki)",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L61",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_die_nhi_ebene_du_brauchst_beide_egal_welches_genki",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "die nhi-ebene (du brauchst beide, egal welches genki)"
-    },
-    {
-      "label": "Schnell-Entscheidung",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_schnell_entscheidung",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "schnell-entscheidung"
-    },
-    {
-      "label": "W\u00e4hrend du das organisierst \u2014 lerne die medizinische Vokabel",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L92",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_de_w\u00e4hrend_du_das_organisierst_lerne_die_medizinische_vokabel",
-      "community": 32,
-      "community_name": "Genki f\u00fcr Japan: Traveler vs Native \u2014 Welche Versicherung passt zu deinem Aufenthalt?",
-      "norm_label": "wahrend du das organisierst \u2014 lerne die medizinische vokabel"
-    },
-    {
-      "label": "health-insurance-japan-students.en.md",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "health-insurance-japan-students.en.md"
-    },
-    {
-      "label": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "genki for japan: traveler vs native \u2014 which insurance fits your stay?"
-    },
-    {
-      "label": "The one-sentence difference",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_the_one_sentence_difference",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "the one-sentence difference"
-    },
-    {
-      "label": "Side by side",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_side_by_side",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "side by side"
-    },
-    {
-      "label": "What Traveler does better",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_what_traveler_does_better",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "what traveler does better"
-    },
-    {
-      "label": "What Native does better",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_what_native_does_better",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "what native does better"
-    },
-    {
-      "label": "The NHI layer (you need both, whatever Genki you pick)",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L61",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_the_nhi_layer_you_need_both_whatever_genki_you_pick",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "the nhi layer (you need both, whatever genki you pick)"
-    },
-    {
-      "label": "Quick decision list",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_quick_decision_list",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "quick decision list"
-    },
-    {
-      "label": "While you're getting insured \u2014 learn the medical vocabulary",
-      "file_type": "document",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L92",
-      "_origin": "ast",
-      "id": "content_blog_health_insurance_japan_students_en_while_you_re_getting_insured_learn_the_medical_vocabulary",
-      "community": 33,
-      "community_name": "Genki for Japan: Traveler vs Native \u2014 Which Insurance Fits Your Stay?",
-      "norm_label": "while you're getting insured \u2014 learn the medical vocabulary"
-    },
-    {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "src_app",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "app.tsx",
-      "id": "src_app"
+      "norm_label": "app.tsx"
     },
     {
       "label": "UiStrings",
@@ -614,10 +20,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L15",
       "_origin": "ast",
+      "id": "src_app_uistrings",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "uistrings",
-      "id": "src_app_uistrings"
+      "norm_label": "uistrings"
     },
     {
       "label": "uiTranslations",
@@ -625,10 +31,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L19",
       "_origin": "ast",
+      "id": "src_app_uitranslations",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "uitranslations",
-      "id": "src_app_uitranslations"
+      "norm_label": "uitranslations"
     },
     {
       "label": "SvgProps",
@@ -636,10 +42,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L335",
       "_origin": "ast",
+      "id": "src_app_svgprops",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "svgprops",
-      "id": "src_app_svgprops"
+      "norm_label": "svgprops"
     },
     {
       "label": "IconClock()",
@@ -647,10 +53,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L339",
       "_origin": "ast",
+      "id": "src_app_iconclock",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconclock()",
-      "id": "src_app_iconclock"
+      "norm_label": "iconclock()"
     },
     {
       "label": "IconCheck()",
@@ -658,10 +64,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L345",
       "_origin": "ast",
+      "id": "src_app_iconcheck",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconcheck()",
-      "id": "src_app_iconcheck"
+      "norm_label": "iconcheck()"
     },
     {
       "label": "IconX()",
@@ -669,10 +75,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L351",
       "_origin": "ast",
+      "id": "src_app_iconx",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconx()",
-      "id": "src_app_iconx"
+      "norm_label": "iconx()"
     },
     {
       "label": "IconAlertCircle()",
@@ -680,10 +86,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L357",
       "_origin": "ast",
+      "id": "src_app_iconalertcircle",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconalertcircle()",
-      "id": "src_app_iconalertcircle"
+      "norm_label": "iconalertcircle()"
     },
     {
       "label": "IconBookOpen()",
@@ -691,10 +97,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L363",
       "_origin": "ast",
+      "id": "src_app_iconbookopen",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconbookopen()",
-      "id": "src_app_iconbookopen"
+      "norm_label": "iconbookopen()"
     },
     {
       "label": "IconHeart()",
@@ -702,10 +108,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L369",
       "_origin": "ast",
+      "id": "src_app_iconheart",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "iconheart()",
-      "id": "src_app_iconheart"
+      "norm_label": "iconheart()"
     },
     {
       "label": "ADSENSE_CONFIG",
@@ -713,10 +119,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L379",
       "_origin": "ast",
+      "id": "src_app_adsense_config",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "adsense_config",
-      "id": "src_app_adsense_config"
+      "norm_label": "adsense_config"
     },
     {
       "label": "GoogleAdBanner()",
@@ -724,10 +130,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L390",
       "_origin": "ast",
+      "id": "src_app_googleadbanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "googleadbanner()",
-      "id": "src_app_googleadbanner"
+      "norm_label": "googleadbanner()"
     },
     {
       "label": "BookRecommendations()",
@@ -735,10 +141,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L416",
       "_origin": "ast",
+      "id": "src_app_bookrecommendations",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "bookrecommendations()",
-      "id": "src_app_bookrecommendations"
+      "norm_label": "bookrecommendations()"
     },
     {
       "label": "AffiliateBanner()",
@@ -746,10 +152,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L471",
       "_origin": "ast",
+      "id": "src_app_affiliatebanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "affiliatebanner()",
-      "id": "src_app_affiliatebanner"
+      "norm_label": "affiliatebanner()"
     },
     {
       "label": "StudyInJapanBanner()",
@@ -757,10 +163,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L497",
       "_origin": "ast",
+      "id": "src_app_studyinjapanbanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "studyinjapanbanner()",
-      "id": "src_app_studyinjapanbanner"
+      "norm_label": "studyinjapanbanner()"
     },
     {
       "label": "GenkiBanner()",
@@ -768,10 +174,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L523",
       "_origin": "ast",
+      "id": "src_app_genkibanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "genkibanner()",
-      "id": "src_app_genkibanner"
+      "norm_label": "genkibanner()"
     },
     {
       "label": "ProfilePage()",
@@ -779,10 +185,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L549",
       "_origin": "ast",
+      "id": "src_app_profilepage",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "profilepage()",
-      "id": "src_app_profilepage"
+      "norm_label": "profilepage()"
     },
     {
       "label": "getConsent()",
@@ -790,10 +196,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1098",
       "_origin": "ast",
+      "id": "src_app_getconsent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "getconsent()",
-      "id": "src_app_getconsent"
+      "norm_label": "getconsent()"
     },
     {
       "label": "setConsent()",
@@ -801,10 +207,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1104",
       "_origin": "ast",
+      "id": "src_app_setconsent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "setconsent()",
-      "id": "src_app_setconsent"
+      "norm_label": "setconsent()"
     },
     {
       "label": "CookieBanner()",
@@ -812,10 +218,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1109",
       "_origin": "ast",
+      "id": "src_app_cookiebanner",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "cookiebanner()",
-      "id": "src_app_cookiebanner"
+      "norm_label": "cookiebanner()"
     },
     {
       "label": "LegalModal()",
@@ -823,10 +229,10 @@
       "source_file": "src/App.tsx",
       "source_location": "L1171",
       "_origin": "ast",
+      "id": "src_app_legalmodal",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "legalmodal()",
-      "id": "src_app_legalmodal"
+      "norm_label": "legalmodal()"
     },
     {
       "label": "ImpressumContent()",
@@ -834,109 +240,307 @@
       "source_file": "src/App.tsx",
       "source_location": "L1191",
       "_origin": "ast",
+      "id": "src_app_impressumcontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "impressumcontent()",
-      "id": "src_app_impressumcontent"
+      "norm_label": "impressumcontent()"
     },
     {
       "label": "PrivacyPolicyContent()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1237",
+      "source_location": "L1242",
       "_origin": "ast",
+      "id": "src_app_privacypolicycontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "privacypolicycontent()",
-      "id": "src_app_privacypolicycontent"
+      "norm_label": "privacypolicycontent()"
     },
     {
       "label": "TermsContent()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1422",
+      "source_location": "L1434",
       "_origin": "ast",
+      "id": "src_app_termscontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "termscontent()",
-      "id": "src_app_termscontent"
+      "norm_label": "termscontent()"
     },
     {
       "label": "SellerDisclosureContent()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1455",
+      "source_location": "L1467",
       "_origin": "ast",
+      "id": "src_app_sellerdisclosurecontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "sellerdisclosurecontent()",
-      "id": "src_app_sellerdisclosurecontent"
+      "norm_label": "sellerdisclosurecontent()"
     },
     {
       "label": "AccessibilityContent()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1474",
+      "source_location": "L1486",
       "_origin": "ast",
+      "id": "src_app_accessibilitycontent",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "accessibilitycontent()",
-      "id": "src_app_accessibilitycontent"
+      "norm_label": "accessibilitycontent()"
     },
     {
       "label": "Footer()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1523",
+      "source_location": "L1535",
       "_origin": "ast",
+      "id": "src_app_footer",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "footer()",
-      "id": "src_app_footer"
+      "norm_label": "footer()"
     },
     {
       "label": "renderFurigana()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1551",
+      "source_location": "L1563",
       "_origin": "ast",
+      "id": "src_app_renderfurigana",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "renderfurigana()",
-      "id": "src_app_renderfurigana"
+      "norm_label": "renderfurigana()"
     },
     {
       "label": "shuffleArray()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1586",
+      "source_location": "L1598",
       "_origin": "ast",
+      "id": "src_app_shufflearray",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "shufflearray()",
-      "id": "src_app_shufflearray"
+      "norm_label": "shufflearray()"
     },
     {
       "label": "SelectedKanji",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1595",
+      "source_location": "L1607",
       "_origin": "ast",
+      "id": "src_app_selectedkanji",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "selectedkanji",
-      "id": "src_app_selectedkanji"
+      "norm_label": "selectedkanji"
     },
     {
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L1602",
+      "source_location": "L1614",
       "_origin": "ast",
+      "id": "src_app_app",
       "community": 3,
       "community_name": "App.tsx",
-      "norm_label": "app()",
-      "id": "src_app_app"
+      "norm_label": "app()"
+    },
+    {
+      "label": "health-insurance-japan-students.de.md",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "health-insurance-japan-students.de.md",
+      "id": "content_blog_health_insurance_japan_students_de"
+    },
+    {
+      "label": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "genki versicherung fur japan: traveler vs native (ehrlicher test 2026)",
+      "id": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026"
+    },
+    {
+      "label": "Warum eine unversicherte Woche in Japan teuer wird",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "warum eine unversicherte woche in japan teuer wird",
+      "id": "content_blog_health_insurance_japan_students_de_warum_eine_unversicherte_woche_in_japan_teuer_wird"
+    },
+    {
+      "label": "Was Genki anbietet (und f\u00fcr wen)",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "was genki anbietet (und fur wen)",
+      "id": "content_blog_health_insurance_japan_students_de_was_genki_anbietet_und_f\u00fcr_wen"
+    },
+    {
+      "label": "Genki Traveler \u2014 Reiseversicherung, bis 12 Monate",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "genki traveler \u2014 reiseversicherung, bis 12 monate",
+      "id": "content_blog_health_insurance_japan_students_de_genki_traveler_reiseversicherung_bis_12_monate"
+    },
+    {
+      "label": "Genki Native \u2014 internationale Krankenversicherung, f\u00fcrs Leben im Ausland",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "genki native \u2014 internationale krankenversicherung, furs leben im ausland",
+      "id": "content_blog_health_insurance_japan_students_de_genki_native_internationale_krankenversicherung_f\u00fcrs_leben_im_ausland"
+    },
+    {
+      "label": "Die Entscheidung in drei Zeilen",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "die entscheidung in drei zeilen",
+      "id": "content_blog_health_insurance_japan_students_de_die_entscheidung_in_drei_zeilen"
+    },
+    {
+      "label": "Was Nichtstun kostet",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "was nichtstun kostet",
+      "id": "content_blog_health_insurance_japan_students_de_was_nichtstun_kostet"
+    },
+    {
+      "label": "W\u00e4hrend du dich versicherst \u2014 lerne die medizinische Vokabel",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Genki Versicherung f\u00fcr Japan: Traveler vs Native (ehrlicher Test 2026)",
+      "norm_label": "wahrend du dich versicherst \u2014 lerne die medizinische vokabel",
+      "id": "content_blog_health_insurance_japan_students_de_w\u00e4hrend_du_dich_versicherst_lerne_die_medizinische_vokabel"
+    },
+    {
+      "label": "health-insurance-japan-students.en.md",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "health-insurance-japan-students.en.md",
+      "id": "content_blog_health_insurance_japan_students_en"
+    },
+    {
+      "label": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "genki insurance for japan: traveler vs native (honest 2026 review)",
+      "id": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review"
+    },
+    {
+      "label": "Why being uninsured in Japan for even a week is expensive",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "why being uninsured in japan for even a week is expensive",
+      "id": "content_blog_health_insurance_japan_students_en_why_being_uninsured_in_japan_for_even_a_week_is_expensive"
+    },
+    {
+      "label": "What Genki actually offers (and for whom)",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "what genki actually offers (and for whom)",
+      "id": "content_blog_health_insurance_japan_students_en_what_genki_actually_offers_and_for_whom"
+    },
+    {
+      "label": "Genki Traveler \u2014 travel insurance, up to 12 months",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "genki traveler \u2014 travel insurance, up to 12 months",
+      "id": "content_blog_health_insurance_japan_students_en_genki_traveler_travel_insurance_up_to_12_months"
+    },
+    {
+      "label": "Genki Native \u2014 international health insurance, for life abroad",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "genki native \u2014 international health insurance, for life abroad",
+      "id": "content_blog_health_insurance_japan_students_en_genki_native_international_health_insurance_for_life_abroad"
+    },
+    {
+      "label": "The decision, in three lines",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "the decision, in three lines",
+      "id": "content_blog_health_insurance_japan_students_en_the_decision_in_three_lines"
+    },
+    {
+      "label": "What it costs you to do nothing",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "what it costs you to do nothing",
+      "id": "content_blog_health_insurance_japan_students_en_what_it_costs_you_to_do_nothing"
+    },
+    {
+      "label": "While you're getting insured \u2014 learn the medical vocabulary",
+      "file_type": "document",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "Genki Insurance for Japan: Traveler vs Native (Honest 2026 Review)",
+      "norm_label": "while you're getting insured \u2014 learn the medical vocabulary",
+      "id": "content_blog_health_insurance_japan_students_en_while_you_re_getting_insured_learn_the_medical_vocabulary"
     },
     {
       "label": "n3.ts",
@@ -6575,541 +6179,13 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de",
-      "target": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_basic_vs_premium_was_wirklich_drin_ist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L66",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_das_ehrliche_kleingedruckte",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_f\u00fcr_wen_genki_native_ist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L72",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_japan_realit\u00e4t_native_nhi_zusammen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_was_es_kostet",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_was_genki_native_ist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.de.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_de_genki_native_im_test_internationale_krankenversicherung_f\u00fcr_dein_leben_in_japan",
-      "target": "content_blog_genki_native_review_de_w\u00e4hrend_du_dich_einrichtest_lerne_die_medizinische_vokabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en",
-      "target": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_basic_vs_premium_what_s_actually_covered",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L72",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_japan_reality_check_native_nhi_together",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L66",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_the_honest_fine_print",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_what_genki_native_is",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_what_it_costs",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_while_you_re_settling_in_learn_the_medical_vocabulary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-native-review.en.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_native_review_en_genki_native_review_international_health_insurance_for_life_in_japan",
-      "target": "content_blog_genki_native_review_en_who_genki_native_is_for",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de",
-      "target": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_die_haken_die_du_kennen_solltest",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_f\u00fcr_wen_genki_traveler_passt",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_so_l\u00e4uft_die_anmeldung",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L76",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_traveler_vs_native_die_10_sekunden_version",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_was_abgedeckt_ist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_was_genki_traveler_ist_in_einem_satz",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.de.md",
-      "source_location": "L84",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_de_genki_traveler_im_test_reise_krankenversicherung_f\u00fcr_japan",
-      "target": "content_blog_genki_traveler_review_de_w\u00e4hrend_du_das_organisierst_lerne_die_medizinische_vokabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en",
-      "target": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_how_signing_up_works",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_the_catches_you_should_know_before_you_buy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L76",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_traveler_vs_native_the_10_second_version",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_what_genki_traveler_is_in_one_sentence",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_what_s_covered",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L84",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_while_you_sort_insurance_learn_the_medical_vocabulary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/genki-traveler-review.en.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_genki_traveler_review_en_genki_traveler_review_travel_health_insurance_for_japan",
-      "target": "content_blog_genki_traveler_review_en_who_genki_traveler_fits",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de",
-      "target": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_der_unterschied_in_einem_satz",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L61",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_die_nhi_ebene_du_brauchst_beide_egal_welches_genki",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_direkt_im_vergleich",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L84",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_schnell_entscheidung",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_was_native_besser_macht",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_was_traveler_besser_macht",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.de.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_de_genki_f\u00fcr_japan_traveler_vs_native_welche_versicherung_passt_zu_deinem_aufenthalt",
-      "target": "content_blog_health_insurance_japan_students_de_w\u00e4hrend_du_das_organisierst_lerne_die_medizinische_vokabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en",
-      "target": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L84",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_quick_decision_list",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_side_by_side",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L61",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_the_nhi_layer_you_need_both_whatever_genki_you_pick",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_the_one_sentence_difference",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_what_native_does_better",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_what_traveler_does_better",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blog/health-insurance-japan-students.en.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "content_blog_health_insurance_japan_students_en_genki_for_japan_traveler_vs_native_which_insurance_fits_your_stay",
-      "target": "content_blog_health_insurance_japan_students_en_while_you_re_getting_insured_learn_the_medical_vocabulary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1474",
+      "source_location": "L1486",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_accessibilitycontent"
+      "target": "src_app_accessibilitycontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7118,9 +6194,9 @@
       "source_location": "L379",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_adsense_config"
+      "target": "src_app_adsense_config",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7129,20 +6205,20 @@
       "source_location": "L471",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_affiliatebanner"
+      "target": "src_app_affiliatebanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1602",
+      "source_location": "L1614",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_app"
+      "target": "src_app_app",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7151,9 +6227,9 @@
       "source_location": "L416",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_bookrecommendations"
+      "target": "src_app_bookrecommendations",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7162,20 +6238,20 @@
       "source_location": "L1109",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_cookiebanner"
+      "target": "src_app_cookiebanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1523",
+      "source_location": "L1535",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_footer"
+      "target": "src_app_footer",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7184,9 +6260,9 @@
       "source_location": "L523",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_genkibanner"
+      "target": "src_app_genkibanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7195,9 +6271,9 @@
       "source_location": "L1098",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_getconsent"
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7206,9 +6282,9 @@
       "source_location": "L390",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_googleadbanner"
+      "target": "src_app_googleadbanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7217,9 +6293,9 @@
       "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconalertcircle"
+      "target": "src_app_iconalertcircle",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7228,9 +6304,9 @@
       "source_location": "L363",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconbookopen"
+      "target": "src_app_iconbookopen",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7239,9 +6315,9 @@
       "source_location": "L345",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconcheck"
+      "target": "src_app_iconcheck",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7250,9 +6326,9 @@
       "source_location": "L339",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconclock"
+      "target": "src_app_iconclock",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7261,9 +6337,9 @@
       "source_location": "L369",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconheart"
+      "target": "src_app_iconheart",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7272,9 +6348,9 @@
       "source_location": "L351",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_iconx"
+      "target": "src_app_iconx",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7283,9 +6359,9 @@
       "source_location": "L1191",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_impressumcontent"
+      "target": "src_app_impressumcontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7294,20 +6370,20 @@
       "source_location": "L1171",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_legalmodal"
+      "target": "src_app_legalmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1237",
+      "source_location": "L1242",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_privacypolicycontent"
+      "target": "src_app_privacypolicycontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7316,42 +6392,42 @@
       "source_location": "L549",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_profilepage"
+      "target": "src_app_profilepage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1551",
+      "source_location": "L1563",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_renderfurigana"
+      "target": "src_app_renderfurigana",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1595",
+      "source_location": "L1607",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_selectedkanji"
+      "target": "src_app_selectedkanji",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1455",
+      "source_location": "L1467",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_sellerdisclosurecontent"
+      "target": "src_app_sellerdisclosurecontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7360,20 +6436,20 @@
       "source_location": "L1104",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_setconsent"
+      "target": "src_app_setconsent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1586",
+      "source_location": "L1598",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_shufflearray"
+      "target": "src_app_shufflearray",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7382,9 +6458,9 @@
       "source_location": "L497",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_studyinjapanbanner"
+      "target": "src_app_studyinjapanbanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7393,20 +6469,20 @@
       "source_location": "L335",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_svgprops"
+      "target": "src_app_svgprops",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1422",
+      "source_location": "L1434",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_termscontent"
+      "target": "src_app_termscontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7415,9 +6491,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_uistrings"
+      "target": "src_app_uistrings",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7426,9 +6502,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_app_uitranslations"
+      "target": "src_app_uitranslations",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7438,9 +6514,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_authmodal"
+      "target": "src_authmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7450,9 +6526,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_authmodal_authmodal"
+      "target": "src_authmodal_authmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7462,9 +6538,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_index"
+      "target": "src_data_index",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7474,9 +6550,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_index_alllevels"
+      "target": "src_data_index_alllevels",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7486,9 +6562,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_index_hydrateleveldata"
+      "target": "src_data_index_hydrateleveldata",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7498,9 +6574,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_index_leveldata"
+      "target": "src_data_index_leveldata",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7510,9 +6586,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_kanjireadings"
+      "target": "src_data_kanjireadings",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7522,9 +6598,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_data_kanjireadings_lookupreadings"
+      "target": "src_data_kanjireadings_lookupreadings",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7534,9 +6610,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards"
+      "target": "src_flashcards",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7546,9 +6622,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_alldecks"
+      "target": "src_flashcards_alldecks",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7558,9 +6634,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_builddeck"
+      "target": "src_flashcards_builddeck",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7570,9 +6646,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_buildgrammarcards"
+      "target": "src_flashcards_buildgrammarcards",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7582,9 +6658,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_buildkanjicards"
+      "target": "src_flashcards_buildkanjicards",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7594,9 +6670,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_buildkanjifocusdeck"
+      "target": "src_flashcards_buildkanjifocusdeck",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7606,9 +6682,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_buildvocabcards"
+      "target": "src_flashcards_buildvocabcards",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7618,9 +6694,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_buildweakgrammardeck"
+      "target": "src_flashcards_buildweakgrammardeck",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7630,9 +6706,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_flashcards_flashcard"
+      "target": "src_flashcards_flashcard",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7642,9 +6718,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_romaji"
+      "target": "src_romaji",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7654,9 +6730,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_romaji_toromaji"
+      "target": "src_romaji_toromaji",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7666,9 +6742,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts"
+      "target": "src_tts",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7678,9 +6754,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_getsavedrate"
+      "target": "src_tts_getsavedrate",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7690,9 +6766,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_hasgoodjapanesevoice"
+      "target": "src_tts_hasgoodjapanesevoice",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7702,9 +6778,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_saverate"
+      "target": "src_tts_saverate",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7714,9 +6790,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_speak"
+      "target": "src_tts_speak",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7726,9 +6802,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_stopspeaking"
+      "target": "src_tts_stopspeaking",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7738,9 +6814,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tts_ttssupported"
+      "target": "src_tts_ttssupported",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7750,9 +6826,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal"
+      "target": "src_tutorialmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7762,9 +6838,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hint_flash_key"
+      "target": "src_tutorialmodal_hint_flash_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7774,9 +6850,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hint_realtest_key"
+      "target": "src_tutorialmodal_hint_realtest_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7786,9 +6862,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hint_wrong_key"
+      "target": "src_tutorialmodal_hint_wrong_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7798,9 +6874,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hints_enabled_key"
+      "target": "src_tutorialmodal_hints_enabled_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7810,9 +6886,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hintsenabled"
+      "target": "src_tutorialmodal_hintsenabled",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7822,9 +6898,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_hintshown"
+      "target": "src_tutorialmodal_hintshown",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7834,9 +6910,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_markhint"
+      "target": "src_tutorialmodal_markhint",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7846,9 +6922,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_tutorialmodal"
+      "target": "src_tutorialmodal_tutorialmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7858,9 +6934,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_tutorialmodal_tutorialseen"
+      "target": "src_tutorialmodal_tutorialseen",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7870,9 +6946,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_useauth"
+      "target": "src_useauth",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7882,9 +6958,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "src_useauth_useauth"
+      "target": "src_useauth_useauth",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -7903,12 +6979,12 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1638",
+      "source_location": "L1650",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "src_app_getconsent"
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7918,9 +6994,9 @@
       "source_location": "L1127",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app_cookiebanner",
-      "target": "src_app_getconsent"
+      "target": "src_app_getconsent",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7930,33 +7006,209 @@
       "source_location": "L1115",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app_cookiebanner",
-      "target": "src_app_setconsent"
+      "target": "src_app_setconsent",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L3270",
+      "source_location": "L3282",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_app_app",
-      "target": "src_app_renderfurigana"
+      "target": "src_app_renderfurigana",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L1860",
+      "source_location": "L1872",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app_app",
+      "target": "src_app_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "confidence_score": 1.0,
-      "source": "src_app_app",
-      "target": "src_app_shufflearray"
+      "source": "content_blog_health_insurance_japan_students_de",
+      "target": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026",
+      "target": "content_blog_health_insurance_japan_students_de_die_entscheidung_in_drei_zeilen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026",
+      "target": "content_blog_health_insurance_japan_students_de_warum_eine_unversicherte_woche_in_japan_teuer_wird"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026",
+      "target": "content_blog_health_insurance_japan_students_de_was_genki_anbietet_und_f\u00fcr_wen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026",
+      "target": "content_blog_health_insurance_japan_students_de_was_nichtstun_kostet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_genki_versicherung_f\u00fcr_japan_traveler_vs_native_ehrlicher_test_2026",
+      "target": "content_blog_health_insurance_japan_students_de_w\u00e4hrend_du_dich_versicherst_lerne_die_medizinische_vokabel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_was_genki_anbietet_und_f\u00fcr_wen",
+      "target": "content_blog_health_insurance_japan_students_de_genki_native_internationale_krankenversicherung_f\u00fcrs_leben_im_ausland"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.de.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_de_was_genki_anbietet_und_f\u00fcr_wen",
+      "target": "content_blog_health_insurance_japan_students_de_genki_traveler_reiseversicherung_bis_12_monate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en",
+      "target": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review",
+      "target": "content_blog_health_insurance_japan_students_en_the_decision_in_three_lines"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review",
+      "target": "content_blog_health_insurance_japan_students_en_what_genki_actually_offers_and_for_whom"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review",
+      "target": "content_blog_health_insurance_japan_students_en_what_it_costs_you_to_do_nothing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review",
+      "target": "content_blog_health_insurance_japan_students_en_while_you_re_getting_insured_learn_the_medical_vocabulary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_genki_insurance_for_japan_traveler_vs_native_honest_2026_review",
+      "target": "content_blog_health_insurance_japan_students_en_why_being_uninsured_in_japan_for_even_a_week_is_expensive"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_what_genki_actually_offers_and_for_whom",
+      "target": "content_blog_health_insurance_japan_students_en_genki_native_international_health_insurance_for_life_abroad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blog/health-insurance-japan-students.en.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "content_blog_health_insurance_japan_students_en_what_genki_actually_offers_and_for_whom",
+      "target": "content_blog_health_insurance_japan_students_en_genki_traveler_travel_insurance_up_to_12_months"
     },
     {
       "relation": "imports_from",
@@ -14332,5 +13584,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d6c29c4c670ef75275a62144738d360e5aa22de2"
+  "built_at_commit": "cf7a20e0a3048a1f4a804ab5ed117e6b1bbd0368"
 }

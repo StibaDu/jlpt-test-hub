@@ -69,7 +69,30 @@ Logische Erwartung: 彼はもう着いているはずだ (Er müsste inzwischen 
 
 ## 15. 〜ため(に) (wegen / zum Zweck)
 
-Zwei Verwendungen — Grund (雨のために試合が中止になった — wegen Regen fäi das Spiel aus) und Zweck (合格するために勉強する — ich lerne, um zu bestehen). Hör genau: Steht davor ein Nomen oder Verb — das entscheidet die Bedeutung.
+Zwei Verwendungen — Grund (雨のために試合が中止になった — wegen Regen fiel das Spiel aus) und Zweck (合格するために勉強する — ich lerne, um zu bestehen). Hör genau: Steht davor ein Nomen oder Verb — das entscheidet die Bedeutung.
+
+## Deutsch-spezifisch: wie diese Muster im echten Test auftauchen
+
+Der N4-Abschnitt Grammatik hat einen wiederkehrenden Aufbau — die Formen oben erscheinen in zwei Fragetypen:
+
+| Fragetyp | Was du machst | Anteil |
+|---|---|---|
+| **Lückensatz** | 4 Optionen, eine passt grammatisch | ~15 Fragen |
+| **Satzbau (★)** | 4 Teile sortieren, der ★-Slot wird gefragt | ~5 Fragen |
+| **Partikel-Familien** | は/が, に/で, を/の, の/が | 6–8 Fragen |
+| **Kausativ/Passiv** | Wer lässt wen etwas tun? に vs. を beachten | 3–5 Fragen |
+
+Praktische Konsequenz: **die Hälfte der N4-Grammatik ist Partikel + Kausativ/Passiv**. Wenn dein Ergebnis stagniert, übe genau diese zwei Bereiche zuerst.
+
+## Die fünf Partikel-Paare, die N4-Noten entscheiden
+
+| Paar | Regel |
+|---|---|
+| **に vs. で** | に = Ziel/Ort des Sich-Befindens (大学に入る); で = Ort der Handlung (大学で勉強する) |
+| **は vs. が** | は = bekanntes Thema; が = neue Information / Handelnder |
+| **を vs. の** | を = Objekt; の = Possessiv — N4-Falle in Lesetexten |
+| **と vs. も** | と = mit/und; も = auch (八つも食べました = gleich acht Stücken) |
+| **ように vs. ために** | ように = damit (Potential-Verben: 忘れないように); ために = um zu (feste Ziele: 先生になるために) |
 
 ## Muster in echten Sätzen erkennen, nicht auswendig lernen
 

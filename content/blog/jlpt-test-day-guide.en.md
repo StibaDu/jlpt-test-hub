@@ -2,7 +2,7 @@
 slug: jlpt-test-day-guide
 lang: en
 title: "JLPT Test Day: What to Expect & Last-Minute Tips"
-description: "What happens on JLPT test day — schedule, what to bring (and what gets confiscated), timing per section, and the last-week checklist."
+description: "What happens on JLPT test day — schedule, what to bring (and what gets confiscated), timing per section, how scores work, and the last-week checklist."
 tags: [jlpt, test-day, tips]
 date: 2026-10-02
 ---
@@ -23,6 +23,8 @@ The JLPT itself is predictable — 4 sections, printed time table, same rules in
 
 N5 is much shorter (finishes ~16:30). N1 runs the full day.
 
+Each section is collected separately: when vocabulary time ends, the proctors take the vocabulary answer sheet **and the vocabulary questions themselves**. You don't get to look back. Plan your pacing section by section.
+
 ## What to bring
 
 - **Voucher / admission slip** (with venue and desk number)
@@ -36,6 +38,8 @@ N5 is much shorter (finishes ~16:30). N1 runs the full day.
 - Phones — must be off and bagged; even vibration counts as "on" for some proctors
 - Notes, books, dictionaries — not in the room during listening
 - Smartwatches, tablets, earbuds (including "just for the time")
+
+**If your phone rings during listening,** the incident gets recorded; repeat issues can invalidate your session. Put it in your bag, not your pocket.
 
 ## The last-week checklist
 
@@ -51,6 +55,31 @@ N5 is much shorter (finishes ~16:30). N1 runs the full day.
 - **Grammar:** cloze format — read the full sentence BEFORE looking at options; eliminate the obviously wrong particles first
 - **Reading:** time caps you — mark a passage if stuck for >90 seconds and move on; return later
 - **Listening:** the audio plays twice. First pass: listen loosely, listen for the question shape. Second pass: catch the detail that answers it. Never blank — guess if needed; JLPT has no penalty for wrong answers
+
+## How scoring actually works
+
+The JLPT doesn't use raw points — it uses a **scaled score** (IRT-based). Practical consequences:
+
+| Level | Total | Breakdown approx | Pass |
+|---|---|---|---|
+| **N5** | 120 pts | Vocab/Grammar/Reading 60 + Listening 60 | ≥ 80 overall **and** ≥ 38 in each section |
+| **N4** | 180 pts | Vocab/Grammar/Reading 120 + Listening 60 | ≥ 90 overall **and** ≥ 19 in listening, ≥ 38 in vocabulary/grammar/reading |
+| **N3** | 180 pts | Vocab/Grammar 60 + Reading 60 + Listening 60 | ≥ 100 overall **and** ≥ 19 in every section |
+
+Two facts matter for your last week:
+
+1. **The listening floor** (≥19) has failed students who otherwise scored high. Don't skip listening practice because vocabulary is easy for you.
+2. **Wrong answers don't subtract points.** Guessing is mathematically free — fill every bubble.
+
+## Test-day flow at the venue (real sequence)
+
+- **Queue outside** your assigned building — arrive 60 minutes early
+- **Check the room list** posted on the wall before entering any room
+- **Show your voucher + ID**, confirm your name against the room list
+- **Sit at your marked desk, phones into the bag**, listen for section start
+- **Sections are collected separately** — between sections you leave the room, take a break and return
+- **Listening section:** the room goes silent; the audio plays from the front. Answer during the second pass, not the first
+- Once the final section's audio ends, **everything gets collected and you're dismissed** — no talking, no phones, no questions on the way out
 
 ## The night before
 

@@ -43,6 +43,22 @@ Designer-Share-Houses mit guten Lagen. Tipp: Auto-Übersetzung nutzen — die Se
 - **Mindestaufenthalt:** manche Häuser wollen 1–3 Monate Mindestlaufzeit — vor der Bewerbung prüfen
 - **Gäste-Regeln:** in manchen Share Houses sind Übernachtungsgäste verboten
 
+## Aus deutscher Sicht — die Punkte, die wirklich anders sind
+
+Wer aus Deutschland nach Japan zieht, stolpert über fünf Dinge, die es in einer WG zu Hause nicht gibt:
+
+| Thema | Japan | Deutschland |
+|---|---|---|
+| **Einzugskosten** | 4–6 Monatsmieten VORBEZAHLT (Schlüsselgeld 帰礼金, Kaution, Makler) | 2–3 Monatsmieten (Kaution + Makler) |
+| **Mietvertrag** | Oft 2 Jahre, Verlängerung kostet 1 Monatsmiete | Unbefristet üblich |
+| **Möblierung** | Fast immer leer — Möbel extra | Oft Kitchen-Einbau inklusive |
+| **Kautionsrückgabe** | Wird abgezogen, Putzkosten oft pauschal | Instandhaltung + Endreinigung, meist fair |
+| **Strom/Wasser Vertrag** | Braucht eine eigene Anmeldung (Stadtwerke) | Oft von der Wohnung mit übernommen |
+
+Diese fünf Punkte sind kein Kleinigkeit-Problem — die Einzugskosten allein können **400.000–900.000 ¥** betragen. Deshalb startet fast jeder mit einem Share House: Erster Monat reicht, möbellos und ohne Kaution.
+
+**Was du aus Deutschland mitbringst:** Der wichtigste Unterschied ist **Garbage & Nachbarschaft**. Tokyos Mülltrennung ist strikter (Brennbares, Plastik, Nicht-Brennbares, Sammeltag je Bezirk) und wird von Nachbarn kontrolliert. Wer das nicht kennt, lernt es schnell über Beschwerden.
+
 ## Und die Sprache?
 
 In einem Share House sprichst du täglich Japanisch — und die Grundgrammatik macht den Unterschied zwischen mitmachen und nur nicken.

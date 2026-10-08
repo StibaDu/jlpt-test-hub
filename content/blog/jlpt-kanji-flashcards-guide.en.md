@@ -2,7 +2,7 @@
 slug: jlpt-kanji-flashcards-guide
 lang: en
 title: "How to Use Flashcards for JLPT Kanji (N5–N3) — the Spaced Way"
-description: "Why spaced repetition beats cramming for JLPT kanji — and how to build a flashcard habit that survives until test day. Includes the N5–N3 kanji counts you'll need."
+description: "Why spaced repetition beats cramming for JLPT kanji — how radicals, SRS intervals and mistake-driven decks fit together, with the N5–N3 kanji counts you need."
 tags: [jlpt, kanji, flashcards, srs]
 date: 2026-10-02
 ---
@@ -29,6 +29,36 @@ Memory is not a bucket — it's a curve. Every time you recall something *just a
 
 1. **Cram, forget, repeat** — massing 200 kanji in a weekend gives you a great score on day 2 and nothing on day 200.
 2. **Review everything, forever** — reviewing kanji you mastered 3 months ago daily eats hours that new kanji need. SRS exists to eliminate exactly this review waste.
+
+## Radicals: the cheat code nobody mentioned to you
+
+Most learners meet kanji as unbreakable symbols: 水, 川, 流. Then they learn that kanji decompose into **components (radicals)** — and suddenly ~650 characters are combinations of ~50 shapes instead of 650 separate memories.
+
+Examples that pay off immediately:
+
+| Kanji | Components | Why this helps |
+|---|---|---|
+| 流 | water radical (氵) + 流 | "flow" — water + movement, plus it's the reading hint |
+| 飲 | 食 (eat) + 欠 | "eat" radical → almost every consume-word (食事, 食べる) shares it |
+| 買 | 貝 (shell = old money) + 网 | buying with old currency — memorable, not arbitrary |
+| 休 | person (亻) + tree (木) | person leaning on a tree = rest |
+| 明 | sun (日) + moon (月) | both together = "bright" |
+| 貸 | 化 + 貝 | lending money (old shells) — the same 貝 radical again |
+
+Practically: when you learn a kanji, learn **its radical family at the same time**. A kanji with 貝 (money/shell) is likely about value; with 氵 (water) it's about liquid/movement; with 言 (speak) it's about language. This cuts your effective number of "new things" roughly in half.
+
+## Building the deck properly
+
+A good kanji card shows three things: the character, a reading, and **a word that uses it** — because kanji in isolation is a shape; kanji in a word is a fact you can use.
+
+| Card side | Content | Example |
+|---|---|---|
+| **Front** | single kanji | 買 |
+| **Back reading** | on'yomi and kun'yomi | バイ ·か(う) |
+| **Back meaning** | what it means | buy |
+| **Back word** | a word containing it | 買う（かう, "to buy"）, 買物（かいもの, "shopping"） |
+
+Cards without that word-context review at half effectiveness: the shape comes back fine, the reading in a sentence doesn't.
 
 ## The habit loop that survives
 

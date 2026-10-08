@@ -56,6 +56,43 @@ N5 ist viel kürzer (endet ~16:30). N1 läuft den ganzen Tag.
 
 Keine Karteikarten. Keine neue Grammatik. 7+ Stunden Schlaf — Gedächtniskonsolidierung macht die letzten 3 Wochen wirksam.
 
+## Wie die Punktzahl wirklich funktioniert
+
+Der JLPT rechnet nicht mit Rohpunkten, sondern setzt eine **skalierte Punktzahl** ein. Praktische Konsequenzen:
+
+| Stufe | Gesamt | Verteilung | Bestehen |
+|---|---|---|---|
+| **N5** | 120 P | Vok/Gram/Reading 60 + Listening 60 | ≥ 80 gesamt **und** ≥ 38 pro Sektion |
+| **N4** | 180 P | Vok/Gram/Reading 120 + Listening 60 | ≥ 90 gesamt **und** ≥ 19 Listening, ≥ 38 Vok/Gram/Reading |
+| **N3** | 180 P | Vok/Gram 60 + Reading 60 + Listening 60 | ≥ 100 gesamt **und** ≥ 19 pro Sektion |
+
+Zwei Fakten für die letzte Woche:
+
+1. **Die Listening-Untergrenze (≥19)** ist für Kandidaten tödlich, die sonst stark sind. Hören nicht überspringen, weil Vokabeln easy sind.
+2. **Falsche Antworten geben keine Punktabzüge.** Raten ist mathematisch gratis — jede Frage ankreuzen.
+
+## Der Prüfungstag im Testzentrum (reale Folgen)
+
+- **Warteschlange am Gebäude** — 60 Minuten vorher da sein
+- **Raumliste an der Wand prüfen**, in keinen anderen Raum gehen
+- **Voucher + ID vorzeigen**, Name gegen die Raumliste abgleichen
+- **Am ausgewiesenen Platz hinsetzen, Handy in die Tasche**, auf Sektionsstart warten
+- **Sektionen werden einzeln eingesammelt** — zwischen Sektionen verlässt du den Raum und machst Pause
+- **Hörsektion:** der Raum wird still; das Audio spielt vorne. In der zweiten Runde antworten, nicht in der ersten
+- Nach dem letzten Audio wird **alles eingesammelt und man wird entlassen** — kein Sprechen, kein Handy, keine Fragen auf dem Rückweg
+
+## Deutschland-spezifisch: Anreise und Logistik
+
+Deutsche Prüfungsorte liegen meist an Universitäten (Berlin, Bonn, Düsseldorf, Frankfurt, Hamburg, Leipzig, München). Praktische Unterschiede zu Japan:
+
+| Punkt | Was zu beachten |
+|---|---|
+| **Anreise** | Züge und Fernbusterminals sind zu Stosszeiten ausgelastet — plane Anreise am Vorabend ein |
+| **Prüfungsbeginn** | Einlass meist 12:30–13:00 — Mittagessen VORHER, nicht danach |
+| **Wetter im Dezember** | Winter, dunkel ab 15:30 — für Rückreise nach Pause einplanen |
+| **Nahrung** | Manche Uni-Mensas sind im Dezember geschlossen — Snacks selbst mitbringen |
+| **Parken** | Innerstädtische Universitäten haben kaum Parkplätze — ÖPNV oder Absetzzone am Vorort nutzen |
+
 ---
 
 ## Schon am Ziel?

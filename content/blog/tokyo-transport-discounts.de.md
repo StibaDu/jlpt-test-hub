@@ -36,6 +36,25 @@ Tokyo Metro verkauft einen Kombi-Pass für **alle Tokyo-Metro- und Toei-Linien +
 
 Die letzten Züge fahren ab ca. **23:55–00:30**. Verpasst und du sitzt im Taxi (4.000–7.000 ¥ für jede echte Entfernung) oder wartest bis ~04:30.
 
+Zwei Praktische-Sicherheiten:
+- Öffne deine App und schau nach dem **letzten Zug vor 24:00**, nicht auf den NÄCHSTEN. Umsteigeverbindungen zeigen in Apps oft eine Stunde später als der letzte physische Zug.
+- Verpasst du ihn in Shibuya/Shinjuku, sind One-Night-Capsule-Hotels ab 3.000 ¥ oft billiger als ein Taxi — inklusive Dusche.
+
+## Deutschland-Vergleich: Was dich beim Bahnhofssystem überrascht
+
+Wer aus Deutschland kommt, kennt das System mit **einem** Betreiber (DB) und einem Tarif. Tokyos Bahnnetz ist das Gegenteil:
+
+| Punkt | Deutschland | Tokyo |
+|---|---|---|
+| **Betreiber** | Im Wesentlichen eine DB | Tokyo Metro, Toei, JR East + viele Privatlänige |
+| **Tickets** | Deutschland-Ticket, Einzelfahrten | IC-Karte (Suica/Pasmo) mit individuellem Tarif je Betreiber |
+| **Verspätungen** | Häufig, offiziell entschuldigt | Selten — und wenn, dann Sekunden |
+| **Pünktlichkeit am Bahnsteig** | Nicht prüfbar | Züge stehen auf die Sekunde |
+| **Taxis** | Erschwinglich | Für echte Strecken 4.000–7.000 ¥ |
+| **Fahrkartenkontrolle** | Unregelmäßig | Automatisch an jedem Gate (Schranken, IC-Karte) |
+
+Praktisch heißt das: **die IC-Karte ist das System.** Kauft man sie am Tag eins, entfallen alle Einzelprobleme (Schlangen, Betreiberunterscheidung, Kleingeld).
+
 ## In Japan günstig leben — die ganze Serie
 
 Dieser Post gehört zur [Living Cheap in Tokyo-Serie](/blog/) — günstiges Essen, Share Houses, Versicherung und Jobs inklusive.

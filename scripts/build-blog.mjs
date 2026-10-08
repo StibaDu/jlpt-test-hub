@@ -107,6 +107,30 @@ ${legalSections.barrierefreiheit ? `<section>${legalSections.barrierefreiheit}</
 const legalSections = extractLegalSections();
 const files = readdirSync(SRC).filter(f => f.endsWith('.md') && !f.startsWith('_'));
 const posts = [];
+// First pass: read all frontmatter so related-posts cross-links can be computed
+const frontmatters = files.map(f => {
+  const { meta } = parseFrontmatter(readFileSync(join(SRC, f), 'utf8'));
+  return { file: f, meta };
+});
+function relatedFor(slug, lang) {
+  // posts sharing any tag, other languages of the same slug excluded, newest first
+  const me = frontmatters.find(f => f.meta.slug === slug && f.meta.lang === lang);
+  if (!me) return [];
+  const myTags = new Set((me.meta.tags || '').split(/,\s*/).filter(Boolean));
+  return frontmatters
+    .filter(f => f.meta.lang === lang && f.meta.slug !== slug)
+    .map(f => ({ f, score: (f.meta.tags || '').split(/,\s*/).filter(t => myTags.has(t)).length }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score || (b.f.meta.date || '').localeCompare(a.f.meta.date || ''))
+    .slice(0, 3)
+    .map(({ f: { meta: m } }) => ({ title: m.title, url: (m.lang === 'de' ? '/blog/de/' : '/blog/') + m.slug + '/' }));
+}
+function relatedBlock(slug, lang) {
+  const rel = relatedFor(slug, lang);
+  if (!rel.length) return '';
+  const t = lang === 'de';
+  return `<div class="related"><h2>${t ? 'Verwandte Artikel' : 'Related posts'}</h2><ul>${rel.map(r => `<li><a href="${r.url}">${r.title}</a></li>`).join('')}</ul></div>\n`;
+}
 for (const file of files) {
   const raw = readFileSync(join(SRC, file), 'utf8');
   const { meta, body } = parseFrontmatter(raw);
@@ -114,7 +138,7 @@ for (const file of files) {
 
   // Language toggle block at the top of each post
   const toggle = `<div class="lang-toggle"><a href="${canonical}/blog/${meta.slug}/" style="${meta.lang === 'en' ? 'font-weight:700' : ''}">EN</a> | <a href="${canonical}/blog/de/${meta.slug}/" style="${meta.lang === 'de' ? 'font-weight:700' : ''}">DE</a></div>`;
-  html = toggle + html;
+  html = toggle + html + relatedBlock(meta.slug, meta.lang || 'en');
 
   // Language class wrappers: if content contains de-only paragraphs we mark with ::: de — skip; both langs are in separate files
   const out = page({
@@ -164,9 +188,10 @@ for (const lang of ['en', 'de']) {
 }
 
 // ---- Sitemap entries ----
-const sitemapEntries = posts.map(p => `\n  <url><loc>${canonical}${p.url}</loc><lastmod>${p.date}</lastmod></url>`);
-sitemapEntries.push(`\n  <url><loc>${canonical}/blog/</loc><lastmod>2026-10-02</lastmod></url>`);
-sitemapEntries.push(`\n  <url><loc>${canonical}/de/blog/</loc><lastmod>2026-10-02</lastmod></url>`);
+const today = new Date().toISOString().slice(0, 10);
+const sitemapEntries = posts.map(p => `\n  <url><loc>${canonical}${p.url}</loc><lastmod>${p.date || today}</lastmod></url>`);
+sitemapEntries.push(`\n  <url><loc>${canonical}/blog/</loc><lastmod>${today}</lastmod></url>`);
+sitemapEntries.push(`\n  <url><loc>${canonical}/de/blog/</loc><lastmod>${today}</lastmod></url>`);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.join('')}\n</urlset>\n`;
 writeFileSync(join(ROOT, 'public', 'sitemap-blog.xml'), sitemap);
 
