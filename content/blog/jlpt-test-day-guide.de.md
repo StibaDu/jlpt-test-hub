@@ -101,6 +101,6 @@ Wenn du das am Tag vor deiner Prüfung liest — viel Erfolg. Wenn du es weit vo
 
 <div class="cta">
 <h3>Simuliere den Prüfungstag — vor dem Prüfungstag</h3>
-<p>Zeitgesteuerte 30-Fragen-Simulationen im offiziellen Format. Kostenlos, ohne Registrierung.</p>
+<p>10-Fragen-Übungstests gratis, plus ein voller zeitgesteuerter Probelauf. Pro ergänzt unbegrenzte 30-Fragen-Prüfungen.</p>
 <a href="/#/n5">Kostenlose Simulation starten →</a>
 </div>

@@ -93,6 +93,6 @@ If you're reading this the day before your test — good luck. If you're reading
 
 <div class="cta">
 <h3>Simulate test day — before test day</h3>
-<p>Timed 30-question simulations with official format. Free, no signup.</p>
+<p>10-question practice tests free, plus one full timed trial. Pro adds unlimited 30-question timed exams.</p>
 <a href="/#/n5">Start a free simulation →</a>
 </div>

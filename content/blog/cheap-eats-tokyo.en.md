@@ -88,6 +88,6 @@ Reading a Japanese menu is easier than you think — and the JLPT N5 test covers
 
 <div class="cta">
 <h3>Practice real JLPT questions — free</h3>
-<p>30-question tests with instant explanations, furigana on every kanji. No signup needed.</p>
+<p>10-question practice tests with instant explanations, furigana on every kanji — free, no signup. Pro adds the full 30-question timed exam.</p>
 <a href="/#/n5">Start a free N5 practice test →</a>
 </div>

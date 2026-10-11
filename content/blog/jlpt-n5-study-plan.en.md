@@ -42,13 +42,13 @@ N5 is the easiest JLPT level — but it's also where most people quit, because t
 - **Listen without pausing:** full mock audio sections
 
 ### Days 22–27: Simulation
-- **Two full 30-question tests** (Real Test mode, timed)
+- **Two full timed tests** (30 questions on Pro; 10-question tests on the free tier)
 - **Analyze every mistake** — write down the pattern/word, then drill those exact points
 - **Flashcards on your mistakes** — spaced repetition locks them in
 
 ### Days 28–30: Final polish
 - **Review your entire mistake notebook**
-- **One final mock test** — target ≥70% (the pass bar is 45/60% but leave margin)
+- **One final mock test** — target ≥70% (pass bar ≈ 66% for N5; leave margin)
 - **Sleep, light review only** on the last day
 
 ## The N5 exam structure you're working toward

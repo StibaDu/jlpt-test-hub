@@ -55,13 +55,13 @@ Die 100 N5-Kanji entstehen nicht gleichverteilt — sie gruppieren sich um Allta
 - **Hören ohne Pause:** komplette Mock-Audio-Sektionen
 
 ### Tag 22–27: Simulation
-- **Zwei komplette 30-Fragen-Tests** (Real-Test-Modus, zeitgesteuert)
+- **Zwei komplette zeitgesteuerte Tests** (30 Fragen mit Pro; 10-Fragen-Tests gratis)
 - **JEDEN Fehler analysieren** — Muster/Wort notieren, danach genau diese Punkte üben
 - **Karteikarten aus deinen Fehlern** — Wiederholung sichert sie ins Langzeitgedächtnis
 
 ### Tag 28–30: Finalpolitur
 - **Ganzes Fehlerheft wiederholen**
-- **Ein letzter Mock-Test** — Ziel ≥70% (Bestehensgrenze 45/60%, aber lass Luft)
+- **Ein letzter Mock-Test** — Ziel ≥70% (Bestehensgrenze ~66% bei N5; lass Luft)
 - **Schlafen, am letzten Tag nur leichte Wiederholung**
 
 ## Germany-spezifisch: Anmeldung, Prüfungsorte, Kosten

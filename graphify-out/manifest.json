@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1791408481.734604,
-    "ast_hash": "fc71021b0b21e538292e03c98ed11c9a",
+    "mtime": 1791724362.54792,
+    "ast_hash": "36e0b32063d651d7f83c5e0fdfb9b62d",
     "semantic_hash": ""
   },
   "src/data/index.ts": {
@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1790957851.208803,
-    "ast_hash": "94e4f8fcbe41ac54316a967a44b277af",
+    "mtime": 1791724266.7245836,
+    "ast_hash": "103e118dbf0efff4a79f3330ea1a04f1",
     "semantic_hash": ""
   },
   "scripts/build-blog.mjs": {
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "scripts/build-pages.mjs": {
-    "mtime": 1791410689.9551463,
-    "ast_hash": "988b3d5fcdc2cb543fd928cf1ded9c38",
+    "mtime": 1791724247.055764,
+    "ast_hash": "c08543fbd24423a1759e9aa9a0c42caa",
     "semantic_hash": ""
   },
   "content/blog/how-to-study-kanji.de.md": {
@@ -615,33 +615,43 @@
     "semantic_hash": ""
   },
   "public/de/n3/index.html": {
-    "mtime": 1791470961.8861036,
-    "ast_hash": "cfd2fe4827946f5cd9eb8596637ad1dc",
+    "mtime": 1791724247.260499,
+    "ast_hash": "c4c8bb33610aac8d7073b063e73ff3c2",
     "semantic_hash": ""
   },
   "public/de/n4/index.html": {
-    "mtime": 1791470961.8826349,
-    "ast_hash": "e5035a95b0472032790ffdb8ad8ed1f6",
+    "mtime": 1791724247.2567697,
+    "ast_hash": "c4c6162687369d9b4429e77756b4aee7",
     "semantic_hash": ""
   },
   "public/de/n5/index.html": {
-    "mtime": 1791470961.879635,
-    "ast_hash": "4f1bafc83b68960d3fc4cb49d3cfe7f5",
+    "mtime": 1791724247.2535806,
+    "ast_hash": "4225a9b29983fa33a691d559b9574b2a",
     "semantic_hash": ""
   },
   "public/n3/index.html": {
-    "mtime": 1791470961.885186,
-    "ast_hash": "e084a0d85d41a92f61a7d8e125c24fc7",
+    "mtime": 1791724247.2593899,
+    "ast_hash": "7c130dfa01ffa46e2345352637c20c87",
     "semantic_hash": ""
   },
   "public/n4/index.html": {
-    "mtime": 1791470961.8817677,
-    "ast_hash": "24137eb3a75d593fcf5a3cdf7b236f23",
+    "mtime": 1791724247.255705,
+    "ast_hash": "b235a91b17ee1d3da1813440f52f7610",
     "semantic_hash": ""
   },
   "public/n5/index.html": {
-    "mtime": 1791470961.8783383,
-    "ast_hash": "931e8a8469a583fe15d0f59e14a7f01b",
+    "mtime": 1791724247.2527008,
+    "ast_hash": "61ad8a7829732f6064b4eaa4afce2c22",
+    "semantic_hash": ""
+  },
+  "LAUNCH-POSTS.md": {
+    "mtime": 1791724408.889232,
+    "ast_hash": "b75d0758d7d82ea86fb1e994f5b3f734",
+    "semantic_hash": ""
+  },
+  "public/indexnow-key.txt": {
+    "mtime": 1791724147.2458384,
+    "ast_hash": "5243a2e3f9caace25817ee7538ffecd2",
     "semantic_hash": ""
   }
 }

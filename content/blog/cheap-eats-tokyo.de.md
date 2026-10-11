@@ -68,6 +68,6 @@ Eine japanische Speisekarte ist leichter zu lesen, als du denkst — und der JLP
 
 <div class="cta">
 <h3>Echte JLPT-Fragen üben — kostenlos</h3>
-<p>30-Fragen-Tests mit sofortigen Erklärungen, Furigana auf jedem Kanji. Keine Registrierung nötig.</p>
+<p>10-Fragen-Übungstests mit sofortigen Erklärungen, Furigana auf jedem Kanji — kostenlos, ohne Registrierung. Pro ergänzt den 30-Fragen-Zeitwettkampf.</p>
 <a href="/#/n5">Kostenlosen N5-Übungstest starten →</a>
 </div>
