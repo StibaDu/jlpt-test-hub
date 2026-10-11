@@ -1,3 +1,6 @@
+# Canonical host: apex -> www (301)
+https://jlpttesthub.com/*  https://www.jlpttesthub.com/:splat  301
+
 /ads.txt  /ads.txt  200
 # removed Genki split posts -> merged single comprehensive post
 /blog/genki-traveler-review/   /blog/health-insurance-japan-students/   301
