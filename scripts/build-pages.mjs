@@ -17,9 +17,9 @@ for (const level of ['n5', 'n4', 'n3']) {
 const canonical = 'https://www.jlpttesthub.com';
 
 const META = {
-  N5: { title: 'JLPT N5 Practice Questions & Kanji List (All 50 Questions with Answers)', desc: 'All 50 JLPT N5 practice questions with multiple-choice options, correct answers and explanations — plus the complete N5 kanji list. Free, with furigana.' },
-  N4: { title: 'JLPT N4 Practice Questions & Kanji List (All 50 Questions with Answers)', desc: 'All 50 JLPT N4 practice questions with options, correct answers and detailed explanations — plus the N4 kanji list with on- and kun-readings.' },
-  N3: { title: 'JLPT N3 Practice Questions & Kanji List (All 55 Questions with Answers)', desc: 'All 55 JLPT N3 practice questions with options, correct answers and explanations — plus the N3 kanji list with on- and kun-readings.' },
+  N5: { title: 'Free JLPT N5 Practice Test Online — All 50 Questions with Answers (Kanji List included)', desc: 'Take a free JLPT N5 practice test online: all 50 official practice questions with correct answers, explanations and furigana — plus the complete N5 kanji list (100 characters). No signup, free forever.' },
+  N4: { title: 'Free JLPT N4 Practice Test Online — All 50 Questions with Answers (Kanji List included)', desc: 'Take a free JLPT N4 practice test online: all 50 official practice questions with correct answers, detailed explanations and furigana — plus the complete N4 kanji list (~300 characters).' },
+  N3: { title: 'Free JLPT N3 Practice Test Online — All 55 Questions with Answers (Kanji List included)', desc: 'Take a free JLPT N3 practice test online: all 55 official-style questions with correct answers, explanations — plus the complete N3 kanji list (~650 characters). Free, no signup.' },
 };
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -69,6 +69,10 @@ th{background:var(--emerald-light);font-weight:700}
 footer{border-top:1px solid var(--border);margin-top:3rem;padding:1.5rem;text-align:center;font-size:.85rem;color:var(--gray)}
 footer a{color:var(--emerald);text-decoration:none}
 @media print{.q{page-break-inside:avoid}}
+.faq h3{margin:1rem 0 .25rem}
+.faq p{color:var(--gray);font-size:.92rem;margin:.2rem 0 .8rem}
+.btn-app{display:inline-block;background:var(--emerald);color:#fff;font-weight:700;padding:.7rem 1.3rem;border-radius:.75rem;text-decoration:none;margin:.25rem 0 1.5rem}
+.btn-app:hover{background:#047857}
 `;
 
 function shell({ lang, title, desc, path, body }) {
@@ -94,7 +98,7 @@ function shell({ lang, title, desc, path, body }) {
 <a class="back" href="/#/">← Back to the practice app</a>
 ${body}
 </main>
-<footer>JLPT Test Hub · <a href="/#/">Practice tests</a> · <a href="/blog/">Blog</a> · Questions based on the official JLPT Practice Workbook (2018) of the Japan Foundation / JEES. Not affiliated with the Japan Foundation or JEES.</footer>
+<footer>JLPT Test Hub · <a href="/#/">Practice tests</a> · <a href="/blog/">Blog</a> · <a href="/blog/jlpt-test-day-guide/">Test day guide</a> · <a href="/blog/jlpt-n5-study-plan/">30-day study plan</a> · <a href="/blog/how-to-study-kanji/">Kanji method</a> · Questions based on the official JLPT Practice Workbook (2018) of the Japan Foundation / JEES. Not affiliated with the Japan Foundation or JEES.</footer>
 </body>
 </html>`;
 }
@@ -140,15 +144,38 @@ for (const level of ['N5', 'N4', 'N3']) {
     const path = lang === 'en' ? `/${level.toLowerCase()}/` : `/de/${level.toLowerCase()}/`;
     const dir = join(OUT, lang === 'en' ? '' : 'de', level.toLowerCase());
     mkdirSync(dir, { recursive: true });
-    const body = `
-<h1>${esc(lang === 'en' ? `JLPT ${level} Practice Questions & Kanji List` : `JLPT ${level} Übungsfragen & Kanji-Liste`)}</h1>
+    const faq = (lang === 'de'
+        ? [
+            ['Wie viele Fragen hat der JLPT ' + level + '?', 'Der hier bereitgestellte Übungssatz umfasst ' + n + ' offizielle Übungsfragen des JLPT-' + level + '-Practice-Workbooks (2018). Der echte Test umfasst je nach Sektion rund 70 Fragen inklusive Hören.'],
+            ['Wie viele Punkte brauche ich zum Bestehen?', 'Für ' + level + ' gelten zwei Bedingungen: eine Gesamtpunktzahl-Passage und je Sektion eine Untergrenze. Bei N5 sind es 80 von 120 Punkten mit mindestens 38 Punkten in jeder Sektion.'],
+            ['Wie lang ist der JLPT ' + level + '?', 'Der Test dauert je nach Stufe rund 90–180 Minuten, aufgeteilt in Vokabular, Grammatik & Lesen sowie Hören, mit Pausen dazwischen.'],
+            ['Ist dieser Practice-Test kostenlos?', 'Ja — alle ' + n + ' Fragen mit Antworten und Erklärungen sind kostenlos, ohne Anmeldung. Die zeitgesteuerte Simulation mit Fortschritts tracking läuft in der App.'],
+            ['Wann wird der JLPT abgehalten?', 'In Japan zweimal jährlich (Juli und Dezember); in Deutschland einmal jährlich im Dezember in Universitätsstädten wie Berlin, Bonn, Düsseldorf, Frankfurt, Hamburg, Leipzig und München.']
+          ]
+        : [
+            ['How many questions are on the ' + level + ' practice test?', 'This free set contains all ' + n + ' official practice questions from the JLPT ' + level + ' Practice Workbook (2018). The real exam has about 70 questions across vocabulary, grammar, reading, and listening.'],
+            ['What is the passing score for ' + level + '?', 'You need both an overall threshold and a per-section floor. For ' + level + (level === 'N5' ? ' it is 80/120 overall with at least 38 points in each section.' : ' the overall threshold is 90/180 (N4) or 100/180 (N3) with section minimums.')],
+            ['How long is the ' + level + ' test?', 'Depending on the level, the exam runs about 90–180 minutes, split into vocabulary, grammar & reading, and listening with breaks between sections.'],
+            ['Is this practice test free?', 'Yes — all ' + n + ' questions with answers and explanations are free, no signup required. The timed simulator with progress tracking runs in the app.'],
+            ['When is the JLPT held?', 'In Japan twice a year (July and December). In Germany once a year, in December, at university cities such as Berlin, Bonn, Düsseldorf, Frankfurt, Hamburg, Leipzig and Munich.']
+          ]
+    );
+    const faqHtml = `<section class="faq"><h2>` + (lang === 'de' ? 'Häufige Fragen zum ' : 'Frequently asked questions about the ') + level + ` test</h2>` +
+      faq.map(q => '<h3>' + esc(q[0]) + '</h3><p>' + esc(q[1]) + '</p>').join('\n') + '</section>';
+    const faqJsonLd = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: faq.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } }))
+    });
+    const mainHtml = `<h1>${esc(lang === 'en' ? `Free JLPT ${level} Practice Test Online — Questions with Answers & Kanji List` : `Kostenloser JLPT-${level}-Übungstest online — Fragen mit Antworten & Kanji-Liste`)}</h1>
 <p class="lead">${introCopy(level, n, lang)}</p>
+<p><a class="btn-app" href="/#/">${lang === 'de' ? '→ Zur zeitgesteuerten Simulation öffnen' : '→ Open the timed simulator'}</a></p>
 <h2>${lang === 'en' ? `All ${n} questions (with answers & explanations)` : `Alle ${n} Fragen (mit Antworten & Erklärungen)`}</h2>
 ${data.questionBank.map(q => questionBlock(q, lang)).join('\n')}
 <h2>${lang === 'en' ? `Complete ${level} kanji list` : `Komplette ${level}-Kanji-Liste`}</h2>
 <p class="lead">${Object.keys(data.kanjiDictionary).length} ${lang === 'de' ? 'Einträge' : 'entries'}</p>
 ${kanjiTable(data.kanjiDictionary, lang)}
 `;
+    const body = faqHtml + '\n' + mainHtml + '\n<script type="application/ld+json">' + faqJsonLd + '</' + 'script>\n';
     const html = shell({ lang, title: META[level].title, desc: META[level].desc, path, body });
     writeFileSync(join(dir, 'index.html'), html);
   }

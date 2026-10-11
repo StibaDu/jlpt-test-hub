@@ -2,6 +2,13 @@
 
 Free web app for practicing the Japanese Language Proficiency Test (JLPT) levels N5, N4 and N3. Official-format practice questions with an interactive furigana dictionary, instant explanations, timed real-test simulation, spaced repetition review, and multilingual interface (English / German).
 
+## Free question banks & kanji lists (static HTML)
+
+- [JLPT N5 practice test (all 50 questions with answers)](https://www.jlpttesthub.com/n5/): complete N5 question set + full kanji list, printable
+- [JLPT N4 practice test (all 50 questions with answers)](https://www.jlpttesthub.com/n4/): complete N4 question set + full kanji list
+- [JLPT N3 practice test (all 55 questions with answers)](https://www.jlpttesthub.com/n3/): complete N3 question set + full kanji list
+- [JLPT N5 practice test (German)](https://www.jlpttesthub.com/de/n5/), [N4](https://www.jlpttesthub.com/de/n4/), [N3](https://www.jlpttesthub.com/de/n3/): same sets with German explanations
+
 ## App
 
 - [Start a practice test](https://www.jlpttesthub.com/#/n5): JLPT practice tests — choose N5, N4, or N3, Real Test (timed) or Learning Mode (instant feedback)

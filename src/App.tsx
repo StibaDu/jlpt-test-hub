@@ -519,6 +519,101 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
   );
 };
 
+// === Share your result — canvas card + social links (viral loop) ===
+const ShareResults = ({ level, mode, score, total, percentage, isPass, isMobile, lang }: {
+  level: string; mode: string; score: number; total: number; percentage: number; isPass: boolean; isMobile: boolean; lang: string;
+}) => {
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+  const DE = lang === 'de';
+  const shareUrl = 'https://www.jlpttesthub.com/';
+  const shareText = isPass
+    ? (DE ? `Ich habe die JLPT-${level}-Simulation bestanden! ${percentage.toFixed(0)}% — übe kostenlos auf jlpttesthub.com` : `I passed the JLPT ${level} simulation! ${percentage.toFixed(0)}% — practice free at jlpttesthub.com`)
+    : (DE ? `Ich habe die JLPT-${level}-Simulation mit ${percentage.toFixed(0)}% abgeschlossen — übe kostenlos auf jlpttesthub.com` : `I scored ${percentage.toFixed(0)}% on the JLPT ${level} simulation — practice free at jlpttesthub.com`);
+
+  const drawCard = () => {
+    const canvas = canvasRef.current; if (!canvas) return;
+    const ctx = canvas.getContext('2d'); if (!ctx) return;
+    const W = 1200, H = 630; canvas.width = W; canvas.height = H;
+    // background
+    const grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, isPass ? '#064e3b' : '#1f2937');
+    grad.addColorStop(1, '#111827');
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
+    // subtle decor
+    ctx.fillStyle = 'rgba(255,255,255,0.04)';
+    ctx.font = '200px serif'; ctx.textAlign = 'center'; ctx.fillText('N' + (level.match(/N(\d)/)?.[1] || '5') + ' 漢字', W/2, H/2 - 60);
+    // badge
+    ctx.fillStyle = isPass ? '#34d399' : '#f87171';
+    ctx.font = 'bold 34px system-ui';
+    ctx.fillText(isPass ? (DE ? 'BESTANDEN ✓' : 'PASSED ✓') : (DE ? 'NICHT BESTANDEN' : 'KEPT PRACTICING'), W/2, 150);
+    // score
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '900 170px system-ui';
+    ctx.fillText(`${percentage.toFixed(0)}%`, W/2, 330);
+    ctx.font = '600 40px system-ui'; ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillText(`${score} / ${total} — JLPT ${level} (${mode === 'real' ? 'Real Test' : 'Learning Mode'})`, W/2, 400);
+    // brand
+    ctx.fillStyle = '#ffffff'; ctx.font = '800 44px system-ui';
+    ctx.fillText('JLPT Test Hub', W/2, 505);
+    ctx.font = '500 30px system-ui'; ctx.fillStyle = 'rgba(255,255,255,0.65)';
+    ctx.fillText('www.jlpttesthub.com — free practice tests with furigana', W/2, 555);
+  };
+
+  const download = () => {
+    drawCard();
+    const canvas = canvasRef.current; if (!canvas) return;
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = `jlpt-${level}-result-${percentage.toFixed(0)}percent.png`;
+    a.click();
+  };
+  const openX = () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`, '_blank', 'noopener');
+  const openWa = () => window.open(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank', 'noopener');
+  const openRd = () => window.open(`https://www.reddit.com/submit?url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`, '_blank', 'noopener');
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(shareText + ' ' + shareUrl); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { }
+  };
+  const nimg = async () => {
+    drawCard();
+    const canvas = canvasRef.current; if (!canvas) return;
+    try {
+      const blob: Blob | null = await new Promise(res => canvas.toBlob(res, 'image/png'));
+      if (!blob) return;
+      const file = new File([blob], `jlpt-${level}-result.png`, { type: 'image/png' });
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share({ files: [file], text: shareText });
+      } else { download(); }
+    } catch { }
+  };
+  const btn = `flex items-center gap-2 justify-center bg-gray-800/60 hover:bg-gray-700 text-white font-bold rounded-xl transition-all active:scale-95 px-4 py-3 text-sm`;
+
+  return (
+    <div className={`mx-auto mt-6 bg-gradient-to-r from-gray-50 to-emerald-50/60 border border-gray-200 rounded-2xl ${isMobile ? 'p-4' : 'p-5'} text-center`}>
+      <canvas ref={canvasRef} className="hidden" />
+      <p className="font-bold text-gray-800 text-sm mb-3">📣 {DE ? 'Ergebnis teilen' : 'Share your result'}</p>
+      {open ? (
+        <div>
+          <div className="flex flex-wrap gap-2 justify-center">
+            <button onClick={nimg} className={btn}>📲 {DE ? 'Bild teilen' : 'Share image'}</button>
+            <button onClick={download} className={btn}>⬇️ {DE ? 'Bild laden' : 'Download card'}</button>
+            <button onClick={openX} className={btn}>𝕏 Post</button>
+            <button onClick={openWa} className={btn}>💬 WhatsApp</button>
+            <button onClick={openRd} className={btn}>👽 Reddit</button>
+            <button onClick={copy} className={btn}>{copied ? '✓ Kopiert' : '🔗 ' + (DE ? 'Text kopieren' : 'Copy text')}</button>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">{DE ? 'Teilen bringt Freunde zum Üben — und dir die Ehre. 😄' : 'Sharing brings friends to practice — and you the bragging rights. 😄'}</p>
+        </div>
+      ) : (
+        <button onClick={() => { setOpen(true); drawCard(); }} className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition-all active:scale-95 py-3 px-6 text-sm">
+          📣 {DE ? 'Ergebnis teilen' : 'Share your result'}
+        </button>
+      )}
+    </div>
+  );
+};
+
 // Genki Insurance — travel health insurance affiliate
 const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
   return (
@@ -3515,6 +3610,18 @@ export default function App() {
                   {t.backToStart}
                 </button>
               </div>
+
+              {/* === Share your result (viral loop) === */}
+              <ShareResults
+                level={selectedLevel}
+                mode={testMode}
+                score={results.score}
+                total={testQuestions.length}
+                percentage={results.percentage}
+                isPass={results.isPass}
+                isMobile={isMobile}
+                lang={lang}
+              />
 
               {/* === PRO: Post-test weakness report — wrong questions inline with explanations === */}
               {results.wrongQuestions.length > 0 && (
