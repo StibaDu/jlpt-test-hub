@@ -181,19 +181,10 @@ ${kanjiTable(data.kanjiDictionary, lang)}
   }
 }
 
-// add entries to sitemap.xml
-const smPath = join(OUT, 'sitemap.xml');
-let sm = readFileSync(smPath, 'utf8');
-const today = new Date().toISOString().slice(0, 10);
-let added = false;
-for (const lvl of ['n5', 'n4', 'n3']) {
-  for (const pre of ['', '/de']) {
-    const loc = `${canonical}${pre}/${lvl}/`;
-    if (!sm.includes(loc)) {
-      sm = sm.replace('</urlset>', `<url><loc>${loc}</loc><changefreq>weekly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>\n</urlset>`);
-      added = true;
-    }
-  }
-}
-if (added) writeFileSync(smPath, sm);
-console.log('prerender pages written:', added ? '+6 URLs in sitemap' : 'sitemap already current');
+// write sitemap-pages.xml (referenced from sitemap.xml index)
+const pagesToday = new Date().toISOString().slice(0, 10);
+const pagesUrls = ['https://www.jlpttesthub.com/', ...['n5','n4','n3'].flatMap(l => ['https://www.jlpttesthub.com/' + l + '/', 'https://www.jlpttesthub.com/de/' + l + '/'])];
+const pagesEntries = pagesUrls.map(u => `<url><loc>${u}</loc><lastmod>${pagesToday}</lastmod></url>`).join('\n');
+writeFileSync(join(OUT, 'sitemap-pages.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pagesEntries}\n</urlset>\n`);
+console.log('sitemap-pages.xml written:', pagesUrls.length, 'urls');

@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-11)
 
 ## Corpus Check
-- 80 files · ~230,268 words
+- 80 files · ~230,528 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `79537d83`
+- Built from commit: `794bea1c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -73,9 +73,9 @@
 3. `useAuth()` - 18 edges
 4. `Launch Checklist — JLPT Test Hub` - 12 edges
 5. `JLPT-Prüfungstag: Was dich erwartet & Last-Minute-Tipps` - 11 edges
-6. `JLPT N3 Grammatik: Die Muster, die über das Ergebnis entscheiden` - 10 edges
-7. `JLPT N3 Grammar: The Patterns That Decide the Test` - 10 edges
-8. `JLPT Test Day: What to Expect & Last-Minute Tips` - 10 edges
+6. `JLPT Test Day: What to Expect & Last-Minute Tips` - 10 edges
+7. `JLPT N3 Grammatik: Die Muster, die über das Ergebnis entscheiden` - 10 edges
+8. `JLPT N3 Grammar: The Patterns That Decide the Test` - 10 edges
 9. `JLPT Test Hub` - 10 edges
 10. `Launch posts — copy-paste ready (post these yourself)` - 9 edges
 
@@ -286,14 +286,14 @@ Nodes (8): Free audio sources that actually fit the JLPT, How the listening sect
 
 ### Community 50 - "Launch posts — copy-paste ready (post these yourself)"
 Cohesion: 0.20
-Nodes (9): 1. Reddit — r/LearnJapanese (biggest: ~900k members), 2. Reddit — r/Bunpo / r/Japanese / r/JLPT, 3. Language-learning Discords, 4. Product Hunt launch (worth doing once), 5. Pinterest (compounding, underestimated for study content), 6. Resource listicle outreach (5–8 emails, highest-quality backlinks), 7. Quora, 8. YouTube Shorts (optional but powerful) (+1 more)
+Nodes (9): 1. Reddit — r/LearnJapanese (biggest: ~900k members), 2. Reddit — r/JLPT / r/Bunpo / r/Japanese, 3. Language-learning Discords, 4. Product Hunt launch (worth doing once), 5. Pinterest (compounding, underestimated for study content), 6. Resource listicle outreach (5–8 emails, highest-quality backlinks), 7. Quora, 8. YouTube Shorts (optional but powerful) (+1 more)
 
 ### Community 51 - "kanjiReadings.ts"
 Cohesion: 0.50
 Nodes (3): KanjiReading, kanjiReadings, lookupReadings()
 
 ## Knowledge Gaps
-- **396 isolated node(s):** `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/Bunpo / r/Japanese / r/JLPT`, `3. Language-learning Discords`, `4. Product Hunt launch (worth doing once)`, `5. Pinterest (compounding, underestimated for study content)` (+391 more)
+- **396 isolated node(s):** `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/JLPT / r/Bunpo / r/Japanese`, `3. Language-learning Discords`, `4. Product Hunt launch (worth doing once)`, `5. Pinterest (compounding, underestimated for study content)` (+391 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -304,7 +304,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/Bunpo / r/Japanese / r/JLPT`, `3. Language-learning Discords` to the rest of the system?**
+- **What connects `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/JLPT / r/Bunpo / r/Japanese`, `3. Language-learning Discords` to the rest of the system?**
   _396 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
