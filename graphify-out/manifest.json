@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "scripts/build-pages.mjs": {
-    "mtime": 1791724247.055764,
-    "ast_hash": "c08543fbd24423a1759e9aa9a0c42caa",
+    "mtime": 1791729041.5930414,
+    "ast_hash": "aebe376f73140af897b3fc3f568e3641",
     "semantic_hash": ""
   },
   "content/blog/how-to-study-kanji.de.md": {
@@ -615,32 +615,32 @@
     "semantic_hash": ""
   },
   "public/de/n3/index.html": {
-    "mtime": 1791724247.260499,
+    "mtime": 1791729041.8313353,
     "ast_hash": "c4c8bb33610aac8d7073b063e73ff3c2",
     "semantic_hash": ""
   },
   "public/de/n4/index.html": {
-    "mtime": 1791724247.2567697,
+    "mtime": 1791729041.8274992,
     "ast_hash": "c4c6162687369d9b4429e77756b4aee7",
     "semantic_hash": ""
   },
   "public/de/n5/index.html": {
-    "mtime": 1791724247.2535806,
+    "mtime": 1791729041.8243878,
     "ast_hash": "4225a9b29983fa33a691d559b9574b2a",
     "semantic_hash": ""
   },
   "public/n3/index.html": {
-    "mtime": 1791724247.2593899,
+    "mtime": 1791729041.830264,
     "ast_hash": "7c130dfa01ffa46e2345352637c20c87",
     "semantic_hash": ""
   },
   "public/n4/index.html": {
-    "mtime": 1791724247.255705,
+    "mtime": 1791729041.8264768,
     "ast_hash": "b235a91b17ee1d3da1813440f52f7610",
     "semantic_hash": ""
   },
   "public/n5/index.html": {
-    "mtime": 1791724247.2527008,
+    "mtime": 1791729041.8233757,
     "ast_hash": "61ad8a7829732f6064b4eaa4afce2c22",
     "semantic_hash": ""
   },

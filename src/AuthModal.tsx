@@ -63,20 +63,20 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
 
   return (
     <div
-      className="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100"
+        className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-stone-100"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-gray-900">
+          <h2 className="text-xl font-bold text-ink">
             {mode === 'login' ? 'Sign In' : mode === 'signup' ? 'Create Account' : 'Reset Password'}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-600 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors"
+            className="text-stone-600 hover:text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-full p-2 transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -91,7 +91,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
         )}
 
         {success && (
-          <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-700 text-sm">
+          <div className="mb-4 p-3 bg-matchaSoft border border-matchaSoft rounded-lg text-vermDeep text-sm">
             {success}
           </div>
         )}
@@ -99,43 +99,43 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+              <label className="block text-sm font-medium text-stone-700 mb-1">Name</label>
               <input
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 required
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
+                className="w-full px-4 py-2.5 border border-stone-300 rounded-lg focus:ring-2 focus:ring-verm focus:border-verm outline-none transition-colors"
                 placeholder="Your name"
               />
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-stone-700 mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
+              className="w-full px-4 py-2.5 border border-stone-300 rounded-lg focus:ring-2 focus:ring-verm focus:border-verm outline-none transition-colors"
               placeholder="you@example.com"
             />
           </div>
 
           {mode !== 'forgot' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-stone-700 mb-1">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
+                className="w-full px-4 py-2.5 border border-stone-300 rounded-lg focus:ring-2 focus:ring-verm focus:border-verm outline-none transition-colors"
                 placeholder="••••••••"
               />
               {mode === 'signup' && (
-                <p className="mt-1 text-xs text-gray-500">At least 8 characters</p>
+                <p className="mt-1 text-xs text-stone-500">At least 8 characters</p>
               )}
             </div>
           )}
@@ -143,7 +143,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-vermDeep hover:bg-vermDeep text-white font-bold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -159,17 +159,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           </button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-gray-600 space-y-2">
+        <div className="mt-6 text-center text-sm text-stone-600 space-y-2">
           {mode === 'login' && (
             <>
               <p>
                 No account?{' '}
-                <button onClick={() => { setMode('signup'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
+                <button onClick={() => { setMode('signup'); setError(''); setSuccess(''); }} className="text-verm hover:underline font-medium">
                   Sign up
                 </button>
               </p>
               <p>
-                <button onClick={() => { setMode('forgot'); setError(''); setSuccess(''); }} className="text-gray-600 hover:text-gray-600">
+                <button onClick={() => { setMode('forgot'); setError(''); setSuccess(''); }} className="text-stone-600 hover:text-stone-600">
                   Forgot password?
                 </button>
               </p>
@@ -178,14 +178,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ show, onClose, login, sign
           {mode === 'signup' && (
             <p>
               Already have an account?{' '}
-              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
+              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-verm hover:underline font-medium">
                 Sign in
               </button>
             </p>
           )}
           {mode === 'forgot' && (
             <p>
-              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-emerald-800 hover:underline font-medium">
+              <button onClick={() => { setMode('login'); setError(''); setSuccess(''); }} className="text-verm hover:underline font-medium">
                 Back to sign in
               </button>
             </p>

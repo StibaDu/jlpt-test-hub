@@ -11,7 +11,14 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: #faf6f1; /* washi paper */
+  color: #2c2620; /* ink */
+}
+
+::selection {
+  background: #f9eae4;
+  color: #b23f2b;
 }
 
 #root {
@@ -20,6 +27,12 @@ body {
 
 ruby {
   ruby-position: over;
+}
+rt {
+  font-size: 0.55em;
+  font-weight: 400;
+  color: #8a7e70;
+  letter-spacing: 0.02em;
 }
 
 @keyframes fade-in {
@@ -90,25 +103,40 @@ ruby {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 1.25rem;
+  border-radius: 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 2px rgba(44, 38, 32, 0.05), 0 10px 30px -14px rgba(44, 38, 32, 0.14);
 }
 .fc-face-front {
-  background: linear-gradient(160deg, #1e1e3f 0%, #191936 100%);
-  border: 1px solid #34346a;
+  background: linear-gradient(160deg, #fffdfa 0%, #faf4ea 100%);
+  border: 1.5px solid #eae2d6;
+  color: #2c2620;
 }
 .fc-face-back {
-  background: linear-gradient(160deg, #123d33 0%, #0e2f28 100%);
-  border: 1px solid #10b981;
+  background: linear-gradient(160deg, #37503f 0%, #2c4234 100%);
+  border: 1.5px solid #37503f;
+  color: #f4f0e8;
   transform: rotateY(180deg);
   overflow-y: auto;
   justify-content: flex-start;
   text-align: left;
+}
+.fc-face-back rt {
+  color: rgba(244, 240, 232, 0.66);
+}
+
+/* ==== Hanko stamp (results pass/fail seal) ==== */
+.hanko {
+  box-shadow:
+    inset 0 0 0 3px currentColor,
+    0 0 0 5px rgba(250, 246, 241, 0.9),
+    0 0 0 6.5px currentColor;
+  mask-image: radial-gradient(circle, black 92%, transparent 98%);
+  -webkit-mask-image: radial-gradient(circle, black 92%, transparent 98%);
 }
 @media (prefers-reduced-motion: reduce) {
   .fc-card { transition: none; }

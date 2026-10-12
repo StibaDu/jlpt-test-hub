@@ -389,7 +389,7 @@ void ADSENSE_CONFIG; // Will be used when AdSense is activated
 
 const GoogleAdBanner = ({ slotId = "auto-ads-slot" }: { slotId?: string }) => {
   return (
-    <div className="w-full bg-gray-100 border border-dashed border-gray-300 rounded-xl p-3 my-4 text-center text-xs text-gray-400 select-none overflow-hidden">
+    <div className="w-full bg-stone-100 border border-dashed border-stone-300 rounded-xl p-3 my-4 text-center text-xs text-stone-400 select-none overflow-hidden">
       {/*
         ACTIVATION INSTRUCTIONS:
         1. Get approved by Google AdSense (adsense.google.com)
@@ -403,8 +403,8 @@ const GoogleAdBanner = ({ slotId = "auto-ads-slot" }: { slotId?: string }) => {
         5. Add the AdSense script in index.html <head>
       */}
       <div className="flex flex-col items-center justify-center py-2 space-y-1">
-        <span className="font-bold tracking-widest uppercase text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Advertisement</span>
-        <div className="h-12 flex items-center justify-center text-gray-600 font-mono text-xs">
+        <span className="font-bold tracking-widest uppercase text-[10px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded">Advertisement</span>
+        <div className="h-12 flex items-center justify-center text-stone-600 font-mono text-xs">
           Google AdSense Responsive Unit [{slotId}]
         </div>
       </div>
@@ -439,12 +439,12 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
   return (
     <div className="mt-8">
       <div className="flex items-center gap-2 mb-2">
-        <h2 className="font-bold text-gray-700" style={{ fontSize: '1.125rem' }}>
+        <h2 className="font-bold text-stone-700" style={{ fontSize: '1.125rem' }}>
           {t.recommendedBooks}
         </h2>
-        <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
+        <span className="text-[10px] font-bold uppercase bg-goldSoft text-gold px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
       </div>
-      <p className="text-gray-600 text-xs mb-4">{t.booksDesc}</p>
+      <p className="text-stone-600 text-xs mb-4">{t.booksDesc}</p>
       <div className="grid gap-3 md:grid-cols-3">
         {books.map((book, i) => (
           <a
@@ -452,17 +452,17 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
             href={book.link}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="block bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-emerald-300 transition-all group"
+            className="block bg-card border border-stone-200 rounded-xl p-4 hover:shadow-md hover:border-matcha transition-all group"
           >
             <div className="text-3xl mb-2">{book.img}</div>
-            <h3 className="font-bold text-gray-800 text-sm mb-1 group-hover:text-emerald-800 transition-colors">{book.title}</h3>
-            <p className="text-gray-600 text-xs mb-2 leading-relaxed">{book.desc}</p>
-            <span className="text-emerald-800 font-bold text-xs group-hover:underline">{t.buyOnAmazon}</span>
+            <h3 className="font-bold text-ink text-sm mb-1 group-hover:text-verm transition-colors">{book.title}</h3>
+            <p className="text-stone-600 text-xs mb-2 leading-relaxed">{book.desc}</p>
+            <span className="text-verm font-bold text-xs group-hover:underline">{t.buyOnAmazon}</span>
           </a>
         ))}
       </div>
-      <p className="text-gray-600 text-[10px] mt-2 leading-relaxed">{t.affiliateDisclosure}</p>
-      <p className="text-gray-600 text-[10px] mt-1 leading-relaxed">{lang === 'de' ? 'Als Amazon-Partner verdiene ich an qualifizierten Käufen.' : 'As an Amazon Associate, I earn from qualifying purchases.'}</p>
+      <p className="text-stone-600 text-[10px] mt-2 leading-relaxed">{t.affiliateDisclosure}</p>
+      <p className="text-stone-600 text-[10px] mt-1 leading-relaxed">{lang === 'de' ? 'Als Amazon-Partner verdiene ich an qualifizierten Käufen.' : 'As an Amazon Associate, I earn from qualifying purchases.'}</p>
     </div>
   );
 };
@@ -470,20 +470,20 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
 // JapanesePod101 Affiliate Banner
 const AffiliateBanner = ({ t, lang }: { t: any; lang: string }) => {
   return (
-    <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
+    <div className="mt-6 bg-gradient-to-r from-indigoSoft to-indigoSoft border border-line rounded-xl p-5">
       <div className="flex items-start gap-4">
         <div className="text-3xl shrink-0">🎧</div>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-bold text-gray-800 text-sm">{t.learnJapaneseOnline}</h3>
-            <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
+            <h3 className="font-bold text-ink text-sm">{t.learnJapaneseOnline}</h3>
+            <span className="text-[10px] font-bold uppercase bg-goldSoft text-gold px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
           </div>
-          <p className="text-gray-600 text-xs mb-3 leading-relaxed">{t.learnJapaneseDesc}</p>
+          <p className="text-stone-600 text-xs mb-3 leading-relaxed">{t.learnJapaneseDesc}</p>
           <a
             href="https://www.japanesepod101.com/member/go.php?r=YOUR_AFFILIATE_ID"
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="inline-block bg-blue-800 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
+            className="inline-block bg-indigo hover:bg-indigo text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors active:scale-95"
           >
             {t.tryJapanesePod}
           </a>
@@ -501,10 +501,10 @@ const StudyInJapanBanner = ({ t, lang }: { t: any; lang: string }) => {
         <div className="text-3xl shrink-0">🇯🇵</div>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-bold text-gray-800 text-sm">{t.studyInJapan}</h3>
-            <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
+            <h3 className="font-bold text-ink text-sm">{t.studyInJapan}</h3>
+            <span className="text-[10px] font-bold uppercase bg-goldSoft text-gold px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
           </div>
-          <p className="text-gray-600 text-xs mb-3 leading-relaxed">{t.studyInJapanDesc}</p>
+          <p className="text-stone-600 text-xs mb-3 leading-relaxed">{t.studyInJapanDesc}</p>
           <a
             href="https://www.gogonihon.com/en/?ref=jlpttesthub"
             target="_blank"
@@ -587,12 +587,12 @@ const ShareResults = ({ level, mode, score, total, percentage, isPass, isMobile,
       } else { download(); }
     } catch { }
   };
-  const btn = `flex items-center gap-2 justify-center bg-gray-800/60 hover:bg-gray-700 text-white font-bold rounded-xl transition-all active:scale-95 px-4 py-3 text-sm`;
+  const btn = `flex items-center gap-2 justify-center bg-ink/60 hover:bg-stone-700 text-white font-bold rounded-xl transition-all active:scale-95 px-4 py-3 text-sm`;
 
   return (
-    <div className={`mx-auto mt-6 bg-gradient-to-r from-gray-50 to-emerald-50/60 border border-gray-200 rounded-2xl ${isMobile ? 'p-4' : 'p-5'} text-center`}>
+    <div className={`mx-auto mt-6 bg-gradient-to-r from-stone-50 to-matchaSoft/60 border border-stone-200 rounded-2xl ${isMobile ? 'p-4' : 'p-5'} text-center`}>
       <canvas ref={canvasRef} className="hidden" />
-      <p className="font-bold text-gray-800 text-sm mb-3">📣 {DE ? 'Ergebnis teilen' : 'Share your result'}</p>
+      <p className="font-bold text-ink text-sm mb-3">📣 {DE ? 'Ergebnis teilen' : 'Share your result'}</p>
       {open ? (
         <div>
           <div className="flex flex-wrap gap-2 justify-center">
@@ -603,10 +603,10 @@ const ShareResults = ({ level, mode, score, total, percentage, isPass, isMobile,
             <button onClick={openRd} className={btn}>👽 Reddit</button>
             <button onClick={copy} className={btn}>{copied ? '✓ Kopiert' : '🔗 ' + (DE ? 'Text kopieren' : 'Copy text')}</button>
           </div>
-          <p className="text-xs text-gray-400 mt-2">{DE ? 'Teilen bringt Freunde zum Üben — und dir die Ehre. 😄' : 'Sharing brings friends to practice — and you the bragging rights. 😄'}</p>
+          <p className="text-xs text-stone-400 mt-2">{DE ? 'Teilen bringt Freunde zum Üben — und dir die Ehre. 😄' : 'Sharing brings friends to practice — and you the bragging rights. 😄'}</p>
         </div>
       ) : (
-        <button onClick={() => { setOpen(true); drawCard(); }} className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition-all active:scale-95 py-3 px-6 text-sm">
+        <button onClick={() => { setOpen(true); drawCard(); }} className="bg-vermDeep hover:bg-verm text-white font-bold rounded-xl transition-all active:scale-95 py-3 px-6 text-sm">
           📣 {DE ? 'Ergebnis teilen' : 'Share your result'}
         </button>
       )}
@@ -622,10 +622,10 @@ const GenkiBanner = ({ t, lang }: { t: any; lang: string }) => {
         <img src="/genki-logo.png" alt="Genki" className="w-[120px] h-auto shrink-0 self-start mt-0.5" />
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-bold text-gray-800 text-sm">{t.genkiTitle}</h3>
-            <span className="text-[10px] font-bold uppercase bg-amber-100 text-amber-700 px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
+            <h3 className="font-bold text-ink text-sm">{t.genkiTitle}</h3>
+            <span className="text-[10px] font-bold uppercase bg-goldSoft text-gold px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
           </div>
-          <p className="text-gray-600 text-xs mb-3 leading-relaxed">{t.genkiDesc}</p>
+          <p className="text-stone-600 text-xs mb-3 leading-relaxed">{t.genkiDesc}</p>
           <a
             href="https://genki.world/with/jlpttesthub"
             target="_blank"
@@ -685,20 +685,20 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
 
   // PROFILE PAGE — full page for all logged-in users (free and pro)
   return (
-    <main className={`bg-gray-50 text-gray-800 font-sans flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+    <main className={`bg-stone-50 text-ink font-sans flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
       <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
         {nav}
       </div>
       <div className={`mx-auto w-full ${isMobile ? 'max-w-full' : 'max-w-3xl'}`}>
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-        <div className="flex justify-between items-start p-6 border-b border-gray-100">
+        <div className="bg-card rounded-2xl shadow-xl border border-stone-100 overflow-hidden">
+        <div className="flex justify-between items-start p-6 border-b border-stone-100">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-100 text-emerald-800 p-2 rounded-xl">
+            <div className="bg-matchaSoft text-verm p-2 rounded-xl">
               <IconBookOpen className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">{t.proTitle}</h3>
+            <h3 className="text-xl font-bold text-ink">{t.proTitle}</h3>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors">
+          <button onClick={onClose} className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors">
             <IconX className="w-5 h-5" />
           </button>
         </div>
@@ -707,29 +707,29 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
         {user && (
           <div className="space-y-4">
             {/* User info */}
-            <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-3">
-              <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center text-xl font-black shrink-0">
+            <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 flex items-center gap-3">
+              <div className="w-12 h-12 bg-matchaSoft text-verm rounded-full flex items-center justify-center text-xl font-display font-semibold shrink-0">
                 {user.name?.charAt(0).toUpperCase() || '?'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-gray-900 text-sm">{user.name}</p>
-                <p className="text-gray-600 text-xs truncate">{user.email}</p>
+                <p className="font-bold text-ink text-sm">{user.name}</p>
+                <p className="text-stone-600 text-xs truncate">{user.email}</p>
               </div>
               {isPro && (
-                <span className="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full shrink-0">⭐ PRO</span>
+                <span className="px-2.5 py-1 bg-goldSoft text-gold text-xs font-bold rounded-full shrink-0">⭐ PRO</span>
               )}
             </div>
 
             {/* Subscription status */}
-            <div className={`rounded-xl p-4 border ${isPro ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
+            <div className={`rounded-xl p-4 border ${isPro ? 'bg-matchaSoft border-matcha' : 'bg-stone-50 border-stone-200'}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">
+                  <h4 className="font-bold text-ink text-sm">
                     {subscription?.isTrial
                       ? (lang === 'de' ? '🎁 Pro-Testphase' : '🎁 Pro Trial')
                       : isPro ? t.profilePro : t.profileFree}
                   </h4>
-                  <p className="text-gray-600 text-xs mt-0.5">
+                  <p className="text-stone-600 text-xs mt-0.5">
                     {subscription?.isTrial
                       ? (lang === 'de'
                           ? `Testphase endet am ${subscription?.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : 'N/A'} — danach Karteikarten & Pro weg (kündigt sich automatisch)`
@@ -740,59 +740,59 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                   </p>
                 </div>
                 {subscription?.cancelAtPeriodEnd && (
-                  <span className="text-xs text-amber-600 font-bold">{t.profileCancelSoon}</span>
+                  <span className="text-xs text-gold font-bold">{t.profileCancelSoon}</span>
                 )}
               </div>
             </div>
 
             {/* Progress Stats */}
             {progressLoading ? (
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-600 text-xs">{t.profileLoading}</p>
+              <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 text-center">
+                <p className="text-stone-600 text-xs">{t.profileLoading}</p>
               </div>
             ) : progressData?.stats ? (
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                <h4 className="font-bold text-gray-900 text-sm mb-3">{t.profileProgress}</h4>
+              <div className="bg-stone-50 rounded-xl p-4 border border-stone-200">
+                <h4 className="font-bold text-ink text-sm mb-3">{t.profileProgress}</h4>
                 <div className="grid grid-cols-2 gap-2 mb-3">
-                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
-                    <div className="text-xl font-black text-emerald-700">{progressData.stats.totalTestsTaken || 0}</div>
-                    <div className="text-[10px] text-gray-600">{t.profileTests}</div>
+                  <div className="bg-card rounded-lg p-2.5 border border-stone-200 text-center">
+                    <div className="text-xl font-display font-semibold text-vermDeep">{progressData.stats.totalTestsTaken || 0}</div>
+                    <div className="text-[10px] text-stone-600">{t.profileTests}</div>
                   </div>
-                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
-                    <div className="text-xl font-black text-emerald-700">{progressData.stats.accuracy || 0}%</div>
-                    <div className="text-[10px] text-gray-600">{t.profileAccuracy}</div>
+                  <div className="bg-card rounded-lg p-2.5 border border-stone-200 text-center">
+                    <div className="text-xl font-display font-semibold text-vermDeep">{progressData.stats.accuracy || 0}%</div>
+                    <div className="text-[10px] text-stone-600">{t.profileAccuracy}</div>
                   </div>
-                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
-                    <div className="text-xl font-black text-emerald-700">{progressData.stats.totalCorrect || 0}</div>
-                    <div className="text-[10px] text-gray-600">{t.profileCorrect}</div>
+                  <div className="bg-card rounded-lg p-2.5 border border-stone-200 text-center">
+                    <div className="text-xl font-display font-semibold text-vermDeep">{progressData.stats.totalCorrect || 0}</div>
+                    <div className="text-[10px] text-stone-600">{t.profileCorrect}</div>
                   </div>
-                  <div className="bg-white rounded-lg p-2.5 border border-gray-200 text-center">
-                    <div className="text-xl font-black text-emerald-700">{Math.floor((progressData.stats.totalTimeSpentSeconds || 0) / 60)}</div>
-                    <div className="text-[10px] text-gray-600">{t.profileMinutes}</div>
+                  <div className="bg-card rounded-lg p-2.5 border border-stone-200 text-center">
+                    <div className="text-xl font-display font-semibold text-vermDeep">{Math.floor((progressData.stats.totalTimeSpentSeconds || 0) / 60)}</div>
+                    <div className="text-[10px] text-stone-600">{t.profileMinutes}</div>
                   </div>
                 </div>
                 {progressData.history.length > 0 && (
                   <div>
-                    <h5 className="text-xs font-bold text-gray-700 mb-1.5">{t.profileLastTests}</h5>
+                    <h5 className="text-xs font-bold text-stone-700 mb-1.5">{t.profileLastTests}</h5>
                     <div className="space-y-1 max-h-40 overflow-y-auto">
                       {progressData.history.slice(0, 5).map((h: any) => (
-                        <div key={h.id} className="flex items-center justify-between bg-white rounded-lg px-2.5 py-1.5 border border-gray-100 text-xs">
-                          <span className="font-bold text-gray-700">{h.level}</span>
-                          <span className="text-gray-500">{h.mode === 'real' ? t.profileModeReal : t.profileModeLearning}</span>
-                          <span className={`font-bold ${h.score >= 60 ? 'text-emerald-700' : 'text-red-700'}`}>{h.score}%</span>
-                          <span className="text-gray-400 text-[10px]">{new Date(h.completed_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</span>
+                        <div key={h.id} className="flex items-center justify-between bg-card rounded-lg px-2.5 py-1.5 border border-stone-100 text-xs">
+                          <span className="font-bold text-stone-700">{h.level}</span>
+                          <span className="text-stone-500">{h.mode === 'real' ? t.profileModeReal : t.profileModeLearning}</span>
+                          <span className={`font-bold ${h.score >= 60 ? 'text-vermDeep' : 'text-red-700'}`}>{h.score}%</span>
+                          <span className="text-stone-400 text-[10px]">{new Date(h.completed_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
                 {progressData?.stats?.totalTestsTaken === 0 && (
-                  <p className="text-gray-600 text-xs text-center">{t.profileNoTests}</p>
+                  <p className="text-stone-600 text-xs text-center">{t.profileNoTests}</p>
                 )}
               </div>
             ) : (
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
-                <p className="text-gray-600 text-xs">{t.profileNotAvailable}</p>
+              <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 text-center">
+                <p className="text-stone-600 text-xs">{t.profileNotAvailable}</p>
               </div>
             )}
 
@@ -800,16 +800,16 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             {isPro ? (
               <button
                 onClick={onOpenFlashcards}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm flex items-center justify-between"
+                className="w-full bg-gradient-to-r from-verm to-aki hover:from-vermDeep hover:to-aki text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm flex items-center justify-between"
               >
                 <span>🎴 {lang === 'de' ? 'Karteikarten — Kanji, Vokabeln & Grammatik' : 'Flashcards — kanji, vocab & grammar'}</span>
                 <span>→</span>
               </button>
             ) : (
-              <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200 relative overflow-hidden text-center">
-                <p className="text-indigo-900 font-bold text-sm">🔒 {lang === 'de' ? 'Karteikarten — Pro' : 'Flashcards — Pro'}</p>
-                <p className="text-indigo-600 text-xs mt-1">{lang === 'de' ? 'Kanji, Vokabeln, Grammatik — mit Wiederholungsplan' : 'Kanji, vocab & grammar — with SRS scheduling'}</p>
-                <button onClick={() => setView('upgrade')} className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2 rounded-xl">
+              <div className="bg-indigoSoft rounded-xl p-4 border border-indigoSoft relative overflow-hidden text-center">
+                <p className="text-ink font-bold text-sm">🔒 {lang === 'de' ? 'Karteikarten — Pro' : 'Flashcards — Pro'}</p>
+                <p className="text-verm text-xs mt-1">{lang === 'de' ? 'Kanji, Vokabeln, Grammatik — mit Wiederholungsplan' : 'Kanji, vocab & grammar — with SRS scheduling'}</p>
+                <button onClick={() => setView('upgrade')} className="mt-2 bg-verm hover:bg-vermDeep text-white font-bold text-xs px-4 py-2 rounded-xl">
                   ⭐ {t.proCTA}
                 </button>
               </div>
@@ -817,30 +817,30 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
 
             {/* === PRO: SRS Review Queue === */}
             {isPro && (srsDueCount > 0 || srsNewCount > 0) && (
-              <div className="bg-amber-50 rounded-xl p-4 border border-amber-300 space-y-2">
+              <div className="bg-goldSoft rounded-xl p-4 border border-goldSoft space-y-2">
                 {srsDueCount > 0 && (
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>
-                      <p className="text-amber-700 text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
+                      <h4 className="font-bold text-ink text-sm">{t.srsTitle}</h4>
+                      <p className="text-gold text-xs mt-0.5">{t.srsDueDesc.replace('{n}', String(srsDueCount))}</p>
                     </div>
                     <button
                       onClick={async () => { await onStartSrsReview(); }}
-                      className="bg-amber-500 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                      className="bg-gold hover:bg-gold text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartDue.replace('{n}', String(srsDueCount))}
                     </button>
                   </div>
                 )}
                 {srsNewCount > 0 && (
-                  <div className={`flex items-center justify-between gap-3 ${srsDueCount > 0 ? 'pt-2 border-t border-amber-200' : ''}`}>
+                  <div className={`flex items-center justify-between gap-3 ${srsDueCount > 0 ? 'pt-2 border-t border-gold' : ''}`}>
                     <div>
-                      {srsDueCount === 0 && <h4 className="font-bold text-amber-900 text-sm">{t.srsTitle}</h4>}
-                      <p className="text-amber-700 text-xs mt-0.5">{t.srsPracticeDesc.replace('{n}', String(srsNewCount))}</p>
+                      {srsDueCount === 0 && <h4 className="font-bold text-ink text-sm">{t.srsTitle}</h4>}
+                      <p className="text-gold text-xs mt-0.5">{t.srsPracticeDesc.replace('{n}', String(srsNewCount))}</p>
                     </div>
                     <button
                       onClick={async () => { await onStartSrsPractice(); }}
-                      className="bg-amber-500 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
+                      className="bg-gold hover:bg-gold text-white font-bold py-2 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm shrink-0"
                     >
                       {t.srsStartPractice.replace('{n}', String(Math.min(10, srsNewCount)))}
                     </button>
@@ -852,15 +852,15 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
             {/* === PRO: Mistake Notebook === */}
             {isPro ? (
               !notebookData ? (
-                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 text-center">
-                  <p className="text-purple-700 text-xs">{t.profileWeaknessLoading}</p>
+                <div className="bg-akiSoft rounded-xl p-4 border border-akiSoft text-center">
+                  <p className="text-aki text-xs">{t.profileWeaknessLoading}</p>
                 </div>
               ) : (
-              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+              <div className="bg-akiSoft rounded-xl p-4 border border-akiSoft">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-purple-900 text-sm">{t.notebookTitle}</h4>
+                    <h4 className="font-bold text-aki text-sm">{t.notebookTitle}</h4>
                     {notebookData?.total > 0 && (
-                      <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-aki bg-akiSoft px-2 py-0.5 rounded-full">
                         {notebookData.total}
                       </span>
                     )}
@@ -868,7 +868,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
 
                   {/* Notebook empty state */}
                   {(!notebookData?.questions || notebookData.questions.length === 0) ? (
-                    <p className="text-purple-700 text-xs text-center py-2">
+                    <p className="text-aki text-xs text-center py-2">
                       {t.profileWeaknessEmpty}
                     </p>
                   ) : (
@@ -881,9 +881,9 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                           const wrongOpt = wq.last_wrong_option !== null && wq.last_wrong_option !== undefined ? q.options[wq.last_wrong_option] : null;
                           const correctOpt = q.options[q.correctIndex];
                           return (
-                            <div key={`${wq.level}-${wq.question_id}`} className="bg-white rounded-xl p-3 border border-purple-100">
+                            <div key={`${wq.level}-${wq.question_id}`} className="bg-card rounded-xl p-3 border border-akiSoft">
                               <div className="flex items-center justify-between mb-1.5">
-                                <span className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">
+                                <span className="text-[10px] font-bold text-stone-600 uppercase tracking-wider">
                                   {wq.level} · {q.category} · {wq.times_wrong || wq.attempts}{t.profileWrongCount}
                                 </span>
                                 <button
@@ -892,13 +892,13 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                                     const fresh = await onRefreshNotebook();
                                     if (fresh) onSetNotebookData(fresh);
                                   }}
-                                  className="text-purple-700 hover:text-purple-900 font-bold text-[10px] underline shrink-0"
+                                  className="text-aki hover:text-aki font-bold text-[10px] underline shrink-0"
                                   title={t.profileMasteredTitle}
                                 >
                                   {t.profileMastered}
                                 </button>
                               </div>
-                              <p className="text-sm text-gray-900 font-medium mb-2">{q.text}</p>
+                              <p className="text-sm text-ink font-medium mb-2">{q.text}</p>
                               <div className="space-y-1 text-xs">
                                 {wrongOpt && (
                                   <div className="flex items-start gap-1.5 text-red-700">
@@ -906,11 +906,11 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                                     <span>{lang === 'de' ? 'Deine Antwort:' : 'Your answer:'} <strong>{wrongOpt}</strong></span>
                                   </div>
                                 )}
-                                <div className="flex items-start gap-1.5 text-emerald-700">
+                                <div className="flex items-start gap-1.5 text-vermDeep">
                                   <span className="shrink-0">✓</span>
                                   <span>{lang === 'de' ? 'Richtig:' : 'Correct:'} <strong>{correctOpt}</strong></span>
                                 </div>
-                                <div className="mt-1.5 pt-1.5 border-t border-gray-100 text-gray-600 leading-relaxed">
+                                <div className="mt-1.5 pt-1.5 border-t border-stone-100 text-stone-600 leading-relaxed">
                                   {q.explanation[lang as Lang]}
                                 </div>
                               </div>
@@ -922,13 +922,13 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                       <div className="flex gap-2 mt-3">
                         <button
                           onClick={() => { onStartNotebookTraining(notebookData.questions.map((wq: any) => ({ id: wq.question_id, level: wq.level }))); }}
-                          className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                          className="flex-1 bg-aki hover:bg-aki text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                         >
                           {t.notebookTrain} ({Math.min(20, notebookData.questions.length)})
                         </button>
                         <button
                           onClick={() => onExportNotebookPdf()}
-                          className="bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-2.5 px-3.5 rounded-xl transition-all active:scale-95 text-sm"
+                          className="bg-akiSoft hover:bg-akiSoft text-aki font-bold py-2.5 px-3.5 rounded-xl transition-all active:scale-95 text-sm"
                           title={lang === 'de' ? 'Als PDF exportieren' : 'Export as PDF'}
                         >
                           📄 PDF
@@ -937,7 +937,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                       {notebookData.questions.length > 4 && (
                         <button
                           onClick={() => setShowNotebook(!showNotebook)}
-                          className="w-full mt-2 text-purple-700 hover:text-purple-900 font-bold text-xs underline"
+                          className="w-full mt-2 text-aki hover:text-aki font-bold text-xs underline"
                         >
                           {showNotebook ? t.notebookShowLess : t.notebookShowMore.replace('{n}', String(notebookData.questions.length - 4))}
                         </button>
@@ -963,22 +963,22 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                     const shortName = (cat: string) => cat.replace(' & Konjugation', '').replace(' & Lesung', '').replace(' & Struktur', '').replace('Höflichkeit & Ausdruck', 'Keigo');
                     const Row = ({ c, tone }: { c: any; tone: 'red' | 'amber' | 'emerald' }) => (
                       <div className="flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${tone === 'red' ? 'bg-red-500' : tone === 'amber' ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
-                        <span className="text-xs text-gray-700 flex-1 min-w-0 truncate" title={c.category}>{shortName(c.category)}</span>
-                        <span className={`text-xs font-bold shrink-0 ${tone === 'red' ? 'text-red-700' : tone === 'amber' ? 'text-amber-700' : 'text-emerald-700'}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${tone === 'red' ? 'bg-red-500' : tone === 'amber' ? 'bg-gold' : 'bg-matcha'}`}></span>
+                        <span className="text-xs text-stone-700 flex-1 min-w-0 truncate" title={c.category}>{shortName(c.category)}</span>
+                        <span className={`text-xs font-bold shrink-0 ${tone === 'red' ? 'text-red-700' : tone === 'amber' ? 'text-gold' : 'text-vermDeep'}`}>
                           {c.accuracy}% ({c.total})
                         </span>
                         <button
                           onClick={async () => { await onStartCategoryDrill(selectedLevelForDrill, c.category); }}
-                          className="text-[10px] font-bold text-purple-700 hover:text-purple-900 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded-lg transition-colors shrink-0"
+                          className="text-[10px] font-bold text-aki hover:text-aki bg-akiSoft hover:bg-akiSoft px-2 py-1 rounded-lg transition-colors shrink-0"
                         >
                           {t.catDrill}
                         </button>
                       </div>
                     );
                     return (
-                      <div className="mt-4 pt-3 border-t border-purple-100">
-                        <h5 className="text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-2">{t.insightTitle}</h5>
+                      <div className="mt-4 pt-3 border-t border-akiSoft">
+                        <h5 className="text-[10px] font-bold text-stone-600 uppercase tracking-wider mb-2">{t.insightTitle}</h5>
 
                         {focus.length > 0 && (
                           <div className="mb-2">
@@ -990,7 +990,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                         )}
                         {mid.length > 0 && (
                           <div className="mb-2">
-                            <p className="text-[10px] font-bold text-amber-700 uppercase tracking-wide mb-1">{t.insightMid}</p>
+                            <p className="text-[10px] font-bold text-gold uppercase tracking-wide mb-1">{t.insightMid}</p>
                             <div className="space-y-1.5">
                               {mid.map((c: any) => <Row key={c.category} c={c} tone="amber" />)}
                             </div>
@@ -998,21 +998,21 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                         )}
                         {strong.length > 0 && (
                           <div className="mb-2">
-                            <p className="text-[10px] font-bold text-emerald-800 uppercase tracking-wide mb-1">{t.insightStrong}</p>
+                            <p className="text-[10px] font-bold text-verm uppercase tracking-wide mb-1">{t.insightStrong}</p>
                             <div className="space-y-1.5">
                               {strong.map((c: any) => <Row key={c.category} c={c} tone="emerald" />)}
                             </div>
                           </div>
                         )}
                         {lowData.length > 0 && (
-                          <p className="text-[10px] text-gray-600 mb-2">
+                          <p className="text-[10px] text-stone-600 mb-2">
                             {t.insightLowData}: {lowData.map((c: any) => shortName(c.category)).join(', ')}
                           </p>
                         )}
 
                         {topWeak && topWeak.accuracy < 80 && (
-                          <div className="mt-3 bg-purple-100 rounded-lg p-2.5">
-                            <p className="text-[11px] text-purple-900 leading-relaxed">
+                          <div className="mt-3 bg-akiSoft rounded-lg p-2.5">
+                            <p className="text-[11px] text-aki leading-relaxed">
                               💡 {t.insightTip.replace('{cat}', shortName(topWeak.category)).replace('{acc}', String(topWeak.accuracy))}
                             </p>
                           </div>
@@ -1024,16 +1024,16 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
               )
             ) : (
               /* Locked preview for free users */
-              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 relative overflow-hidden">
+              <div className="bg-akiSoft rounded-xl p-4 border border-akiSoft relative overflow-hidden">
                 <div className="filter blur-sm select-none pointer-events-none space-y-2" aria-hidden="true">
-                  <div className="h-3 bg-purple-200 rounded w-3/4"></div>
-                  <div className="h-2.5 bg-purple-100 rounded w-full"></div>
-                  <div className="h-2.5 bg-purple-100 rounded w-5/6"></div>
-                  <div className="h-2.5 bg-purple-100 rounded w-2/3"></div>
+                  <div className="h-3 bg-akiSoft rounded w-3/4"></div>
+                  <div className="h-2.5 bg-akiSoft rounded w-full"></div>
+                  <div className="h-2.5 bg-akiSoft rounded w-5/6"></div>
+                  <div className="h-2.5 bg-akiSoft rounded w-2/3"></div>
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-purple-900 font-bold text-sm">{t.profileLockedTitle}</p>
-                  <p className="text-purple-700 text-xs mt-1">{t.profileLockedDesc}</p>
+                  <p className="text-aki font-bold text-sm">{t.profileLockedTitle}</p>
+                  <p className="text-aki text-xs mt-1">{t.profileLockedDesc}</p>
                 </div>
               </div>
             )}
@@ -1056,7 +1056,7 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 {subscription?.cancelAtPeriodEnd && (
                   <button
                     onClick={() => onOpenResumeConfirm()}
-                    className="w-full flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold py-2.5 px-4 rounded-xl border border-emerald-200 transition-all active:scale-95 text-sm"
+                    className="w-full flex items-center justify-center gap-2 bg-matchaSoft hover:bg-matchaSoft text-verm font-bold py-2.5 px-4 rounded-xl border border-matcha transition-all active:scale-95 text-sm"
                   >
                     {lang === 'de' ? '↩︎ Abonnement fortsetzen' : '↩︎ Resume subscription'}
                   </button>
@@ -1065,55 +1065,55 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                 ) : (
                 <button
                   onClick={() => setView('upgrade')}
-                  className="w-full flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                  className="w-full flex items-center justify-center gap-2 bg-verm hover:bg-ink text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                 >
                   {t.profileUpgrade} {t.proCTA}
                 </button>
               )}
               <button
                 onClick={() => { onLogout(); onClose(); }}
-                className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {t.profileSignOut}
               </button>
             </div>
 
             {/* Onboarding & hints */}
-            <div className="bg-gray-50 rounded-xl p-3 border border-gray-200 text-xs text-gray-700 space-y-2">
+            <div className="bg-stone-50 rounded-xl p-3 border border-stone-200 text-xs text-stone-700 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-bold">{lang === 'de' ? 'Tutorial-Hinweise' : 'Onboarding hints'}</span>
                 <button
                   onClick={onToggleHints}
-                  className={`px-2 py-0.5 rounded-full font-black text-[10px] ${hintsOn ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-200 text-gray-500'}`}
+                  className={`px-2 py-0.5 rounded-full font-display font-semibold text-[10px] ${hintsOn ? 'bg-matchaSoft text-verm' : 'bg-stone-200 text-stone-500'}`}
                 >
                   {hintsOn ? (lang === 'de' ? 'AN' : 'ON') : (lang === 'de' ? 'AUS' : 'OFF')}
                 </button>
               </div>
               <button
                 onClick={onReplayTutorial}
-                className="w-full py-1.5 text-[11px] font-bold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-100"
+                className="w-full py-1.5 text-[11px] font-bold text-stone-700 bg-card border border-stone-200 rounded-lg hover:bg-stone-100"
               >
                 🎬 {lang === 'de' ? 'Tutorial erneut ansehen' : 'Replay tutorial'}
               </button>
             </div>
 
             {/* Account info */}
-            <div className="text-xs text-gray-600 space-y-1 pt-2 border-t border-gray-100">
+            <div className="text-xs text-stone-600 space-y-1 pt-2 border-t border-stone-100">
               <p><strong>E-Mail:</strong> {user.email}</p>
               <p><strong>{t.profileCreated}:</strong> {new Date(user.created_at).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US')}</p>
             </div>
 
-            <button onClick={onClose} className="w-full bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+            <button onClick={onClose} className="w-full bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-2 rounded-xl text-xs transition-colors">
               {t.proCancel}
             </button>
           </div>
         )}
         {!user && (
           <div className="text-center py-10">
-            <p className="text-gray-600 text-sm mb-4">{lang === 'de' ? 'Melde dich an, um dein Profil, deinen Fortschritt und dein Fehlerheft zu sehen.' : 'Sign in to see your profile, progress, and mistake notebook.'}</p>
+            <p className="text-stone-600 text-sm mb-4">{lang === 'de' ? 'Melde dich an, um dein Profil, deinen Fortschritt und dein Fehlerheft zu sehen.' : 'Sign in to see your profile, progress, and mistake notebook.'}</p>
             <button
               onClick={() => { onClose(); onSignIn(); }}
-              className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2.5 px-6 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+              className="bg-verm hover:bg-ink text-white font-bold py-2.5 px-6 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
             >
               {t.navSignIn}
             </button>
@@ -1124,41 +1124,41 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
         {view === 'upgrade' && (
           <div className="p-6 md:p-8">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-bold text-gray-900">{t.proTitle}</h3>
-                <button onClick={() => setView('profile')} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors">
+                <h3 className="text-lg font-bold text-ink">{t.proTitle}</h3>
+                <button onClick={() => setView('profile')} className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors">
                   <IconX className="w-5 h-5" />
                 </button>
               </div>
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <button
                   onClick={() => setSelectedPlan('monthly')}
-                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'monthly' ? 'border-matcha bg-matchaSoft' : 'border-stone-200'}`}
                 >
-                  <div className="text-xs text-gray-500">{t.profileMonthly}</div>
-                  <div className="text-xl font-black text-gray-900">$4.99</div>
-                  <div className="text-xs text-gray-600">{t.profilePerMonth}</div>
+                  <div className="text-xs text-stone-500">{t.profileMonthly}</div>
+                  <div className="text-xl font-display font-semibold text-ink">$4.99</div>
+                  <div className="text-xs text-stone-600">{t.profilePerMonth}</div>
                 </button>
                 <button
                   onClick={() => setSelectedPlan('yearly')}
-                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200'}`}
+                  className={`p-3 rounded-xl border-2 text-center transition-all ${selectedPlan === 'yearly' ? 'border-matcha bg-matchaSoft' : 'border-stone-200'}`}
                 >
-                  <div className="text-xs text-gray-500">{t.profileYearly}</div>
-                  <div className="text-xl font-black text-gray-900">$29.99</div>
-                  <div className="text-xs text-emerald-800 font-bold">{t.profileSave50}</div>
+                  <div className="text-xs text-stone-500">{t.profileYearly}</div>
+                  <div className="text-xl font-display font-semibold text-ink">$29.99</div>
+                  <div className="text-xs text-verm font-bold">{t.profileSave50}</div>
                 </button>
               </div>
               <button
                 onClick={handleUpgrade}
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 bg-verm hover:bg-ink text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
               >
                 {loading ? t.profileRedirecting : t.proCTA}
               </button>
               {/* 3-day free trial — no card required */}
-              <div className="my-3 flex items-center gap-2 text-gray-400 text-xs">
-                <div className="flex-1 h-px bg-gray-200"></div>
+              <div className="my-3 flex items-center gap-2 text-stone-400 text-xs">
+                <div className="flex-1 h-px bg-stone-200"></div>
                 {lang === 'de' ? 'oder' : 'or'}
-                <div className="flex-1 h-px bg-gray-200"></div>
+                <div className="flex-1 h-px bg-stone-200"></div>
               </div>
               <button
                 onClick={async () => {
@@ -1169,12 +1169,12 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                   else alert(r.error);
                 }}
                 disabled={trialLoading}
-                className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 bg-aki hover:bg-aki text-white font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm disabled:opacity-50"
               >
                 {trialLoading ? '…' : (lang === 'de' ? '🎁 3 Tage Pro kostenlos testen — keine Karte' : '🎁 Try Pro free for 3 days — no card')}
               </button>
-              <div className="text-center text-xs text-gray-600 mt-2">{t.proPrice}</div>
-              <button onClick={() => setView('profile')} className="w-full mt-3 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-xs transition-colors">
+              <div className="text-center text-xs text-stone-600 mt-2">{t.proPrice}</div>
+              <button onClick={() => setView('profile')} className="w-full mt-3 bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-2 rounded-xl text-xs transition-colors">
                 {t.profileBackToProfile}
               </button>
           </div>
@@ -1222,38 +1222,38 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
   if (getConsent()) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-[200] bg-gray-900 text-white p-4 shadow-2xl">
+    <div className="fixed bottom-0 inset-x-0 z-[200] bg-ink text-white p-4 shadow-2xl">
       <div className="max-w-4xl mx-auto">
         {!showSettings ? (
           <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
-            <div className="flex-1 text-sm text-gray-200">
+            <div className="flex-1 text-sm text-stone-200">
               <span className="font-bold">🍪 Cookies & Privacy</span>
-              <span className="ml-2 text-gray-400">We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our <button onClick={onOpenPrivacy} className="underline text-emerald-400 hover:text-emerald-300">Privacy Policy</button>.</span>
+              <span className="ml-2 text-stone-400">We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our <button onClick={onOpenPrivacy} className="underline text-matcha hover:text-matcha">Privacy Policy</button>.</span>
             </div>
             <div className="flex gap-2 shrink-0">
-              <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Reject</button>
-              <button onClick={() => setShowSettings(true)} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Settings</button>
-              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-emerald-800 hover:bg-emerald-900 rounded-lg transition-colors">Accept all</button>
+              <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Reject</button>
+              <button onClick={() => setShowSettings(true)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Settings</button>
+              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">Accept all</button>
             </div>
           </div>
         ) : (
           <div className="space-y-3">
             <h3 className="font-bold text-sm">Cookie Settings</h3>
             <label className="flex items-center gap-3 text-sm">
-              <input type="checkbox" checked disabled className="accent-emerald-500" />
-              <span className="text-gray-300">Essential (required for the app to function)</span>
+              <input type="checkbox" checked disabled className="accent-matcha" />
+              <span className="text-stone-300">Essential (required for the app to function)</span>
             </label>
             <label className="flex items-center gap-3 text-sm">
-              <input type="checkbox" checked={advertising} onChange={e => setAdvertising(e.target.checked)} className="accent-emerald-500" />
-              <span className="text-gray-300">Advertising (Google AdSense — personalized ads)</span>
+              <input type="checkbox" checked={advertising} onChange={e => setAdvertising(e.target.checked)} className="accent-matcha" />
+              <span className="text-stone-300">Advertising (Google AdSense — personalized ads)</span>
             </label>
             <label className="flex items-center gap-3 text-sm">
-              <input type="checkbox" checked={affiliate} onChange={e => setAffiliate(e.target.checked)} className="accent-emerald-500" />
-              <span className="text-gray-300">Affiliate tracking (Amazon, JapanesePod101, Genki, etc.)</span>
+              <input type="checkbox" checked={affiliate} onChange={e => setAffiliate(e.target.checked)} className="accent-matcha" />
+              <span className="text-stone-300">Affiliate tracking (Amazon, JapanesePod101, Genki, etc.)</span>
             </label>
             <div className="flex gap-2">
-              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-emerald-800 hover:bg-emerald-900 rounded-lg transition-colors">Save settings</button>
-              <button onClick={() => setShowSettings(false)} className="px-4 py-2 text-xs font-bold bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">Back</button>
+              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">Save settings</button>
+              <button onClick={() => setShowSettings(false)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Back</button>
             </div>
           </div>
         )}
@@ -1266,15 +1266,15 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
 const LegalModal = ({ show, onClose, title, children }: { show: boolean; onClose: () => void; title: string; children: React.ReactNode }) => {
   if (!show) return null;
   return (
-    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={onClose}>
-      <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 border border-gray-100" onClick={e => e.stopPropagation()}>
-        <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-3 sticky top-0 bg-white">
-          <h2 className="text-xl font-bold text-gray-900">{title}</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors shrink-0">
+    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm" onClick={onClose}>
+      <div className="bg-card rounded-3xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 border border-stone-100" onClick={e => e.stopPropagation()}>
+        <div className="flex justify-between items-center mb-4 border-b border-stone-100 pb-3 sticky top-0 bg-card">
+          <h2 className="text-xl font-bold text-ink">{title}</h2>
+          <button onClick={onClose} className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors shrink-0">
             <IconX className="w-5 h-5" />
           </button>
         </div>
-        <div className="text-sm text-gray-600 leading-relaxed space-y-4">
+        <div className="text-sm text-stone-600 leading-relaxed space-y-4">
           {children}
         </div>
       </div>
@@ -1285,7 +1285,7 @@ const LegalModal = ({ show, onClose, title, children }: { show: boolean; onClose
 // Impressum (§5 DDG — required for German-based operators)
 const ImpressumContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">Angaben gemäß §§ 5, 6 DDG (Digitale-Dienste-Gesetz)</h3>
+    <h3 className="font-bold text-ink text-base">Angaben gemäß §§ 5, 6 DDG (Digitale-Dienste-Gesetz)</h3>
     <div className="space-y-3">
       <div>
         <p><strong>Diensteanbieter:</strong></p>
@@ -1309,7 +1309,7 @@ const ImpressumContent = () => (
       </div>
       <div>
         <p><strong>Streitschlichtung:</strong></p>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-verm underline">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </div>
       <div>
         <p><strong>Haftung für Inhalte:</strong></p>
@@ -1326,7 +1326,7 @@ const ImpressumContent = () => (
       <div>
         <p><strong>Werbung &amp; Affiliate-Links:</strong></p>
         <p>Diese Website enthält werbliche Affiliate-Links. Über diese Links kann der Betreiber eine Provision erhalten — für die Nutzer entstehen keine Mehrkosten. Partner: Genki UG (haftungsbeschränkt), Siegburger Str. 231, 50679 Köln (Versicherungsvermittlung — Genki Traveler / Genki Native, genki.world); Amazon Associates (DE/USA); Innovative Language Learning (JPod101). Die Links sind als Werbung gekennzeichnet (rel="sponsored").</p>
-        <p className="text-xs text-gray-600">(EN) Advertising &amp; affiliate links: This website contains affiliate links. The operator may earn a commission on bookings made via these links — at no extra cost to the user. Partners: Genki UG (haftungsbeschränkt), Siegburger Str. 231, 50679 Cologne, Germany (insurance brokerage — Genki Traveler / Genki Native, genki.world); Amazon Associates (DE/USA); Innovative Language Learning (JPod101). Links are marked as advertising (rel="sponsored").</p>
+        <p className="text-xs text-stone-600">(EN) Advertising &amp; affiliate links: This website contains affiliate links. The operator may earn a commission on bookings made via these links — at no extra cost to the user. Partners: Genki UG (haftungsbeschränkt), Siegburger Str. 231, 50679 Cologne, Germany (insurance brokerage — Genki Traveler / Genki Native, genki.world); Amazon Associates (DE/USA); Innovative Language Learning (JPod101). Links are marked as advertising (rel="sponsored").</p>
       </div>
     </div>
   </>
@@ -1336,18 +1336,18 @@ const ImpressumContent = () => (
 // Datenschutzerklärung (DSGVO/GDPR + TTDSG — vollständig, Befunde F-03 bis F-08, F-13, F-14, F-15, F-17, F-18 behoben)
 const PrivacyPolicyContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">Datenschutzerklärung</h3>
-    <p className="text-xs text-gray-600">Zuletzt aktualisiert: 7. Oktober 2026</p>
+    <h3 className="font-bold text-ink text-base">Datenschutzerklärung</h3>
+    <p className="text-xs text-stone-600">Zuletzt aktualisiert: 7. Oktober 2026</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">1. Verantwortlicher</h3>
+    <h3 className="font-bold text-ink text-base mt-4">1. Verantwortlicher</h3>
     <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Datenverarbeitung auf dieser Website:</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>Sebastian Thomas</strong><br/>Maubacher Str. 17<br/>71522 Backnang<br/>Germany<br/>E-Mail: createdby.jp@gmail.com</p>
+    <p className="mt-2 bg-stone-50 p-3 rounded-lg"><strong>Sebastian Thomas</strong><br/>Maubacher Str. 17<br/>71522 Backnang<br/>Germany<br/>E-Mail: createdby.jp@gmail.com</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">2. Verarbeitungszwecke und Rechtsgrundlagen</h3>
+    <h3 className="font-bold text-ink text-base mt-4">2. Verarbeitungszwecke und Rechtsgrundlagen</h3>
     <p>Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:</p>
     <div className="overflow-x-auto mt-2">
-      <table className="w-full text-xs border border-gray-200">
-        <thead className="bg-gray-50">
+      <table className="w-full text-xs border border-stone-200">
+        <thead className="bg-stone-50">
           <tr>
             <th className="px-3 py-2 text-left font-semibold border-b">Zweck</th>
             <th className="px-3 py-2 text-left font-semibold border-b">Daten</th>
@@ -1408,14 +1408,14 @@ const PrivacyPolicyContent = () => (
       </table>
     </div>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">3. Cookies (§ 25 Abs. 1 TTDSG)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">3. Cookies (§ 25 Abs. 1 TTDSG)</h3>
     <p>Wir verwenden nur <strong>essentielle Cookies</strong> (Consent-Banner-Einstellung, Session-Token). Diese sind technisch erforderlich. Weitere Cookies werden <strong>nach Ihrer ausdrücklichen Einwilligung</strong> gesetzt (§ 25 Abs. 1 TTDSG). Sie können Ihre Einwilligung jederzeit widerrufen über „Cookie-Einstellungen" im Footer. Ohne Einwilligung werden keine Werbe- oder Tracking-Cookies gesetzt.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">4. Datenweitergabe an Dritte (Art. 6 Abs. 1, Art. 28 DSGVO)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">4. Datenweitergabe an Dritte (Art. 6 Abs. 1, Art. 28 DSGVO)</h3>
     <p>Wir geben personenbezogene Daten an folgende Auftragsverarbeiter und Dritte weiter:</p>
     <div className="overflow-x-auto mt-2">
-      <table className="w-full text-xs border border-gray-200">
-        <thead className="bg-gray-50">
+      <table className="w-full text-xs border border-stone-200">
+        <thead className="bg-stone-50">
           <tr>
             <th className="px-3 py-2 text-left font-semibold border-b">Anbieter</th>
             <th className="px-3 py-2 text-left font-semibold border-b">Kategorie</th>
@@ -1477,12 +1477,12 @@ const PrivacyPolicyContent = () => (
         </tbody>
       </table>
     </div>
-    <p className="mt-2 text-xs text-gray-500">Eine Datenübertragung in Drittländer (USA, Japan) erfolgt auf Grundlage des EU-US Data Privacy Framework (DPF) bzw. von Standardvertragsklauseln (SCC) gemäß Art. 46 DSGVO. Alle genannten Anbieter bieten angemessene Garantien für den Schutz Ihrer Daten.</p>
+    <p className="mt-2 text-xs text-stone-500">Eine Datenübertragung in Drittländer (USA, Japan) erfolgt auf Grundlage des EU-US Data Privacy Framework (DPF) bzw. von Standardvertragsklauseln (SCC) gemäß Art. 46 DSGVO. Alle genannten Anbieter bieten angemessene Garantien für den Schutz Ihrer Daten.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">5. Server-Standort</h3>
+    <h3 className="font-bold text-ink text-base mt-4">5. Server-Standort</h3>
     <p>Unsere Server stehen in der EU (Cloudflare, West-Europa Region „WEUR"). Nutzerdaten werden in einer Cloudflare D1 Datenbank in der EU gespeichert. Es findet keine Übertragung in Drittländer ohne angemessene Garantien statt.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">6. Ihre Rechte (Art. 15–21 DSGVO)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">6. Ihre Rechte (Art. 15–21 DSGVO)</h3>
     <p>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
     <ul className="list-disc pl-5 space-y-1">
       <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) — Sie können Auskunft über die von uns verarbeiteten Daten verlangen.</li>
@@ -1495,7 +1495,7 @@ const PrivacyPolicyContent = () => (
     </ul>
     <p className="mt-2">Zur Ausübung dieser Rechte senden Sie eine E-Mail an <strong>createdby.jp@gmail.com</strong> oder schreiben Sie an: Sebastian Thomas, Maubacher Str. 17, 71522 Backnang. Wir antworten innerhalb von 30 Tagen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">7. Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">7. Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
     <p>Sie können Ihre Einwilligung zur Cookie-Nutzung jederzeit widerrufen:</p>
     <ul className="list-disc pl-5 space-y-1">
       <li>Klicken Sie auf „Cookie-Einstellungen" im Footer der Website, oder</li>
@@ -1503,57 +1503,57 @@ const PrivacyPolicyContent = () => (
     </ul>
     <p>Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt (Art. 7 Abs. 3 Satz 3 DSGVO).</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">8. Speicherdauer</h3>
+    <h3 className="font-bold text-ink text-base mt-4">8. Speicherdauer</h3>
     <p>Die Speicherdauer richtet sich nach dem jeweiligen Verarbeitungszweck (siehe Tabelle in Abschnitt 2). Nach Wegfall des Zwecks bzw. Ablauf der Speicherdauer werden die Daten gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Kontodaten und Testergebnisse werden bis zur Kontolöschung gespeichert. Sie können die Löschung jederzeit über die Kontoeinstellungen oder per E-Mail beantragen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">9. Keine Datenschutzbeauftragten erforderlich</h3>
+    <h3 className="font-bold text-ink text-base mt-4">9. Keine Datenschutzbeauftragten erforderlich</h3>
     <p>Da wir <strong>keine umfangreiche automatisierte Verarbeitung</strong> betreiben und weniger als 20 Personen regelmäßig mit der Verarbeitung befasst sind, ist die Benennung eines Datenschutzbeauftragten gemäß Art. 37 DSGVO nicht erforderlich.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">10. Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">10. Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO)</h3>
     <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Aufsichtsbehörde des Bundeslandes, in dem Sie wohnen, oder:</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg">Der Baden-Württembergische Datenschutzbeauftragte<br/>Lakhmir Singh, Postfach 10 29 32, 70018 Stuttgart<br/>Tel: +49 711 66991-0<br/>E-Mail: poststelle@lfd.baden-wuerttemberg.de</p>
+    <p className="mt-2 bg-stone-50 p-3 rounded-lg">Der Baden-Württembergische Datenschutzbeauftragte<br/>Lakhmir Singh, Postfach 10 29 32, 70018 Stuttgart<br/>Tel: +49 711 66991-0<br/>E-Mail: poststelle@lfd.baden-wuerttemberg.de</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">11. Datensicherheit</h3>
+    <h3 className="font-bold text-ink text-base mt-4">11. Datensicherheit</h3>
     <p>Wir treffen folgende technische und organisatorische Maßnahmen (Art. 32 DSGVO): TLS/HTTPS-Verschlüsselung für alle Verbindungen, Passwörter werden mit PBKDF2 (100.000 Iterationen, SHA-256) gehasht, JWT-Tokens mit HTTP-Only Secure Cookies, Rate-Limiting gegen Brute-Force-Angriffe, D1-Datenbank in EU-Rechenzentren.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">12. Änderungen</h3>
+    <h3 className="font-bold text-ink text-base mt-4">12. Änderungen</h3>
     <p>Wir können diese Datenschutzerklärung aktualisieren. Das „Zuletzt aktualisiert"-Datum oben zeigt die letzte Änderung. Änderungen werden auf dieser Seite veröffentlicht.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">13. Kontakt für Datenschutzanfragen</h3>
+    <h3 className="font-bold text-ink text-base mt-4">13. Kontakt für Datenschutzanfragen</h3>
     <p>Für Datenschutzanfragen (Auskunft, Löschung, Berichtigung usw.):</p>
-    <p className="mt-2 bg-gray-50 p-3 rounded-lg"><strong>E-Mail:</strong> createdby.jp@gmail.com<br/><strong>Post:</strong> Sebastian Thomas, Maubacher Str. 17, 71522 Backnang</p>
+    <p className="mt-2 bg-stone-50 p-3 rounded-lg"><strong>E-Mail:</strong> createdby.jp@gmail.com<br/><strong>Post:</strong> Sebastian Thomas, Maubacher Str. 17, 71522 Backnang</p>
   </>
 );
 
 // Terms of Service content (German law compliant)
 const TermsContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">Allgemeine Geschäftsbedingungen (AGB)</h3>
+    <h3 className="font-bold text-ink text-base">Allgemeine Geschäftsbedingungen (AGB)</h3>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">1. Geltungsbereich</h3>
+    <h3 className="font-bold text-ink text-base mt-4">1. Geltungsbereich</h3>
     <p>Diese AGB gelten für die Nutzung von JLPT Test Hub (jlpttesthub.com). Durch die Nutzung stimmen Sie diesen Bedingungen zu.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">2. Leistungsbeschreibung</h3>
+    <h3 className="font-bold text-ink text-base mt-4">2. Leistungsbeschreibung</h3>
     <p>JLPT Test Hub bietet kostenlose JLPT-Übungstests für die Level N5, N4 und N3 mit offiziellen Prüfungsfragen, einem interaktiven Furigana-Wörterbuch und zeitgesteuerten Simulationen.</p>
     <p><strong>Kostenlose Version:</strong> Lernmodus (10 Fragen pro Test), Furigana-Wörterbuch, 1 kostenloses Real-Test-Trial. Keine Registrierung erforderlich.</p>
     <p><strong>Pro-Abonnement:</strong> $4.99/Monat oder $29.99/Jahr über Stripe. Enthält: Unbegrenzte Real-Tests, volle 30 Fragen pro Test, werbefrei, Test-Verlauf.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">3. Widerrufsrecht (§ 355 BGB)</h3>
+    <h3 className="font-bold text-ink text-base mt-4">3. Widerrufsrecht (§ 355 BGB)</h3>
     <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung kontaktieren Sie uns unter createdby.jp@gmail.com. Das Widerrufsrecht erlischt vorzeitig, wenn Sie die Pro-Funktionen während der Widerrufsfrist vollständig nutzen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">4. Kündigung</h3>
+    <h3 className="font-bold text-ink text-base mt-4">4. Kündigung</h3>
     <p>Pro-Abonnements können jederzeit gekündigt werden. Die Kündigung wird am Ende der Abrechnungsperiode wirksam. Die Nutzung der kostenlosen Version ist davon nicht betroffen.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">5. Gewährleistung</h3>
+    <h3 className="font-bold text-ink text-base mt-4">5. Gewährleistung</h3>
     <p>Dieser Dienst wird "wie besehen" ohne Gewährleistung bereitgestellt. Wir übernehmen keine Haftung für die Richtigkeit der Prüfungsergebnisse oder für Serverausfälle.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">6. Haftungsausschluss</h3>
+    <h3 className="font-bold text-ink text-base mt-4">6. Haftungsausschluss</h3>
     <p>Dies ist ein inoffizielles Übungstool und steht in keiner Verbindung mit der Japan Foundation oder JEES. Übungsergebnisse garantieren keine tatsächlichen JLPT-Prüfungsergebnisse.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">7. Urheberrecht</h3>
+    <h3 className="font-bold text-ink text-base mt-4">7. Urheberrecht</h3>
     <p>JLPT-Fragen stammen aus dem offiziellen JLPT Practice Workbook der Japan Foundation und JEES. Die App-Oberfläche und der Code sind unser geistiges Eigentum.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">8. Anwendbares Recht</h3>
+    <h3 className="font-bold text-ink text-base mt-4">8. Anwendbares Recht</h3>
     <p>Es gilt deutsches Recht. Gerichtsstand ist Backnang, soweit gesetzlich zulässig.</p>
   </>
 );
@@ -1561,7 +1561,7 @@ const TermsContent = () => (
 // Seller disclosure (for both Germany and future Japan)
 const SellerDisclosureContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">Anbieterkennzeichnung</h3>
+    <h3 className="font-bold text-ink text-base">Anbieterkennzeichnung</h3>
     <div className="space-y-3">
       <p><strong>Anbieter:</strong> Sebastian Thomas</p>
       <p><strong>Adresse:</strong> Maubacher Str. 17, 71522 Backnang, Germany</p>
@@ -1572,7 +1572,7 @@ const SellerDisclosureContent = () => (
       <p><strong>Widerruf:</strong> 14 Tage (siehe AGB)</p>
       <p><strong>Gerichtsstand:</strong> Backnang, Germany</p>
     </div>
-    <p className="text-xs text-gray-600 mt-4 italic">※ Nach Umzug nach Japan: 特定商取引法表示 hinzufügen mit japanischer Adresse.</p>
+    <p className="text-xs text-stone-600 mt-4 italic">※ Nach Umzug nach Japan: 特定商取引法表示 hinzufügen mit japanischer Adresse.</p>
   </>
 );
 
@@ -1580,23 +1580,23 @@ const SellerDisclosureContent = () => (
 // Barrierefreiheitserklärung (BGG / WCAG 2.2 AA — F-01, F-02 behoben)
 const AccessibilityContent = () => (
   <>
-    <h3 className="font-bold text-gray-800 text-base">Barrierefreiheitserklärung</h3>
-    <p className="text-xs text-gray-600">Stand: 7. Oktober 2026</p>
+    <h3 className="font-bold text-ink text-base">Barrierefreiheitserklärung</h3>
+    <p className="text-xs text-stone-600">Stand: 7. Oktober 2026</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">1. Einleitung</h3>
+    <h3 className="font-bold text-ink text-base mt-4">1. Einleitung</h3>
     <p>JLPT Test Hub ist bestrebt, seine Website gemäß der Richtlinie (EU) 2016/2102 und den Behindertengleichstellungsgesetzen (BGG) barrierefrei zu gestalten. Diese Erklärung gilt für jlpttesthub.com.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">2. Konformitätsstatus</h3>
+    <h3 className="font-bold text-ink text-base mt-4">2. Konformitätsstatus</h3>
     <p>Diese Website ist <strong>teilweise konform</strong> mit WCAG 2.2 Level AA. Das bedeutet, dass die meisten Inhalte den Standards entsprechen, aber es gibt noch einige Bereiche, die verbessert werden müssen (siehe unten).</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">3. Nicht barrierefreie Inhalte</h3>
+    <h3 className="font-bold text-ink text-base mt-4">3. Nicht barrierefreie Inhalte</h3>
     <p>Folgende Inhalte sind aufgrund der Unverhältnismäßigkeit nach Art. 5 Abs. 3 BGG derzeit nicht vollständig barrierefrei:</p>
     <ul className="list-disc pl-5 space-y-1">
       <li>Einige Textelemente haben unzureichenden Farbkontrast (WCAG 1.4.3 — Mindestkontrast 4.5:1). Wir arbeiten daran, die Kontrastverhältnisse in allen UI-Elementen zu verbessern.</li>
       <li>Japanische Schriftzeichen (Kanji) mit Furigana-Anzeige nutzen HTML-<code>&lt;ruby&gt;</code>-Elemente, die von einigen Screenreadern möglicherweise nicht optimal vorgelesen werden.</li>
     </ul>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">4. Umgesetzte Maßnahmen</h3>
+    <h3 className="font-bold text-ink text-base mt-4">4. Umgesetzte Maßnahmen</h3>
     <ul className="list-disc pl-5 space-y-1">
       <li>Responsive Design, das sich an verschiedene Bildschirmgrößen anpasst</li>
       <li>Verwendung von semantischem HTML (header, main, footer, nav, article)</li>
@@ -1608,11 +1608,11 @@ const AccessibilityContent = () => (
       <li>Fokus-Indikatoren auf interaktiven Elementen (focus:ring-2)</li>
     </ul>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">5. Feedback-Mechanismus</h3>
+    <h3 className="font-bold text-ink text-base mt-4">5. Feedback-Mechanismus</h3>
     <p>Sie können uns auf Barrieren auf dieser Website melden — per E-Mail oder über unser Kontaktformular:</p>
-    <div className="mt-2 bg-gray-50 p-4 rounded-lg space-y-2">
+    <div className="mt-2 bg-stone-50 p-4 rounded-lg space-y-2">
       <p>
-        <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung auf jlpttesthub.com" className="text-emerald-800 underline font-bold hover:text-emerald-800">
+        <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung auf jlpttesthub.com" className="text-verm underline font-bold hover:text-verm">
           createdby.jp@gmail.com
         </a>
         {' '}— Klicken Sie hier, um direkt eine E-Mail zu öffnen
@@ -1621,35 +1621,35 @@ const AccessibilityContent = () => (
     </div>
     <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von Sebastian Thomas bearbeitet.</p>
 
-    <h3 className="font-bold text-gray-800 text-base mt-4">6. Erstellt am / Überprüft am</h3>
+    <h3 className="font-bold text-ink text-base mt-4">6. Erstellt am / Überprüft am</h3>
     <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 7. Oktober 2026 überprüft.</p>
   </>
 );
 
 // Footer with legal links — WCAG 2.5.8 target size: min 24×24px hit area
 const Footer = ({ onPrivacy, onTerms, onSeller, onCookies, onImpressum, onAccessibility, lang }: { onPrivacy: () => void; onTerms: () => void; onSeller: () => void; onCookies: () => void; onImpressum: () => void; onAccessibility: () => void; lang: string }) => {
-  const footerLink = "inline-flex items-center min-h-[24px] px-1 hover:text-emerald-400 transition-colors";
+  const footerLink = "inline-flex items-center min-h-[24px] px-1 hover:text-matcha transition-colors";
   return (
-    <footer className="bg-gray-900 text-gray-400 py-6 px-4 mt-8 shrink-0">
+    <footer className="bg-ink text-stone-400 py-6 px-4 mt-8 shrink-0">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-xs">
           <a href="#impressum" onClick={(e) => { e.preventDefault(); onImpressum(); }} className={footerLink + " font-bold"}>Impressum</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <a href="#datenschutz" onClick={(e) => { e.preventDefault(); onPrivacy(); }} className={footerLink}>Datenschutz</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <a href="#agb" onClick={(e) => { e.preventDefault(); onTerms(); }} className={footerLink}>AGB — Terms &amp; Conditions</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <a href="#anbieterkennzeichnung" onClick={(e) => { e.preventDefault(); onSeller(); }} className={footerLink}>Anbieterkennzeichnung</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <a href="#barrierefreiheit" onClick={(e) => { e.preventDefault(); onAccessibility(); }} className={footerLink}>Barrierefreiheit</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <a href={lang === 'de' ? '/blog/de/' : '/blog/'} className={footerLink}>Blog</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
-          <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung" className={footerLink + " text-emerald-400"}>Barrierefreiheit melden</a>
-          <span className="text-gray-600 px-0.5 self-center">·</span>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
+          <a href="mailto:createdby.jp@gmail.com?subject=Barrierefreiheit: Meldung" className={footerLink + " text-matcha"}>Barrierefreiheit melden</a>
+          <span className="text-stone-600 px-0.5 self-center">·</span>
           <button onClick={onCookies} className={footerLink}>Cookie-Einstellungen</button>
         </div>
-        <p className="text-xs text-gray-600 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
+        <p className="text-xs text-stone-600 mt-3">© {new Date().getFullYear()} JLPT Test Hub. Not affiliated with the Japan Foundation or JEES. JLPT is a registered trademark.</p>
       </div>
     </footer>
   );
@@ -1676,12 +1676,12 @@ const renderFurigana = (text: string, onKanjiClick?: (kanji: string, furigana: s
               onKanjiClick(kanji, furigana);
             }
           }}
-          className={`inline-block align-bottom ${onKanjiClick ? 'cursor-pointer hover:bg-emerald-100 rounded px-0.5 transition-colors' : ''}`}
+          className={`inline-block align-bottom ${onKanjiClick ? 'cursor-pointer hover:bg-matchaSoft rounded px-0.5 transition-colors' : ''}`}
           title={onKanjiClick ? "Click for meaning" : ""}
         >
           <ruby>
             {kanji}
-            {showFurigana && <rt className="text-[0.6em] text-emerald-800 font-normal select-none leading-none">{furigana}</rt>}
+            {showFurigana && <rt className="text-[0.6em] text-verm font-normal select-none leading-none">{furigana}</rt>}
           </ruby>
         </span>
       );
@@ -1709,19 +1709,19 @@ const MAINTENANCE_MODE = false;
 export default function App() {
   if (MAINTENANCE_MODE) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
-          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-emerald-800 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+      <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4 font-sans">
+        <div className="max-w-md w-full bg-card rounded-2xl shadow-xl p-8 text-center">
+          <div className="w-16 h-16 bg-matchaSoft rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-verm animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
-          <h1 className="text-2xl font-black text-gray-900 mb-3">Under Maintenance</h1>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          <h1 className="text-2xl font-display font-semibold text-ink mb-3">Under Maintenance</h1>
+          <p className="text-stone-600 text-sm leading-relaxed mb-6">
             JLPT Test Hub is currently undergoing maintenance to bring you a better experience.
             We'll be back shortly!
           </p>
-          <p className="text-gray-600 text-xs">— The JLPT Test Hub Team</p>
+          <p className="text-stone-600 text-xs">— The JLPT Test Hub Team</p>
         </div>
       </div>
     );
@@ -2229,19 +2229,19 @@ export default function App() {
     const kunyomi = entry?.kunyomi || fallback?.kunyomi || '';
     const jlpt = entry?.jlpt || fallback?.jlpt || '';
     const hasReadings = onyomi || kunyomi;
-    const jlptColor = jlpt === 'N5' ? 'bg-emerald-100 text-emerald-700' : jlpt === 'N4' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700';
+    const jlptColor = jlpt === 'N5' ? 'bg-matchaSoft text-vermDeep' : jlpt === 'N4' ? 'bg-indigoSoft text-indigo' : 'bg-akiSoft text-aki';
 
     // Helper: render a single reading with 🔊 button
     const ReadingRow = ({ label, reading, bg }: { reading: string; bg: string; label: string }) => {
       if (!reading) return null;
       return (
         <div className={`flex items-center gap-2 rounded-lg px-3 py-2 ${bg}`}>
-          <span className="text-xs font-bold text-gray-600 uppercase tracking-wider shrink-0 w-20">{label}</span>
-          <span className="font-bold text-gray-800 text-sm flex-1">{reading}</span>
+          <span className="text-xs font-bold text-stone-600 uppercase tracking-wider shrink-0 w-20">{label}</span>
+          <span className="font-bold text-ink text-sm flex-1">{reading}</span>
           {ttsSupported() && (
             <button
               onClick={() => speak(reading, ttsRate)}
-              className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-50 text-gray-600 border border-gray-200 transition-colors text-sm shrink-0"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-card hover:bg-stone-50 text-stone-600 border border-stone-200 transition-colors text-sm shrink-0"
               title={lang === 'de' ? `${label} anhören` : `Listen to ${label}`}
               aria-label={lang === 'de' ? `${label} anhören` : `Listen to ${label}`}
             >
@@ -2254,22 +2254,22 @@ export default function App() {
 
     return (
       <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
+        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm`}
         onClick={() => setSelectedKanjiInfo(null)}
       >
         <div
-          className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200"
+          className="bg-card rounded-3xl shadow-2xl max-w-sm w-full p-6 md:p-8 border border-stone-100 animate-in fade-in zoom-in-95 duration-200"
           onClick={e => e.stopPropagation()}
         >
           {/* Header: kanji + furigana + TTS + badge + close */}
-          <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
+          <div className="flex justify-between items-start mb-6 border-b border-stone-100 pb-4">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-emerald-800 font-bold tracking-widest text-sm">{selectedKanjiInfo.furigana}</span>
+                <span className="text-verm font-bold tracking-widest text-sm">{selectedKanjiInfo.furigana}</span>
                 {ttsSupported() && (
                   <button
                     onClick={() => speak(selectedKanjiInfo.furigana, ttsRate)}
-                    className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors text-sm"
+                    className="w-7 h-7 flex items-center justify-center rounded-full bg-matchaSoft hover:bg-matchaSoft text-verm border border-matcha transition-colors text-sm"
                     title={t.ttsPronounce}
                     aria-label={t.ttsPronounce}
                   >
@@ -2278,7 +2278,7 @@ export default function App() {
                 )}
               </div>
               <div className="flex items-center gap-2">
-                <h3 className="text-5xl md:text-6xl font-black text-gray-900 leading-none">{selectedKanjiInfo.kanji}</h3>
+                <h3 className="text-5xl md:text-6xl font-display font-semibold text-ink leading-none">{selectedKanjiInfo.kanji}</h3>
                 {jlpt && (
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${jlptColor}`}>{jlpt}</span>
                 )}
@@ -2286,7 +2286,7 @@ export default function App() {
             </div>
             <button
               onClick={() => setSelectedKanjiInfo(null)}
-              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors"
+              className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors"
             >
               <IconX className="w-5 h-5" />
             </button>
@@ -2295,8 +2295,8 @@ export default function App() {
           <div className="space-y-5">
             {/* Meaning */}
             <div>
-              <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.meaning}</h4>
-              <p className="text-xl md:text-2xl font-bold text-gray-800">
+              <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">{t.meaning}</h4>
+              <p className="text-xl md:text-2xl font-bold text-ink">
                 {selectedKanjiInfo.meaning ? selectedKanjiInfo.meaning[lang] : t.unknown}
               </p>
             </div>
@@ -2304,11 +2304,11 @@ export default function App() {
             {/* Readings (On'yomi / Kun'yomi) — only for single kanji */}
             {hasReadings && (
               <div>
-                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">
+                <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">
                   {lang === 'de' ? 'Lesungen' : 'Readings'}
                 </h4>
                 <div className="space-y-1.5">
-                  <ReadingRow reading={onyomi} bg="bg-indigo-50" label="音 On" />
+                  <ReadingRow reading={onyomi} bg="bg-indigoSoft" label="音 On" />
                   <ReadingRow reading={kunyomi} bg="bg-green-50" label="訓 Kun" />
                 </div>
               </div>
@@ -2317,8 +2317,8 @@ export default function App() {
             {/* Context description */}
             {selectedKanjiInfo.desc && selectedKanjiInfo.desc[lang] && (
               <div>
-                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">{t.context}</h4>
-                <p className="text-gray-600 leading-relaxed text-sm bg-gray-50 p-4 rounded-xl">
+                <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">{t.context}</h4>
+                <p className="text-stone-600 leading-relaxed text-sm bg-stone-50 p-4 rounded-xl">
                   {selectedKanjiInfo.desc[lang]}
                 </p>
               </div>
@@ -2326,7 +2326,7 @@ export default function App() {
 
             {/* Fallback: not in dictionary note */}
             {!entry && (
-              <p className="text-[10px] text-gray-400 italic text-center">
+              <p className="text-[10px] text-stone-400 italic text-center">
                 {lang === 'de' ? 'Nicht im Wörterbuch — Lesungen als Referenz angezeigt' : 'Not in dictionary — readings shown as reference'}
               </p>
             )}
@@ -2340,41 +2340,41 @@ export default function App() {
     if (!showSupportModal) return null;
     return (
       <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm`}
+        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm`}
         onClick={() => setShowSupportModal(false)}
       >
         <div
-          className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-gray-100 animate-in fade-in zoom-in-95 duration-200"
+          className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 border border-stone-100 animate-in fade-in zoom-in-95 duration-200"
           onClick={e => e.stopPropagation()}
         >
-          <div className="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
+          <div className="flex justify-between items-start mb-4 border-b border-stone-100 pb-3">
             <div className="flex items-center gap-2">
               <div className="bg-pink-100 text-pink-700 p-2 rounded-xl">
                 <IconHeart className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">{t.supportModalTitle}</h3>
+              <h3 className="text-xl font-bold text-ink">{t.supportModalTitle}</h3>
             </div>
             <button
               onClick={() => setShowSupportModal(false)}
-              className="text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-100 rounded-full p-2 transition-colors"
+              className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors"
             >
               <IconX className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">{t.supportModalDesc}</p>
+          <p className="text-stone-600 text-sm leading-relaxed mb-6">{t.supportModalDesc}</p>
           <div className="space-y-3">
             <a
               href="https://buymeacoffee.com/created.by"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-[#FFDD00] hover:bg-[#f3d300] text-gray-900 font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+              className="w-full flex items-center justify-center gap-2 bg-[#FFDD00] hover:bg-[#f3d300] text-ink font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
             >
               {t.coffeeBtn}
             </a>
           </div>
           <button
             onClick={() => setShowSupportModal(false)}
-            className="w-full mt-4 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors"
+            className="w-full mt-4 bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-2.5 rounded-xl text-xs transition-colors"
           >
             {t.close}
           </button>
@@ -2398,11 +2398,11 @@ export default function App() {
             className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all active:scale-95 ${
               selectedLevel === lvl
                 ? variant === 'dark'
-                  ? 'bg-emerald-800 text-white shadow-sm'
-                  : 'bg-emerald-800 text-white shadow-sm'
+                  ? 'bg-verm text-white shadow-sm'
+                  : 'bg-verm text-white shadow-sm'
                 : variant === 'dark'
-                  ? 'bg-white/10 text-gray-300 hover:bg-white/20'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-card/10 text-stone-300 hover:bg-card/20'
+                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
             }`}
           >
             {lvl}
@@ -2415,7 +2415,7 @@ export default function App() {
   const renderNavControls = (opts?: { compact?: boolean }) => {
     const compact = opts?.compact && isMobile;
     const iconBtn = "flex items-center justify-center rounded-full transition-colors shrink-0 w-10 h-10";
-    const iconBtnColor = "bg-gray-100 hover:bg-emerald-100 hover:text-emerald-800 text-gray-700";
+    const iconBtnColor = "bg-stone-100 hover:bg-matchaSoft hover:text-verm text-stone-700";
     return (
       <nav aria-label="Quick Actions" className={`flex items-center ml-auto ${compact ? 'gap-1.5' : 'gap-2'}`}>
         {gameState !== 'intro' && (
@@ -2447,7 +2447,7 @@ export default function App() {
           onClick={() => { window.location.href = lang === 'de' ? '/blog/de/' : '/blog/'; }}
           title={t.navBlog}
           aria-label={t.navBlog}
-          className={`flex items-center gap-1.5 h-10 px-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition-colors shrink-0 shadow-sm`}
+          className={`flex items-center gap-1.5 h-10 px-3.5 rounded-full bg-verm hover:bg-vermDeep text-white font-bold text-sm transition-colors shrink-0 shadow-sm`}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4 0a2 2 0 00-2 2v10a2 2 0 01-2 2m4 0V9a2 2 0 00-2-2m0 0V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2" />
@@ -2469,7 +2469,7 @@ export default function App() {
           <button
             onClick={() => setGameState('profile')}
             title={t.goPro}
-            className={`${iconBtn} bg-amber-100 hover:bg-amber-200 text-amber-700 font-bold text-base`}
+            className={`${iconBtn} bg-goldSoft hover:bg-gold text-gold font-bold text-base`}
             aria-label={t.goPro}
           >
             ⭐
@@ -2479,7 +2479,7 @@ export default function App() {
         <button
           onClick={() => setLang(l => (l === 'en' ? 'de' : 'en'))}
           title={lang === 'en' ? 'Deutsch' : 'English'}
-          className={`${iconBtn} bg-gray-100 hover:bg-gray-200 text-gray-700 font-black text-sm`}
+          className={`${iconBtn} bg-stone-100 hover:bg-stone-200 text-stone-700 font-display font-semibold text-sm`}
           aria-label="Language"
         >
           {lang === 'en' ? 'DE' : 'EN'}
@@ -2490,11 +2490,11 @@ export default function App() {
             onClick={() => setGameState('profile')}
             title={auth.user?.name || 'Profil'}
             aria-label={t.navOpenProfile}
-            className="relative w-10 h-10 flex items-center justify-center rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-black text-base transition-colors shrink-0"
+            className="relative w-10 h-10 flex items-center justify-center rounded-full bg-verm hover:bg-ink text-white font-display font-semibold text-base transition-colors shrink-0"
           >
             {auth.user?.name?.charAt(0).toUpperCase() || '?'}
             {auth.isPro && (
-              <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center text-[9px] shadow-sm border-2 border-white">⭐</span>
+              <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-gold rounded-full flex items-center justify-center text-[9px] shadow-sm border-2 border-white">⭐</span>
             )}
           </button>
         ) : (
@@ -2502,7 +2502,7 @@ export default function App() {
             onClick={() => setShowAuthModal(true)}
             title={t.navSignIn}
             aria-label={t.navSignIn}
-            className="flex items-center gap-1.5 h-10 px-4 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm transition-colors shrink-0"
+            className="flex items-center gap-1.5 h-10 px-4 rounded-full bg-verm hover:bg-ink text-white font-bold text-sm transition-colors shrink-0"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -2561,23 +2561,23 @@ export default function App() {
     // Session complete
     if (flashDone) {
       return (
-        <main className={`bg-gray-50 text-gray-800 flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+        <main className={`bg-stone-50 text-ink flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
           <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
           <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-xl'}`}>
-            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
+            <div className="bg-card rounded-3xl shadow-xl border border-stone-100 p-10 text-center">
               <div className="text-6xl mb-4">🎉</div>
-              <h1 className="text-3xl font-black text-gray-900 mb-2">{lang === 'de' ? 'Alles wiederholt!' : 'All caught up!'}</h1>
-              <p className="text-gray-600 text-sm mb-6">
+              <h1 className="text-3xl font-display font-semibold text-ink mb-2">{lang === 'de' ? 'Alles wiederholt!' : 'All caught up!'}</h1>
+              <p className="text-stone-600 text-sm mb-6">
                 {flashDone.reviewed} {lang === 'de' ? 'Karten wiederholt' : 'cards reviewed'} · {flashDone.known}/{flashDone.reviewed} {lang === 'de' ? 'gewusst' : 'known'}
               </p>
-              <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-5 py-2.5 rounded-full mb-8">
-                <span className="font-black text-emerald-700">+{flashDone.xp} XP ⭐</span>
+              <div className="inline-flex items-center gap-2 bg-matchaSoft border border-matcha px-5 py-2.5 rounded-full mb-8">
+                <span className="font-display font-semibold text-vermDeep">+{flashDone.xp} XP ⭐</span>
               </div>
               <div className="flex gap-3 justify-center">
-                <button onClick={() => { setFlashDone(null); setGameState('flashcards'); }} className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
+                <button onClick={() => { setFlashDone(null); setGameState('flashcards'); }} className="bg-ink hover:bg-ink text-white font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
                   {lang === 'de' ? 'Weitere Karten' : 'More cards'}
                 </button>
-                <button onClick={() => setGameState('intro')} className="bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
+                <button onClick={() => setGameState('intro')} className="bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-3 px-6 rounded-xl text-sm transition-all active:scale-95">
                   {lang === 'de' ? 'Startseite' : 'Home'}
                 </button>
               </div>
@@ -2595,20 +2595,20 @@ export default function App() {
       const isCloze = card.kind === 'grammar-cloze';
       const emphasize = lang === 'de' ? 'de' : 'en';
       return (
-        <main className={`bg-gray-900 text-gray-100 flex-1 relative ${isMobile ? 'min-h-full py-4 px-3 pt-14' : 'min-h-screen py-10 px-4'}`}>
+        <main className={`bg-ink text-stone-100 flex-1 relative ${isMobile ? 'min-h-full py-4 px-3 pt-14' : 'min-h-screen py-10 px-4'}`}>
           <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
           <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
             {/* Session header */}
             <div className="flex items-center justify-between mb-4">
-              <button onClick={() => { setFlashDeckId(null); setGameState('flashcards'); }} className="text-gray-400 hover:text-white text-sm font-bold">
+              <button onClick={() => { setFlashDeckId(null); setGameState('flashcards'); }} className="text-stone-400 hover:text-white text-sm font-bold">
                 ← {lang === 'de' ? 'Karten' : 'Decks'}
               </button>
-              <div className="text-gray-400 font-bold text-sm">
+              <div className="text-stone-400 font-bold text-sm">
                 {flashIdx + 1} / {flashCards.length}
               </div>
             </div>
-            <div className="h-1.5 bg-gray-800 rounded-full w-full mb-8 overflow-hidden">
-              <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${((flashIdx + (flashFlipped ? 0.5 : 0)) / flashCards.length) * 100}%` }}></div>
+            <div className="h-1.5 bg-ink rounded-full w-full mb-8 overflow-hidden">
+              <div className="h-full bg-matcha transition-all duration-300" style={{ width: `${((flashIdx + (flashFlipped ? 0.5 : 0)) / flashCards.length) * 100}%` }}></div>
             </div>
 
             {/* Flip card */}
@@ -2621,25 +2621,25 @@ export default function App() {
                 <div className="fc-face fc-face-front">
                   {isKanjiFocus ? (
                     <>
-                      <div className="text-[110px] font-black leading-none text-gray-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="text-[110px] font-display font-semibold leading-none text-stone-100 mb-3 select-none">{card.frontMain}</div>
                       <div className="flex gap-2 mb-3">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🎯 {card.level}</span>
-                        {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-900 text-amber-300">🔥 {card.testFrequency}×</span>}
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-matcha">🎯 {card.level}</span>
+                        {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-goldSoft">🔥 {card.testFrequency}×</span>}
                       </div>
-                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
+                      <p className="text-[10px] text-stone-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
                     </>
                   ) : isKanji ? (
                     <>
-                      <div className="text-[110px] font-black leading-none text-gray-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="text-[110px] font-display font-semibold leading-none text-stone-100 mb-3 select-none">{card.frontMain}</div>
                       <div className="flex gap-2 mb-3">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-900 text-emerald-300">🈶 {card.level}</span>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-matcha">🈶 {card.level}</span>
                       </div>
-                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
+                      <p className="text-[10px] text-stone-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken zum Umdrehen' : 'Click to flip'}</p>
                     </>
                   ) : isCloze ? (
                     <>
-                      <p className="text-2xl text-gray-100 font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
-                      <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">
+                      <p className="text-2xl text-stone-100 font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
+                      <p className="text-xs text-stone-400 font-bold uppercase tracking-wider">
                         {card.frontMain.includes('（）') || card.frontMain.includes('　　')
                           ? (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
                           : (lang === 'de' ? 'Welcher Satz bedeutet dasselbe?' : 'Which sentence means the same?')}
@@ -2647,11 +2647,11 @@ export default function App() {
                     </>
                   ) : (
                     <>
-                      <p className="text-4xl font-black text-gray-100 text-center mb-2">{card.frontMain}</p>
+                      <p className="text-4xl font-display font-semibold text-stone-100 text-center mb-2">{card.frontMain}</p>
                       {card.kind === 'grammar-pattern' && (
-                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
+                        <p className="text-xs text-stone-400 font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
                       )}
-                      <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
+                      <p className="text-[10px] text-stone-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
                     </>
                   )}
                 </div>
@@ -2661,42 +2661,42 @@ export default function App() {
                   {isKanjiFocus ? (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="text-6xl font-black text-white">{card.frontMain}</div>
+                        <div className="text-6xl font-display font-semibold text-white">{card.frontMain}</div>
                         <div className="flex flex-col gap-1 items-end">
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">🎯 {card.level}</span>
-                          {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">🔥 {card.testFrequency}× {lang === 'de' ? 'im Test' : 'in tests'}</span>}
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-matcha/20 text-matcha">🎯 {card.level}</span>
+                          {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-goldSoft/20 text-goldSoft">🔥 {card.testFrequency}× {lang === 'de' ? 'im Test' : 'in tests'}</span>}
                         </div>
                       </div>
                       {(card.onyomi || card.kunyomi) && (
                         <div className="grid grid-cols-2 gap-2">
                           {card.onyomi && (
-                            <div className="bg-white/5 rounded-lg p-2">
-                              <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
-                              <div className="text-sm text-gray-100 font-bold">{card.onyomi}</div>
-                              {card.onyomi && <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.onyomi)}</div>}
+                            <div className="bg-card/5 rounded-lg p-2">
+                              <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
+                              <div className="text-sm text-stone-100 font-bold">{card.onyomi}</div>
+                              {card.onyomi && <div className="text-[10px] text-matcha italic">{toRomaji(card.onyomi)}</div>}
                             </div>
                           )}
                           {card.kunyomi && (
-                            <div className="bg-white/5 rounded-lg p-2">
-                              <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
-                              <div className="text-sm text-gray-100 font-bold">{card.kunyomi}</div>
-                              {card.kunyomi && <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.kunyomi)}</div>}
+                            <div className="bg-card/5 rounded-lg p-2">
+                              <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
+                              <div className="text-sm text-stone-100 font-bold">{card.kunyomi}</div>
+                              {card.kunyomi && <div className="text-[10px] text-matcha italic">{toRomaji(card.kunyomi)}</div>}
                             </div>
                           )}
                         </div>
                       )}
                       <div>
-                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
                         <div className="text-lg text-white font-bold">{emphasize === 'de' ? card.meaningDe : card.meaningEn}</div>
                       </div>
                       {card.appearsIn && card.appearsIn.length > 0 && (
-                        <div className="bg-white/5 rounded-lg p-2">
-                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Erscheint in Testfragen' : 'Appears in test questions'}</div>
+                        <div className="bg-card/5 rounded-lg p-2">
+                          <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Erscheint in Testfragen' : 'Appears in test questions'}</div>
                           <div className="flex flex-wrap gap-1">
                             {card.appearsIn.slice(0, 8).map((qid: number) => (
-                              <span key={qid} className="text-[10px] bg-emerald-500/10 text-emerald-300 rounded px-1.5 py-0.5">#{qid}</span>
+                              <span key={qid} className="text-[10px] bg-matcha/10 text-matcha rounded px-1.5 py-0.5">#{qid}</span>
                             ))}
-                            {card.appearsIn.length > 8 && <span className="text-[10px] text-gray-400">+{card.appearsIn.length - 8}</span>}
+                            {card.appearsIn.length > 8 && <span className="text-[10px] text-stone-400">+{card.appearsIn.length - 8}</span>}
                           </div>
                         </div>
                       )}
@@ -2704,81 +2704,81 @@ export default function App() {
                   ) : isKanji ? (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="text-6xl font-black text-white">{card.frontMain}</div>
+                        <div className="text-6xl font-display font-semibold text-white">{card.frontMain}</div>
                         <div className="flex flex-col gap-1 items-end">
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level}</span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-matcha/20 text-matcha">{card.level}</span>
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         {card.onyomi && (
-                          <div className="bg-white/5 rounded-lg p-2" title="音 On'yomi">
-                            <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
-                            <div className="text-sm text-gray-100 font-bold">{card.onyomi}</div>
-                            <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.onyomi)}</div>
+                          <div className="bg-card/5 rounded-lg p-2" title="音 On'yomi">
+                            <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'de' ? '音 On' : 'On'}-Lesung</div>
+                            <div className="text-sm text-stone-100 font-bold">{card.onyomi}</div>
+                            <div className="text-[10px] text-matcha italic">{toRomaji(card.onyomi)}</div>
                           </div>
                         )}
                         {card.kunyomi && (
-                          <div className="bg-white/5 rounded-lg p-2">
-                            <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
-                            <div className="text-sm text-gray-100 font-bold">{card.kunyomi}</div>
-                            <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.kunyomi)}</div>
+                          <div className="bg-card/5 rounded-lg p-2">
+                            <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'de' ? '訓 Kun' : 'Kun'}-Lesung</div>
+                            <div className="text-sm text-stone-100 font-bold">{card.kunyomi}</div>
+                            <div className="text-[10px] text-matcha italic">{toRomaji(card.kunyomi)}</div>
                           </div>
                         )}
                       </div>
                       <div>
-                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
                         <div className="text-lg text-white font-bold">{card[emphasize === 'de' ? 'meaningDe' : 'meaningEn']}</div>
                       </div>
                       {(card.descEn || card.descDe) && (
-                        <p className="text-xs text-gray-300 leading-relaxed">{emphasize === 'de' ? card.descDe : card.descEn}</p>
+                        <p className="text-xs text-stone-300 leading-relaxed">{emphasize === 'de' ? card.descDe : card.descEn}</p>
                       )}
                     </div>
                   ) : card.kind === 'vocab' ? (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="text-5xl font-black text-white">{card.frontMain}</div>
+                        <div className="text-5xl font-display font-semibold text-white">{card.frontMain}</div>
                       </div>
                       {card.kunyomi && (
-                        <div className="bg-white/5 rounded-lg p-2 inline-block">
-                          <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mr-1">{lang === 'de' ? 'Lesung' : 'Reading'}</span>
-                          <span className="text-sm text-gray-100 font-bold">{card.kunyomi}</span>
-                          <span className="text-[10px] text-emerald-300 italic ml-1">{toRomaji(card.kunyomi)}</span>
+                        <div className="bg-card/5 rounded-lg p-2 inline-block">
+                          <span className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mr-1">{lang === 'de' ? 'Lesung' : 'Reading'}</span>
+                          <span className="text-sm text-stone-100 font-bold">{card.kunyomi}</span>
+                          <span className="text-[10px] text-matcha italic ml-1">{toRomaji(card.kunyomi)}</span>
                         </div>
                       )}
                       <div>
-                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
+                        <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Bedeutung' : 'Meaning'}</div>
                         <div className="text-lg text-white font-bold">{emphasize === 'de' ? card.meaningDe : card.meaningEn}</div>
                       </div>
                       {card.exampleSentence && (
-                        <div className="bg-white/5 rounded-lg p-2.5">
-                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Beispielsatz' : 'Example'}</div>
-                          <p className="text-sm text-gray-100 leading-relaxed">{card.exampleSentence}</p>
+                        <div className="bg-card/5 rounded-lg p-2.5">
+                          <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Beispielsatz' : 'Example'}</div>
+                          <p className="text-sm text-stone-100 leading-relaxed">{card.exampleSentence}</p>
                         </div>
                       )}
                     </div>
                   ) : (
                     <div className="w-full space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">{card.level} · {isCloze ? '✏️' : '🧩'}</span>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-matcha/20 text-matcha">{card.level} · {isCloze ? '✏️' : '🧩'}</span>
                       </div>
-                      <div className="bg-white/10 rounded-lg p-2.5">
-                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Lösung' : 'Answer'}</div>
-                        <div className="text-xl text-white font-black">{card.correctAnswer}</div>
+                      <div className="bg-card/10 rounded-lg p-2.5">
+                        <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-0.5">{lang === 'de' ? 'Lösung' : 'Answer'}</div>
+                        <div className="text-xl text-white font-display font-semibold">{card.correctAnswer}</div>
                         {toRomaji(card.correctAnswer) !== card.correctAnswer && toRomaji(card.correctAnswer) && (
-                          <div className="text-[10px] text-emerald-300 italic">{toRomaji(card.correctAnswer)}</div>
+                          <div className="text-[10px] text-matcha italic">{toRomaji(card.correctAnswer)}</div>
                         )}
                       </div>
                       {card.wrongOptions && card.wrongOptions.length > 0 && (
                         <div>
-                          <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider mb-1">{lang === 'de' ? 'Nicht richtig sind' : 'Wrong options'}</div>
+                          <div className="text-[9px] text-stone-400 font-bold uppercase tracking-wider mb-1">{lang === 'de' ? 'Nicht richtig sind' : 'Wrong options'}</div>
                           <div className="flex flex-wrap gap-1.5">
                             {card.wrongOptions.map((w: any, i: number) => (
-                              <span key={i} className="text-xs bg-white/5 text-gray-300 rounded px-1.5 py-0.5">{w}</span>
+                              <span key={i} className="text-xs bg-card/5 text-stone-300 rounded px-1.5 py-0.5">{w}</span>
                             ))}
                           </div>
                         </div>
                       )}
-                      <p className="text-xs text-gray-200 leading-relaxed">{emphasize === 'de' ? card.explanationDe : card.explanationEn}</p>
+                      <p className="text-xs text-stone-200 leading-relaxed">{emphasize === 'de' ? card.explanationDe : card.explanationEn}</p>
                     </div>
                   )}
                 </div>
@@ -2796,14 +2796,14 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => rateFlashCard(4)}
-                  className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                  className="bg-verm hover:bg-ink text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
                 >
                   ✓ {lang === 'de' ? 'Gewusst' : 'Got it'}
                 </button>
               </div>
             )}
             {!flashFlipped && (
-              <p className="text-center text-gray-600 text-xs mt-6">
+              <p className="text-center text-stone-600 text-xs mt-6">
                 {isMobile ? (lang === 'de' ? 'Tippe die Karte zum Umdrehen' : 'Tap the card to flip') : (lang === 'de' ? 'Leertaste = Umdrehen · Klick = Umdrehen' : 'Space = flip · Click = flip')}
               </p>
             )}
@@ -2820,14 +2820,14 @@ export default function App() {
     const weakGrammarCards = auth.isPro ? buildWeakGrammarDeck(levelData, weakIds, tabLevel) : [];
     const flashDue = srsFlashDueCount || 0;
     return (
-      <main className={`bg-gray-50 text-gray-800 flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+      <main className={`bg-stone-50 text-ink flex-1 relative ${isMobile ? 'min-h-full py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
         <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
         <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-3xl'}`}>
           <div className="mb-6">
-            <h1 className={`font-black text-gray-900 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
+            <h1 className={`font-display font-semibold text-ink ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
               🎴 {lang === 'de' ? 'Karteikarten' : 'Flashcards'}
             </h1>
-            <p className="text-gray-600 text-sm mt-1">
+            <p className="text-stone-600 text-sm mt-1">
               {lang === 'de' ? 'Karte umdrehen, gewusst oder nicht — Wiederholung plant sich selbst.' : 'Flip the card, knew it or not — repetition schedules itself.'}
             </p>
           </div>
@@ -2835,7 +2835,7 @@ export default function App() {
           {/* Level tabs */}
           <div className="flex gap-2 mb-6">
             {allLevels.map(lvl => (
-              <button key={lvl} onClick={() => setFlashTab(lvl)} className={`px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 ${flashTab === lvl ? 'bg-emerald-800 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+              <button key={lvl} onClick={() => setFlashTab(lvl)} className={`px-4 py-2 rounded-xl font-bold text-sm transition-all active:scale-95 ${flashTab === lvl ? 'bg-verm text-white shadow-sm' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}>
                 {lvl}
               </button>
             ))}
@@ -2844,7 +2844,7 @@ export default function App() {
           {/* FOR YOU (Mode A) — Pro only */}
           {auth.isPro ? (
             <div className="mb-8">
-              <h2 className="text-xs font-black text-gray-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Für dich — aus deinen Schwächen' : 'For You — built from your weaknesses'}</h2>
+              <h2 className="text-xs font-display font-semibold text-stone-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Für dich — aus deinen Schwächen' : 'For You — built from your weaknesses'}</h2>
               <div className="grid gap-4 md:grid-cols-2">
                 {/* Due today */}
                 <button
@@ -2869,42 +2869,42 @@ export default function App() {
                     }
                     if (cards.length) startFlashDeck('due-today', cards);
                   }}
-                  className={`text-left bg-amber-50 hover:bg-amber-100 border border-amber-300 rounded-2xl p-5 transition-all active:scale-[0.99] ${flashDue === 0 ? 'opacity-50' : ''}`}
+                  className={`text-left bg-goldSoft hover:bg-goldSoft border border-goldSoft rounded-2xl p-5 transition-all active:scale-[0.99] ${flashDue === 0 ? 'opacity-50' : ''}`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">⏰</span>
-                    <span className={`text-xs font-black px-2 py-0.5 rounded-full ${flashDue > 0 ? 'bg-amber-200 text-amber-800' : 'bg-gray-100 text-gray-500'}`}>
+                    <span className={`text-xs font-display font-semibold px-2 py-0.5 rounded-full ${flashDue > 0 ? 'bg-gold text-gold' : 'bg-stone-100 text-stone-500'}`}>
                       {flashDue > 0 ? lang === 'de' ? `${flashDue} fällig` : `${flashDue} due` : lang === 'de' ? 'nichts fällig' : 'nothing due'}
                     </span>
                   </div>
-                  <h3 className="font-black text-amber-900 mt-2">{lang === 'de' ? 'Heute fällig' : 'Due Today'}</h3>
-                  <p className="text-amber-700 text-xs">{lang === 'de' ? 'Deine Wiederholungs-Queue' : 'Your review queue'}</p>
+                  <h3 className="font-display font-semibold text-ink mt-2">{lang === 'de' ? 'Heute fällig' : 'Due Today'}</h3>
+                  <p className="text-gold text-xs">{lang === 'de' ? 'Deine Wiederholungs-Queue' : 'Your review queue'}</p>
                 </button>
 
                 {/* Weak grammar */}
                 <button
                   onClick={() => weakGrammarCards.length && startFlashDeck(`weak-grammar-${tabLevel}`, weakGrammarCards)}
-                  className={`text-left bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-2xl p-5 transition-all active:scale-[0.99] ${!weakGrammarCards.length ? 'opacity-50' : ''}`}
+                  className={`text-left bg-akiSoft hover:bg-akiSoft border border-akiSoft rounded-2xl p-5 transition-all active:scale-[0.99] ${!weakGrammarCards.length ? 'opacity-50' : ''}`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">🎯</span>
-                    <span className="text-xs font-black px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">{weakGrammarCards.length}</span>
+                    <span className="text-xs font-display font-semibold px-2 py-0.5 rounded-full bg-akiSoft text-aki">{weakGrammarCards.length}</span>
                   </div>
-                  <h3 className="font-black text-purple-900 mt-2">{lang === 'de' ? 'Schwache Grammatik' : 'Weak Grammar'}</h3>
-                  <p className="text-purple-700 text-xs">{lang === 'de' ? 'Aus deinen Fehlern in Testfragen' : 'From your test-question mistakes'}</p>
+                  <h3 className="font-display font-semibold text-aki mt-2">{lang === 'de' ? 'Schwache Grammatik' : 'Weak Grammar'}</h3>
+                  <p className="text-aki text-xs">{lang === 'de' ? 'Aus deinen Fehlern in Testfragen' : 'From your test-question mistakes'}</p>
                 </button>
               </div>
             </div>
           ) : (
-            <div className="mb-8 bg-purple-50 rounded-2xl p-5 border border-purple-200 relative overflow-hidden">
+            <div className="mb-8 bg-akiSoft rounded-2xl p-5 border border-akiSoft relative overflow-hidden">
               <div className="filter blur-[3px] select-none pointer-events-none space-y-2" aria-hidden="true">
-                <div className="h-4 bg-purple-200 rounded w-2/3"></div>
-                <div className="h-3 bg-purple-100 rounded w-full"></div>
+                <div className="h-4 bg-akiSoft rounded w-2/3"></div>
+                <div className="h-3 bg-akiSoft rounded w-full"></div>
               </div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <p className="text-purple-900 font-black text-sm">🔒 {lang === 'de' ? 'Pro-Feature' : 'Pro feature'}</p>
-                <p className="text-purple-700 text-xs mt-0.5">{lang === 'de' ? 'Karteikarten für Kanji, Vokabeln & Grammatik' : 'Flashcards for kanji, vocab & grammar'}</p>
-                <button onClick={() => setGameState('profile')} className="mt-2 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-4 py-2 rounded-xl">
+                <p className="text-aki font-display font-semibold text-sm">🔒 {lang === 'de' ? 'Pro-Feature' : 'Pro feature'}</p>
+                <p className="text-aki text-xs mt-0.5">{lang === 'de' ? 'Karteikarten für Kanji, Vokabeln & Grammatik' : 'Flashcards for kanji, vocab & grammar'}</p>
+                <button onClick={() => setGameState('profile')} className="mt-2 bg-aki hover:bg-aki text-white font-bold text-xs px-4 py-2 rounded-xl">
                   ⭐ {t.proCTA}
                 </button>
               </div>
@@ -2912,7 +2912,7 @@ export default function App() {
           )}
 
           {/* ALL DECKS (Mode B) */}
-          <h2 className="text-xs font-black text-gray-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
+          <h2 className="text-xs font-display font-semibold text-stone-600 uppercase tracking-wider mb-3">{lang === 'de' ? 'Alle Karten-Sets' : 'All Decks'}</h2>
 
           {/* KANJI FOCUS TRAINING — test-reality decks */}
           {(() => {
@@ -2920,12 +2920,12 @@ export default function App() {
             const total = kfCards.length;
             const top50 = kfCards.slice(0, 50);
             return (
-              <div className="mb-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 border-2 border-emerald-300">
+              <div className="mb-6 bg-gradient-to-br from-matchaSoft to-matchaSoft rounded-2xl p-5 border-2 border-matcha">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">🎯</span>
-                  <h3 className="font-black text-emerald-900 text-sm">{lang === 'de' ? 'Kanji Fokus-Training' : 'Kanji Focus Training'}</h3>
+                  <h3 className="font-display font-semibold text-ink text-sm">{lang === 'de' ? 'Kanji Fokus-Training' : 'Kanji Focus Training'}</h3>
                 </div>
-                <p className="text-emerald-700 text-xs mb-3">
+                <p className="text-vermDeep text-xs mb-3">
                   {lang === 'de'
                     ? `${total} Kanji, die in echten ${tabLevel}-Testfragen vorkommen — nach Häufigkeit sortiert.`
                     : `${total} kanji that appear in real ${tabLevel} test questions — sorted by frequency.`}
@@ -2933,16 +2933,16 @@ export default function App() {
                 {/* Coverage bar */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-verm uppercase tracking-wider">
                       {lang === 'de' ? 'Test-Abdeckung' : 'Test Coverage'}
                     </span>
-                    <span className="text-xs font-black text-emerald-800">
+                    <span className="text-xs font-display font-semibold text-verm">
                       {srsFlashDueCount > 0 ? `${total - srsFlashDueCount}/${total}` : `0/${total}`}
                     </span>
                   </div>
-                  <div className="h-3 bg-white rounded-full overflow-hidden border border-emerald-200">
+                  <div className="h-3 bg-card rounded-full overflow-hidden border border-matcha">
                     <div
-                      className="h-full bg-emerald-600 transition-all duration-500"
+                      className="h-full bg-vermDeep transition-all duration-500"
                       style={{ width: `${srsFlashDueCount > 0 ? Math.round(((total - srsFlashDueCount) / total) * 100) : 0}%` }}
                     ></div>
                   </div>
@@ -2951,36 +2951,36 @@ export default function App() {
                 <div className="grid gap-2 md:grid-cols-3">
                   <button
                     onClick={() => startFlashDeck(`kf-frequent-${tabLevel}`, top50.map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
-                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                    className="text-left bg-card hover:bg-matchaSoft border border-matcha rounded-xl p-3 transition-all active:scale-[0.98]"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-lg">🔥</span>
-                      <span className="text-[10px] font-bold text-gray-400">50</span>
+                      <span className="text-[10px] font-bold text-stone-400">50</span>
                     </div>
-                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Top 50 Häufigste' : 'Top 50 Frequent'}</h4>
-                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Maximale ROI' : 'Maximum ROI'}</p>
+                    <h4 className="font-bold text-ink text-xs mt-1">{lang === 'de' ? 'Top 50 Häufigste' : 'Top 50 Frequent'}</h4>
+                    <p className="text-vermDeep text-[10px]">{lang === 'de' ? 'Maximale ROI' : 'Maximum ROI'}</p>
                   </button>
                   <button
                     onClick={() => startFlashDeck(`kf-full-${tabLevel}`, kfCards.map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
-                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                    className="text-left bg-card hover:bg-matchaSoft border border-matcha rounded-xl p-3 transition-all active:scale-[0.98]"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-lg">📊</span>
-                      <span className="text-[10px] font-bold text-gray-400">{total}</span>
+                      <span className="text-[10px] font-bold text-stone-400">{total}</span>
                     </div>
-                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Vollständige Abdeckung' : 'Full Coverage'}</h4>
-                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Alle Test-Kanji' : 'All test kanji'}</p>
+                    <h4 className="font-bold text-ink text-xs mt-1">{lang === 'de' ? 'Vollständige Abdeckung' : 'Full Coverage'}</h4>
+                    <p className="text-vermDeep text-[10px]">{lang === 'de' ? 'Alle Test-Kanji' : 'All test kanji'}</p>
                   </button>
                   <button
                     onClick={() => startFlashDeck(`kf-gap-${tabLevel}`, kfCards.slice(0, 30).map((c: any) => ({ cardId: c.cardId, level: c.level, kind: 'kanji-focus', frontMain: c.frontMain, meaningEn: c.meaningEn, meaningDe: c.meaningDe, onyomi: c.onyomi, kunyomi: c.kunyomi, testFrequency: c.testFrequency, appearsIn: c.appearsIn })) as any)}
-                    className="text-left bg-white hover:bg-emerald-50 border border-emerald-200 rounded-xl p-3 transition-all active:scale-[0.98]"
+                    className="text-left bg-card hover:bg-matchaSoft border border-matcha rounded-xl p-3 transition-all active:scale-[0.98]"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-lg">🚨</span>
-                      <span className="text-[10px] font-bold text-gray-400">30</span>
+                      <span className="text-[10px] font-bold text-stone-400">30</span>
                     </div>
-                    <h4 className="font-bold text-emerald-900 text-xs mt-1">{lang === 'de' ? 'Deine Lücke' : 'Your Gap'}</h4>
-                    <p className="text-emerald-600 text-[10px]">{lang === 'de' ? 'Fehlende Kanji lernen' : 'Learn missing kanji'}</p>
+                    <h4 className="font-bold text-ink text-xs mt-1">{lang === 'de' ? 'Deine Lücke' : 'Your Gap'}</h4>
+                    <p className="text-vermDeep text-[10px]">{lang === 'de' ? 'Fehlende Kanji lernen' : 'Learn missing kanji'}</p>
                   </button>
                 </div>
               </div>
@@ -2994,13 +2994,13 @@ export default function App() {
                 : deck.kind === 'grammar-pattern' ? buildGrammarCards(levelData, tabLevel).pattern
                 : buildGrammarCards(levelData, tabLevel).cloze;
               return (
-                <button key={deck.deckId} onClick={() => startFlashDeck(deck.deckId, cards)} className="text-left bg-white hover:bg-gray-50 border border-gray-200 rounded-2xl p-5 transition-all active:scale-[0.99] shadow-sm">
+                <button key={deck.deckId} onClick={() => startFlashDeck(deck.deckId, cards)} className="text-left bg-card hover:bg-stone-50 border border-stone-200 rounded-2xl p-5 transition-all active:scale-[0.99] shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">{deck.icon}</span>
-                    <span className="text-xs font-bold text-gray-400">{cards.length}</span>
+                    <span className="text-xs font-bold text-stone-400">{cards.length}</span>
                   </div>
-                  <h3 className="font-black text-gray-900 mt-2">{lang === 'de' ? deck.titleDe : deck.titleEn}</h3>
-                  <p className="text-gray-600 text-xs">{lang === 'de' ? deck.descDe : deck.descEn}</p>
+                  <h3 className="font-display font-semibold text-ink mt-2">{lang === 'de' ? deck.titleDe : deck.titleEn}</h3>
+                  <p className="text-stone-600 text-xs">{lang === 'de' ? deck.descDe : deck.descEn}</p>
                 </button>
               );
             })}
@@ -3014,10 +3014,10 @@ export default function App() {
     // N4/N3 banks are lazy chunks — guard every screen from rendering them unloaded (white-screen crash)
     if (!dataReady && selectedLevel !== 'N5' && (gameState === 'intro' || gameState === 'testing' || gameState === 'flashcards')) {
       return (
-        <main className={`bg-gray-900 text-gray-100 flex items-center justify-center font-sans flex-1 ${isMobile ? 'min-h-full' : 'min-h-screen'}`}>
+        <main className={`bg-ink text-stone-100 flex items-center justify-center font-sans flex-1 ${isMobile ? 'min-h-full' : 'min-h-screen'}`}>
           <div className="text-center">
-            <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent mb-4"></div>
-            <p className="text-gray-400 text-sm font-bold">{lang === 'de' ? 'Lade Fragen…' : 'Loading questions…'}</p>
+            <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-matcha border-t-transparent mb-4"></div>
+            <p className="text-stone-400 text-sm font-bold">{lang === 'de' ? 'Lade Fragen…' : 'Loading questions…'}</p>
           </div>
         </main>
       );
@@ -3025,27 +3025,27 @@ export default function App() {
     if (gameState === 'flashcards') {
       if (!auth.isPro) {
         return (
-          <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-4 pt-16' : 'min-h-screen p-4'}`}>
+          <main className={`bg-stone-50 text-ink flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-4 pt-16' : 'min-h-screen p-4'}`}>
             <div className="absolute top-4 right-4 z-[60]">{renderNavControls()}</div>
             <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
+              <div className="bg-card rounded-3xl shadow-xl border border-stone-100 p-10 text-center">
                 <div className="text-6xl mb-4">🎴</div>
-                <h1 className="text-2xl font-black text-gray-900 mb-2">{lang === 'de' ? 'Karteikarten' : 'Flashcards'}</h1>
-                <p className="text-gray-500 text-sm mb-6">
+                <h1 className="text-2xl font-display font-semibold text-ink mb-2">{lang === 'de' ? 'Karteikarten' : 'Flashcards'}</h1>
+                <p className="text-stone-500 text-sm mb-6">
                   {lang === 'de'
                     ? 'Karteikarten für Kanji, Vokabeln & Grammatik — mit Wiederholungsplan (SRS). Pro-Funktion.'
                     : 'Flashcards for kanji, vocabulary & grammar — with spaced repetition scheduling. A Pro feature.'}
                 </p>
                 <div className="space-y-3 mb-6 text-left max-w-sm mx-auto">
-                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🈶</span> {lang === 'de' ? '656 Kanji-Karten (N5–N3)' : '656 kanji cards (N5–N3)'}</div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>💬</span> {lang === 'de' ? '196 Vokabel-Karten' : '196 vocabulary cards'}</div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🧩</span> {lang === 'de' ? '54 Grammatik-Muster + 54 Lückentexte' : '54 grammar patterns + 54 cloze cards'}</div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600"><span>🔁</span> {lang === 'de' ? 'Automatische Wiederholungs-Planung' : 'Automatic review scheduling'}</div>
+                  <div className="flex items-center gap-2 text-sm text-stone-600"><span>🈶</span> {lang === 'de' ? '656 Kanji-Karten (N5–N3)' : '656 kanji cards (N5–N3)'}</div>
+                  <div className="flex items-center gap-2 text-sm text-stone-600"><span>💬</span> {lang === 'de' ? '196 Vokabel-Karten' : '196 vocabulary cards'}</div>
+                  <div className="flex items-center gap-2 text-sm text-stone-600"><span>🧩</span> {lang === 'de' ? '54 Grammatik-Muster + 54 Lückentexte' : '54 grammar patterns + 54 cloze cards'}</div>
+                  <div className="flex items-center gap-2 text-sm text-stone-600"><span>🔁</span> {lang === 'de' ? 'Automatische Wiederholungs-Planung' : 'Automatic review scheduling'}</div>
                 </div>
-                <button onClick={() => setGameState('profile')} className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm">
+                <button onClick={() => setGameState('profile')} className="w-full bg-verm hover:bg-ink text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm">
                   ⭐ {lang === 'de' ? 'Pro freischalten' : 'Unlock Pro'} →
                 </button>
-                <button onClick={() => setGameState('intro')} className="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                <button onClick={() => setGameState('intro')} className="w-full mt-2 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
                   {lang === 'de' ? 'Zurück' : 'Back'}
                 </button>
               </div>
@@ -3057,45 +3057,45 @@ export default function App() {
     }
     if (gameState === 'intro') {
       return (
-        <main className={`bg-gray-50 text-gray-800 flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-0' : 'min-h-screen p-4'}`}>
+        <main className={`bg-stone-50 text-ink flex items-center justify-center font-sans flex-1 relative ${isMobile ? 'min-h-full p-0' : 'min-h-screen p-4'}`}>
           <div className="absolute top-4 right-4 z-[60]">
             {renderNavControls({ compact: true })}
           </div>
-          <div className={`w-full bg-white overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-gray-100'}`}>
-            <header className={`bg-emerald-800 text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
+          <div className={`w-full bg-card overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-stone-100'}`}>
+            <header className={`bg-verm text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
               <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{currentData.uiStrings.title}</h1>
-              <p className={`text-emerald-100 opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
+              <p className={`text-matchaSoft opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
             </header>
             <section className={`flex-1 flex flex-col ${isMobile ? 'p-4 overflow-y-auto' : 'p-8'}`}>
               <AdBanner slotId="intro-top-banner" />
 
               <div className={`mb-6 ${isMobile ? '' : 'mb-8'}`}>
-                <h2 className={`text-center font-bold text-gray-700 mb-3 ${isMobile ? 'text-base' : 'text-lg'}`}>{t.selectLevel}</h2>
+                <h2 className={`text-center font-bold text-stone-700 mb-3 ${isMobile ? 'text-base' : 'text-lg'}`}>{t.selectLevel}</h2>
                 <div className="flex justify-center">
                   {renderLevelSwitcher()}
                 </div>
               </div>
 
-              <p className={`text-gray-600 text-center ${isMobile ? 'mb-6 text-sm' : 'mb-8'}`}>
+              <p className={`text-stone-600 text-center ${isMobile ? 'mb-6 text-sm' : 'mb-8'}`}>
                 {currentData.uiStrings.basedOn} <strong>{currentData.uiStrings.guidelineDoc}</strong>. {t.selectMode}
               </p>
               <div className={`grid gap-4 flex-1 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 gap-6'}`}>
-                <div className={`border border-gray-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-white relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
+                <div className={`border border-stone-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-card relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
                   <div className="absolute top-0 right-0 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.strict}</div>
                   {!auth.isPro && (
-                    <div className="absolute top-0 left-0 bg-amber-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
+                    <div className="absolute top-0 left-0 bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg flex items-center gap-1">
                       <span>⭐</span> {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true' ? 'PRO' : '1 FREE TRIAL'; } catch { return '1 FREE TRIAL'; } })()}
                     </div>
                   )}
-                  <div className="text-emerald-800 mb-3 bg-emerald-50 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                  <div className="text-verm mb-3 bg-matchaSoft w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconClock className="w-5 h-5" />
                   </div>
-                  <h2 className={`font-bold text-gray-800 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
-                  <p className={`text-gray-600 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                  <h2 className={`font-bold text-ink mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
+                  <p className={`text-stone-600 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.realTestDesc(currentData.questionsPerTest, currentData.timeMinutes)}
                   </p>
                   {!auth.isPro && (
-                    <p className="text-amber-700 text-xs font-bold mb-2 flex items-center gap-1">
+                    <p className="text-gold text-xs font-bold mb-2 flex items-center gap-1">
                       {(() => { try { return localStorage.getItem('jlpt-real-trial-used') === 'true'; } catch { return false; } })()
                         ? <>🔒 Pro subscription required for more attempts</>
                         : <>🎁 Try it once free — no account needed</>
@@ -3103,21 +3103,21 @@ export default function App() {
                     </p>
                   )}
                   {showRealTestHint && (
-                    <div className="bg-amber-50 border border-amber-300 rounded-xl p-3 mb-2 text-left">
-                      <p className="text-amber-900 text-xs font-bold mb-1">⏱ {lang === 'de' ? 'So funktioniert der Real-Test:' : 'How the Real Test works:'}</p>
-                      <p className="text-amber-700 text-[11px] leading-relaxed">
+                    <div className="bg-goldSoft border border-goldSoft rounded-xl p-3 mb-2 text-left">
+                      <p className="text-ink text-xs font-bold mb-1">⏱ {lang === 'de' ? 'So funktioniert der Real-Test:' : 'How the Real Test works:'}</p>
+                      <p className="text-gold text-[11px] leading-relaxed">
                         {lang === 'de'
                           ? 'Zeit läuft ab dem Start, kein Wörterbuch, keine Feedback bis zum Ende — genau wie in der echten Prüfung. Klicke erneut auf Start, wenn du bereit bist.'
                           : "Timer runs from the start, no dictionary, no feedback until the end — just like the real exam. Click Start again when you're ready."}
                       </p>
-                      <button onClick={() => { setShowRealTestHint(false); startTest('real'); }} className="mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg">
+                      <button onClick={() => { setShowRealTestHint(false); startTest('real'); }} className="mt-2 bg-gold hover:bg-gold text-white font-bold text-xs px-3 py-1.5 rounded-lg">
                         {lang === 'de' ? 'Verstanden — Start' : 'Got it — Start'}
                       </button>
                     </div>
                   )}
                   <button
                     onClick={() => startTest('real')}
-                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-emerald-800 hover:bg-emerald-900 text-white' : 'bg-amber-800 hover:bg-amber-700 text-white'}`}
+                    className={`w-full font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto ${auth.isPro ? 'bg-verm hover:bg-ink text-white' : 'bg-gold hover:bg-gold text-white'}`}
                   >
                     {auth.isPro
                       ? t.startReal
@@ -3127,21 +3127,21 @@ export default function App() {
                     }
                   </button>
                 </div>
-                <div className={`border border-blue-200 rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-blue-50 relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
-                  <div className="absolute top-0 right-0 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.guided}</div>
-                  <div className="absolute top-0 left-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg">
+                <div className={`border border-line rounded-xl hover:shadow-lg transition-shadow flex flex-col bg-indigoSoft relative overflow-hidden ${isMobile ? 'p-5' : 'p-6'}`}>
+                  <div className="absolute top-0 right-0 bg-indigo text-white text-xs font-bold px-3 py-1 rounded-bl-lg">{t.guided}</div>
+                  <div className="absolute top-0 left-0 bg-matcha text-white text-[10px] font-bold px-2 py-0.5 rounded-br-lg">
                     FREE
                   </div>
-                  <div className="text-blue-600 mb-3 bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                  <div className="text-indigo mb-3 bg-indigoSoft w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconBookOpen className="w-5 h-5" />
                   </div>
-                  <h2 className={`font-bold text-blue-900 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.learningTitle}</h2>
-                  <p className={`text-blue-900/80 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                  <h2 className={`font-bold text-indigo mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.learningTitle}</h2>
+                  <p className={`text-indigo/80 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.learningDesc}
                   </p>
                   <button
                     onClick={() => startTest('learning')}
-                    className="w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto"
+                    className="w-full bg-indigo hover:bg-indigo text-white font-bold py-3 px-4 rounded-lg shadow-sm transition-all active:scale-95 text-sm md:text-base mt-auto"
                   >
                     {t.startLearning}
                   </button>
@@ -3156,14 +3156,14 @@ export default function App() {
               {auth.isPro ? (
                 <button
                   onClick={() => setGameState('flashcards')}
-                  className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
+                  className={`w-full bg-gradient-to-r from-verm to-aki hover:from-vermDeep hover:to-aki text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
                 >
                   🎴 {lang === 'de' ? 'Karteikarten öffnen' : 'Open Flashcards'} →
                 </button>
               ) : (
                 <button
                   onClick={() => setGameState('profile')}
-                  className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
+                  className={`w-full bg-gradient-to-r from-verm to-aki hover:from-vermDeep hover:to-aki text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-4 text-sm mb-4' : 'py-4 px-6 mb-6'}`}
                 >
                   🎴 {lang === 'de' ? 'Karteikarten — Pro freischalten' : 'Flashcards — Unlock with Pro'} →
                 </button>
@@ -3172,23 +3172,23 @@ export default function App() {
               {/* Blog teaser — Blog as a main part of the page */}
               <button
                 onClick={() => { window.location.href = lang === 'de' ? '/blog/de/' : '/blog/'; }}
-                className={`w-full text-left bg-white border-2 border-indigo-200 hover:border-indigo-400 rounded-xl shadow-sm transition-all active:scale-[0.99] group ${isMobile ? 'p-4 mb-4' : 'p-5 mb-6'}`}
+                className={`w-full text-left bg-card border-2 border-indigoSoft hover:border-indigo rounded-xl shadow-sm transition-all active:scale-[0.99] group ${isMobile ? 'p-4 mb-4' : 'p-5 mb-6'}`}
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl font-black shrink-0">📝</div>
+                    <div className="w-10 h-10 rounded-xl bg-verm text-white flex items-center justify-center text-xl font-display font-semibold shrink-0">📝</div>
                     <div className="min-w-0">
-                      <h3 className={`font-black text-gray-900 ${isMobile ? 'text-sm' : 'text-base'}`}>
+                      <h3 className={`font-display font-semibold text-ink ${isMobile ? 'text-sm' : 'text-base'}`}>
                         {lang === 'de' ? 'Leben in Japan — der Blog' : 'Living in Japan — the Blog'}
                       </h3>
-                      <p className={`text-gray-500 truncate ${isMobile ? 'text-[11px]' : 'text-xs'}`}>
+                      <p className={`text-stone-500 truncate ${isMobile ? 'text-[11px]' : 'text-xs'}`}>
                         {lang === 'de'
                           ? 'Günstig essen, wohnen pendeln & JLPT-Lernpläne — 11 Guides, zweisprachig'
                           : 'Cheap eats, housing, transport & JLPT study plans — 11 guides, bilingual'}
                       </p>
                     </div>
                   </div>
-                  <span className="text-indigo-600 group-hover:translate-x-0.5 transition-transform font-black shrink-0">→</span>
+                  <span className="text-verm group-hover:translate-x-0.5 transition-transform font-display font-semibold shrink-0">→</span>
                 </div>
               </button>
 
@@ -3201,71 +3201,71 @@ export default function App() {
               {/* Affiliate: Genki Insurance */}
               <GenkiBanner t={t} lang={lang} />
 
-              <div className={`text-center text-gray-600 shrink-0 ${isMobile ? 'mt-4 text-xs' : 'mt-8 text-sm'}`}>
+              <div className={`text-center text-stone-600 shrink-0 ${isMobile ? 'mt-4 text-xs' : 'mt-8 text-sm'}`}>
                 {t.passReq}
               </div>
 
               {/* FAQ Section for SEO */}
               <div className={`mt-8 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                <h2 className={`font-bold text-gray-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
+                <h2 className={`font-bold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
                   {lang === 'de' ? 'Häufig gestellte Fragen (FAQ)' : 'Frequently Asked Questions (FAQ)'}
                 </h2>
                 <div className="space-y-3">
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Was ist der JLPT?' : 'What is the JLPT?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Der JLPT (Japanese-Language Proficiency Test) ist die offizielle Prüfung für Japanisch-Kenntnisse, durchgeführt von der Japan Foundation und JEES. Er hat fünf Level: N5 (Anfänger) bis N1 (Fortgeschritten). Die Prüfung findet zweimal jährlich im Juli und Dezember statt.'
                         : 'The JLPT (Japanese-Language Proficiency Test) is the official certification of Japanese language ability, run by the Japan Foundation and JEES. It has five levels: N5 (beginner) to N1 (advanced). The test is held twice a year, in July and December.'}
                     </p>
                   </details>
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Sind diese Fragen echt?' : 'Are these real JLPT questions?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Ja. Unsere Fragen stammen aus dem offiziellen JLPT Practice Workbook (2018 Edition), veröffentlicht von der Japan Foundation. Es sind echte Fragen aus tatsächlichen Prüfungen seit der Revision 2010.'
                         : 'Yes. Our questions are sourced from the official JLPT Practice Workbook (2018 edition), published by the Japan Foundation. These are real questions selected from actual tests administered since the 2010 revision.'}
                     </p>
                   </details>
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Ist dieser Test kostenlos?' : 'Is this practice test free?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Ja — der Lernmodus ist dauerhaft kostenlos (10 Fragen pro Test, Furigana-Wörterbuch, Erklärungen) und Sie erhalten 1 kostenloses Real-Test-Trial, ganz ohne Konto. Für unbegrenzte Real-Tests, volle 30 Fragen und werbefreies Erlebnis gibt es das Pro-Abonnement ($4.99/Monat oder $29.99/Jahr).'
                         : 'Yes — Learning Mode is free forever (10 questions per test, furigana dictionary, instant explanations) and you get 1 free Real Test trial, no account needed. For unlimited Real Tests, the full 30 questions per test, and an ad-free experience, there is the Pro subscription ($4.99/month or $29.99/year).'}
                     </p>
                   </details>
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Was ist im Pro-Abonnement enthalten?' : 'What does the Pro subscription include?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Pro ($4.99/Monat oder $29.99/Jahr) umfasst: unbegrenzte Real-Tests im Prüfungsformat, volle 30 Fragen pro Test, Schwachstellen-Analyse nach Kategorie mit gezieltem Trainingsmodus, PDF-Export mit Erklärungen, automatische Speicherung Ihrer Testergebnisse und werbefreies Erlebnis. Jederzeit kündbar ohne E-Mail oder Anruf — direkt in der App.'
                         : 'Pro ($4.99/month or $29.99/year) includes: unlimited Real Tests in exam format, the full 30 questions per test, weakness analysis by category with targeted training mode, PDF export of your results with explanations, automatic saving of your test history, and an ad-free experience. Cancel anytime without email or phone call — directly in the app.'}
                     </p>
                   </details>
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Was ist Furigana?' : 'What is furigana?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Furigana sind kleine Lesungshilfen (Hiragana), die über Kanji geschrieben werden, um ihre Aussprache anzuzeigen. Unser Simulator bietet interaktive Furigana — klicken Sie auf ein Kanji in einer Frage, um Lesung, Bedeutung und Kontext zu sehen.'
                         : 'Furigana are small phonetic guides (hiragana) printed above kanji to show their pronunciation. Our simulator includes interactive furigana — click any kanji in a question to see its reading, meaning, and usage context.'}
                     </p>
                   </details>
-                  <details className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <summary className="font-semibold text-gray-700 cursor-pointer">
+                  <details className="bg-stone-50 rounded-xl p-4 border border-stone-100">
+                    <summary className="font-semibold text-stone-700 cursor-pointer">
                       {lang === 'de' ? 'Wie bereite ich mich am besten vor?' : 'How should I prepare for the JLPT?'}
                     </summary>
-                    <p className="text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-stone-600 mt-2 leading-relaxed">
                       {lang === 'de'
                         ? 'Beginnen Sie mit dem Lernmodus (ohne Zeitlimit, mit Erklärungen), um Grammatik und Vokabular zu verstehen. Wechseln Sie dann zum echten Testmodus (mit Zeitlimit, ohne Feedback), um Prüfungsbedingungen zu simulieren. Zielen Sie konstant auf über 60%, bevor Sie die echte Prüfung ablegen.'
                         : 'Start with Learning Mode (untimed, instant explanations) to understand the grammar and vocabulary. Then switch to Real Test Mode (timed, no feedback) to simulate exam conditions. Aim for 60%+ consistently before the real exam.'}
@@ -3276,41 +3276,41 @@ export default function App() {
 
               {/* Level Info Table for SEO */}
               <div className={`mt-8 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                <h2 className={`font-bold text-gray-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
+                <h2 className={`font-bold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
                   {lang === 'de' ? 'JLPT Level im Vergleich' : 'JLPT Level Comparison'}
                 </h2>
                 <div className="overflow-x-auto">
-                  <table className="w-full border border-gray-200 rounded-xl overflow-hidden">
-                    <thead className="bg-gray-50">
+                  <table className="w-full border border-stone-200 rounded-xl overflow-hidden">
+                    <thead className="bg-stone-50">
                       <tr>
-                        <th className="px-4 py-2 text-left font-semibold text-gray-700 border-b border-gray-200">Level</th>
-                        <th className="px-4 py-2 text-left font-semibold text-gray-700 border-b border-gray-200">{lang === 'de' ? 'Kanji' : 'Kanji'}</th>
-                        <th className="px-4 py-2 text-left font-semibold text-gray-700 border-b border-gray-200">{lang === 'de' ? 'Vokabular' : 'Vocabulary'}</th>
-                        <th className="px-4 py-2 text-left font-semibold text-gray-700 border-b border-gray-200">{lang === 'de' ? 'Zeit' : 'Time'}</th>
-                        <th className="px-4 py-2 text-left font-semibold text-gray-700 border-b border-gray-200">{lang === 'de' ? 'Bestehensgrenze' : 'Pass Mark'}</th>
+                        <th className="px-4 py-2 text-left font-semibold text-stone-700 border-b border-stone-200">Level</th>
+                        <th className="px-4 py-2 text-left font-semibold text-stone-700 border-b border-stone-200">{lang === 'de' ? 'Kanji' : 'Kanji'}</th>
+                        <th className="px-4 py-2 text-left font-semibold text-stone-700 border-b border-stone-200">{lang === 'de' ? 'Vokabular' : 'Vocabulary'}</th>
+                        <th className="px-4 py-2 text-left font-semibold text-stone-700 border-b border-stone-200">{lang === 'de' ? 'Zeit' : 'Time'}</th>
+                        <th className="px-4 py-2 text-left font-semibold text-stone-700 border-b border-stone-200">{lang === 'de' ? 'Bestehensgrenze' : 'Pass Mark'}</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b border-gray-100">
-                        <td className="px-4 py-2 font-bold text-emerald-700">N5</td>
-                        <td className="px-4 py-2 text-gray-600">~100</td>
-                        <td className="px-4 py-2 text-gray-600">~800</td>
-                        <td className="px-4 py-2 text-gray-600">90 min</td>
-                        <td className="px-4 py-2 text-gray-600">80/180</td>
+                      <tr className="border-b border-stone-100">
+                        <td className="px-4 py-2 font-bold text-vermDeep">N5</td>
+                        <td className="px-4 py-2 text-stone-600">~100</td>
+                        <td className="px-4 py-2 text-stone-600">~800</td>
+                        <td className="px-4 py-2 text-stone-600">90 min</td>
+                        <td className="px-4 py-2 text-stone-600">80/180</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="px-4 py-2 font-bold text-emerald-700">N4</td>
-                        <td className="px-4 py-2 text-gray-600">~300</td>
-                        <td className="px-4 py-2 text-gray-600">~1,500</td>
-                        <td className="px-4 py-2 text-gray-600">115 min</td>
-                        <td className="px-4 py-2 text-gray-600">90/180</td>
+                      <tr className="border-b border-stone-100">
+                        <td className="px-4 py-2 font-bold text-vermDeep">N4</td>
+                        <td className="px-4 py-2 text-stone-600">~300</td>
+                        <td className="px-4 py-2 text-stone-600">~1,500</td>
+                        <td className="px-4 py-2 text-stone-600">115 min</td>
+                        <td className="px-4 py-2 text-stone-600">90/180</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-2 font-bold text-emerald-700">N3</td>
-                        <td className="px-4 py-2 text-gray-600">~650</td>
-                        <td className="px-4 py-2 text-gray-600">~3,000–4,000</td>
-                        <td className="px-4 py-2 text-gray-600">125 min</td>
-                        <td className="px-4 py-2 text-gray-600">95/180</td>
+                        <td className="px-4 py-2 font-bold text-vermDeep">N3</td>
+                        <td className="px-4 py-2 text-stone-600">~650</td>
+                        <td className="px-4 py-2 text-stone-600">~3,000–4,000</td>
+                        <td className="px-4 py-2 text-stone-600">125 min</td>
+                        <td className="px-4 py-2 text-stone-600">95/180</td>
                       </tr>
                     </tbody>
                   </table>
@@ -3330,19 +3330,19 @@ export default function App() {
       const isAnswerCorrect = answers[currentQuestionIndex] === currentQuestion.correctIndex;
 
       return (
-        <div className="bg-gray-50 text-gray-800 flex flex-col font-sans flex-1 min-h-full">
-          <header className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm shrink-0">
+        <div className="bg-stone-50 text-ink flex flex-col font-sans flex-1 min-h-full">
+          <header className="bg-card border-b border-stone-200 sticky top-0 z-10 shadow-sm shrink-0">
             <div className={`mx-auto flex justify-between items-center ${isMobile ? 'px-2 py-2 pt-7 gap-1' : 'max-w-4xl px-4 py-4'}`}>
               <div className={`flex items-center min-w-0 ${isMobile ? 'gap-1.5' : 'gap-2'}`}>
-                <div className={`font-semibold uppercase tracking-wide truncate ${isMobile ? 'text-[10px]' : 'text-xs md:text-sm'} ${testMode === 'learning' ? 'text-blue-500' : 'text-gray-500'}`}>
+                <div className={`font-semibold uppercase tracking-wide truncate ${isMobile ? 'text-[10px]' : 'text-xs md:text-sm'} ${testMode === 'learning' ? 'text-indigoSoft0' : 'text-stone-500'}`}>
                   {testMode === 'learning' ? (isMobile ? t.learn : t.learningMode) : t.question}
                 </div>
-                <div className={`bg-gray-100 text-gray-800 font-bold rounded-md flex items-center ${isMobile ? 'px-2 py-0.5 text-xs' : 'px-3 py-1'}`}>
-                  {currentQuestionIndex + 1} <span className="text-gray-600 font-normal ml-1">/ {testQuestions.length}</span>
+                <div className={`bg-stone-100 text-ink font-bold rounded-md flex items-center ${isMobile ? 'px-2 py-0.5 text-xs' : 'px-3 py-1'}`}>
+                  {currentQuestionIndex + 1} <span className="text-stone-600 font-normal ml-1">/ {testQuestions.length}</span>
                 </div>
                 {srsReviewActive && (
                   <div
-                    className="bg-amber-100 text-amber-800 font-bold rounded-md flex items-center gap-1 px-2 py-0.5 text-xs"
+                    className="bg-goldSoft text-gold font-bold rounded-md flex items-center gap-1 px-2 py-0.5 text-xs"
                     title={t.srsModeHint}
                   >
                     {t.srsModeBadge}
@@ -3351,39 +3351,39 @@ export default function App() {
               </div>
               <div className={`flex items-center shrink-0 ${isMobile ? 'gap-1' : 'gap-3'}`}>
                 {testMode === 'real' ? (
-                  <div className={`flex items-center gap-1.5 font-mono font-bold rounded-lg border ${isMobile ? 'text-sm px-2 py-1' : 'text-lg px-4 py-1.5'} ${timeRemaining < 300 ? 'bg-red-50 text-red-600 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-100'}`}>
+                  <div className={`flex items-center gap-1.5 font-mono font-bold rounded-lg border ${isMobile ? 'text-sm px-2 py-1' : 'text-lg px-4 py-1.5'} ${timeRemaining < 300 ? 'bg-red-50 text-red-600 border-red-200' : 'bg-matchaSoft text-verm border-matchaSoft'}`}>
                     <IconClock className={isMobile ? "w-4 h-4" : "w-5 h-5"} />
                     {formatTime(timeRemaining)}
                   </div>
                 ) : (
-                  <div className={`flex items-center gap-1.5 font-mono text-xs md:text-sm rounded-lg border bg-blue-50 text-blue-700 border-blue-100 ${isMobile ? 'px-2 py-1' : 'px-4 py-1.5'}`}>
+                  <div className={`flex items-center gap-1.5 font-mono text-xs md:text-sm rounded-lg border bg-indigoSoft text-indigo border-indigoSoft ${isMobile ? 'px-2 py-1' : 'px-4 py-1.5'}`}>
                     <IconBookOpen className="w-3 h-3 md:w-4 md:h-4" /> {isMobile ? t.untimed : t.untimedPractice}
                   </div>
                 )}
                 {renderNavControls({ compact: true })}
               </div>
             </div>
-            <div className="h-1 bg-gray-100 w-full">
+            <div className="h-1 bg-stone-100 w-full">
               <div
-                className={`h-full transition-all duration-300 ${testMode === 'learning' ? 'bg-blue-500' : 'bg-emerald-500'}`}
+                className={`h-full transition-all duration-300 ${testMode === 'learning' ? 'bg-indigoSoft0' : 'bg-matcha'}`}
                 style={{ width: `${((currentQuestionIndex + 1) / testQuestions.length) * 100}%` }}
               ></div>
             </div>
           </header>
 
           <main className={`flex-1 w-full mx-auto flex flex-col ${isMobile ? 'max-w-full px-3 py-4' : 'max-w-4xl px-4 py-8 md:py-12'}`}>
-            <article className={`bg-white shadow-sm border border-gray-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
-              <div className={`text-gray-600 border-b border-gray-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
+            <article className={`bg-card shadow-sm border border-stone-200 mb-4 ${isMobile ? 'rounded-xl p-4 md:p-5' : 'rounded-2xl p-6 md:p-10'}`}>
+              <div className={`text-stone-600 border-b border-stone-100 pb-3 flex justify-between items-end ${isMobile ? 'text-xs mb-4' : 'text-sm mb-6'}`}>
                 <span>{renderFurigana(currentData.instruction, handleKanjiClick, testMode === 'learning')}</span>
                 {testMode === 'learning' && (
                   <div className="flex items-center gap-2 shrink-0 ml-2">
-                    <span className="text-blue-600 italic">{t.clickKanji}</span>
+                    <span className="text-indigo italic">{t.clickKanji}</span>
                     {ttsSupported() && (
                       <div className="relative flex items-center gap-1">
                         <select
                           value={ttsRate}
                           onChange={(e) => { const r = parseFloat(e.target.value); setTtsRate(r); saveRate(r); }}
-                          className="text-xs border border-blue-200 rounded-md px-1 py-0.5 bg-white text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                          className="text-xs border border-line rounded-md px-1 py-0.5 bg-card text-indigo focus:outline-none focus:ring-1 focus:ring-indigo"
                           title={t.ttsSpeed}
                           aria-label={t.ttsSpeed}
                         >
@@ -3394,7 +3394,7 @@ export default function App() {
                         {showVoiceHint && !hasGoodJapaneseVoice() && (
                           <button
                             onClick={() => { setShowVoiceHint(false); try { localStorage.setItem('jlpt-voice-hint-dismissed', 'true'); } catch {} }}
-                            className="text-[10px] text-blue-600 underline cursor-help"
+                            className="text-[10px] text-indigo underline cursor-help"
                             title={lang === 'de' ? "Klicke zum Ausblenden. Für bessere Qualität: Systemeinstellungen → Sprache → japanische Stimme installieren" : "Click to hide. For better quality: System Settings → Language → install a Japanese voice"}
                           >
                             {t.ttsVoiceImprove}
@@ -3406,14 +3406,14 @@ export default function App() {
                 )}
               </div>
               <div className="flex items-start gap-2">
-                <h2 className={`flex-1 text-gray-900 leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
+                <h2 className={`flex-1 text-ink leading-relaxed whitespace-pre-wrap font-medium pb-1 pt-1 ${isMobile ? 'text-xl' : 'text-2xl md:text-3xl'}`}>
                   {renderFurigana(currentQuestion.text, handleKanjiClick, testMode === 'learning')}
                 </h2>
                 {testMode === 'learning' && ttsSupported() && (
                   <button
                     onClick={() => speak(currentQuestion.text, ttsRate)}
                     title={t.ttsReadQuestion}
-                    className="shrink-0 mt-1 w-9 h-9 flex items-center justify-center rounded-full bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition-colors"
+                    className="shrink-0 mt-1 w-9 h-9 flex items-center justify-center rounded-full bg-indigoSoft hover:bg-indigoSoft text-indigo border border-line transition-colors"
                     aria-label={t.ttsReadQuestion}
                   >
                     🔊
@@ -3424,25 +3424,25 @@ export default function App() {
                 {currentQuestion.options.map((option, idx) => {
                   const isSelected = answers[currentQuestionIndex] === idx;
                   const isCorrectOption = idx === currentQuestion.correctIndex;
-                  let buttonStyle = "border-gray-200 hover:border-emerald-300 hover:bg-gray-50 text-gray-700 cursor-pointer";
-                  let badgeStyle = "border-gray-400 text-gray-600";
+                  let buttonStyle = "border-stone-200 hover:border-matcha hover:bg-stone-50 text-stone-700 cursor-pointer";
+                  let badgeStyle = "border-stone-400 text-stone-600";
                   if (testMode === 'real') {
                     if (isSelected) {
-                      buttonStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 shadow-sm cursor-pointer";
-                      badgeStyle = "border-emerald-500 bg-emerald-500 text-white";
+                      buttonStyle = "border-matcha bg-matchaSoft text-ink shadow-sm cursor-pointer";
+                      badgeStyle = "border-matcha bg-matcha text-white";
                     }
                   } else if (testMode === 'learning') {
                     if (showFeedback) {
-                      buttonStyle = "border-gray-200 opacity-60 cursor-default";
+                      buttonStyle = "border-stone-200 opacity-60 cursor-default";
                       if (isCorrectOption) {
-                        buttonStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 shadow-sm ring-2 ring-emerald-500 ring-offset-1 cursor-default";
-                        badgeStyle = "border-emerald-500 bg-emerald-500 text-white";
+                        buttonStyle = "border-matcha bg-matchaSoft text-ink shadow-sm ring-2 ring-matcha ring-offset-1 cursor-default";
+                        badgeStyle = "border-matcha bg-matcha text-white";
                       } else if (isSelected && !isCorrectOption) {
                         buttonStyle = "border-red-400 bg-red-50 text-red-900 cursor-default";
                         badgeStyle = "border-red-400 bg-red-400 text-white";
                       }
                     } else {
-                      buttonStyle = "border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700 cursor-pointer";
+                      buttonStyle = "border-stone-200 hover:border-indigo hover:bg-indigoSoft text-stone-700 cursor-pointer";
                     }
                   }
                   return (
@@ -3459,7 +3459,7 @@ export default function App() {
                         <span className={`font-medium leading-relaxed block break-words w-full ${isMobile ? 'text-lg' : 'text-xl'}`}>
                           {renderFurigana(option, handleKanjiClick, testMode === 'learning')}
                         </span>
-                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-emerald-800 ml-auto shrink-0`} />}
+                        {showFeedback && isCorrectOption && <IconCheck className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-verm ml-auto shrink-0`} />}
                         {showFeedback && isSelected && !isCorrectOption && <IconX className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-red-600 ml-auto shrink-0`} />}
                       </div>
                     </button>
@@ -3469,16 +3469,16 @@ export default function App() {
             </article>
 
             {showFeedback && (
-              <div className={`rounded-xl md:rounded-2xl border ${isMobile ? 'p-4 mb-4' : 'p-6 mb-6'} ${isAnswerCorrect ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'} animate-in fade-in slide-in-from-bottom-4 duration-300`}>
+              <div className={`rounded-xl md:rounded-2xl border ${isMobile ? 'p-4 mb-4' : 'p-6 mb-6'} ${isAnswerCorrect ? 'bg-matchaSoft border-matcha' : 'bg-goldSoft border-gold'} animate-in fade-in slide-in-from-bottom-4 duration-300`}>
                 {/* Banner */}
                 <div className={`flex items-center gap-2 mb-3 ${isMobile ? 'text-sm' : 'text-base'}`}>
                   {isAnswerCorrect ? (
-                    <span className="font-bold text-emerald-800 flex items-center gap-1"><IconCheck className="w-5 h-5" /> {t.correct}</span>
+                    <span className="font-bold text-verm flex items-center gap-1"><IconCheck className="w-5 h-5" /> {t.correct}</span>
                   ) : (
-                    <span className="font-bold text-amber-700 flex items-center gap-1"><IconAlertCircle className="w-5 h-5" /> {t.incorrect}</span>
+                    <span className="font-bold text-gold flex items-center gap-1"><IconAlertCircle className="w-5 h-5" /> {t.incorrect}</span>
                   )}
                   {/* Category tag */}
-                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-gray-600 bg-white/70 px-2 py-0.5 rounded-full shrink-0">
+                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-stone-600 bg-card/70 px-2 py-0.5 rounded-full shrink-0">
                     {currentQuestion.category}
                   </span>
                 </div>
@@ -3491,21 +3491,21 @@ export default function App() {
                       <span className="text-red-700 line-through font-medium">{renderFurigana(currentQuestion.options[answers[currentQuestionIndex]], handleKanjiClick, testMode === 'learning')}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="shrink-0 text-emerald-800 font-bold text-xs uppercase tracking-wider">✓ {lang === 'de' ? 'Richtig' : 'Correct'}</span>
-                      <span className="text-emerald-800 font-bold">{renderFurigana(currentQuestion.options[currentQuestion.correctIndex], handleKanjiClick, testMode === 'learning')}</span>
+                      <span className="shrink-0 text-verm font-bold text-xs uppercase tracking-wider">✓ {lang === 'de' ? 'Richtig' : 'Correct'}</span>
+                      <span className="text-verm font-bold">{renderFurigana(currentQuestion.options[currentQuestion.correctIndex], handleKanjiClick, testMode === 'learning')}</span>
                     </div>
                   </div>
                 )}
 
                 {/* Educational explanation — rendered with ❌/💡 structure */}
-                <div className={`text-gray-700 leading-relaxed ${isMobile ? 'text-sm' : 'text-base'}`}>
+                <div className={`text-stone-700 leading-relaxed ${isMobile ? 'text-sm' : 'text-base'}`}>
                   {(currentQuestion.explanation[lang] || t.noExp).split(/(?=❌|💡)/).filter((s: string) => s.trim()).map((segment: string, i: number) => {
                     const isTip = segment.startsWith('💡');
                     if (i === 0) {
                       return <p key={i} className="font-medium leading-relaxed">{segment.trim()}</p>;
                     }
                     return (
-                      <p key={i} className={`mt-1.5 leading-relaxed flex gap-1.5 ${isTip ? 'text-gray-700' : 'text-gray-600'}`}>
+                      <p key={i} className={`mt-1.5 leading-relaxed flex gap-1.5 ${isTip ? 'text-stone-700' : 'text-stone-600'}`}>
                         <span className="shrink-0">{isTip ? '💡' : '❌'}</span>
                         <span className={isTip ? 'font-medium' : ''}>{segment.replace(/^[❌💡]\s*/, '').trim()}</span>
                       </p>
@@ -3519,12 +3519,12 @@ export default function App() {
             {isMobile && <div className="h-4"></div>}
           </main>
 
-          <footer className={`bg-white border-t border-gray-200 sticky bottom-0 shrink-0 z-10 ${isMobile ? 'p-3 pb-6' : 'p-4'}`}>
+          <footer className={`bg-card border-t border-stone-200 sticky bottom-0 shrink-0 z-10 ${isMobile ? 'p-3 pb-6' : 'p-4'}`}>
             <div className="max-w-4xl mx-auto flex justify-between items-center">
               <button
                 onClick={prevQuestion}
                 disabled={currentQuestionIndex === 0}
-                className={`rounded-lg font-medium text-gray-600 disabled:opacity-30 hover:bg-gray-100 transition-colors ${isMobile ? 'px-4 py-2 text-sm' : 'px-6 py-3'}`}
+                className={`rounded-lg font-medium text-stone-600 disabled:opacity-30 hover:bg-stone-100 transition-colors ${isMobile ? 'px-4 py-2 text-sm' : 'px-6 py-3'}`}
               >
                 {t.prev}
               </button>
@@ -3532,7 +3532,7 @@ export default function App() {
                 <button
                   onClick={submitTest}
                   disabled={testMode === 'learning' && !showFeedback}
-                  className={`rounded-lg font-bold bg-emerald-800 text-white hover:bg-emerald-900 shadow-md transition-transform active:scale-95 disabled:opacity-50 ${isMobile ? 'px-5 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
+                  className={`rounded-lg font-bold bg-verm text-white hover:bg-ink shadow-md transition-transform active:scale-95 disabled:opacity-50 ${isMobile ? 'px-5 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
                 >
                   {t.finish}
                 </button>
@@ -3540,7 +3540,7 @@ export default function App() {
                 <button
                   onClick={nextQuestion}
                   disabled={testMode === 'real' ? !hasAnsweredCurrent : !showFeedback}
-                  className={`rounded-lg font-bold text-white shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${testMode === 'learning' ? 'bg-blue-800 hover:bg-blue-700' : 'bg-emerald-800 hover:bg-emerald-700'} ${isMobile ? 'px-6 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
+                  className={`rounded-lg font-bold text-white shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${testMode === 'learning' ? 'bg-indigo hover:bg-indigo' : 'bg-verm hover:bg-vermDeep'} ${isMobile ? 'px-6 py-2 text-sm' : 'px-8 py-3 rounded-xl'}`}
                 >
                   {t.next}
                 </button>
@@ -3553,45 +3553,39 @@ export default function App() {
 
     if (gameState === 'results' && results) {
       return (
-        <main className={`bg-gray-50 text-gray-800 font-sans flex-1 relative ${isMobile ? 'py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
+        <main className={`bg-stone-50 text-ink font-sans flex-1 relative ${isMobile ? 'py-6 px-3 pt-16' : 'min-h-screen py-10 px-4'}`}>
           <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
             {renderNavControls()}
           </div>
           <div className={`mx-auto ${isMobile ? 'w-full' : 'max-w-4xl'}`}>
-            <div className={`bg-white shadow-lg border border-gray-100 overflow-hidden mb-8 text-center relative ${isMobile ? 'rounded-2xl p-6' : 'rounded-3xl p-10'}`}>
+            <div className={`bg-card shadow-lg border border-stone-100 overflow-hidden mb-8 text-center relative ${isMobile ? 'rounded-2xl p-6' : 'rounded-3xl p-10'}`}>
               {results.isPass ? (
-                <div className="absolute top-0 left-0 w-full h-3 bg-emerald-500"></div>
+                <div className="absolute top-0 left-0 w-full h-3 bg-matcha"></div>
               ) : (
                 <div className="absolute top-0 left-0 w-full h-3 bg-red-500"></div>
               )}
               <div className="mb-4">
-                {results.isPass ? (
-                  <div className={`inline-flex items-center justify-center rounded-full bg-emerald-100 text-emerald-500 mx-auto ${isMobile ? 'w-16 h-16 mb-3' : 'w-24 h-24 mb-4'}`}>
-                    <IconCheck className={isMobile ? 'w-8 h-8' : 'w-12 h-12'} />
-                  </div>
-                ) : (
-                  <div className={`inline-flex items-center justify-center rounded-full bg-red-100 text-red-700 mx-auto ${isMobile ? 'w-16 h-16 mb-3' : 'w-24 h-24 mb-4'}`}>
-                    <IconX className={isMobile ? 'w-8 h-8' : 'w-12 h-12'} />
-                  </div>
-                )}
-                <h1 className={`font-black text-gray-900 uppercase tracking-tight ${isMobile ? 'text-2xl mt-2' : 'text-4xl'}`}>
+                <div className={`inline-flex items-center justify-center rounded-full mx-auto font-jp font-bold animate-stamp hanko ${isMobile ? 'w-16 h-16 mb-3 text-lg' : 'w-24 h-24 mb-4 text-[1.7rem]'} ${results.isPass ? 'text-verm' : 'text-stone-400'}`}>
+                  {results.isPass ? '合格' : '再挑'}
+                </div>
+                <h1 className={`font-display font-semibold text-ink uppercase tracking-tight ${isMobile ? 'text-2xl mt-2' : 'text-4xl'}`}>
                   {results.isPass ? t.testPassed : t.testFailed}
                 </h1>
-                <p className={`text-gray-600 mt-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                <p className={`text-stone-600 mt-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                   {t.level}: {selectedLevel} | {t.mode}: {testMode === 'learning' ? t.practice : t.real} | {t.requirement}: {currentData.passThreshold * 100}%
                 </p>
               </div>
               <div className={`flex flex-col justify-center items-center my-6 ${isMobile ? 'gap-4' : 'md:flex-row gap-8 md:gap-16 my-8'}`}>
                 <div className="text-center">
-                  <div className="text-gray-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.yourScore}</div>
-                  <div className={`font-black text-gray-800 ${isMobile ? 'text-4xl' : 'text-5xl'}`}>
-                    {results.score} <span className="text-xl text-gray-600">/ {testQuestions.length}</span>
+                  <div className="text-stone-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.yourScore}</div>
+                  <div className={`font-display font-semibold text-ink ${isMobile ? 'text-4xl' : 'text-5xl'}`}>
+                    {results.score} <span className="text-xl text-stone-600">/ {testQuestions.length}</span>
                   </div>
                 </div>
-                <div className={`w-px h-16 bg-gray-100 hidden ${isMobile ? '' : 'md:block'}`}></div>
+                <div className={`w-px h-16 bg-stone-100 hidden ${isMobile ? '' : 'md:block'}`}></div>
                 <div className="text-center">
-                  <div className="text-gray-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.percentage}</div>
-                  <div className={`font-black ${isMobile ? 'text-4xl' : 'text-5xl'} ${results.isPass ? 'text-emerald-700' : 'text-red-700'}`}>
+                  <div className="text-stone-600 font-semibold mb-1 uppercase tracking-wider text-xs">{t.percentage}</div>
+                  <div className={`font-display font-semibold ${isMobile ? 'text-4xl' : 'text-5xl'} ${results.isPass ? 'text-vermDeep' : 'text-red-700'}`}>
                     {results.percentage.toFixed(0)}%
                   </div>
                 </div>
@@ -3599,13 +3593,13 @@ export default function App() {
               <div className={`flex gap-3 justify-center ${isMobile ? 'flex-col' : 'flex-row'}`}>
                 <button
                   onClick={restartTest}
-                  className={`bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
+                  className={`bg-verm hover:bg-ink text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
                 >
                   {t.restart}
                 </button>
                 <button
                   onClick={goHome}
-                  className={`bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
+                  className={`bg-ink hover:bg-ink text-white font-bold rounded-xl shadow-md transition-all active:scale-95 ${isMobile ? 'py-3 px-6 text-sm w-full' : 'py-4 px-8'}`}
                 >
                   {t.backToStart}
                 </button>
@@ -3634,11 +3628,11 @@ export default function App() {
                   </div>
                   <div className="space-y-2.5 max-h-96 overflow-y-auto pr-1">
                     {results.wrongQuestions.map(({ q, picked }) => (
-                      <div key={`${(q as any).level || selectedLevel}-${q.id}`} className="bg-white rounded-xl p-3 border border-red-100">
-                        <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1">
+                      <div key={`${(q as any).level || selectedLevel}-${q.id}`} className="bg-card rounded-xl p-3 border border-red-100">
+                        <p className="text-[10px] font-bold text-stone-600 uppercase tracking-wider mb-1">
                           {(q as any).level || selectedLevel} · {q.category}
                         </p>
-                        <p className="text-sm text-gray-900 font-medium mb-2">{q.text}</p>
+                        <p className="text-sm text-ink font-medium mb-2">{q.text}</p>
                         <div className="space-y-1 text-xs">
                           {picked !== undefined ? (
                             <div className="flex items-start gap-1.5 text-red-700">
@@ -3646,16 +3640,16 @@ export default function App() {
                               <span>{lang === 'de' ? 'Deine Antwort:' : 'Your answer:'} <strong>{q.options[picked]}</strong></span>
                             </div>
                           ) : (
-                            <div className="flex items-start gap-1.5 text-gray-500">
+                            <div className="flex items-start gap-1.5 text-stone-500">
                               <span className="shrink-0">—</span>
                               <span>{lang === 'de' ? 'Nicht beantwortet' : 'Not answered'}</span>
                             </div>
                           )}
-                          <div className="flex items-start gap-1.5 text-emerald-700">
+                          <div className="flex items-start gap-1.5 text-vermDeep">
                             <span className="shrink-0">✓</span>
                             <span>{lang === 'de' ? 'Richtig:' : 'Correct:'} <strong>{q.options[q.correctIndex]}</strong></span>
                           </div>
-                          <div className="mt-1.5 pt-1.5 border-t border-gray-100 text-gray-600 leading-relaxed">
+                          <div className="mt-1.5 pt-1.5 border-t border-stone-100 text-stone-600 leading-relaxed">
                             {q.explanation[lang]}
                           </div>
                         </div>
@@ -3674,12 +3668,12 @@ export default function App() {
               )}
 
               {!auth.isLoggedIn && (
-                <div className="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
-                  <p className="text-emerald-800 font-bold text-sm mb-2">Want to save your progress?</p>
-                  <p className="text-emerald-800 text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
+                <div className="mt-6 bg-matchaSoft border border-matcha rounded-xl p-4 text-center">
+                  <p className="text-verm font-bold text-sm mb-2">Want to save your progress?</p>
+                  <p className="text-verm text-xs mb-3">Sign up to track your history, analytics, and weak points across sessions.</p>
                   <button
                     onClick={() => setShowAuthModal(true)}
-                    className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
+                    className="bg-verm hover:bg-ink text-white font-bold text-sm px-5 py-2 rounded-lg transition-colors"
                   >
                     Create free account →
                   </button>
@@ -3690,14 +3684,14 @@ export default function App() {
             <AdBanner slotId="results-banner" />
 
             {showNotebookHint && (
-              <div className="bg-purple-50 border border-purple-300 rounded-xl p-4 mb-6 text-center">
-                <p className="text-purple-900 text-sm font-black mb-1">📚 {lang === 'de' ? 'Deine Fehler sind gespeichert!' : 'Your mistakes are saved!'}</p>
-                <p className="text-purple-700 text-xs mb-2">
+              <div className="bg-akiSoft border border-akiSoft rounded-xl p-4 mb-6 text-center">
+                <p className="text-aki text-sm font-display font-semibold mb-1">📚 {lang === 'de' ? 'Deine Fehler sind gespeichert!' : 'Your mistakes are saved!'}</p>
+                <p className="text-aki text-xs mb-2">
                   {lang === 'de'
                     ? 'Jede falsche Frage landet im Fehlerheft — mit Erklärung. Öffne dein Profil, um sie zu wiederholen.'
                     : 'Every wrong question lands in your Mistake Notebook — with explanations. Open your profile to review them.'}
                 </p>
-                <button onClick={() => setShowNotebookHint(false)} className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg">
+                <button onClick={() => setShowNotebookHint(false)} className="bg-aki hover:bg-aki text-white font-bold text-xs px-3 py-1.5 rounded-lg">
                   {lang === 'de' ? 'Verstanden' : 'Got it'}
                 </button>
               </div>
@@ -3710,7 +3704,7 @@ export default function App() {
                 href="https://buymeacoffee.com/created.by"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#FFDD00] hover:bg-[#f3d300] text-gray-900 font-bold py-2 px-5 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+                className="inline-block bg-[#FFDD00] hover:bg-[#f3d300] text-ink font-bold py-2 px-5 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
               >
                 {t.coffeeBtn}
               </a>
@@ -3718,16 +3712,16 @@ export default function App() {
 
             {/* Premium upsell on results */}
             {results && !results.isPass && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+              <div className="bg-goldSoft border border-gold rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">⭐</span>
                   <div className="flex-1">
-                    <p className="font-bold text-amber-800 text-sm">{t.proTitle}</p>
-                    <p className="text-amber-700 text-xs mt-1">{t.proFeature1}</p>
+                    <p className="font-bold text-gold text-sm">{t.proTitle}</p>
+                    <p className="text-gold text-xs mt-1">{t.proFeature1}</p>
                   </div>
                   <button
                     onClick={() => setGameState('profile')}
-                    className="bg-amber-800 hover:bg-amber-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
+                    className="bg-gold hover:bg-gold text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors shrink-0"
                   >
                     {t.goPro}
                   </button>
@@ -3737,11 +3731,11 @@ export default function App() {
 
             <section className={`space-y-4 ${isMobile ? 'mb-8' : 'space-y-6'}`}>
               <div className="flex items-center justify-between px-2 mb-3">
-                <h2 className={`font-bold text-gray-800 ${isMobile ? 'text-lg' : 'text-2xl'}`}>{t.detailedReview}</h2>
+                <h2 className={`font-bold text-ink ${isMobile ? 'text-lg' : 'text-2xl'}`}>{t.detailedReview}</h2>
                 {auth.isPro && (
                   <button
                     onClick={() => window.print()}
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors"
+                    className="bg-aki hover:bg-aki text-white font-bold text-xs px-3 py-2 rounded-lg transition-colors"
                     title={lang === 'de' ? "Als PDF exportieren" : "Export as PDF"}
                   >
                     📄 Als PDF exportieren
@@ -3753,24 +3747,24 @@ export default function App() {
                 const isCorrect = userAnswer === q.correctIndex;
                 const isSkipped = userAnswer === undefined;
                 return (
-                  <article key={index} className={`bg-white shadow-sm border-2 overflow-hidden ${isMobile ? 'rounded-xl' : 'rounded-2xl'} ${isCorrect ? 'border-emerald-200' : 'border-red-200'}`}>
-                    <header className={`px-4 py-2 flex justify-between items-center font-bold ${isMobile ? 'text-xs' : 'text-sm px-6 py-3'} ${isCorrect ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
+                  <article key={index} className={`bg-card shadow-sm border-2 overflow-hidden ${isMobile ? 'rounded-xl' : 'rounded-2xl'} ${isCorrect ? 'border-matcha' : 'border-red-200'}`}>
+                    <header className={`px-4 py-2 flex justify-between items-center font-bold ${isMobile ? 'text-xs' : 'text-sm px-6 py-3'} ${isCorrect ? 'bg-matchaSoft text-vermDeep' : 'bg-red-50 text-red-700'}`}>
                       <span>{t.question} {index + 1}</span>
                       <span className="flex items-center gap-1">
                         {isCorrect ? <><IconCheck className="w-4 h-4" /> {t.correctLabel}</> : <><IconX className="w-4 h-4" /> {t.incorrectLabel}</>}
                       </span>
                     </header>
                     <div className={isMobile ? 'p-4' : 'p-6'}>
-                      <h3 className={`text-gray-900 whitespace-pre-wrap font-medium leading-relaxed pb-2 ${isMobile ? 'text-lg mb-4' : 'text-xl mb-6'}`}>
+                      <h3 className={`text-ink whitespace-pre-wrap font-medium leading-relaxed pb-2 ${isMobile ? 'text-lg mb-4' : 'text-xl mb-6'}`}>
                         {renderFurigana(q.text, handleKanjiClick)}
                       </h3>
                       <div className={`grid gap-2 mb-4 ${isMobile ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 md:gap-3'}`}>
                         {q.options.map((option, optIdx) => {
-                          let bgClass = "bg-gray-50 border-gray-200 text-gray-600";
+                          let bgClass = "bg-stone-50 border-stone-200 text-stone-600";
                           let icon: React.ReactNode = null;
                           if (optIdx === q.correctIndex) {
-                            bgClass = "bg-emerald-100 border-emerald-400 text-emerald-900 font-semibold";
-                            icon = <IconCheck className="w-4 h-4 text-emerald-800 shrink-0" />;
+                            bgClass = "bg-matchaSoft border-matcha text-ink font-semibold";
+                            icon = <IconCheck className="w-4 h-4 text-verm shrink-0" />;
                           } else if (optIdx === userAnswer) {
                             bgClass = "bg-red-100 border-red-400 text-red-900";
                             icon = <IconX className="w-4 h-4 text-red-600 shrink-0" />;
@@ -3789,9 +3783,9 @@ export default function App() {
                       {isSkipped && (
                         <p className={`text-red-700 font-medium ${isMobile ? 'mt-2 text-sm' : 'mt-4'}`}>{t.unanswered}</p>
                       )}
-                      <div className={`bg-gray-50 rounded-lg border border-gray-100 ${isMobile ? 'mt-3 p-3' : 'mt-4 p-4'}`}>
-                        <h4 className="text-xs font-bold text-gray-600 uppercase mb-1">{t.explanation}</h4>
-                        <p className={`text-gray-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>{q.explanation[lang]}</p>
+                      <div className={`bg-stone-50 rounded-lg border border-stone-100 ${isMobile ? 'mt-3 p-3' : 'mt-4 p-4'}`}>
+                        <h4 className="text-xs font-bold text-stone-600 uppercase mb-1">{t.explanation}</h4>
+                        <p className={`text-stone-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>{q.explanation[lang]}</p>
                       </div>
                     </div>
                   </article>
@@ -3899,7 +3893,7 @@ export default function App() {
       {renderSupportModal()}
       {queuedFlushed > 0 && (
         <div
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[200] bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[200] bg-verm text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg"
           role="status"
         >
           {lang === 'de'
@@ -3932,29 +3926,29 @@ export default function App() {
 
       {/* === Subscription Thank-You modal === */}
       {thankYouModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
-            <div className="w-20 h-20 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm">
+          <div className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-stone-100" onClick={e => e.stopPropagation()}>
+            <div className="w-20 h-20 mx-auto bg-matchaSoft rounded-full flex items-center justify-center mb-4">
               <span className="text-4xl">🎉</span>
             </div>
-            <h3 className="text-2xl font-black text-gray-900 mb-2">
+            <h3 className="text-2xl font-display font-semibold text-ink mb-2">
               {lang === 'de' ? 'Vielen Dank!' : 'Thank You!'}
             </h3>
-            <p className="text-gray-600 text-sm mb-1">
+            <p className="text-stone-600 text-sm mb-1">
               {lang === 'de' ? 'Dein' : 'Your'}
-              <strong className="text-gray-900">
+              <strong className="text-ink">
                 {' '}Pro {thankYouModal.plan === 'yearly' ? (lang === 'de' ? 'Jahresabonnement' : 'Yearly Subscription') : (lang === 'de' ? 'Monatsabonnement' : 'Monthly Subscription')}
               </strong>
               {lang === 'de' ? ' ist jetzt aktiv.' : ' is now active.'}
             </p>
-            <p className="text-gray-600 text-xs mb-6">
+            <p className="text-stone-600 text-xs mb-6">
               {lang === 'de'
                 ? 'Unbegrenzte Real-Tests, alle 30 Fragen pro Test, Schwachstellen-Analyse, Wiederholungs-Queue und werbefreies Erlebnis sind freigeschaltet.'
                 : 'Unlimited Real Tests, all 30 questions per test, weakness analysis, the review queue and an ad-free experience are unlocked.'}
             </p>
             <button
               onClick={() => { setThankYouModal(null); setGameState('intro'); }}
-              className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+              className="w-full bg-verm hover:bg-ink text-white font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
             >
               {lang === 'de' ? 'Los geht\'s! →' : "Let's go! →"}
             </button>
@@ -3964,15 +3958,15 @@ export default function App() {
 
       {/* === Cancel confirmation modal === */}
       {cancelConfirm && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setCancelConfirm(false)}>
-          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
-            <div className="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-4">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm" onClick={() => setCancelConfirm(false)}>
+          <div className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-stone-100" onClick={e => e.stopPropagation()}>
+            <div className="w-16 h-16 mx-auto bg-goldSoft rounded-full flex items-center justify-center mb-4">
               <span className="text-3xl">🤔</span>
             </div>
-            <h3 className="text-xl font-black text-gray-900 mb-2">
+            <h3 className="text-xl font-display font-semibold text-ink mb-2">
               {lang === 'de' ? 'Abonnement kündigen?' : 'Cancel subscription?'}
             </h3>
-            <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+            <p className="text-stone-600 text-sm mb-5 leading-relaxed">
               {(() => {
                 const dateStr = auth.subscription?.currentPeriodEnd ? new Date(auth.subscription.currentPeriodEnd).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-US') : (lang === 'de' ? 'Periodenende' : 'the end of the period');
                 return lang === 'de'
@@ -3983,7 +3977,7 @@ export default function App() {
             <div className="flex gap-3">
               <button
                 onClick={() => setCancelConfirm(false)}
-                className="flex-1 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Behalten ✓' : 'Keep it ✓'}
               </button>
@@ -4005,15 +3999,15 @@ export default function App() {
 
       {/* === Resume confirmation modal === */}
       {resumeConfirm && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm" onClick={() => setResumeConfirm(false)}>
-          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-gray-100" onClick={e => e.stopPropagation()}>
-            <div className="w-16 h-16 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm" onClick={() => setResumeConfirm(false)}>
+          <div className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-8 text-center border border-stone-100" onClick={e => e.stopPropagation()}>
+            <div className="w-16 h-16 mx-auto bg-matchaSoft rounded-full flex items-center justify-center mb-4">
               <span className="text-3xl">↩︎</span>
             </div>
-            <h3 className="text-xl font-black text-gray-900 mb-2">
+            <h3 className="text-xl font-display font-semibold text-ink mb-2">
               {lang === 'de' ? 'Abonnement fortsetzen?' : 'Resume subscription?'}
             </h3>
-            <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+            <p className="text-stone-600 text-sm mb-5 leading-relaxed">
               {lang === 'de'
                 ? 'Die Kündigung wird zurückgenommen. Dein Abonnement läuft ganz normal weiter und verlängert sich zum Periodenende automatisch.'
                 : 'The cancellation will be withdrawn. Your subscription continues normally and renews automatically at the period end.'}
@@ -4021,7 +4015,7 @@ export default function App() {
             <div className="flex gap-3">
               <button
                 onClick={() => setResumeConfirm(false)}
-                className="flex-1 bg-gray-100 hover:bg-gray-100 text-gray-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-stone-100 hover:bg-stone-100 text-stone-700 font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Abbrechen' : 'Never mind'}
               </button>
@@ -4032,7 +4026,7 @@ export default function App() {
                   if (result.error) alert(result.error);
                   await auth.refreshProfile();
                 }}
-                className="flex-1 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
+                className="flex-1 bg-verm hover:bg-ink text-white font-bold py-3 rounded-xl transition-all active:scale-95 text-sm"
               >
                 {lang === 'de' ? 'Fortsetzen' : 'Resume'}
               </button>

@@ -73,6 +73,9 @@ function page({ lang, title, description, tags = [], date, body, isIndex = false
 <link rel="alternate" hreflang="${lang}" href="${canonical}${appPath}" />
 <link rel="alternate" hreflang="${lang === 'en' ? 'de' : 'en'}" href="${canonical}${lang === 'en' ? '/blog/de/' : '/blog/'}" />
 <link rel="stylesheet" href="/blog/blog.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" href="/favicon.svg" />
 <script type="application/ld+json">${jsonLd}</script>
 </head>

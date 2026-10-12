@@ -42,15 +42,15 @@ const plain = s => s.replace(/\\n/g, ' ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1'
 const catName = { 'Verb & Konjugation': 'Verb conjugation', 'Satzbau & Struktur': 'Sentence structure', 'Kanji & Lesung': 'Kanji & readings', 'Höflichkeit & Ausdruck': 'Politeness & expressions' };
 
 const CSS = `
-:root{--emerald:#059669;--emerald-light:#ecfdf5;--border:#e5e7eb;--gray:#6b7280}
-body{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#1f2937;margin:0;line-height:1.65}
+:root{--emerald:#D4573F;--emerald-light:#F9EAE4;--border:#EAE2D6;--gray:#8A7E70}
+body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#2C2620;margin:0;line-height:1.65;background:#FAF6F1}
 main{max-width:880px;margin:0 auto;padding:2rem 1.25rem 4rem}
-h1{font-size:1.6rem;margin:0 0 .5rem}
-h2{font-size:1.25rem;margin:2.5rem 0 1rem;border-bottom:2px solid var(--emerald);padding-bottom:.35rem}
+h1{font-family:'Fraunces',Georgia,serif;font-size:1.9rem;margin:0 0 .5rem;line-height:1.2}
+h2{font-family:'Fraunces',Georgia,serif;font-size:1.35rem;margin:2.5rem 0 1rem;border-bottom:2px solid var(--emerald);padding-bottom:.35rem}
 h3{font-size:1.05rem;margin:1.75rem 0 .5rem}
 .lead{color:var(--gray);margin-bottom:1.5rem}
 .back{display:inline-block;margin-bottom:1.25rem;color:var(--emerald);text-decoration:none;font-weight:600}
-header.site{background:#111827;color:#fff;padding:.75rem 1.25rem}
+header.site{background:#2C2620;color:#FAF6F1;padding:.75rem 1.25rem}
 header.site a{color:#fff;text-decoration:none;font-weight:700}
 .q{border:1px solid var(--border);border-left:4px solid var(--emerald);border-radius:.75rem;padding:1rem 1.25rem;margin:1.25rem 0}
 .q .meta{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gray);margin-bottom:.4rem}
@@ -68,6 +68,8 @@ th{background:var(--emerald-light);font-weight:700}
 .kanji-cell{font-size:1.5rem;font-family:'Hiragino Mincho ProN','Noto Serif JP',serif}
 footer{border-top:1px solid var(--border);margin-top:3rem;padding:1.5rem;text-align:center;font-size:.85rem;color:var(--gray)}
 footer a{color:var(--emerald);text-decoration:none}
+main a{color:var(--emerald)}
+main a:hover{text-decoration:underline}
 @media print{.q{page-break-inside:avoid}}
 .faq h3{margin:1rem 0 .25rem}
 .faq p{color:var(--gray);font-size:.92rem;margin:.2rem 0 .8rem}
@@ -80,6 +82,9 @@ function shell({ lang, title, desc, path, body }) {
 <html lang="${lang}">
 <head>
 <meta charset="UTF-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>${esc(title)} | JLPT Test Hub</title>
 <meta name="description" content="${esc(desc)}"/>

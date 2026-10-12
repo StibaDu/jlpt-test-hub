@@ -30,26 +30,26 @@ export const hintShown = (key: string): boolean => {
 const SlideArt = {
   modes: (
     <div className="flex gap-3 justify-center items-stretch my-1">
-      <div className="flex-1 bg-emerald-50 border-2 border-emerald-300 rounded-xl p-3 text-center">
+      <div className="flex-1 bg-matchaSoft border-2 border-matcha rounded-xl p-3 text-center">
         <div className="text-3xl mb-1">⏱</div>
-        <div className="text-xs font-black text-emerald-800">REAL</div>
-        <div className="text-[10px] text-emerald-700">60 min</div>
+        <div className="text-xs font-display font-semibold text-verm">REAL</div>
+        <div className="text-[10px] text-vermDeep">60 min</div>
       </div>
-      <div className="flex-1 bg-blue-50 border-2 border-blue-300 rounded-xl p-3 text-center">
+      <div className="flex-1 bg-indigoSoft border-2 border-indigo rounded-xl p-3 text-center">
         <div className="text-3xl mb-1">📖</div>
-        <div className="text-xs font-black text-blue-800">LEARN</div>
-        <div className="text-[10px] text-blue-700">free</div>
+        <div className="text-xs font-display font-semibold text-indigo">LEARN</div>
+        <div className="text-[10px] text-indigo">free</div>
       </div>
     </div>
   ),
   card: (
     <div className="my-1" style={{ perspective: 800 }}>
-      <div style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-18deg)' }} className="mx-auto w-40 h-24 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg border-2 border-emerald-300 flex items-center justify-center">
-        <span className="text-5xl font-black text-white">大</span>
+      <div style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-18deg)' }} className="mx-auto w-40 h-24 rounded-2xl bg-gradient-to-br from-matcha to-matcha shadow-lg border-2 border-matcha flex items-center justify-center">
+        <span className="text-5xl font-display font-semibold text-white">大</span>
       </div>
       <div className="flex justify-center gap-2 mt-3">
         <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-red-100 text-red-700">✗ Didn't know</span>
-        <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">✓ Got it</span>
+        <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-matchaSoft text-verm">✓ Got it</span>
       </div>
     </div>
   ),
@@ -61,10 +61,10 @@ const SlideArt = {
         ['⭐', 'XP', 'correct answers'],
         ['📚', 'Notebook', 'your mistakes'],
       ].map(([icon, label, sub]) => (
-        <div key={label} className="flex items-center gap-3 bg-gray-50 rounded-xl px-3 py-2 border border-gray-100">
+        <div key={label} className="flex items-center gap-3 bg-stone-50 rounded-xl px-3 py-2 border border-stone-100">
           <span className="text-xl">{icon}</span>
-          <span className="text-xs font-black text-gray-800">{label}</span>
-          <span className="text-[10px] text-gray-500 ml-auto">{sub}</span>
+          <span className="text-xs font-display font-semibold text-ink">{label}</span>
+          <span className="text-[10px] text-stone-500 ml-auto">{sub}</span>
         </div>
       ))}
     </div>
@@ -126,10 +126,10 @@ export const TutorialModal = ({ show, onClose, lang }: { show: boolean; onClose:
   };
 
   return (
-    <div className="fixed inset-0 z-[180] flex items-center justify-center p-4 bg-gray-900/80 backdrop-blur-sm">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 border border-gray-100 relative" onClick={e => e.stopPropagation()}>
+    <div className="fixed inset-0 z-[180] flex items-center justify-center p-4 bg-ink/80 backdrop-blur-sm">
+      <div className="bg-card rounded-3xl shadow-2xl max-w-md w-full p-8 border border-stone-100 relative" onClick={e => e.stopPropagation()}>
         {/* Skip */}
-        <button onClick={finish} className="absolute top-4 right-4 text-xs text-gray-400 hover:text-gray-700 font-bold">
+        <button onClick={finish} className="absolute top-4 right-4 text-xs text-stone-400 hover:text-stone-700 font-bold">
           {T.skip}
         </button>
 
@@ -138,29 +138,29 @@ export const TutorialModal = ({ show, onClose, lang }: { show: boolean; onClose:
           {step === 0 && (
             <>
               <div className="text-5xl text-center mb-4">🇯🇵</div>
-              <h3 className="text-2xl font-black text-gray-900 text-center mb-3">{T.s1Title}</h3>
-              <p className="text-gray-600 text-sm text-center leading-relaxed">{T.s1Text}</p>
+              <h3 className="text-2xl font-display font-semibold text-ink text-center mb-3">{T.s1Title}</h3>
+              <p className="text-stone-600 text-sm text-center leading-relaxed">{T.s1Text}</p>
             </>
           )}
           {step === 1 && (
             <>
               {SlideArt.modes}
-              <h3 className="text-xl font-black text-gray-900 text-center mb-3">{T.s2Title}</h3>
-              <p className="text-gray-600 text-xs text-center leading-relaxed">{T.s2Text}</p>
+              <h3 className="text-xl font-display font-semibold text-ink text-center mb-3">{T.s2Title}</h3>
+              <p className="text-stone-600 text-xs text-center leading-relaxed">{T.s2Text}</p>
             </>
           )}
           {step === 2 && (
             <>
               {SlideArt.card}
-              <h3 className="text-xl font-black text-gray-900 text-center mb-3">{T.s3Title}</h3>
-              <p className="text-gray-600 text-xs text-center leading-relaxed">{T.s3Text}</p>
+              <h3 className="text-xl font-display font-semibold text-ink text-center mb-3">{T.s3Title}</h3>
+              <p className="text-stone-600 text-xs text-center leading-relaxed">{T.s3Text}</p>
             </>
           )}
           {step === 3 && (
             <>
               {SlideArt.numbers}
-              <h3 className="text-xl font-black text-gray-900 text-center mb-2">{T.s4Title}</h3>
-              <p className="text-gray-600 text-[11px] text-center leading-relaxed">{T.s4Text}</p>
+              <h3 className="text-xl font-display font-semibold text-ink text-center mb-2">{T.s4Title}</h3>
+              <p className="text-stone-600 text-[11px] text-center leading-relaxed">{T.s4Text}</p>
             </>
           )}
         </div>
@@ -172,7 +172,7 @@ export const TutorialModal = ({ show, onClose, lang }: { show: boolean; onClose:
               key={i}
               onClick={() => setStep(i)}
               aria-label={`${T.slideDot} ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${i === step ? 'w-6 bg-emerald-600' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+              className={`h-2 rounded-full transition-all ${i === step ? 'w-6 bg-vermDeep' : 'w-2 bg-stone-300 hover:bg-stone-400'}`}
             />
           ))}
         </div>
@@ -180,13 +180,13 @@ export const TutorialModal = ({ show, onClose, lang }: { show: boolean; onClose:
         {/* Controls */}
         <div className="flex gap-2">
           {step > 0 && (
-            <button onClick={() => setStep(s => s - 1)} className="px-5 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm transition-colors">
+            <button onClick={() => setStep(s => s - 1)} className="px-5 py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm transition-colors">
               {T.back}
             </button>
           )}
           <button
             onClick={() => (step < total - 1 ? setStep(s => s + 1) : finish())}
-            className="flex-1 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 px-5 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
+            className="flex-1 bg-verm hover:bg-ink text-white font-bold py-3 px-5 rounded-xl shadow-sm transition-all active:scale-95 text-sm"
           >
             {step < total - 1 ? T.next : T.done}
           </button>

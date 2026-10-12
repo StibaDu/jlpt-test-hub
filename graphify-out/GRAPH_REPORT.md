@@ -1,7 +1,7 @@
 # Graph Report - jlpt-n5-simulator  (2026-10-11)
 
 ## Corpus Check
-- 80 files · ~230,528 words
+- 80 files · ~230,499 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `794bea1c`
+- Built from commit: `47f02f93`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -242,7 +242,7 @@ Nodes (8): Building the deck properly, How to Use Flashcards for JLPT Kanji (N5�
 
 ### Community 38 - "build-pages.mjs"
 Cohesion: 0.17
-Nodes (13): catName, esc(), kanjiTable(), META, okLabel(), OUT, questionBlock(), renderRuby() (+5 more)
+Nodes (13): catName, esc(), kanjiTable(), META, okLabel(), OUT, pagesEntries, pagesToday (+5 more)
 
 ### Community 39 - "romaji.ts"
 Cohesion: 0.38
@@ -293,7 +293,7 @@ Cohesion: 0.50
 Nodes (3): KanjiReading, kanjiReadings, lookupReadings()
 
 ## Knowledge Gaps
-- **396 isolated node(s):** `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/JLPT / r/Bunpo / r/Japanese`, `3. Language-learning Discords`, `4. Product Hunt launch (worth doing once)`, `5. Pinterest (compounding, underestimated for study content)` (+391 more)
+- **396 isolated node(s):** `ROOT`, `OUT`, `META`, `catName`, `pagesToday` (+391 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -304,7 +304,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `useAuth` to `Icons.tsx`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `1. Reddit — r/LearnJapanese (biggest: ~900k members)`, `2. Reddit — r/JLPT / r/Bunpo / r/Japanese`, `3. Language-learning Discords` to the rest of the system?**
+- **What connects `ROOT`, `OUT`, `META` to the rest of the system?**
   _396 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `JLPT Test Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
