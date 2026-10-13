@@ -4,28 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // V3 "washi & ink" palette
+        // V3 "washi & ink" palette — values tuned for WCAG AA (4.5:1 on paper)
         paper: '#FAF6F1',
         card: '#FFFDFA',
         ink: '#2C2620',
-        sub: '#8A7E70',
+        sub: '#756B5C',
         line: '#EAE2D6',
-        verm: '#D4573F',
+        verm: '#C34531',
         vermDeep: '#B23F2B',
         vermSoft: '#F9EAE4',
-        matcha: '#5F8D6E',
+        matcha: '#52755F',
         matchaSoft: '#EAF1EC',
         indigo: '#4F7698',
         indigoSoft: '#EAF0F5',
         aki: '#B35B47',
         akiSoft: '#F6ECE8',
-        gold: '#A8842C',
+        gold: '#846916',
         goldSoft: '#F7EFDC',
       },
       fontFamily: {
-        display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        jp: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
+        display: ['"Fraunces Variable"', 'Fraunces', 'Georgia', 'serif'],
+        sans: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
+        jp: ['"Noto Sans JP Variable"', '"Noto Sans JP"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 1px 2px rgba(44,38,32,.05), 0 10px 30px -14px rgba(44,38,32,.14)',

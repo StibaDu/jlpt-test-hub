@@ -1,6 +1,9 @@
-:root { --emerald: #D4573F; --emerald-light: #F9EAE4; --gray: #8A7E70; --gray-light: #F3EFE8; --border: #EAE2D6; }
+@font-face { font-family: 'Fraunces VF'; src: url('/fonts/fraunces-latin-wght-normal.woff2') format('woff2-variations'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'Inter VF'; src: url('/fonts/inter-latin-opsz-normal.woff2') format('woff2-variations'); font-weight: 400 900; font-display: swap; }
+
+:root { --emerald: #C34531; --emerald-light: #F9EAE4; --gray: #756B5C; --gray-light: #F3EFE8; --border: #EAE2D6; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', 'Hiragino Sans', 'Yu Gothic', -apple-system, system-ui, sans-serif; color: #2C2620; line-height: 1.7; background: #FAF6F1; }
+body { font-family: 'Inter VF', 'Inter', 'Hiragino Sans', 'Yu Gothic', -apple-system, system-ui, sans-serif; color: #2C2620; line-height: 1.7; background: #FAF6F1; }
 a { color: var(--emerald); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .blog-header { background: var(--emerald); color: #fff; padding: 1.5rem 2rem; text-align: center; }
@@ -9,9 +12,9 @@ a:hover { text-decoration: underline; }
 .blog-header .subtitle { font-size: 0.875rem; opacity: 0.9; }
 .blog-back { display: inline-block; margin-top: 0.5rem; font-size: 0.875rem; }
 .blog-content { max-width: 720px; margin: 2rem auto; padding: 0 1.5rem; }
-.blog-content h1 { font-family: 'Fraunces', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 2.1rem; margin: 1.5rem 0 0.5rem; color: #2C2620; line-height: 1.2; }
-.blog-content h2 { font-family: 'Fraunces', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 1.5rem; margin: 2rem 0 0.75rem; color: #2C2620; border-bottom: 2px solid var(--emerald-light); padding-bottom: 0.25rem; }
-.blog-content h3 { font-family: 'Fraunces', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: #4a4238; }
+.blog-content h1 { font-family: 'Fraunces VF', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 2.1rem; margin: 1.5rem 0 0.5rem; color: #2C2620; line-height: 1.2; }
+.blog-content h2 { font-family: 'Fraunces VF', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 1.5rem; margin: 2rem 0 0.75rem; color: #2C2620; border-bottom: 2px solid var(--emerald-light); padding-bottom: 0.25rem; }
+.blog-content h3 { font-family: 'Fraunces VF', 'Hiragino Sans', 'Yu Gothic', Georgia, serif; font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: #4a4238; }
 .blog-content p { margin: 0.75rem 0; }
 .blog-content ul, .blog-content ol { margin: 0.75rem 0 0.75rem 1.5rem; }
 .blog-content li { margin: 0.25rem 0; }

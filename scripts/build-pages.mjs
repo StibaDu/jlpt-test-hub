@@ -43,10 +43,10 @@ const catName = { 'Verb & Konjugation': 'Verb conjugation', 'Satzbau & Struktur'
 
 const CSS = `
 :root{--emerald:#D4573F;--emerald-light:#F9EAE4;--border:#EAE2D6;--gray:#8A7E70}
-body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#2C2620;margin:0;line-height:1.65;background:#FAF6F1}
+body{font-family:'Inter VF',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#2C2620;margin:0;line-height:1.65;background:#FAF6F1}
 main{max-width:880px;margin:0 auto;padding:2rem 1.25rem 4rem}
-h1{font-family:'Fraunces',Georgia,serif;font-size:1.9rem;margin:0 0 .5rem;line-height:1.2}
-h2{font-family:'Fraunces',Georgia,serif;font-size:1.35rem;margin:2.5rem 0 1rem;border-bottom:2px solid var(--emerald);padding-bottom:.35rem}
+h1{font-family:'Fraunces VF',Georgia,serif;font-size:1.9rem;margin:0 0 .5rem;line-height:1.2}
+h2{font-family:'Fraunces VF',Georgia,serif;font-size:1.35rem;margin:2.5rem 0 1rem;border-bottom:2px solid var(--emerald);padding-bottom:.35rem}
 h3{font-size:1.05rem;margin:1.75rem 0 .5rem}
 .lead{color:var(--gray);margin-bottom:1.5rem}
 .back{display:inline-block;margin-bottom:1.25rem;color:var(--emerald);text-decoration:none;font-weight:600}
@@ -82,9 +82,10 @@ function shell({ lang, title, desc, path, body }) {
 <html lang="${lang}">
 <head>
 <meta charset="UTF-8"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:'Fraunces VF';src:url('/fonts/fraunces-latin-wght-normal.woff2') format('woff2-variations');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Inter VF';src:url('/fonts/inter-latin-opsz-normal.woff2') format('woff2-variations');font-weight:400 900;font-display:swap}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>${esc(title)} | JLPT Test Hub</title>
 <meta name="description" content="${esc(desc)}"/>

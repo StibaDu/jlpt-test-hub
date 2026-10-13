@@ -439,7 +439,7 @@ const BookRecommendations = ({ t, lang }: { t: any; lang: string }) => {
   return (
     <div className="mt-8">
       <div className="flex items-center gap-2 mb-2">
-        <h2 className="font-bold text-stone-700" style={{ fontSize: '1.125rem' }}>
+        <h2 className="font-display font-semibold text-stone-700" style={{ fontSize: '1.125rem' }}>
           {t.recommendedBooks}
         </h2>
         <span className="text-[10px] font-bold uppercase bg-goldSoft text-gold px-2 py-0.5 rounded">{lang === 'de' ? 'Werbung' : 'Advertisement'}</span>
@@ -1147,6 +1147,11 @@ const ProfilePage = ({ onClose, nav, isMobile, t, isLoggedIn, isPro, onUpgrade, 
                   <div className="text-xs text-verm font-bold">{t.profileSave50}</div>
                 </button>
               </div>
+              <p className="text-[11px] text-stone-500 mb-3 text-center">
+                {lang === 'de'
+                  ? 'Endpreise gem. § 19 UStG (Kleinunternehmer, kein USt-Ausweis). Jederzeit kündbar zum Periodenende.'
+                  : 'Final prices (§ 19 UStG small business — no VAT separately charged). Cancel anytime, effective at period end.'}
+              </p>
               <button
                 onClick={handleUpgrade}
                 disabled={loading}
@@ -1201,10 +1206,11 @@ const setConsent = (consent: { essential: boolean; advertising: boolean; affilia
 };
 
 // Cookie consent banner (GDPR-compliant)
-const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onOpenPrivacy: () => void }) => {
+const CookieBanner = ({ onConsent, onOpenPrivacy, lang }: { onConsent: () => void; onOpenPrivacy: () => void; lang: 'en' | 'de' }) => {
   const [showSettings, setShowSettings] = useState(false);
   const [advertising, setAdvertising] = useState(false);
   const [affiliate, setAffiliate] = useState(false);
+  const DE = lang === 'de';
 
   const acceptAll = () => {
     setConsent({ essential: true, advertising: true, affiliate: true });
@@ -1227,33 +1233,40 @@ const CookieBanner = ({ onConsent, onOpenPrivacy }: { onConsent: () => void; onO
         {!showSettings ? (
           <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
             <div className="flex-1 text-sm text-stone-200">
-              <span className="font-bold">🍪 Cookies & Privacy</span>
-              <span className="ml-2 text-stone-400">We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our <button onClick={onOpenPrivacy} className="underline text-matcha hover:text-matcha">Privacy Policy</button>.</span>
+              <span className="font-bold">🍪 {DE ? 'Cookies & Datenschutz' : 'Cookies & Privacy'}</span>
+              <span className="ml-2 text-stone-400">
+                {DE
+                  ? 'Wir verwenden essentielle Cookies, damit die App funktioniert. Mit Ihrer Einwilligung nutzen wir außerdem Werbe- (Google AdSense) und Affiliate-Tracking-Cookies. Details in der '
+                  : 'We use essential cookies for the app to work. With your consent, we also use advertising (Google AdSense) and affiliate tracking cookies. See our '}
+                <button onClick={onOpenPrivacy} className="underline text-matcha hover:text-matcha">
+                  {DE ? 'Datenschutzerklärung' : 'Privacy Policy'}
+                </button>.
+              </span>
             </div>
             <div className="flex gap-2 shrink-0">
-              <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Reject</button>
-              <button onClick={() => setShowSettings(true)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Settings</button>
-              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">Accept all</button>
+              <button onClick={rejectAll} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">{DE ? 'Ablehnen' : 'Reject'}</button>
+              <button onClick={() => setShowSettings(true)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">{DE ? 'Einstellungen' : 'Settings'}</button>
+              <button onClick={acceptAll} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">{DE ? 'Alle akzeptieren' : 'Accept all'}</button>
             </div>
           </div>
         ) : (
           <div className="space-y-3">
-            <h3 className="font-bold text-sm">Cookie Settings</h3>
+            <h3 className="font-bold text-sm">{DE ? 'Cookie-Einstellungen' : 'Cookie Settings'}</h3>
             <label className="flex items-center gap-3 text-sm">
               <input type="checkbox" checked disabled className="accent-matcha" />
-              <span className="text-stone-300">Essential (required for the app to function)</span>
+              <span className="text-stone-300">{DE ? 'Essentiell (für den Betrieb der App erforderlich)' : 'Essential (required for the app to function)'}</span>
             </label>
             <label className="flex items-center gap-3 text-sm">
               <input type="checkbox" checked={advertising} onChange={e => setAdvertising(e.target.checked)} className="accent-matcha" />
-              <span className="text-stone-300">Advertising (Google AdSense — personalized ads)</span>
+              <span className="text-stone-300">{DE ? 'Werbung (Google AdSense — personalisierte Anzeigen)' : 'Advertising (Google AdSense — personalized ads)'}</span>
             </label>
             <label className="flex items-center gap-3 text-sm">
               <input type="checkbox" checked={affiliate} onChange={e => setAffiliate(e.target.checked)} className="accent-matcha" />
-              <span className="text-stone-300">Affiliate tracking (Amazon, JapanesePod101, Genki, etc.)</span>
+              <span className="text-stone-300">{DE ? 'Affiliate-Tracking (Amazon, JapanesePod101, Genki usw.)' : 'Affiliate tracking (Amazon, JapanesePod101, Genki, etc.)'}</span>
             </label>
             <div className="flex gap-2">
-              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">Save settings</button>
-              <button onClick={() => setShowSettings(false)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">Back</button>
+              <button onClick={saveSettings} className="px-4 py-2 text-xs font-bold bg-verm hover:bg-ink rounded-lg transition-colors">{DE ? 'Einstellungen speichern' : 'Save settings'}</button>
+              <button onClick={() => setShowSettings(false)} className="px-4 py-2 text-xs font-bold bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors">{DE ? 'Zurück' : 'Back'}</button>
             </div>
           </div>
         )}
@@ -1269,7 +1282,7 @@ const LegalModal = ({ show, onClose, title, children }: { show: boolean; onClose
     <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm" onClick={onClose}>
       <div className="bg-card rounded-3xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 border border-stone-100" onClick={e => e.stopPropagation()}>
         <div className="flex justify-between items-center mb-4 border-b border-stone-100 pb-3 sticky top-0 bg-card">
-          <h2 className="text-xl font-bold text-ink">{title}</h2>
+          <h2 className="text-xl font-display font-semibold text-ink">{title}</h2>
           <button onClick={onClose} className="text-stone-400 hover:text-stone-700 bg-stone-100 hover:bg-stone-100 rounded-full p-2 transition-colors shrink-0">
             <IconX className="w-5 h-5" />
           </button>
@@ -1539,7 +1552,8 @@ const TermsContent = () => (
     <p><strong>Pro-Abonnement:</strong> $4.99/Monat oder $29.99/Jahr über Stripe. Enthält: Unbegrenzte Real-Tests, volle 30 Fragen pro Test, werbefrei, Test-Verlauf.</p>
 
     <h3 className="font-bold text-ink text-base mt-4">3. Widerrufsrecht (§ 355 BGB)</h3>
-    <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung kontaktieren Sie uns unter createdby.jp@gmail.com. Das Widerrufsrecht erlischt vorzeitig, wenn Sie die Pro-Funktionen während der Widerrufsfrist vollständig nutzen.</p>
+    <p>Verbraucher haben ein 14-tägiges Widerrufsrecht bei Pro-Abonnements. Zur Ausübung genügt eine E-Mail an createdby.jp@gmail.com.</p>
+    <p>Bei digitalen Inhalten erlischt das Widerrufsrecht gemäß § 356 Abs. 5 BGB vorzeitig, wenn Sie ausdrücklich zugestimmt haben, dass wir mit der Ausführung des Vertrags (Freischaltung der Pro-Inhalte) vor Ablauf der Widerrufsfrist beginnen, und Sie bestätigt haben, dass Sie mit Beginn der vollständigen Vertragserfüllung Ihr Widerrufsrecht verlieren.</p>
 
     <h3 className="font-bold text-ink text-base mt-4">4. Kündigung</h3>
     <p>Pro-Abonnements können jederzeit gekündigt werden. Die Kündigung wird am Ende der Abrechnungsperiode wirksam. Die Nutzung der kostenlosen Version ist davon nicht betroffen.</p>
@@ -1581,7 +1595,7 @@ const SellerDisclosureContent = () => (
 const AccessibilityContent = () => (
   <>
     <h3 className="font-bold text-ink text-base">Barrierefreiheitserklärung</h3>
-    <p className="text-xs text-stone-600">Stand: 7. Oktober 2026</p>
+    <p className="text-xs text-stone-600">Stand: 13. Oktober 2026</p>
 
     <h3 className="font-bold text-ink text-base mt-4">1. Einleitung</h3>
     <p>JLPT Test Hub ist bestrebt, seine Website gemäß der Richtlinie (EU) 2016/2102 und den Behindertengleichstellungsgesetzen (BGG) barrierefrei zu gestalten. Diese Erklärung gilt für jlpttesthub.com.</p>
@@ -1622,7 +1636,7 @@ const AccessibilityContent = () => (
     <p className="mt-2">Wir bemühen uns, Anfragen innerhalb von <strong>5 Werktagen</strong> zu beantworten. Die Meldungen werden von Sebastian Thomas bearbeitet.</p>
 
     <h3 className="font-bold text-ink text-base mt-4">6. Erstellt am / Überprüft am</h3>
-    <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 7. Oktober 2026 überprüft.</p>
+    <p>Diese Erklärung wurde am 27. September 2026 erstellt und basiert auf einer Selbstbewertung. Die Website wurde zuletzt am 13. Oktober 2026 überprüft (nach dem V3-Redesign: zentrale Farbwerte der Benutzeroberfläche auf WCAG-AA-Kontraste ≥ 4,5:1 angehoben; verbleibende bekannte Abweichungen siehe Abschnitt 3).</p>
   </>
 );
 
@@ -3063,14 +3077,14 @@ export default function App() {
           </div>
           <div className={`w-full bg-card overflow-hidden flex flex-col ${isMobile ? 'max-w-full rounded-none shadow-none min-h-full' : 'max-w-3xl rounded-2xl shadow-xl border border-stone-100'}`}>
             <header className={`bg-verm text-center text-white shrink-0 ${isMobile ? 'p-6 pt-16' : 'p-8'}`}>
-              <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{currentData.uiStrings.title}</h1>
+              <h1 className={`font-display font-semibold mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{currentData.uiStrings.title}</h1>
               <p className={`text-matchaSoft opacity-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>{currentData.uiStrings.subtitle}</p>
             </header>
             <section className={`flex-1 flex flex-col ${isMobile ? 'p-4 overflow-y-auto' : 'p-8'}`}>
               <AdBanner slotId="intro-top-banner" />
 
               <div className={`mb-6 ${isMobile ? '' : 'mb-8'}`}>
-                <h2 className={`text-center font-bold text-stone-700 mb-3 ${isMobile ? 'text-base' : 'text-lg'}`}>{t.selectLevel}</h2>
+                <h2 className={`text-center font-display font-semibold text-stone-700 mb-3 ${isMobile ? 'text-base' : 'text-lg'}`}>{t.selectLevel}</h2>
                 <div className="flex justify-center">
                   {renderLevelSwitcher()}
                 </div>
@@ -3090,7 +3104,7 @@ export default function App() {
                   <div className="text-verm mb-3 bg-matchaSoft w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconClock className="w-5 h-5" />
                   </div>
-                  <h2 className={`font-bold text-ink mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
+                  <h2 className={`font-display font-semibold text-ink mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.realTestTitle}</h2>
                   <p className={`text-stone-600 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.realTestDesc(currentData.questionsPerTest, currentData.timeMinutes)}
                   </p>
@@ -3135,7 +3149,7 @@ export default function App() {
                   <div className="text-indigo mb-3 bg-indigoSoft w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                     <IconBookOpen className="w-5 h-5" />
                   </div>
-                  <h2 className={`font-bold text-indigo mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.learningTitle}</h2>
+                  <h2 className={`font-display font-semibold text-indigo mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>{t.learningTitle}</h2>
                   <p className={`text-indigo/80 mb-4 flex-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {t.learningDesc}
                   </p>
@@ -3207,7 +3221,7 @@ export default function App() {
 
               {/* FAQ Section for SEO */}
               <div className={`mt-8 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                <h2 className={`font-bold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
+                <h2 className={`font-display font-semibold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
                   {lang === 'de' ? 'Häufig gestellte Fragen (FAQ)' : 'Frequently Asked Questions (FAQ)'}
                 </h2>
                 <div className="space-y-3">
@@ -3276,7 +3290,7 @@ export default function App() {
 
               {/* Level Info Table for SEO */}
               <div className={`mt-8 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                <h2 className={`font-bold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
+                <h2 className={`font-display font-semibold text-stone-700 mb-4 ${isMobile ? 'text-base' : 'text-xl'}`}>
                   {lang === 'de' ? 'JLPT Level im Vergleich' : 'JLPT Level Comparison'}
                 </h2>
                 <div className="overflow-x-auto">
@@ -3731,7 +3745,7 @@ export default function App() {
 
             <section className={`space-y-4 ${isMobile ? 'mb-8' : 'space-y-6'}`}>
               <div className="flex items-center justify-between px-2 mb-3">
-                <h2 className={`font-bold text-ink ${isMobile ? 'text-lg' : 'text-2xl'}`}>{t.detailedReview}</h2>
+                <h2 className={`font-display font-semibold text-ink ${isMobile ? 'text-lg' : 'text-2xl'}`}>{t.detailedReview}</h2>
                 {auth.isPro && (
                   <button
                     onClick={() => window.print()}
@@ -4055,7 +4069,7 @@ export default function App() {
       <LegalModal show={showSellerModal} onClose={() => setShowSellerModal(false)} title="Anbieterkennzeichnung"><SellerDisclosureContent /></LegalModal>
       <LegalModal show={showImpressumModal} onClose={() => setShowImpressumModal(false)} title="Impressum"><ImpressumContent /></LegalModal>
       <LegalModal show={showAccessibilityModal} onClose={() => setShowAccessibilityModal(false)} title="Barrierefreiheitserklärung"><AccessibilityContent /></LegalModal>
-      {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} onOpenPrivacy={() => setShowPrivacyModal(true)} />}
+      {!cookieConsentGiven && <CookieBanner onConsent={() => setCookieConsentGiven(true)} onOpenPrivacy={() => setShowPrivacyModal(true)} lang={lang} />}
     </div>
   );
 }
