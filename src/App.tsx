@@ -2621,7 +2621,7 @@ export default function App() {
                 <div className="fc-face fc-face-front">
                   {isKanjiFocus ? (
                     <>
-                      <div className="text-[110px] font-display font-semibold leading-none text-stone-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="text-[110px] font-display font-semibold leading-none text-ink mb-3 select-none">{card.frontMain}</div>
                       <div className="flex gap-2 mb-3">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-matcha">🎯 {card.level}</span>
                         {card.testFrequency && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-goldSoft">🔥 {card.testFrequency}×</span>}
@@ -2630,7 +2630,7 @@ export default function App() {
                     </>
                   ) : isKanji ? (
                     <>
-                      <div className="text-[110px] font-display font-semibold leading-none text-stone-100 mb-3 select-none">{card.frontMain}</div>
+                      <div className="text-[110px] font-display font-semibold leading-none text-ink mb-3 select-none">{card.frontMain}</div>
                       <div className="flex gap-2 mb-3">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ink text-matcha">🈶 {card.level}</span>
                       </div>
@@ -2638,8 +2638,8 @@ export default function App() {
                     </>
                   ) : isCloze ? (
                     <>
-                      <p className="text-2xl text-stone-100 font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
-                      <p className="text-xs text-stone-400 font-bold uppercase tracking-wider">
+                      <p className="text-2xl text-ink font-bold text-center mb-3 leading-relaxed whitespace-pre-line">{card.frontMain}</p>
+                      <p className="text-xs text-sub font-bold uppercase tracking-wider">
                         {card.frontMain.includes('（）') || card.frontMain.includes('　　')
                           ? (lang === 'de' ? 'Was füllt die Lücke?' : 'What fills the blank?')
                           : (lang === 'de' ? 'Welcher Satz bedeutet dasselbe?' : 'Which sentence means the same?')}
@@ -2647,9 +2647,9 @@ export default function App() {
                     </>
                   ) : (
                     <>
-                      <p className="text-4xl font-display font-semibold text-stone-100 text-center mb-2">{card.frontMain}</p>
+                      <p className="text-4xl font-display font-semibold text-ink text-center mb-2">{card.frontMain}</p>
                       {card.kind === 'grammar-pattern' && (
-                        <p className="text-xs text-stone-400 font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
+                        <p className="text-xs text-sub font-bold uppercase tracking-wider mb-2">{lang === 'de' ? 'Grammatisches Muster' : 'Grammar pattern'}</p>
                       )}
                       <p className="text-[10px] text-stone-600 mt-3 uppercase tracking-wider font-bold">{lang === 'de' ? 'Klicken für Bedeutung' : 'Click for meaning'}</p>
                     </>
