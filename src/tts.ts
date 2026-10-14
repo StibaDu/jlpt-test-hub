@@ -50,16 +50,57 @@ export const listJapaneseVoices = (): SpeechSynthesisVoice[] => {
 };
 
 export const speak = (text: string, rate: number = 1.0): void => {
+  speakWith(text, { rate });
+};
+
+export interface SpeakOpts {
+  rate?: number;
+  voiceURI?: string;  // pin a specific voice (interview trainer: two speakers)
+  pitch?: number;     // fallback when only one ja voice exists: vary pitch
+  onEnd?: () => void; // chained playback (question → model answer)
+}
+
+/**
+ * Speak with full options. Backwards-compatible engine for speak().
+ */
+export const speakWith = (text: string, opts: SpeakOpts = {}): void => {
   if (!ttsSupported()) return;
   stopSpeaking();
   const clean = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
   const utterance = new SpeechSynthesisUtterance(clean);
-  const voice = getJapaneseVoice();
-  if (voice) utterance.voice = voice;
+  if (opts.voiceURI) {
+    const pinned = window.speechSynthesis.getVoices().find(v => v.voiceURI === opts.voiceURI);
+    if (pinned) utterance.voice = pinned;
+    else {
+      const v = getJapaneseVoice();
+      if (v) utterance.voice = v;
+    }
+  } else {
+    const v = getJapaneseVoice();
+    if (v) utterance.voice = v;
+  }
   utterance.lang = 'ja-JP';
-  utterance.rate = rate;
-  utterance.pitch = 1.0;
+  utterance.rate = opts.rate ?? 1.0;
+  utterance.pitch = opts.pitch ?? 1.0;
+  if (opts.onEnd) utterance.onend = () => opts.onEnd!();
   window.speechSynthesis.speak(utterance);
+};
+
+/**
+ * Interview trainer voices: returns [interviewer(Voice A), responder(Voice B)].
+ * Interviewer = best-ranked ja voice; responder = a *different* ja voice if one
+ * exists (else same voice + higher pitch in the caller's SpeakOpts).
+ */
+export const interviewVoices = (): { askerURI: string | null; answererURI: string | null; answererPitch: number } => {
+  const best = getJapaneseVoice();
+  const all = listJapaneseVoices();
+  const other = all.find(v => best && v.voiceURI !== best.voiceURI) || null;
+  return {
+    askerURI: best?.voiceURI ?? null,
+    answererURI: other?.voiceURI ?? best?.voiceURI ?? null,
+    // no second voice installed → pitch shift makes the answer sound distinct
+    answererPitch: other ? 1.0 : 1.35,
+  };
 };
 
 export const stopSpeaking = (): void => {

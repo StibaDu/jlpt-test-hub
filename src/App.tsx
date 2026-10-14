@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { levelData, allLevels, hydrateLevelData } from './data';
+import { InterviewScreen } from './InterviewScreen';
 import {
   buildKanjiCards, buildVocabCards, buildGrammarCards, buildDeck,
   buildWeakGrammarDeck, allDecks, buildKanjiFocusDeck, type Flashcard,
@@ -3026,13 +3027,24 @@ export default function App() {
 
   const renderAppContent = () => {
     // N4/N3 banks are lazy chunks — guard every screen from rendering them unloaded (white-screen crash)
-    if (!dataReady && selectedLevel !== 'N5' && (gameState === 'intro' || gameState === 'testing' || gameState === 'flashcards')) {
-      return (
+    if (!dataReady && selectedLevel !== 'N5' && (gameState === 'intro' || gameState === 'testing' || gameState === 'flashcards')) {      return (
         <main className={`bg-ink text-stone-100 flex items-center justify-center font-sans flex-1 ${isMobile ? 'min-h-full' : 'min-h-screen'}`}>
           <div className="text-center">
             <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-matcha border-t-transparent mb-4"></div>
             <p className="text-stone-400 text-sm font-bold">{lang === 'de' ? 'Lade Fragen…' : 'Loading questions…'}</p>
           </div>
+        </main>
+      );
+    }
+    if (gameState === 'interview') {
+      return (
+        <main className="flex-1 font-sans">
+          <InterviewScreen
+            lang={lang}
+            isPro={auth.isPro}
+            onExit={() => setGameState('intro')}
+            onUpgrade={() => setGameState('profile')}
+          />
         </main>
       );
     }
@@ -3165,6 +3177,34 @@ export default function App() {
 
               {/* Affiliate: Recommended JLPT Books */}
               <BookRecommendations t={t} lang={lang} />
+
+              {/* Interview Trainer — listening + word-bank repeat (5 free, 25 Pro) */}
+              <div className={`bg-card border border-line rounded-xl shadow-sm overflow-hidden ${isMobile ? 'mb-4' : 'mb-6'}`}>
+                <button
+                  onClick={() => setGameState('interview')}
+                  className={`w-full text-left hover:bg-vermSoft/40 transition-colors group ${isMobile ? 'p-4' : 'p-5'}`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="bg-vermSoft text-verm w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-lg">🎤</div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-display font-semibold text-ink">
+                            {lang === 'de' ? 'Interview-Trainer — Hören & Nachbauen' : 'Interview Trainer — Listen & Repeat'}
+                          </h3>
+                          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-verm text-white uppercase tracking-wide">New</span>
+                        </div>
+                        <p className={`text-stone-600 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                          {lang === 'de'
+                            ? 'Interview-Fragen hören, Musterantwort bauen — das echte Meko-Set (5 gratis, 25 mit Pro).'
+                            : 'Hear interview questions, rebuild the model answer — the real Meko set (5 free, 25 with Pro).'}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-verm group-hover:translate-x-1 transition-transform shrink-0">→</span>
+                  </div>
+                </button>
+              </div>
 
               {/* Flashcards entry — Pro only */}
               {auth.isPro ? (
